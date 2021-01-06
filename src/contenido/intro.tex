@@ -1,0 +1,190 @@
+\chapter{Introducción}
+
+Este texto es una guía para comenzar con la plataforma de desarrollo GLib/GTK, haciendo uso del lenguaje C. En ocasiones se asumirá que el lector usa un sistema similar a Unix.
+
+La traducción de este libro fue hecha por Gerson Benavides.
+
+Advertencia: este “libro” está lejos de estar terminado, estás leyendo la versión~\bookversion. Si tiene algún comentario, no dude en ponerse en contacto con el autor en swilmet@gnome.org o con el traductor en gmbsdeveloper@gmail.com, ¡gracias!
+
+
+Las fuentes de este libro en el idioma original están disponibles en:\\
+\url{https://github.com/swilmet/glib-gtk-book}
+
+\section{Licencia}
+\label{intro-license}
+
+\begin{center}
+    \includegraphics[height=0.8cm]{imagenes/creative-commons.pdf}
+\end{center}
+
+Este trabajo está autorizado bajo una licencia internacional Creative Commons Attribution-ShareAlike 4.0:\\
+\url{https://creativecommons.org/licenses/by-sa/4.0/}
+
+Algunas secciones están basadas en el libro \emph{GTK+/Gnome Application Development}, escrito en 1999, editado por New Riders Publishing y con licencia de Open Publication License. La última versión de la licencia de publicación abierta se puede encontrar en:\\
+\url{http://www.opencontent.org/openpub/}
+
+\section{Soporte financiero}
+Si te gusta esta guía, ¡puedes apoyarla económicamente!
+
+La guía se publica como un documento Free/\emph{Libre} y es gratuita. Pero no se materializa en un espacio vacío; se necesita tiempo para escribir. Al donar, demuestras tu aprecio por este trabajo y ayudas a su desarrollo futuro.
+
+Hay un botón de donación disponible en\\
+\url{https://people.gnome.org/~swilmet/glib-gtk-book/}
+
+¡Gracias!
+
+\section{Lista de tareas para este libro y una actualización rápida de 2019}
+
+\begin{itemize}
+    \item Hacer que el capítulo~\ref{gtk-app-arch} (sobre GTK) sea más fácil de entender y adaptar el resto del documento para integrar mejor el capítulo;
+    \item GTK + ha cambiado de nombre a GTK, el signo más se ha eliminado. Adaptar el texto en consecuencia;
+    \item Ya no se recomienda Jhbuild, en su lugar se recomienda Flatpak\footnote{\url{https://flatpak.org/}} y Build-Stream\footnote{\url{https://buildstream.build/}};
+    \item Hablar sobre las especificaciones de freedesktop.org\footnote{\url{https://www.freedesktop.org/}};
+    \item La mayoría de los módulos GNOME activos se han migrado ahora al sistema de compilación Meson (en lugar de Autotools);
+    \item Escribir un capítulo sobre el desarrollo de bibliotecas C/GObject;
+    \item Hablar sobre el lenguaje de programación Rust.
+\end{itemize}
+
+\section{¿Qué es GLib y GTK?}
+
+En términos generales, GLib es un conjunto de bibliotecas: GLib core, GObject y GIO. Esas tres bibliotecas se desarrollan en el mismo repositorio de Git llamado \emph{glib}, por lo que cuando se hace referencia a ``GLib'', puede significar ``GLib core'' o el conjunto más amplio que incluye también GObject y GIO.
+
+GLib core proporciona manejo de estructura de datos para C (listas enlazadas, árboles, tablas hash, ...), envoltorios de portabilidad, un bucle de eventos, hilos, carga dinámica de módulos y muchas funciones de utilidad.
+
+GObject -- que depende del núcleo GLib -- simplifica la programación orientada a objetos y los paradigmas de programación dirigida por eventos en C. La programación dirigida por eventos no solo es útil para interfaces gráficas de usuario (con eventos de usuario como pulsaciones de teclas y clics del mouse) , pero también para demonios que responden a cambios de hardware (una memoria USB insertada, un segundo monitor conectado, una impresora con poco papel), o software que escucha conexiones de red o mensajes de otros procesos, etc.
+
+GIO -- que depende de GLib core y GObject -- proporciona API de alto nivel para entrada / salida: lectura de un archivo local, un archivo remoto, un flujo de red, comunicación entre procesos con D-Bus y muchos más.
+
+Las bibliotecas GLib se pueden utilizar para escribir servicios del sistema operativo, bibliotecas, utilidades de línea de comandos y demás. GLib ofrece API de mayor nivel que el estándar POSIX; por lo tanto, es más cómodo escribir un programa en C con GLib.
+
+GTK es un conjunto de herramientas de widgets basado en GLib que se puede utilizar para desarrollar aplicaciones con una interfaz gráfica de usuario (GUI). Un ``widget'' es un elemento de la GUI, por ejemplo, un botón, un texto, un menú, etc. Y hay algunos tipos especiales de widgets que se denominan ``containers'', que pueden contener otros widgets, para ensamblar los elementos en una ventana. GTK proporciona una amplia gama de widgets y contenedores.
+
+La primera versión de GTK +, o GIMP Tool Kit\footnote{El nombre `` The GIMP Tool Kit '' ahora rara vez se usa, hoy se conoce más comúnmente como GTK para abreviar.}, fue escrita principalmente por Peter~Mattis en 1996 para el GIMP (Programa de manipulación de imágenes GNU), pero se ha convertido rápidamente en una biblioteca de uso general. El ``+'' se ha agregado más tarde para distinguir entre la versión original y una nueva versión que agregó características orientadas a objetos. GLib comenzó como parte de GTK +, pero ahora es una biblioteca independiente.
+
+Las API GLib y GTK están documentadas con GTK-Doc. Los comentarios especiales están escritos en el código fuente y GTK-Doc extrae esos comentarios para generar páginas HTML.
+
+Aunque GLib y GTK están escritos en C, los enlaces de lenguaje están disponibles para JavaScript, Python, Perl y muchos otros lenguajes de programación. Al principio, se crearon enlaces manuales, que debían actualizarse cada vez que cambiaba la API de la biblioteca. Hoy en día, los enlaces de lenguaje son genéricos y, por lo tanto, se actualizan automáticamente cuando, por ejemplo, se agregan nuevas funciones, esto es gracias a GObject Introspection . Se agregan anotaciones especiales a los comentarios de GTK-Doc, para exponer más información de la que puede proporcionar la sintaxis de C, por ejemplo, sobre la transferencia de propiedad de contenido asignado dinámicamente\footnote{Por ejemplo, si necesita liberar el valor de retorno.}. Además, las anotaciones también son útiles para el programador en C porque es una forma buena y concisa de documentar ciertos aspectos recurrentes de la API.
+
+GLib y GTK son parte del Proyecto GNU, cuyo objetivo general es desarrollar un sistema operativo libre (llamado GNU) más aplicaciones que lo acompañen. GNU significa ``GNU's Not Unix'', una forma divertida de decir que el sistema operativo GNU es compatible con Unix. Puede obtener más información sobre GNU en \url{https://www.gnu.org}.
+
+El sitio web de GLib/GTK es: \url{http://www.gtk.org}
+
+\section{El escritorio GNOME}
+
+Un proyecto importante para GLib y GTK es GNOME. GNOME, que también forma parte de GNU, es un entorno de escritorio libre iniciado en 1997 por Miguel~de~Icaza y Federico~Mena-Quintero. GNOME hace un uso extensivo de GTK, y el último ahora es desarrollado principalmente por desarrolladores de GNOME.
+
+``GNOME'' es en realidad un acrónimo: GNU Network Object Model Environment\footnote{En cuanto a GTK, el nombre completo de GNOME rara vez se usa y no refleja la realidad actual.}. Originalmente, el proyecto tenía la intención de crear un marco para objetos de aplicación, similar a las tecnologías OLE y COM de Microsoft. Sin embargo, el alcance del proyecto se expandió rápidamente; quedó claro se requería un trabajo preliminar sustancial antes de que la parte del nombre de ``network object'' pudiera convertirse en realidad. Las versiones antiguas de GNOME incluían una arquitectura de incrustación de objetos llamada Bonobo, y GNOME 1.0 incluía un ORB CORBA rápido y ligero llamado ORBit. Bonobo ha sido reemplazado por D-Bus un sistema de comunicación entre procesos.
+
+GNOME tiene dos caras importantes. Desde la perspectiva del usuario, es un entorno de escritorio integrado y una suite de aplicaciones. Desde la perspectiva del programador, es un marco de desarrollo de aplicaciones (compuesto por numerosas bibliotecas útiles que se basan en GLib y GTK). Las aplicaciones escritas con las bibliotecas de GNOME funcionan bien incluso si el usuario no está ejecutando el entorno de escritorio, pero se integran bien con el escritorio de GNOME si está disponible.
+
+El entorno de escritorio incluye un ``shell'' para cambiar de tareas y ejecutar programas, un ``centro de control'' para la configuración, muchas aplicaciones como un administrador de archivos, un navegador web, un reproductor de películas, etc. línea de comando tradicional de Unix detrás de una interfaz gráfica fácil de usar.
+
+El marco de desarrollo de GNOME permite escribir aplicaciones interoperables, coherentes y fáciles de usar. Los diseñadores de sistemas de ventanas como X11 o Wayland tomaron la decisión deliberada de no imponer ninguna política de interfaz de usuario a los desarrolladores; GNOME agrega una ``capa de política'', creando una apariencia coherente. Las aplicaciones GNOME terminadas funcionan bien con el escritorio GNOME, pero también se pueden usar de forma ``independiente'' -- los usuarios solo necesitan instalar las bibliotecas compartidas de GNOME. Una aplicación GNOME no está vinculada a un sistema de ventanas específico, GTK proporciona backends para X Window System, Wayland, Mac OS X, Windows e incluso para un navegador web.
+
+En el momento de escribir este artículo, hay nuevas versiones estables de GLib, GTK y GNOME cada seis meses, alrededor de marzo y septiembre. Un número de versión tiene la forma ``\texttt{major.minor.micro}'', donde ``\texttt{minor}'' es incluso para versiones estables e isodd para versiones inestables. Por ejemplo, las versiones 3.18. * Son estables, pero las versiones 3.19. * Son inestables. Una nueva versión micro estable (por ejemplo, 3.18.0 $\rightarrow$ 3.18.1) no agrega nuevas funciones, solo actualizaciones de traducción, corrección de errores y mejoras de rendimiento. Los componentes de GNOME deben instalarse con las mismas versiones, junto con la versión de GTK y GLib lanzada al mismo tiempo; por ejemplo, es una mala idea ejecutar un demonio GNOME en la versión 3.18 con el centro de control en la versión 3.16. En el momento de escribir este artículo, las últimas versiones estables son: GLib~2.46, GTK~3.18 y GNOME~3.18, todas lanzadas al mismo tiempo en septiembre de 2015. Para una biblioteca, un nuevo número de versión principal generalmente significa que ha habido una interrupción de la API, pero afortunadamente la versión principal anterior. Las versiones se pueden instalar en paralelo con la nueva versión. Durante un ciclo de desarrollo (por ejemplo, 3.19), no hay garantías de estabilidad API para \emph{nuevas} funciones; pero al ser uno de los primeros en adoptarlo, sus comentarios son útiles para descubrir más rápidamente fallas y errores de diseño.
+
+Más información sobre GNOME: \url{https://www.gnome.org/}
+
+\section{Prerrequisitos}
+
+Este libro asume que ya tiene algo de práctica en programación. A continuación, se muestra una lista de requisitos previos recomendados, con referencias de libros.
+
+\begin{itemize}
+    \item Este texto supone que ya conoces el lenguaje C. El libro de referencia es \emph{El lenguaje de programación C}, de Brian Kernighan y Den-nis Ritchie \cite{k-r-book}.
+    
+    \item La programación orientada a objetos (OOP) también es necesaria para aprender GObject. Debe estar familiarizado con conceptos como herencia, una interfaz, un método virtual o polimorfismo. Un buen libro, con más de sesenta pautas, es \emph{Heurística de diseño orientado a objetos}, de Arthur~Riel \cite{oop-book}.
+    
+    \item Es útil haber leído un libro sobre estructuras de datos y algoritmos, pero puede aprenderlo en paralelo. Un libro recomendado es \emph{The Algorithm Design Manual}, de Steven~Skiena \cite{algo-book}.
+    
+    \item Si desea desarrollar su software en un sistema similar a Unix, otro requisito previo es saber cómo funciona Unix y estar familiarizado con la línea de comandos, un poco de scripts de shell y cómo escribir un Makefile. Un posible libro es \emph{UNIX for the Impatient}, de Paul~Abrahams \cite{unix-impatient}.
+    
+    \item No es estrictamente necesario, pero se recomienda encarecidamente utilizar un sistema de control de versiones como Git. Un buen libro es \emph{Pro Git}, de Scott~Chacon \cite{pro-git}.
+\end{itemize}
+
+\section{¿Por qué y cuándo se usa el lenguaje C?}
+
+Las bibliotecas GLib y GTK pueden ser utilizadas por otros lenguajes de programación además de C. Gracias a GObject Introspection, los enlaces automáticos están disponibles para una variedad de idiomas para todas las bibliotecas basadas en GObject. Los enlaces oficiales de GNOME están disponibles para los siguientes lenguajes: C ++, JavaScript, Perl, Python y Vala\footnote{\url{https://wiki.gnome.org/Projects/Vala}}. Vala es un nuevo lenguaje de programación basado en GObject que integra las peculiaridades de GObject directamente en su sintaxis similar a C\#. Más allá de los enlaces oficiales de GNOME, GLib y GTK se pueden usar en más de una docena de lenguajes de programación, con un nivel de soporte variable. Entonces, ¿por qué y cuándo elegir el lenguaje C? Para escribir un demonio en un sistema Unix, C es el idioma \emph{predeterminado}. Pero es menos obvio para una aplicación. Para responder a la pregunta, veamos primero cómo estructurar el código base de una aplicación.
+
+% Adaptado de una pregunta de preguntas frecuentes en GGAD.
+\section{Separación de backend del frontend}
+\label{intro-backend-frontend-separation}
+Una buena práctica es separar la interfaz gráfica de usuario del resto de la aplicación. Por diversas razones, la interfaz gráfica de una aplicación tiende a ser una pieza de software excepcionalmente volátil y en constante cambio. Es el foco de la mayoría de las solicitudes de cambio de los usuarios. Es difícil planificar y ejecutar bien la primera vez; a menudo descubrirá que algún aspecto es desagradable de usar solo después de haberlo escrito. A veces es deseable tener varias interfaces de usuario diferentes, por ejemplo, una versión de línea de comandos o una interfaz basada en web.
+
+En términos prácticos, esto significa que cualquier aplicación grande debe tener una separación radical entre sus diversos \emph{frontends} o interfaces y el \emph{backend}. El backend debe contener todas las ``partes duras'': sus algoritmos y estructuras de datos, el trabajo real realizado por la aplicación. Piense en ello como un ``modelo'' abstracto que se muestra y manipula el usuario.
+
+Cada interfaz debe ser una `` vista '' y un `` controlador ''. Como una `` vista '', la interfaz debe anotar cualquier cambio en el backend y cambiar la pantalla en consecuencia. Como un `` controlador '', la interfaz debe permitir al usuario transmitir solicitudes de cambio al backend (define cómo las manipulaciones de la interfaz se traducen en cambios en el modelo).
+
+Hay muchas formas de disciplinarse para mantener su aplicación separada. Un par de ideas útiles:
+
+\begin{itemize}
+    \item Escriba el backend como una biblioteca. Al principio, la biblioteca puede ser interna a la aplicación y estar vinculada estáticamente, sin garantías de estabilidad API/ABI. Cuando el proyecto crezca, y si el código es útil para otros programas, puede convertir fácilmente su backend en una biblioteca compartida.
+    \item Escriba al menos dos interfaces desde el principio; uno o ambos pueden ser prototipos feos, solo desea tener una idea de cómo estructurar el backend. Recuerde, las interfaces deben ser fáciles; el backend tiene las partes difíciles.
+\end{itemize}
+
+El lenguaje C es una buena opción para la parte de backend de una aplicación. Al utilizar GObject y GObject Introspection, su biblioteca estará disponible para otros proyectos escritos en varios lenguajes de programación. Por otro lado, una biblioteca de Python o JavaScript no se puede utilizar en otros lenguajes. Para las interfaces, un idioma de nivel superior puede ser más conveniente, dependiendo de los idiomas con los que ya domine.
+
+\subsection{Otros aspectos a tener en cuenta}
+Si tiene dudas sobre el idioma a elegir, aquí hay otros aspectos a tener en cuenta. Tenga en cuenta que este texto está un poco sesgado ya que se eligió el lenguaje C.
+
+C es un lenguaje de tipo estático: los tipos de variables y los prototipos de funciones en un programa se conocen en el momento de la compilación. El compilador descubre muchos errores triviales, como un error tipográfico en el nombre de una función. El compilador también es de gran ayuda cuando se hacen refactorizaciones de código, lo cual es esencial para el mantenimiento a largo plazo de un programa. Por ejemplo, cuando divide una clase en dos, si el código que usa la clase inicial no se actualiza correctamente, el compilador se lo informará amablemente\footnote{Bueno, \emph{amablemente} quizás no sea la mejor descripción, arrojar un montón de errores está más cerca de la realidad.}. Con el desarrollo basado en pruebas (TDD), y escribiendo pruebas unitarias para \emph{todo}, también es factible escribir una enorme base de código en un lenguaje de tipo dinámico como Python. Con una muy buena cobertura de código, las pruebas unitarias también detectarán errores al refactorizar el código. Pero las pruebas unitarias pueden ser mucho más lentas de ejecutar que compilar el código, ya que también prueba el comportamiento del programa. Por lo tanto, puede que no sea conveniente ejecutar todas las pruebas unitarias al realizar refactorizaciones de código. ¡Por supuesto, escribir pruebas unitarias también es una buena práctica para una base de código C! Sin embargo, para la parte GUI del código, escribir pruebas unitarias a menudo no es una tarea de alta prioridad si la aplicación está bien probada por sus desarrolladores.
+
+C es un lenguaje escrito explícitamente: los tipos de variables son visibles en el código. Es una forma de auto-documentar el código; por lo general, no es necesario agregar comentarios para explicar qué contienen las variables. Conocer el tipo de variable es importante para comprender el código, saber qué representa la variable y qué funciones se pueden llamar sobre ella. En un asunto relacionado, el objeto \emph{self} se pasa explícitamente como un argumento de función. Por lo tanto, cuando se accede a un atributo a través del puntero \emph{self}, se sabe de dónde procede el atributo. Algunos lenguajes orientados a objetos tienen \emph{esta} palabra clave para ese propósito, pero a veces es opcional como en C ++ o Java. En este último caso, una función útil del editor de texto es resaltar atributos de manera diferente, por lo que incluso cuando no se usa \emph{esta} palabra clave, usted sabe que es un atributo y no una variable local. Con el objeto \emph{self} pasado como argumento, no hay posibles confusiones.
+
+El lenguaje C tiene una \emph{cadena de herramientas} muy buena: compiladores estables (GCC, Clang,...), Editores de texto (Vim, Emacs,...), Depuradores (GDB, Valgrind,...), Herramientas de análisis estático, ...
+
+Para algunos programas, un recolector de basura no es apropiado porque pausa el programa regularmente para liberar la memoria no utilizada. Para secciones de código críticas, como animaciones en tiempo real, no es conveniente pausar el programa (un recolector de basura a veces puede ejecutarse durante varios segundos). En este caso, la gestión manual de la memoria como en C es una solución.
+
+Menos importante, pero útil; la verbosidad de C en combinación con las convenciones GLib / GTK tiene una ventaja: el código se puede buscar fácilmente con un comando como \shellcmd{grep}. Por ejemplo, la función \lstinline{gtk_widget_show()} contiene el espacio de nombres (\lstinline{gtk}), la clase (\lstinline{widget}) y el método (\lstinline{show}). Con un lenguaje orientado a objetos, la sintaxis es generalmente \lstinline[language=C++]{object.show()}. Si se busca ``show'' en el código, probablemente habrá más falsos positivos, por lo que se necesita una herramienta más inteligente. Otra ventaja es que conocer el espacio de nombres y la clase de un método puede ser útil al leer el código, es otra forma de auto-documentación.
+
+
+Más importante aún, la documentación de la API GLib / GTK está escrita principalmente para el lenguaje C. No es conveniente leer la documentación de C mientras se programa en otro idioma. Algunas herramientas están actualmente en desarrollo para generar la documentación de la API para otros lenguajes de destino, por lo que es de esperar que en el futuro ya no sea un problema.
+
+GLib / GTK están escritos en C. Entonces, cuando se programa en C, no hay capa adicional. Una capa adicional es potencialmente una fuente de errores adicionales y cargas de mantenimiento. Además, usar el lenguaje C probablemente sea mejor para propósitos pedagógicos. Un lenguaje de nivel superior puede ocultar algunos detalles sobre GLib / GTK. Por lo tanto, el código es más corto, pero cuando tiene un problema, debe comprender no solo cómo funciona la función de la biblioteca, sino también cómo funciona el enlace del idioma.
+
+Dicho esto, si (1) no se siente cómodo en C, (2) ya domina un lenguaje de nivel superior con compatibilidad con GObject Introspection, (3) planea escribir solo una pequeña aplicación o complemento, luego elige el lenguaje de nivel superior tiene mucho sentido.
+
+\section{Ruta de aprendizaje}
+\label{intro-learning-path}
+% PARA HACER cuando el libro esté terminado, cambie el nombre de esta sección a "Estructura del libro"
+
+Normalmente, esta sección debería llamarse `` Estructura del libro '', pero como puede ver, el libro está lejos de estar terminado, por lo que la sección se llama `` Ruta de aprendizaje ''.
+
+El camino de aprendizaje lógico es:
+\begin{enumerate}
+    \item Los fundamentos del núcleo GLib;
+    \item Programación orientada a objetos en C y los conceptos básicos de GObject;
+    \item GTK y GIO en paralelo.
+\end{enumerate}
+
+Dado que GTK se basa en GLib y GObject, es mejor comprender primero los conceptos básicos de esas dos bibliotecas. Algunos tutoriales se sumergen directamente en GTK, por lo que después de un corto período de tiempo puede mostrar una ventana con texto y tres botones; es divertido, pero conocer GLib y GObject no es un lujo si quiere comprender lo que está haciendo, y una aplicación GTK realista utiliza ampliamente las bibliotecas GLib. GTK y GIO se pueden aprender en paralelo --- una vez que comience a usar GTK, verá que algunas partes que no son GUI están basadas en GIO.
+
+Así que este libro comienza con la biblioteca principal GLib (parte~\ref{glib} p.~\pageref{glib}), luego presenta la Programación Orientada a Objetos en C (parte~\ref{oop} p.~\pageref{oop}) seguida de un capítulo de Lecturas Adicionales (p.~\pageref{further-reading})
+
+\section{El entorno de desarrollo}
+\label{intro-dev-environment}
+
+Esta sección describe el entorno de desarrollo que se usa normalmente al programar con GLib y GTK en un sistema Unix.
+
+En una distribución GNU / Linux, a menudo se puede instalar un solo paquete o grupo para obtener un entorno de desarrollo C completo, que incluye, entre otros:
+\begin{itemize}
+    \item un compilador compatible con C89, GCC por ejemplo;
+    \item el depurador GNU GDB;
+    \item GNU Make;
+    \item los Autotools (Autoconf, Automake y Libtool);
+    \item las páginas de manual de: el kernel de Linux y glibc \footnote{No confunda la biblioteca GNU C (glibc) con GLib. El primero es de nivel inferior.}.
+\end{itemize}
+
+Para utilizar GLib y GTK como desarrollador, existen varias soluciones:
+\begin{itemize}
+    \item Los encabezados y la documentación se pueden instalar con el administrador de paquetes. El nombre de los paquetes suele terminar con uno de los siguientes sufijos: \texttt{-devel}, \texttt{-dev} o \texttt{-doc}. Por ejemplo \texttt{glib2-devel} y \texttt{glib2-doc} en Fedora.
+    \item Las últimas versiones de GLib y GTK se pueden instalar con Jhbuild:\\
+    \url{https://wiki.gnome.org/Projects/Jhbuild}
+\end{itemize}
+
+Para leer la documentación de la API de GLib y GTK, Devhelp es una aplicación útil, si ha instalado el paquete -dev o -doc. Para el editor de texto o IDE, hay muchas opciones (y una fuente de muchos trolls): Vim, Emacs, gedit, Anjuta, MonoDevelop / Xamarin Studio, Geany,… Un prometedor IDE especializado para GNOME es Builder, actualmente en desarrollo. Para crear una GUI con GTK, puede escribir directamente el código para hacerlo o puede usar Glade para diseñar la GUI gráficamente. Finalmente, GTK-Doc se usa para escribir documentación de API y agregar las anotaciones de GObject Introspection.
+
+Cuando utilice GLib o GTK, preste atención a no utilizar API obsoletas para el código recién escrito. Asegúrese de leer la documentación más reciente. También están disponibles en línea en:\\
+\url{https://developer.gnome.org/}
+
+\section{Agradecimientos}
+Gracias a: Christian Stadelmann, Errol van~de~l'Isle, Andrew Colin Kissa y Link Dupont.

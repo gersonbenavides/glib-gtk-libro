@@ -1,48 +1,49 @@
 \documentclass[a4paper,11pt]{report}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
 \usepackage{lmodern}
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{parskip}
 \usepackage{pmboxdraw}
 
-% margins
+% Margenes
 \usepackage[top=2cm, bottom=3cm, left=3.8cm, right=3.8cm]{geometry}
 
-% PDF file properties and links
+% Propiedades y vínculos de archivos PDF
 \usepackage{hyperref}
 \hypersetup{
   pdfauthor = {Sébastien Wilmet},
-  pdftitle = {The GLib/GTK Development Platform},
+  pdftitle = {La plataforma de desarrollo GLib/GTK},
   pdfcreator = {Texlive},
   pdfproducer = {Texlive},
   %colorlinks = false,
   pdfborder = 0 0 0
 }
 
-% Another package for code syntax highlighting is minted. By default minted has better colors for reading the document on a screen, but I think it is possible to have decent colors with listings too, it just requires more configuration. For printing purposes (without colors), I think listings is better. And this document is meant to be printed.
+% Se acuña otro paquete para resaltar la sintaxis de código. Por defecto, acuñado tiene mejores colores para leer el documento en una pantalla, pero creo que es posible tener colores decentes con listados también, solo requiere más configuración. Para fines de impresión (sin colores), creo que los listados son mejores. Y este documento está destinado a ser impreso.
 \usepackage{listings}
 \lstset{
-  language=C,
-  basicstyle={\small\ttfamily},
-  basewidth=0.5em,
-  showstringspaces=false,
-  captionpos=b
-%   floatplacement=htbp
-% Frames look nice, but it should be used cautiously. A frame around something means that the "something" is important. A frame will maybe be used later in this book to give a summary of important things. If each piece of code is surrounded by a frame, the important text will not be as highlighted as it should.
-%   frame=single,
-%   frame=tb,
-% Will be useful later for large piece of code (create a new environment named lstlistinglarge or something like that).
-%   linewidth=15cm,
-%   xleftmargin=-1cm,
-%   xrightmargin=-1cm
+  language = C,
+  basicstyle = {\small\ttfamily},
+  basewidth = 0.5em,
+  showstringspaces = false,
+  captionpos = b
+%   floatplacement = htbp
+% Los marcos se ven bien, pero deben usarse con precaución. Un marco alrededor de algo significa que el "algo" es importante. Quizás se utilice un marco más adelante en este libro para dar un resumen de cosas importantes. Si cada fragmento de código está rodeado por un marco, el texto importante no estará tan resaltado como debería.
+%   frame = single,
+%   frame = tb,
+% Será útil más adelante para una gran parte de código (cree un nuevo entorno llamado lstlistinglarge o algo así).
+%   linewidth = 15cm,
+%   xleftmargin = -1cm,
+%   xrightmargin = -1cm
 }
 
 \lstloadlanguages{C, C++, Lisp, bash}
 
-% Separate listings from the text (recommended in the Listings doc, instead of using frames).
-% But with captions at the bottom, it is not very useful.
+% Separe los listados del texto (recomendado en el documento de listados, en lugar de usar marcos).
+% Pero con subtítulos en la parte inferior, no es muy útil.
 %\newcommand{\topfigrule}{\hrule\kern-0.4pt\relax}
 %\newcommand{\botfigrule}{\hrule\kern-0.4pt\relax}
 
@@ -50,24 +51,24 @@
 
 \newcommand{\bookversion}{0.8}
 
-\title{The GLib/GTK Development Platform\\[0.3cm]
-{\normalsize A Getting Started Guide}\\[0.3cm]
-{\normalsize Version \bookversion}}
+\title{La plataforma de desarrollo GLib/GTK\\[0.3cm]
+{\normalsize Una guía de introducción}\\[0.3cm]
+{\normalsize Versión \bookversion}}
 
-\author{Sébastien Wilmet}
+\author{Sébastien Wilmetn}
 
 \begin{document}
 
 \maketitle
 \tableofcontents
 
-\include{intro}
-\include{glib}
-\include{oop}
-\include{oop-semi}
-\include{oop-gobject}
-\include{gtk-app-arch}
-\include{further-reading}
-\include{biblio}
+\include{contenido/intro}
+\include{contenido/glib}
+\include{contenido/oop}
+\include{contenido/oop-semi}
+\include{contenido/oop-gobject}
+\include{contenido/gtk-app-arch}
+\include{contenido/further-reading}
+\include{contenido/biblio}
 
 \end{document}
