@@ -1,48 +1,47 @@
-News in 0.8, 2019-03-29
+Noticias en 0.8, 2019-03-29
 -----------------------
-* Include a draft of a new chapter: "Example of a GTK+ Application Code
-  Architecture".
-* Intro: add section "Todo List for this Book and a Quick 2019 Update" (better
-  than nothing).
+* Incluya un borrador de un nuevo capítulo: "Ejemplo de un código de aplicación GTK +
+  Arquitectura".
+* Introducción: agregue la sección "Lista de tareas pendientes para este libro y una actualización rápida de 2019"
+  (mejor que nada).
 
-News in 0.7, 2017-04-21
+Noticias en 0.7, 2017-04-21
 -----------------------
-* Write new chapter: "A Gentle Introduction to GObject".
-* Improve the chapter semi-OOP in C.
-* Add subtitle to the book: "A Getting Started Guide".
-* Intro: add Financial Support section.
-* Separate the book in 3 parts.
-* Further reading chapter: talk about Meson in addition to the Autotools.
+* Escriba un nuevo capítulo: "Una suave introducción a GObject".
+* Mejorar el capítulo semi-OOP en C.
+* Agregue subtítulos al libro: "Una guía de inicio".
+* Introducción: agregue la sección de apoyo financiero.
+* Separe el libro en 3 partes.
+* Capítulo de lectura adicional: hablar sobre Meson además de las Autotools.
 
-News in 0.6, 2016-08-08
+Noticias en 0.6, 2016-08-08
 -----------------------
-* Improve the section semi-OOP in C
-* Small improvements here and there
-* New website: https://people.gnome.org/~swilmet/glib-gtk-book/
+* Mejorar la sección semi-OOP en C
+* Pequeñas mejoras aquí y allá
+* Nuevo sitio web: https://people.gnome.org/~swilmet/glib-gtk-book/
 
-News in 0.5, 2016-07-14
+Noticias en 0.5, 2016-07-14
 -----------------------
-* Start chapter "Object-Oriented Programming in C" with a detailed section
-  "Semi-Object-Oriented Programming in C".
+* Inicie el capítulo "Programación orientada a objetos en C" con una sección detallada
+  "Programación Semi-Orientada a Objetos en C".
 
-News in 0.4, 2016-07-05
+Noticias en 0.4, 2016-07-05
 -----------------------
-* Intro: improve learning path
-* Intro: add Acknowledgments section
-* Small improvements here and there
+* Introducción: mejorar la ruta de aprendizaje
+* Introducción: agregar sección de agradecimientos
+* Pequeñas mejoras aquí y allá
 
-News in 0.3, 2016-02-08
+Noticias en 0.3, 2016-02-08
 -----------------------
-* Intro: explain GTK-Doc and GObject Introspection
-* Further reading: link to HowDoI series
-* Small improvements here and there
+* Introducción: explica GTK-Doc y GObject Introspection
+* Más información: enlace a la serie HowDoI
+* Pequeñas mejoras aquí y allá
 
-News in 0.2, 2015-05-22
+Noticias en 0.2, 2015-05-22
 -----------------------
-* GLib: add section for the main event loop
-* Small improvements here and there
+* GLib: agregar sección para el bucle de eventos principal
+* Pequeñas mejoras aquí y allá
 
-News in 0.1, 2014-11-16
+Noticias en 0.1, 2014-11-16
 -----------------------
-* First version, with an intro, a chapter on GLib and a Further Reading
-  chapter.
+* Primera versión, con una introducción, un capítulo sobre GLib y un capítulo de lectura adicional.
