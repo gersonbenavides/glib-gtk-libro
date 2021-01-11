@@ -1,27 +1,27 @@
-TODO
+QUE HACER
 ====
 
-See also the (more public) Todo list in the intro, plus TODO/FIXME comments in
-*.tex files.
+Vea también la lista de QUE HACER (más pública) en la introducción, además de los comentarios de QUE HACER/ARREGLAR en
+Archivos * .tex.
 
-Book infrastructure
+Infraestructura de libro
 -------------------
 
-- Smart ref with pageref if on different page: use the varioref package.
-- Index.
-- Glossary.
-- Conventions with more macros.
+- Smart ref con pageref si está en una página diferente: use el paquete varioref.
+- Índice.
+- Glosario.
+- Convenciones con más macros.
 
-Or rewrite the book in ConTeXt?!
+¿O reescribir el libro en ConTeXt?
 
-GTK app architecture
+Arquitectura de la aplicación GTK
 --------------------
 
-- Adapt other chapters (intro, further reading, …).
-- Add a screenshot or a simplified mockup of gedit.
-- Add code examples?
+- Adaptar otros capítulos (intro, lecturas complementarias,…).
+- Agregue una captura de pantalla o una maqueta simplificada de gedit.
+- ¿Agregar ejemplos de código?
 
 Misc
 ----
 
-- Split GLib part into several chapters.
+- Divida la parte GLib en varios capítulos.
