@@ -1,13 +1,17 @@
-La plataforma de desarrollo GLib / GTK: una guía de introducción
-===========================================================
-Un pequeño libro sobre programación con la plataforma GLib / GTK.
+# La plataforma de desarrollo GLib / GTK: una guía de introducción
 
-Licencia: Creative Commons BY SA (consulte el texto para obtener más detalles).
+---
+
+Esta es una traducción al español del libro [The GLib/GTK Development Platform – A Getting Started Guide](https://github.com/swilmet-archives/glib-gtk-book).
+
 
 Para compilar el documento:
+
 ```
 $ cd src/
 $ latexmk -pdf main.tex
 ```
 
-[Sitio web original con descarga de PDF y enlaces](https://people.gnome.org/~swilmet/glib-gtk-book/).
+Licencia: Creative Commons BY SA (consulte el texto para obtener más detalles).
+
+[Sitio web del proyecto oficial](https://people.gnome.org/~swilmet/glib-gtk-book/).

@@ -1,12 +1,15 @@
-Noticias en 0.8, 2019-03-29
------------------------
-* Incluya un borrador de un nuevo capítulo: "Ejemplo de un código de aplicación GTK +
-  Arquitectura".
-* Introducción: agregue la sección "Lista de tareas pendientes para este libro y una actualización rápida de 2019"
+## Noticias en 0.8, 2019-03-29
+
+---
+
+* Incluye un borrador de un nuevo capítulo: "Ejemplo de una arquitectura de código de aplicación GTK +".
+* Introducción: se agrego la sección "Lista de tareas pendientes para este libro y una actualización rápida de 2019"
   (mejor que nada).
 
-Noticias en 0.7, 2017-04-21
------------------------
+## Noticias en 0.7, 2017-04-21
+
+---
+
 * Escriba un nuevo capítulo: "Una suave introducción a GObject".
 * Mejorar el capítulo semi-OOP en C.
 * Agregue subtítulos al libro: "Una guía de inicio".
@@ -14,34 +17,45 @@ Noticias en 0.7, 2017-04-21
 * Separe el libro en 3 partes.
 * Capítulo de lectura adicional: hablar sobre Meson además de las Autotools.
 
-Noticias en 0.6, 2016-08-08
------------------------
+## Noticias en 0.6, 2016-08-08
+
+---
+
 * Mejorar la sección semi-OOP en C
 * Pequeñas mejoras aquí y allá
 * Nuevo sitio web: https://people.gnome.org/~swilmet/glib-gtk-book/
 
-Noticias en 0.5, 2016-07-14
------------------------
-* Inicie el capítulo "Programación orientada a objetos en C" con una sección detallada
-  "Programación Semi-Orientada a Objetos en C".
+## Noticias en 0.5, 2016-07-14
 
-Noticias en 0.4, 2016-07-05
------------------------
+---
+
+* Inicie el capítulo "Programación orientada a objetos en C" con una sección detallada "Programación Semi-Orientada a Objetos en C".
+
+## Noticias en 0.4, 2016-07-05
+
+---
+
 * Introducción: mejorar la ruta de aprendizaje
 * Introducción: agregar sección de agradecimientos
 * Pequeñas mejoras aquí y allá
 
-Noticias en 0.3, 2016-02-08
------------------------
+## Noticias en 0.3, 2016-02-08
+
+---
+
 * Introducción: explica GTK-Doc y GObject Introspection
 * Más información: enlace a la serie HowDoI
 * Pequeñas mejoras aquí y allá
 
-Noticias en 0.2, 2015-05-22
------------------------
+## Noticias en 0.2, 2015-05-22
+
+---
+
 * GLib: agregar sección para el bucle de eventos principal
 * Pequeñas mejoras aquí y allá
 
-Noticias en 0.1, 2014-11-16
------------------------
+## Noticias en 0.1, 2014-11-16
+
+---
+
 * Primera versión, con una introducción, un capítulo sobre GLib y un capítulo de lectura adicional.

@@ -1,11 +1,12 @@
-QUE HACER
-====
+# QUE HACER
 
-Vea también la lista de QUE HACER (más pública) en la introducción, además de los comentarios de QUE HACER/ARREGLAR en
-Archivos * .tex.
+---
 
-Infraestructura de libro
--------------------
+Las siguientes tareas son propuestas por el autor en el repositorio oficial. Vea también la lista de QUE HACER (más pública) en la introducción, además de los comentarios de QUE HACER/ARREGLAR en los archivos *.tex.
+
+## Infraestructura de libro
+
+---
 
 - Smart ref con pageref si está en una página diferente: use el paquete varioref.
 - Índice.
@@ -15,13 +16,15 @@ Infraestructura de libro
 ¿O reescribir el libro en ConTeXt?
 
 Arquitectura de la aplicación GTK
---------------------
+
+---
 
 - Adaptar otros capítulos (intro, lecturas complementarias,…).
 - Agregue una captura de pantalla o una maqueta simplificada de gedit.
 - ¿Agregar ejemplos de código?
 
-Misc
+## Misc
+
 ----
 
 - Divida la parte GLib en varios capítulos.
