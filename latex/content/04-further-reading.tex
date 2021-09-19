@@ -1,0 +1,71 @@
+\part{Lectura adicional \label{further-reading}}
+
+\chapter{Lecturas adicionales}
+
+En este punto, debe conocer los conceptos básicos de GLib core y GObject. No necesitas saber \ emph {todo} sobre GLib core y GObject para continuar, pero tener al menos un conocimiento básico te permitirá aprender más fácilmente GTK y GIO, o cualquier otra biblioteca basada en GObject.
+
+\section{GTK y GIO}
+GTK y GIO se pueden aprender en paralelo.
+
+Debería poder usar cualquier clase de GObject en GIO, solo lea la descripción de la clase y hojee la lista de funciones para tener una descripción general de las características que proporciona una clase. Entre otras cosas interesantes, GIO incluye:
+\begin{itemize}
+  \item \lstinline{GFile} para manejar archivos y directorios.
+  \item \lstinline{GSettings} para almacenar la configuración de la aplicación.
+  \item \lstinline{GDBus}: una API de alto nivel para el sistema de comunicación entre procesos D-Bus.
+  \item \lstinline{GSubprocess} para iniciar procesos secundarios y comunicarse con ellos de forma asincrónica.
+  \item \lstinline{GCancellable}, \lstinline{GAsyncResult} y \lstinline{GTask} para usar o implementar tareas asincrónicas y cancelables.
+  \item Muchas otras funciones, como flujos de E/S, soporte de red o soporte de aplicaciones.
+\end{itemize}
+
+Para crear aplicaciones gráficas con GTK, no se preocupe, la documentación de referencia tiene una guía de introducción, disponible con Devhelp o en línea en: \\
+\url{https://developer.gnome.org/gtk3/stable/}
+
+Después de leer la guía de introducción, lea toda la referencia de la API para familiarizarse con los widgets, contenedores y clases base disponibles. Algunos widgets tienen una API bastante grande, por lo que también están disponibles algunos tutoriales externos, por ejemplo, para \lstinline{GtkTextView} y \lstinline{GtkTreeView}. Consulte la página de documentación en: \\
+\url{http://www.gtk.org}
+
+También hay una serie de pequeños tutoriales sobre varios temas GLib / GTK: \\
+\url{https://wiki.gnome.org/HowDoI}
+
+\section{Escribir sus propias clases de GObject}
+
+El capítulo~\ref{oop-gobject} explica cómo \emph{usar} una clase GObject existente, que es muy útil para aprender GTK, pero no explica cómo \emph{crear} tus propias clases GObject. Escribir sus propias clases de GObject permite contar con referencias, puede crear sus propias propiedades y señales, puede implementar interfaces, anular funciones virtuales (si la función virtual no está asociada a una señal), etc.
+
+Como se explicó al principio del capítulo~\ref{oop-gobject}, si desea obtener información más detallada sobre GObject y saber cómo crear subclases, la documentación de referencia de GObject contiene capítulos introductorios: ``\emph{Concepts}'' y ``\emph{Tutorial}'', disponibles como de costumbre en Devhelp o en línea en: \\
+\url{https://developer.gnome.org/gobject/stable/}
+
+\section{Sistema de compilación}
+
+Un Makefile básico generalmente no es suficiente si desea instalar su aplicación en diferentes sistemas. Por tanto, se necesita una solución más sofisticada. Para un programa basado en GLib/GTK, existen dos alternativas principales: Autotools y Meson.
+
+GNOME y GTK históricamente usan Autotools, pero a partir de 2017 algunos módulos (incluido GTK) están migrando a Meson. Para un nuevo proyecto, se puede recomendar Meson.
+
+\subsection{Las herramientas automáticas}
+
+Las Autotools comprenden tres componentes principales: Autoconf, Automake y Libtool. Está basado en scripts de shell, macros m4 y \shellcmd{make}.
+
+Las macros están disponibles para varios propósitos (la documentación del usuario, estadísticas de cobertura de código para pruebas unitarias, etc.). El libro más reciente sobre el tema es \emph{Autotools}, de John ~ Calcote \cite{autotools}.
+
+Pero las Autotools tienen la reputación de ser difíciles de aprender.
+
+\subsection{Meson}
+
+Meson es un sistema de construcción bastante nuevo, es más fácil de aprender que Autotools y también resulta en construcciones más rápidas. Algunos módulos de GNOME ya usan Meson. Consulte el sitio web para obtener más información:\\
+\url{http://mesonbuild.com/}
+
+\section{Mejores prácticas de programación}
+
+Se recomienda seguir las Pautas de programación de GNOME~\cite{gnome-programming-guidelines}.
+
+La siguiente lista no tiene nada que ver con el desarrollo de GLib/GTK, pero es útil para cualquier proyecto de programación. Después de tener algo de práctica, es interesante aprender más sobre las \emph{mejores} prácticas de programación. Escribir código de buena calidad es importante para prevenir errores y para mantener una pieza de software a largo plazo.
+
+\begin{itemize}
+  \item \emph{El} libro sobre las mejores prácticas de programación es \emph{Código completo}, de Steve~McConnell \cite{code-complete}. Muy recomendable \footnote{Aunque el editor de \emph{Código completo} es Microsoft Press, el libro no está relacionado con Microsoft o Windows. El autor a veces explica cosas relacionadas con el código abierto, UNIX y Linux, pero uno puede lamentar la ausencia total de la mención ``software libre/free'' y todos los beneficios de la libertad, en particular para este tipo de libros: poder aprender leyendo el código de otros. Pero si está aquí, es de esperar que ya sepa todo esto.}.
+
+  \item Para obtener pautas sobre POO específicamente, consulte \emph{Heurística de diseño orientado a objetos}, de Arthur~Riel \cite{oop-book}.
+
+  \item Una excelente fuente de información es la web de Martin ~ Fowler: refactorización, metodología ágil, diseño de código, ...\\
+  \url{http://martinfowler.com/}
+\end{itemize}
+
+Más relacionados con GNOME, los artículos de Havoc ~ Pennington tienen buenos consejos que vale la pena leer, incluidos ``\emph{Trabajando en software libre}'', ``\emph{Interfaz de usuario de software libre}'' y ``\emph{Mantenimiento de software libre : Adición de funciones}'':\\
+\url{http://ometer.com/writing.html}

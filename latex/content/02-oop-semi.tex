@@ -11,7 +11,7 @@ Otra idea importante de OOP es \emph{ocultar todos los datos dentro de su clase}
 
 El Listado~\ref{oop-semi-spell-checker-h} p.~\pageref{oop-semi-spell-checker-h} muestra un ejemplo de un encabezado que proporciona un simple corrector ortográfico. Este es un código ficticio; si necesita un corrector ortográfico en su aplicación GTK, probablemente usaría hoy en día la biblioteca gspell \footnote{\url{https://wiki.gnome.org/Projects/gspell}}.
 
-\lstinputlisting[float, caption={myapp-spell-checker.h}, label=oop-semi-spell-checker-h]{codigo/myapp-spell-checker.h}
+\lstinputlisting[float, caption={myapp-spell-checker.h}, label=oop-semi-spell-checker-h]{assets/code/myapp-spell-checker.h}
 
 \subsection{Espacio de nombres del proyecto}
 Lo primero a tener en cuenta es el uso del espacio de nombres `` Myapp ''. Cada símbolo del encabezado tiene como prefijo el espacio de nombres del proyecto.
@@ -88,7 +88,7 @@ El tipo de parámetro \lstinline{word_length} es \lstinline{gssize}, que es un t
 Veamos ahora el archivo \path{myapp-spell-checker.c}:
 
 \vspace{0.7cm}
-\lstinputlisting[caption={myapp-spell-checker.c}, label=oop-semi-spell-checker-c]{codigo/myapp-spell-checker.c}
+\lstinputlisting[caption={myapp-spell-checker.c}, label=oop-semi-spell-checker-c]{assets/code/myapp-spell-checker.c}
 
 \subsection{Orden de \#include}
 En la parte superior del archivo, se encuentra la lista habitual de \lstinline{#include}. Un detalle pequeño pero digno de mención es que el orden de inclusión no se eligió al azar. En cierto archivo *.c, es mejor incluir primero su archivo *.h correspondiente, y luego los otros encabezados \footnote{Excepto si tiene un archivo \path{config.h}, en ese caso debería \path{config.h}, \emph{luego} el *.h correspondiente, y luego los otros encabezados.}. Al incluir la primera \path{myapp-spell-checker.h}, si falta un \lstinline{#include} en \path{myapp-spell-checker.h}, el compilador informará un error. Como se explica en la sección~\ref{oop-semi-include-in-header} p.~\pageref{oop-semi-include-in-header}, un encabezado siempre debe tener el mínimo requerido \lstinline{#include}s para que ese encabezado se incluya a su vez.
@@ -108,7 +108,7 @@ GTK-Doc puede analizar esos comentarios especiales y generar páginas HTML que l
 
 Describir en detalle cómo integrar el soporte GTK-Doc en su código está más allá del alcance de este libro. Para eso, debe consultar el manual de GTK-Doc~\cite{gtk-doc}.
 
-Cada biblioteca basada en GLib debe tener una documentación GTK-Doc. Pero también es útil escribir una documentación GTK-Doc para el código interno de una aplicación. Como se explica en la sección~\ref{intro-backend-frontend-separación} p.~\pageref {intro-backend-frontend-separación}, es una buena práctica separar el backend de una aplicación de su(s) frontend(s), y escribir el backend como una biblioteca interna o, más tarde, una biblioteca compartida. Como tal, se recomienda documentar la API pública del backend con GTK-Doc, incluso si sigue siendo una biblioteca interna vinculada estáticamente. Porque cuando el código base se vuelve más grande, es de gran ayuda -- especialmente para los recién llegados -- tener una descripción general de las clases disponibles y saber cómo usar una clase sin la necesidad de comprender su implementación.
+Cada biblioteca basada en GLib debe tener una documentación GTK-Doc. Pero también es útil escribir una documentación GTK-Doc para el código interno de una aplicación. Como se explica en la sección~\ref{intro-backend-frontend-separation} p.~\pageref{intro-backend-frontend-separation}, es una buena práctica separar el backend de una aplicación de su(s) frontend(s), y escribir el backend como una biblioteca interna o, más tarde, una biblioteca compartida. Como tal, se recomienda documentar la API pública del backend con GTK-Doc, incluso si sigue siendo una biblioteca interna vinculada estáticamente. Porque cuando el código base se vuelve más grande, es de gran ayuda -- especialmente para los recién llegados -- tener una descripción general de las clases disponibles y saber cómo usar una clase sin la necesidad de comprender su implementación.
 
 \subsection{Anotaciones de introspección de GObject}
 El comentario de GTK-Doc para la función \lstinline{myapp_spell_checker_get_suggestions()} contiene anotaciones de GObject Introspection para el valor de retorno:
@@ -141,7 +141,7 @@ Existe la opción de advertencia \texttt{-Wmissing-prototypes} GCC para garantiz
 Además, contrariamente a una función pública, una función \lstinline{static} no requiere que el proyecto y los espacios de nombres de la clase tengan el prefijo (aquí, \lstinline{myapp_spell_checker}).
 
 \subsection{Programación defensiva}
-Cada función pública verifica sus precondiciones con las macros de depuración de \lstinline{g_return_if_fail()} o \lstinline{g_return_val_if_fail()}, como se describe en la sección~\ref{glib-debugging-macros} p.~\pageref{glib-debugging- macros}. El parámetro \emph{self} también se verifica, para ver si no es \lstinline{NULL}, excepto por el destructor, \lstinline{myapp_spell_checker_free()}, para que sea consistente con \lstinline{free()} y \lstinline{g_free()} que acepta un parámetro \lstinline{NULL} por conveniencia.
+Cada función pública verifica sus precondiciones con las macros de depuración de \lstinline{g_return_if_fail()} o \lstinline{g_return_val_if_fail()}, como se describe en la sección~\ref{glib-debugging-macros} p.~\pageref{glib-debugging-macros}. El parámetro \emph{self} también se verifica, para ver si no es \lstinline{NULL}, excepto por el destructor, \lstinline{myapp_spell_checker_free()}, para que sea consistente con \lstinline{free()} y \lstinline{g_free()} que acepta un parámetro \lstinline{NULL} por conveniencia.
 
 Tenga en cuenta que las macros \lstinline{g_return} deben usarse solo para los puntos de entrada de una clase, es decir, en sus funciones públicas. Por lo general, puede asumir que los parámetros pasados a una función \lstinline{static} son válidos, especialmente el parámetro \emph{self}. Sin embargo, a veces es útil verificar un argumento de una función \lstinline{static} con \lstinline{g_assert()}, para hacer que el código sea más robusto y auto-documentado.
 
@@ -204,4 +204,4 @@ En GLib/GTK, esta convención de prefijo de subrayado se aplica normalmente a ca
 
 Tenga en cuenta que existen herramientas más sofisticadas que \shellcmd{grep} para examinar una base de código C, por ejemplo, Cscope\footnote{http://cscope.sourceforge.net/}.
 
-Para aprender más sobre el estilo de codificación usado en GLib, GTK y GNOME, lea las Pautas de programación de GNOME~\cite{gnome-programming-Guidelines}.
+Para aprender más sobre el estilo de codificación usado en GLib, GTK y GNOME, lea las Pautas de programación de GNOME~\cite{gnome-programming-guidelines}.

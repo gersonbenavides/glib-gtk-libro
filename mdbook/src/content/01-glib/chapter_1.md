@@ -1,0 +1,1 @@
+# GLib, la biblioteca principal

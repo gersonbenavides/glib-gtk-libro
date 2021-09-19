@@ -1,0 +1,6 @@
+[book]
+authors = ["Gerson Benavides"]
+language = "en"
+multilingual = false
+src = "src"
+title = "La plataforma de desarrollo GLib/GTK"
