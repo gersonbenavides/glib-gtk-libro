@@ -45,7 +45,7 @@ Los tipos primitivos más importantes definidos por GLib:
 
 GLib define una serie de macros familiares que se utilizan en muchos programas C, que se muestran en el Listado~\ref{glib-simplemacros}. Todos estos deben ser autoexplicativos. \lstinline{MIN()}/\lstinline{MAX()} devuelven el menor o mayor de sus argumentos. \lstinline{ABS()} devuelve el valor absoluto de su argumento. \lstinline{CLAMP(x, low, high)} significa \lstinline{x}, a menos que \lstinline{x} esté fuera del rango [\lstinline{low},~\lstinline{high}]; si \lstinline{x} está por debajo del rango, se devuelve \lstinline{low}; si \lstinline{x} está por encima del rango, se devuelve \lstinline{high}. Además de las macros que se muestran en el Listado~\ref{glib-simplemacros}, \lstinline{TRUE}/\lstinline{FALSE}/\lstinline{NULL} se definen como los habituales \lstinline{1}/\lstinline{0}/\lstinline{((void *)0)}.
 
-\begin{lstlisting}[float, caption={Familiar C Macros}, label=glib-simplemacros]
+\begin{lstlisting}[float, caption={Macros C familiares}, label=glib-simplemacros]
 #include <glib.h>
 
 MAX (a, b);
@@ -56,7 +56,7 @@ CLAMP (x, low, high);
 
 También hay muchas macros exclusivas de GLib, como las conversiones portátiles \lstinline{gpointer}-to-\lstinline{gint} y \lstinline{gpointer}-to-\lstinline{guint} que se muestran en el Listado ~\ref{glib-pointerint}.
 
-\begin{lstlisting}[float, caption={Macros for storing integers in pointers}, label=glib-pointerint]
+\begin{lstlisting}[float, caption={Macros para almacenar enteros en punteros}, label=glib-pointerint]
 #include <glib.h>
 
 GINT_TO_POINTER (p);
@@ -86,7 +86,7 @@ GLib tiene un buen conjunto de macros que puede usar para hacer cumplir invarian
 
 Por supuesto, debe tener mucho cuidado de asegurarse de que su código no dependa sutilmente de declaraciones de solo depuración para funcionar correctamente. Las declaraciones que desaparecerán en el código de producción \emph{nunca} deberían tener efectos secundarios.
 
-\begin{lstlisting}[float, caption={Precondition Checks}, label=glib-precondition]
+\begin{lstlisting}[float, caption={Comprobaciones de condiciones previas}, label=glib-precondition]
 #include <glib.h>
 
 g_return_if_fail (condition);
@@ -123,7 +123,7 @@ g_hash_table_foreach (GHashTable *hash_table,
 
 Sin las comprobaciones, pasar \lstinline{NULL} como parámetro a esta función resultaría en una misteriosa falla de segmentación. La persona que usa la biblioteca tendría que averiguar dónde ocurrió el error con un depurador y tal vez incluso indagar en el código GLib para ver qué estaba mal. Con las comprobaciones, obtendrán un bonito mensaje de error que les indicará que los argumentos \lstinline{NULL} no están permitidos.
 
-\begin{lstlisting}[float, caption={Assertions}, label=glib-assertions]
+\begin{lstlisting}[float, caption={Afirmaciones}, label=glib-assertions]
 #include <glib.h>
 
 g_assert (condition);
@@ -193,7 +193,7 @@ Estos son agradables de varias maneras pequeñas:
     \item \lstinline{g_free()} ignorará cualquier puntero \lstinline{NULL} que le pase.
 \end{itemize}
 
-\begin{lstlisting}[float, caption={GLib memory allocation}, label=glib-malloc-free]
+\begin{lstlisting}[float, caption={Asignación de memoria GLib}, label=glib-malloc-free]
 #include <glib.h>
 
 gpointer g_malloc (gsize n_bytes);
@@ -211,7 +211,7 @@ Si no es obvio: \lstinline{g_malloc0()} llena la memoria sin procesar con bits n
 
 Por último, existen macros de asignación con reconocimiento de tipos, que se muestran en el Listado~\ref{glib-g_new}. El argumento \lstinline{type} para cada uno de estos es el nombre de un tipo, y el argumento \lstinline{count} es el número de bloques de tamaño \lstinline{type} a asignar. Estas macros le ahorran algo de escritura y multiplicación y, por lo tanto, son menos propensas a errores. Se lanzan automáticamente al tipo de puntero de destino, por lo que intentar asignar la memoria asignada al tipo de puntero incorrecto debería activar una advertencia del compilador. (Si tiene las advertencias activadas, ¡como debería hacerlo un programador responsable!)
 
-\begin{lstlisting}[float, caption={Allocation macros}, label=glib-g_new]
+\begin{lstlisting}[float, caption={Macros de asignación}, label=glib-g_new]
 #include <glib.h>
 
 g_new (type, count);
@@ -225,7 +225,7 @@ GLib proporciona una serie de funciones para el manejo de cadenas; algunos son e
 
 Para aquellos interesados en una cadena mejor que \lstinline{gchar *}, también hay un tipo \lstinline{GString}. No se trata en este libro; consulte la documentación de la API para obtener más información.
 
-\begin{lstlisting}[float, caption={Portability Wrapper}, label=glib-strext]
+\begin{lstlisting}[float, caption={Envoltorio de portabilidad}, label=glib-strext]
 gint g_snprintf (gchar *string, gulong n, gchar const *format, ...);
 \end{lstlisting}
 
@@ -233,7 +233,7 @@ El listado~\ref{glib-strext} muestra un sustituto que GLib proporciona para la f
 
 Preste atención a no usar la función \lstinline{sprintf()} que causa fallas, crea agujeros de seguridad y generalmente es maligna. Al usar \lstinline{g_snprintf()} o \lstinline{g_strdup_printf()} relativamente seguros (ver más abajo), puedes despedirte de \lstinline{sprintf()} para siempre.
 
-\begin{lstlisting}[float, caption={Allocating Strings}, label=glib-strdup]
+\begin{lstlisting}[float, caption={Asignar cadenas}, label=glib-strdup]
 #include <glib.h>
 
 gchar * g_strdup (const gchar *str);
@@ -256,7 +256,7 @@ En su lugar, podría decir esto y evitar tener que averiguar la longitud adecuad
 gchar *str = g_strdup_printf ("%d printf-style %s", num, string);
 \end{lstlisting}
 
-\begin{lstlisting}[float, caption={In-place string modifications}, label=glib-strmanip]
+\begin{lstlisting}[float, caption={Modificaciones de cadenas in situ}, label=glib-strmanip]
 #include <glib.h>
 
 gchar * g_strchug (gchar *string);
@@ -266,7 +266,7 @@ gchar * g_strstrip (gchar *string);
 
 Las funciones del Listado ~\ref{glib-strmanip} modifican una cadena en el lugar: \lstinline{g_strchug ()} y \lstinline{g_strchomp()} ``chug'' la cadena (elimina los espacios iniciales), o ``chomp'' (eliminar los espacios finales). Esas dos funciones devuelven la cadena, además de modificarla en el lugar; en algunos casos, puede ser conveniente utilizar el valor de retorno. Hay una macro, \lstinline{g_strstrip()}, que combina ambas funciones para eliminar los espacios iniciales y finales.
 
-\begin{lstlisting}[float, caption={String Conversions}, label=glib-strformats]
+\begin{lstlisting}[float, caption={Conversiones de cadenas}, label=glib-strformats]
 #include <glib.h>
 
 gdouble g_strtod (const gchar *nptr, gchar **endptr);
@@ -278,7 +278,7 @@ El listado~\ref{glib-strformats} muestra algunas funciones semi-estándar más q
 
 \lstinline{g_strerror()} y \lstinline{g_strsignal()} son como sus equivalentes no \lstinline{g_}, pero portátiles. (Devuelven una representación de cadena para un \lstinline{errno} o un número de señal).
 
-\begin{lstlisting}[float, caption={Concatenating Strings}, label=glib-strconcat]
+\begin{lstlisting}[float, caption={Concatenar cadenas}, label=glib-strconcat]
 #include <glib.h>
 
 gchar * g_strconcat (const gchar *string1, ...);
@@ -287,7 +287,7 @@ gchar * g_strjoin (const gchar *separator, ...);
 
 GLib proporciona algunas funciones convenientes para concatenar cadenas, que se muestran en el Listado~\ref{glib-strconcat}. \lstinline{g_strconcat()} devuelve una cadena recién asignada creada concatenando cada una de las cadenas en la lista de argumentos. El último argumento debe ser \lstinline{NULL}, por lo que \lstinline{g_strconcat()} sabe cuándo detenerse. \lstinline{g_strjoin()} es similar, pero \lstinline{separator} se inserta entre cada cadena. Si \lstinline {separator} es \lstinline{NULL}, no se usa ningún separador.
 
-\begin{lstlisting}[float, caption={Manipulating \lstinline{NULL}-terminated string vectors}, label=glib-strvector]
+\begin{lstlisting}[float, caption={Manipulación de vectores de cadena terminados en \lstinline{NULL}}, label=glib-strvector]
 #include <glib.h>
 
 gchar ** g_strsplit (const gchar *string,
@@ -307,7 +307,7 @@ GLib implementa muchas estructuras de datos comunes, por lo que no tiene que rei
 
 GLib proporciona listas genéricas con enlaces simples y dobles, \lstinline{GSList} y \lstinline{GList}, respectivamente. Estos se implementan como listas de \lstinline{gpointer}; puede usarlos para contener enteros con las macros \lstinline{GINT_TO_POINTER} y \lstinline{GPOINTER_TO_INT}. \lstinline{GSList} y \lstinline{GList} tienen casi las mismas API, excepto que hay una función \lstinline{g_list_previous()} y no \lstinline{g_slist_previous()}. Esta sección discutirá \lstinline{GSList} pero todo también se aplica a la lista doblemente enlazada.
 
-\begin{lstlisting}[float, caption={\lstinline{GSList} cell}, label=glib-gslist-cell]
+\begin{lstlisting}[float, caption={Celda \lstinline{GSList}}, label=glib-gslist-cell]
 typedef struct _GSList GSList;
 
 struct _GSList
@@ -328,7 +328,7 @@ list = g_slist_append (list, element);
 
 Las listas GLib tienen una influencia Lisp notable; la lista vacía es un valor especial ``nil'' por esa razón. \lstinline{g_slist_prepend()} funciona de forma muy similar a \lstinline[language=Lisp]{cons} -- es una operación de tiempo constante ($O(1)$) que agrega una nueva celda al principio de la lista.
 
-\begin{lstlisting}[float, caption={Changing linked list contents}, label=glib-listchanging]
+\begin{lstlisting}[float, caption={Cambiar el contenido de la lista vinculada}, label=glib-listchanging]
 #include <glib.h>
 
 GSList * g_slist_append (GSList *list, gpointer data);
@@ -362,7 +362,7 @@ for (l = list; l != NULL; l = l->next)
   }
 \end{lstlisting}
 
-\begin{lstlisting}[float, caption={Freeing entire linked lists}, label=glib-listfree]
+\begin{lstlisting}[float, caption={Liberar listas enteras vinculadas}, label=glib-listfree]
 #include <glib.h>
 
 typedef void (* GDestroyNotify) (gpointer data);
@@ -486,7 +486,7 @@ copy_with_append (GSList      *list_of_strings,
 
 GLib y GTK usan mucho el lenguaje de ``puntero de función y datos de usuario''. Si tiene experiencia en programación funcional, esto es muy parecido a usar expresiones lambda para crear un \emph{cierre}. (Un cierre combina una función con un \emph{environment} -- un conjunto de enlaces nombre-valor. En este caso, el ``environment'' son los datos de usuario que pasa a \lstinline{append_foreach()}, y el ``cierre'' es la combinación del puntero de función y los datos del usuario).
 
-\begin{lstlisting}[float, caption={Manipulating a linked list}, label=glib-listmanip]
+\begin{lstlisting}[float, caption={Manipular una lista vinculada}, label=glib-listmanip]
 #include <glib.h>
 
 guint g_slist_length (GSList *list);
@@ -497,7 +497,7 @@ GSList * g_slist_copy (GSList *list);
 
 Hay algunas prácticas rutinas de manipulación de listas, listadas en Listado~\ref{glib-listmanip}. Con la excepción de \lstinline{g_slist_copy()}, todos estos afectan las listas en el lugar. Lo que significa que debe asignar el valor de retorno y olvidarse del puntero pasado, tal como lo hace al agregar o eliminar elementos de la lista. \lstinline{g_slist_copy()} devuelve una lista recién asignada, por lo que puede continuar usando ambas listas y debe liberar ambas listas eventualmente.
 
-\begin{lstlisting}[float, caption={Sorted lists}, label=glib-listsorted]
+\begin{lstlisting}[float, caption={Listas ordenadas}, label=glib-listsorted]
 #include <glib.h>
 
 typedef gint (* GCompareFunc) (gconstpointer a, gconstpointer b);
@@ -524,7 +524,7 @@ Hay dos tipos diferentes de árboles en GLib; \lstinline{GTree} es su árbol bin
 \subsubsection{GTree}
 
 % ARREGLARME hablar sobre g_tree_ref() y g_tree_unref()? Esas funciones suelen ser mejores que g_tree_destroy(), pero necesita un poco de explicación sobre la gestión de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
-\begin{lstlisting}[float, caption={Creating and destroying balanced binary trees}, label=glib-treeconstruct]
+\begin{lstlisting}[float, caption={Creando y destruyendo árboles binarios balanceados}, label=glib-treeconstruct]
 #include <glib.h>
 
 typedef gint (* GCompareFunc) (gconstpointer a, gconstpointer b);
@@ -546,7 +546,7 @@ Para crear y destruir un \lstinline {GTree}, use un constructor y un destructor 
 
 La estructura \lstinline{GTree} es un tipo de datos opaco. Se accede y modifica a su contenido únicamente con funciones públicas.
 
-\begin{lstlisting}[float, caption={Manipulating \lstinline{GTree} contents}, label=glib-treemanip]
+\begin{lstlisting}[float, caption={Manipular el contenido de \lstinline{GTree}}, label=glib-treemanip]
 #include <glib.h>
 
 void g_tree_insert (GTree *tree, gpointer key, gpointer value);
@@ -556,7 +556,7 @@ gpointer g_tree_lookup (GTree *tree, gconstpointer key);
 
 Las funciones para manipular el contenido del árbol se muestran en Listado~\ref{glib-treemanip}. Todo muy sencillo; \lstinline{g_tree_insert()} sobrescribe cualquier valor existente, así que si no usa \lstinline{g_tree_new_full()}, tenga cuidado si el valor existente es su único puntero a una porción de memoria asignada. Si \lstinline{g_tree_lookup()} no encuentra la clave, devuelve \lstinline{NULL}; de lo contrario, devuelve el valor asociado. Tanto las claves como los valores tienen el tipo \lstinline{gpointer} o \lstinline{gconstpointer}, pero las macros \lstinline{GPOINTER_TO_INT()} y \lstinline{GPOINTER_TO_UINT()} le permiten usar enteros en su lugar.
 
-\begin{lstlisting}[float, caption={Determining the size of a \lstinline{GTree}}, label=glib-treesize]
+\begin{lstlisting}[float, caption={Determinar el tamaño de un \lstinline{GTree}}, label=glib-treesize]
 #include <glib.h>
 
 gint g_tree_nnodes (GTree *tree);
@@ -565,7 +565,7 @@ gint g_tree_height (GTree *tree);
 
 Hay dos funciones que le dan una idea del tamaño del árbol, que se muestran en el Listado~\ref{glib-treesize}.
 
-\begin{lstlisting}[float, caption={Traversing a \lstinline{GTree}}, label=glib-treetraverse]
+\begin{lstlisting}[float, caption={Atravesando un \lstinline{GTree}}, label=glib-treetraverse]
 #include <glib.h>
 
 typedef gboolean (* GTraverseFunc) (gpointer key,
@@ -579,7 +579,7 @@ Usando \lstinline{g_tree_foreach()} (Listado~\ref{glib-treetraverse}) puedes rec
 
 \subsubsection{GNode}
 
-\begin{lstlisting}[float, caption={\lstinline{GNode} cell}, label=glib-nodecell]
+\begin{lstlisting}[float, caption={Celda \lstinline{GNode}}, label=glib-nodecell]
 typedef struct _GNode GNode;
 
 struct _GNode
@@ -594,7 +594,7 @@ struct _GNode
 
 A \lstinline{GNode} es un árbol N-ario, implementado como una lista doblemente enlazada con listas padre e hijo. Por lo tanto, la mayoría de las operaciones de lista tienen análogos en la API \lstinline{GNode}. Puedes caminar por el árbol de varias maneras. El listado~\ref{glib-nodecell} muestra la declaración de un nodo.
 
-\begin{lstlisting}[float, caption={Accessing \lstinline{GNode}}, label=glib-nodeaccess]
+\begin{lstlisting}[float, caption={Accediendo a \lstinline{GNode}}, label=glib-nodeaccess]
 #include <glib.h>
 
 g_node_prev_sibling (node);
@@ -604,7 +604,7 @@ g_node_first_child (node);
 
 Hay macros para acceder a los miembros de \lstinline{GNode}, que se muestran en el Listado~\ref{glib-nodeaccess}. Al igual que con \lstinline{GList}, el miembro \lstinline{data} está diseñado para usarse directamente. Estas macros devuelven los miembros \lstinline{next}, \lstinline{prev} y \lstinline{children} respectivamente; también comprueban si su argumento es \lstinline{NULL} antes de eliminar la referencia, y devuelven \lstinline{NULL} si lo es.
 
-\begin{lstlisting}[float, caption={Creating a \lstinline{GNode}}, label=glib-nodenew]
+\begin{lstlisting}[float, caption={Creando un \lstinline{GNode}}, label=glib-nodenew]
 #include <glib.h>
 
 GNode * g_node_new (gpointer data);
@@ -612,7 +612,7 @@ GNode * g_node_new (gpointer data);
 
 Para crear un nodo, se proporciona la función \lstinline{_new()} habitual (Listado~\ref{glib-nodenew}). \lstinline{g_node_new()} crea un nodo sin hijos y sin padres que contiene \lstinline{datos}. Normalmente, \lstinline{g_node_new()} se usa solo para crear el nodo raíz; Se proporcionan macros de conveniencia que crean automáticamente nuevos nodos según sea necesario.
 
-\begin{lstlisting}[float, caption={Building a \lstinline{GNode} tree}, label=glib-nodebuild]
+\begin{lstlisting}[float, caption={Construyendo un árbol \lstinline{GNode}}, label=glib-nodebuild]
 #include <glib.h>
 
 GNode * g_node_insert (GNode *parent, gint position, GNode *node);
@@ -622,7 +622,7 @@ GNode * g_node_prepend (GNode *parent, GNode *node);
 
 Para construir un árbol se utilizan las operaciones fundamentales que se muestran en el Listado~\ref{glib-nodebuild}. Cada operación devuelve el nodo recién agregado, para mayor comodidad al escribir bucles o recuperar el árbol. A diferencia de \lstinline{GList}, es seguro ignorar el valor de retorno.
 
-\begin{lstlisting}[float, caption={Building a \lstinline{GNode}}, label=glib-nodeconv]
+\begin{lstlisting}[float, caption={Construyendo un \lstinline{GNode}}, label=glib-nodeconv]
 #include <glib.h>
 
 g_node_append (parent, node);
@@ -634,7 +634,7 @@ g_node_append_data (parent, data);
 
 Las macros de conveniencia que se muestran en el Listado~\ref{glib-nodeconv} se implementan en términos de las operaciones fundamentales. \lstinline{g_node_append()} es análogo a \lstinline{g_node_prepend()}; el resto toma un argumento \lstinline{data}, automáticamente le asigna un nodo y llama a la operación básica correspondiente.
 
-\begin{lstlisting}[float, caption={Destroying a \lstinline{GNode}}, label=glib-nodedestroy]
+\begin{lstlisting}[float, caption={Destruyendo un \lstinline{GNode}}, label=glib-nodedestroy]
 #include <glib.h>
 
 void g_node_destroy (GNode *root);
@@ -643,7 +643,7 @@ void g_node_unlink (GNode *node);
 
 Para eliminar un nodo del árbol, hay dos funciones que se muestran en el Listado~\ref{glib-nodedestroy}. \lstinline{g_node_destroy()} elimina el nodo de un árbol, destruyéndolo a él ya todos sus hijos. \lstinline{g_node_unlink()} elimina un nodo y lo convierte en un nodo raíz; es decir, convierte un subárbol en un árbol independiente.
 
-\begin{lstlisting}[float, caption={Predicates for \lstinline{GNode}}, label=glib-nodeextrema]
+\begin{lstlisting}[float, caption={Predicados para \lstinline{GNode}}, label=glib-nodeextrema]
 #include <glib.h>
 
 G_NODE_IS_ROOT (node);
@@ -652,7 +652,7 @@ G_NODE_IS_LEAF (node);
 
 Hay dos macros para detectar la parte superior e inferior de un árbol \lstinline{GNode}, que se muestran en el Listado~\ref{glib-nodeextrema}. Un nodo raíz se define como un nodo sin padres ni hermanos. Un nodo hoja no tiene hijos.
 
-\begin{lstlisting}[float, caption={\lstinline{GNode} properties}, label=glib-nodeproperties]
+\begin{lstlisting}[float, caption={Propiedades de \lstinline{GNode}}, label=glib-nodeproperties]
 #include <glib.h>
 
 guint g_node_n_nodes (GNode *root, GTraverseFlags flags);
@@ -686,7 +686,7 @@ Las funciones de recorrido de árbol de \lstinline{GNode} tienen un argumento \l
     \lstinline{(G_TRAVERSE_LEAVES | G_TRAVERSE_NON_LEAVES)}.
 \end{itemize}
 
-\begin{lstlisting}[float, caption={Accessing a \lstinline{GNode}}, label=glib-nodeaccessors]
+\begin{lstlisting}[float, caption={Accediendo a un \lstinline{GNode}}, label=glib-nodeaccessors]
 #include <glib.h>
 
 typedef gboolean (* GNodeTraverseFunc) (GNode *node, gpointer data);
@@ -722,7 +722,7 @@ Además de \lstinline{GHashFunc}, se requiere una \lstinline{GEqualFunc} para pr
 
 Si usa el constructor básico \lstinline{g_hash_table_new()}, recuerde que GLib no tiene forma de saber cómo destruir los datos contenidos en su tabla hash; solo destruye la mesa misma. Si es necesario liberar las claves y los valores, use \lstinline{g_hash_table_new_full()}, las funciones de destrucción se llamarán en cada clave y valor antes de destruir la tabla hash.
 
-\begin{lstlisting}[float, caption={\lstinline{GHashTable} constructors and destructor}, label=glib-hashnew]
+\begin{lstlisting}[float, caption={\lstinline{GHashTable} constructores y destructores}, label=glib-hashnew]
 #include <glib.h>
 
 typedef guint (* GHashFunc) (gconstpointer key);
@@ -741,7 +741,7 @@ void g_hash_table_destroy (GHashTable *hash_table);
 
 Se proporcionan funciones de comparación y hash listas para usar para claves comunes: enteros, punteros, cadenas y otros tipos de GLib. Los más comunes se enumeran en el Listado~\ref{glib-hashfuncs}. Las funciones para enteros aceptan un puntero a \lstinline{gint}, en lugar de la \lstinline{gint} en sí. Si pasa \lstinline{NULL} como argumento de la función hash a \lstinline{g_hash_table_new()}, \lstinline{g_direct_hash ()} se usa por defecto. Si pasa \lstinline{NULL} como la función de igualdad de claves, entonces se usa una comparación de puntero simple (equivalente a \lstinline{g_direct_equal()}, pero sin una llamada de función).
 
-\begin{lstlisting}[float, caption={Pre-written hashes/comparisons}, label=glib-hashfuncs]
+\begin{lstlisting}[float, caption={Hashes/comparaciones preescritos}, label=glib-hashfuncs]
 #include <glib.h>
 
 guint g_int_hash (gconstpointer key);
@@ -756,7 +756,7 @@ Manipular la tabla hash es simple. Las rutinas se resumen en Listado~\ref{glib-h
 
 El \lstinline{g_hash_table_lookup()} simple devuelve el valor que encuentra asociado con \lstinline{key}, o \lstinline{NULL} si no hay ningún valor. A veces esto no funciona. Por ejemplo, \lstinline{NULL} puede ser un valor válido en sí mismo. Si está utilizando cadenas como claves, especialmente cadenas asignadas dinámicamente, saber que una clave está en la tabla puede no ser suficiente; es posible que desee recuperar el \lstinline{gchar*} exacto que utiliza la tabla hash para representar la clave \lstinline{"foo"}. Se proporciona una segunda función de búsqueda para casos como estos. \lstinline{g_hash_table_lookup_extended()} devuelve \lstinline{TRUE} si la búsqueda se realizó correctamente; si devuelve \lstinline{TRUE}, coloca la clave y el valor que encontró en las ubicaciones proporcionadas.
 
-\begin{lstlisting}[float, caption={Manipulating a \lstinline{GHashTable}}, label=glib-hashmanip]
+\begin{lstlisting}[float, caption={Manipular una \lstinline{GHashTable}}, label=glib-hashmanip]
 #include <glib.h>
 
 gboolean g_hash_table_insert (GHashTable *hash_table, gpointer key, gpointer value);
@@ -838,7 +838,7 @@ Cuando se ejecuta una devolución de llamada, bloquea el bucle principal. Entonc
 
 Para la segunda solución, GLib proporciona las funciones \lstinline{g_idle_add()} y \lstinline{g_timeout_add()} (ver Listado~\ref{glib-idle-timeout}). Se llamará a una función inactiva cuando el bucle principal esté inactivo, es decir, cuando el bucle principal no tenga nada más que hacer. Se llama a una función de tiempo de espera a intervalos regulares. El valor de retorno booleano de una \lstinline{GSourceFunc} permite continuar o detener la función. Si continúa, el bucle principal volverá a llamar a la función en el siguiente tiempo de inactividad o tiempo de espera. Puede eliminar manualmente \lstinline{GSourceFunc} llamando a \lstinline{g_source_remove()}, que toma como parámetro el ID de origen devuelto por \lstinline{g_idle_add()} o \lstinline{g_timeout_add()}. Debe prestar atención para eliminar una \lstinline{GSourceFunc} cuando se destruye el objeto en el que realiza el cálculo. Por lo tanto, puede almacenar el ID de fuente en un atributo de objeto y llamar a \lstinline{g_source_remove()} en el destructor si el ID de fuente es diferente de \lstinline{0}. (Consulte la biblioteca de GObject para crear sus propias clases en C.)
 
-\begin{lstlisting}[float, caption={Idles and timeouts}, label=glib-idle-timeout]
+\begin{lstlisting}[float, caption={Inactivos y tiempos de espera}, label=glib-idle-timeout]
 #include <glib.h>
 
 typedef gboolean (* GSourceFunc) (gpointer user_data);
