@@ -4,7 +4,7 @@ Esta es una traducción al español del libro [The GLib/GTK Development Platform
 
 ## Libro en LaTeX
 
-Puede descargar el libro ["La plataforma de desarrollo GLib/GTK"](latex/glib-gtk-libro.pdf) en formato PDF o puede realizar la compilación usted mismo escribiendo:
+Puede descargar el libro ["La plataforma de desarrollo GLib/GTK"](latex/glib_gtk_libro.pdf) en formato PDF o puede realizar la compilación usted mismo escribiendo:
 
 ```terminal
 $ cd latex
