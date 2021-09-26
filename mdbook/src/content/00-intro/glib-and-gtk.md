@@ -14,7 +14,7 @@ GTK es un conjunto de herramientas de widgets basado en GLib que se puede utiliz
 
 La primera versión de GTK +, o GIMP Tool Kit, fue escrita principalmente por Peter Mattis en 1996 para el GIMP (Programa de manipulación de imágenes GNU), pero se ha convertido rápidamente en una biblioteca de uso general. El “+” se ha agregado más tarde para distinguir entre la versión original y una nueva versión que agregó características orientadas a objetos. GLib comenzó como parte de GTK +, pero ahora es una biblioteca independiente.
 
-> **📌 Nota:** El nombre `` The GIMP Tool Kit '' ahora rara vez se usa, hoy se conoce más comúnmente como GTK para abreviar.
+> **📌 Nota:** El nombre "The GIMP Tool Kit" ahora rara vez se usa, hoy se conoce más comúnmente como GTK para abreviar.
 
 Las API GLib y GTK están documentadas con GTK-Doc. Los comentarios especiales están escritos en el código fuente y GTK-Doc extrae esos comentarios para generar páginas HTML.
 

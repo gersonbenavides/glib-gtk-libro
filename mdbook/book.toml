@@ -1,6 +1,15 @@
 [book]
-authors = ["Gerson Benavides"]
-language = "en"
+authors = ["Sébastien Wilmet", "Gerson Benavides"]
+language = "es"
 multilingual = false
 src = "src"
 title = "La plataforma de desarrollo GLib/GTK"
+
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+# google-analytics = ""
+additional-css = ["./src/assets/css/custom.css"]
+git-repository-url = "https://github.com/gersonbdev/glib-gtk-libro"
+git-repository-icon = "fa-github"

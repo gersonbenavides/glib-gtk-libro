@@ -7,6 +7,8 @@
 	- [El escritorio GNOME](./content/00-intro/gnome-desktop.md)
 	- [Prerrequisitos](./content/00-intro/prerequisites.md)
 	- [¿Por qué y cuándo se usa el lenguaje C?](./content/00-intro/why-and-when-c.md)
+		- [Separación de backend del frontend](./content/00-intro/separate-backend.md)
+		- [Otros aspectos a tener en cuenta](./content/00-intro/other-aspects.md)
 	- [Ruta de aprendizaje](./content/00-intro/learning-path.md)
 	- [El entorno de desarrollo](./content/00-intro/environment.md)
 
@@ -20,7 +22,21 @@
 		- [Memoria]()
 		- [Manejo de string]()
 	- [Estructura de datos]()
-		- [El bucle del evento principal]()
-		- [Otras características]()
+		- [Listas]()
+		- [Árboles]()
+		- [Tablas hash]()
+	- [El bucle del evento principal]()
+	- [Otras características]()
 
 - [Programación orientada a objetos en C]()
+	-[Programación semi-orientada a objetos en C]()
+		- [Ejemplo de encabezado]()
+		- [El archivo *.c correspondiente]()
+	- [Una suave introducción a GObject]()
+	- [GTK]()
+		- [Ejemplo de una arquitectura de código de aplicación GTK]()
+	- [Lectura adicional]()
+
+---
+
+[Bibliografía](./content/00-intro/bibliography.md)

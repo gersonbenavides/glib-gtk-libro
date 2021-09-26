@@ -1,9 +1,13 @@
+<script>let listing = 2;</script>
+
 # Macros de depuración
 
 GLib tiene un buen conjunto de macros que puede usar para hacer cumplir invariantes y condiciones previas en su código. GTK los usa generosamente, una de las razones por las que es tan estable y fácil de usar. Todos desaparecen cuando define `G_DISABLE_CHECKS` o `G_DISABLE_ASSERT`, por lo que no hay penalización de rendimiento en el código de producción. Usarlos generosamente es una muy, muy buena idea. Encontrará errores mucho más rápido si lo hace. Incluso puede agregar afirmaciones y verificaciones cada vez que encuentre un error para asegurarse de que el error no vuelva a aparecer en versiones futuras; esto complementa un conjunto de regresión. Las comprobaciones son especialmente útiles cuando el código que está escribiendo será utilizado como caja negra por otros programadores; los usuarios sabrán inmediatamente cuándo y cómo han hecho un mal uso de su código.
 
 
 Por supuesto, debe tener mucho cuidado de asegurarse de que su código no dependa sutilmente de declaraciones de solo depuración para funcionar correctamente. Las declaraciones que desaparecerán en el código de producción *nunca* deberían tener efectos secundarios.
+
+<a id="glib-precondition"></a>
 
 ```c
 #include <glib.h>
@@ -12,7 +16,13 @@ g_return_if_fail (condition);
 g_return_val_if_fail (condition, return_value);
 ```
 
-El Listado 2.3 muestra las verificaciones de condiciones previas de GLib. `g_return_if_fail()` imprime una advertencia y regresa inmediatamente de la función actual si `condition` es `FALSE` . `g_return_val_if_fail()` es similar pero le permite devolver algún `return_value`. Estos macros son increíblemente útiles, si las usa libremente, especialmente en
+<div class="caption">
+
+<p>Listado 2.<script>document.write(listing+1);</script>: Comprobaciones de condiciones previas.</p>
+
+</div>
+
+El <a href="#glib-precondition">Listado 2.<script>document.write(listing+1);</script></a> muestra las verificaciones de condiciones previas de GLib. `g_return_if_fail()` imprime una advertencia y regresa inmediatamente de la función actual si `condition` es `FALSE` . `g_return_val_if_fail()` es similar pero le permite devolver algún `return_value`. Estos macros son increíblemente útiles, si las usa libremente, especialmente en
 combinación con la verificación de tipo en tiempo de ejecución de GObject, reducirá a la mitad el tiempo que dedica a buscar punteros incorrectos y errores
 tipográficos.
 
