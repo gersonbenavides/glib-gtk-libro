@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html lang="es" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>El escritorio GNOME - La plataforma de desarrollo GLib/GTK</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.././src/assets/css/custom.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../content/00-intro/title.html">La plataforma de desarrollo GLib/GTK</a></li><li class="chapter-item expanded "><a href="../../content/00-intro/intro.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/00-intro/glib-and-gtk.html"><strong aria-hidden="true">1.1.</strong> ¿Qué es GLib y GTK?</a></li><li class="chapter-item expanded "><a href="../../content/00-intro/gnome-desktop.html" class="active"><strong aria-hidden="true">1.2.</strong> El escritorio GNOME</a></li><li class="chapter-item expanded "><a href="../../content/00-intro/prerequisites.html"><strong aria-hidden="true">1.3.</strong> Prerrequisitos</a></li><li class="chapter-item expanded "><a href="../../content/00-intro/why-and-when-c.html"><strong aria-hidden="true">1.4.</strong> ¿Por qué y cuándo se usa el lenguaje C?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/00-intro/separate-backend.html"><strong aria-hidden="true">1.4.1.</strong> Separación de backend del frontend</a></li><li class="chapter-item expanded "><a href="../../content/00-intro/other-aspects.html"><strong aria-hidden="true">1.4.2.</strong> Otros aspectos a tener en cuenta</a></li></ol></li><li class="chapter-item expanded "><a href="../../content/00-intro/learning-path.html"><strong aria-hidden="true">1.5.</strong> Ruta de aprendizaje</a></li><li class="chapter-item expanded "><a href="../../content/00-intro/environment.html"><strong aria-hidden="true">1.6.</strong> El entorno de desarrollo</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../content/01-glib/glib.html"><strong aria-hidden="true">2.</strong> GLib, la biblioteca principal</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/01-glib/basics.html"><strong aria-hidden="true">2.1.</strong> Lo esencial</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/01-glib/type-def.html"><strong aria-hidden="true">2.1.1.</strong> Definiciones de tipo</a></li><li class="chapter-item expanded "><a href="../../content/01-glib/freq-macros.html"><strong aria-hidden="true">2.1.2.</strong> Macros de uso frecuente</a></li><li class="chapter-item expanded "><a href="../../content/01-glib/debug-macros.html"><strong aria-hidden="true">2.1.3.</strong> Macros de depuración</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.4.</strong> Memoria</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.5.</strong> Manejo de string</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Estructura de datos</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.1.</strong> Listas</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.2.</strong> Árboles</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.3.</strong> Tablas hash</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.3.</strong> El bucle del evento principal</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> Otras características</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Programación orientada a objetos en C</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Una suave introducción a GObject</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> GTK</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.1.</strong> Ejemplo de una arquitectura de código de aplicación GTK</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Lectura adicional</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../content/00-intro/bibliography.html">Bibliografía</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">La plataforma de desarrollo GLib/GTK</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gersonbdev/glib-gtk-libro" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="el-escritorio-gnome"><a class="header" href="#el-escritorio-gnome">El escritorio GNOME</a></h1>
+<p>Un proyecto importante para GLib y GTK es GNOME. GNOME, que también forma parte de GNU, es un entorno de escritorio libre iniciado en 1997 por Miguel de Icaza y Federico Mena-Quintero. GNOME hace un uso extensivo de GTK, y el último ahora es desarrollado principalmente por desarrolladores de GNOME.</p>
+<p>“GNOME” es en realidad un acrónimo: GNU Network Object Model Environment.</p>
+<blockquote>
+<p><strong>📌 Nota:</strong> En cuanto a GTK, el nombre completo de GNOME rara vez se usa y no refleja la realidad actual.</p>
+</blockquote>
+<p>Originalmente, el proyecto tenía la intención de crear un marco para objetos de aplicación, similar a las tecnologías OLE y COM de Microsoft. Sin embargo, el alcance del proyecto se expandió rápidamente; quedó claro se requería un trabajo preliminar sustancial antes de que la parte del nombre de &quot;network object&quot; pudiera convertirse en realidad. Las versiones antiguas de GNOME incluían una arquitectura de incrustación de objetos llamada Bonobo, y GNOME 1.0 incluía un ORB CORBA rápido y ligero llamado ORBit. Bonobo ha sido reemplazado por D-Bus un sistema de comunicación entre procesos.</p>
+<p>GNOME tiene dos caras importantes. Desde la perspectiva del usuario, es un entorno de escritorio integrado y una suite de aplicaciones. Desde la perspectiva del programador, es un marco de desarrollo de aplicaciones (compuesto por numerosas bibliotecas útiles que se basan en GLib y GTK). Las aplicaciones
+escritas con las bibliotecas de GNOME funcionan bien incluso si el usuario no está ejecutando el entorno de escritorio, pero se integran bien con el escritorio de GNOME si está disponible.</p>
+<p>El entorno de escritorio incluye un &quot;shell&quot; para cambiar de tareas y ejecutar programas, un &quot;centro de control&quot; para la configuración, muchas aplicaciones como un administrador de archivos, un navegador web, un reproductor de películas, etc. línea de comando tradicional de Unix detrás de una interfaz gráfica fácil de usar.</p>
+<p>El marco de desarrollo de GNOME permite escribir aplicaciones interoperables, coherentes y fáciles de usar. Los diseñadores de sistemas de ventanas como X11 o Wayland tomaron la decisión deliberada de no imponer ninguna política de interfaz de usuario a los desarrolladores; GNOME agrega una &quot;capa de política&quot;, creando una apariencia coherente. Las aplicaciones GNOME terminadas funcionan bien con el escritorio GNOME, pero también se pueden usar de forma &quot;independiente&quot; -- los usuarios solo necesitan instalar las bibliotecas compartidas de GNOME. Una aplicación GNOME no está vinculada a un sistema de ventanas específico, GTK proporciona backends para X Window System, Wayland, Mac OS X, Windows e incluso para un navegador web.</p>
+<p>En el momento de escribir este artículo, hay nuevas versiones estables de GLib, GTK y GNOME cada seis meses, alrededor de marzo y septiembre. Un número de versión tiene la forma &quot;<code>major.minor.micro</code>&quot;, donde &quot;<code>minor</code>&quot; es incluso para versiones estables e isodd para versiones inestables. Por ejemplo, las versiones 3.18. * Son estables, pero las versiones 3.19. * Son inestables. Una nueva versión micro estable (por ejemplo, 3.18.0 → 3.18.1) no agrega nuevas funciones, solo actualizaciones de traducción, corrección de errores y mejoras de rendimiento. Los componentes de GNOME deben instalarse con las mismas versiones, junto con la versión de GTK y GLib lanzada al mismo tiempo; por ejemplo, es una mala idea ejecutar un demonio GNOME en la versión 3.18 con el centro de control en la versión 3.16. En el momento de escribir este artículo, las últimas versiones estables son: GLib 2.46, GTK 3.18 y GNOME 3.18, todas lanzadas al mismo tiempo en septiembre de 2015. Para una biblioteca, un nuevo número de versión principal generalmente significa que ha habido una interrupción de la API, pero afortunadamente la versión principal anterior. Las versiones se pueden instalar en paralelo con la nueva versión. Durante un ciclo de desarrollo (por ejemplo, 3.19), no hay garantías de estabilidad API para <em>nuevas</em> funciones; pero al ser uno de los primeros en adoptarlo, sus comentarios son útiles para descubrir más rápidamente fallas y errores de diseño.</p>
+<p>Más información sobre GNOME: (www.gnome.org)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../content/00-intro/glib-and-gtk.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../content/00-intro/prerequisites.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../content/00-intro/glib-and-gtk.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../content/00-intro/prerequisites.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
