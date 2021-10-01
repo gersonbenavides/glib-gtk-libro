@@ -18,7 +18,7 @@ g_return_val_if_fail (condition, return_value);
 
 <div class="caption">
 
-<p>Listado 2.<script>document.write(listing+1);</script>: Comprobaciones de condiciones previas.</p>
+<p>Listado 2.<script>document.write(listing+=1);</script>: Comprobaciones de condiciones previas.</p>
 
 </div>
 

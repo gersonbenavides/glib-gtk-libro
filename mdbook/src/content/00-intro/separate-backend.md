@@ -1,13 +1,10 @@
 # Separación de backend del frontend
 
-Una buena práctica es separar la interfaz gráfica de usuario del resto de la aplicación. Por diversas razones, la interfaz gráfica de una aplicación tiende a ser una pieza de software excepcionalmente volátil y en constante cambio. Es el foco
-de la mayoría de las solicitudes de cambio de los usuarios. Es difícil planificar y ejecutar bien la primera vez; a menudo descubrirá que algún aspecto es desagradable de usar solo después de haberlo escrito. A veces es deseable tener varias interfaces de usuario diferentes, por ejemplo, una versión de línea de comandos o una interfaz basada en web.
+Una buena práctica es separar la interfaz gráfica de usuario del resto de la aplicación. Por diversas razones, la interfaz gráfica de una aplicación tiende a ser una pieza de software excepcionalmente volátil y en constante cambio. Es el foco de la mayoría de las solicitudes de cambio de los usuarios. Es difícil planificar y ejecutar bien la primera vez; a menudo descubrirá que algún aspecto es desagradable de usar solo después de haberlo escrito. A veces es deseable tener varias interfaces de usuario diferentes, por ejemplo, una versión de línea de comandos o una interfaz basada en web.
 
-En términos prácticos, esto significa que cualquier aplicación grande debe tener una separación radical entre sus diversos *frontends* o interfaces y el *backend*. El backend debe contener todas las "partes duras": sus algoritmos y estructuras de
-datos, el trabajo real realizado por la aplicación. Piense en ello como un "modelo" abstracto que se muestra y manipula el usuario.
+En términos prácticos, esto significa que cualquier aplicación grande debe tener una separación radical entre sus diversos *frontends* o interfaces y el *backend*. El backend debe contener todas las "partes duras": sus algoritmos y estructuras de datos, el trabajo real realizado por la aplicación. Piense en ello como un "modelo" abstracto que se muestra y manipula el usuario.
 
-Cada interfaz debe ser una "vista" y un "controlador". Como una "vista", la interfaz debe anotar cualquier cambio en el backend y cambiar la pantalla en consecuencia. Como un "controlador", la interfaz debe permitir al usuario
-transmitir solicitudes de cambio al backend (define cómo las manipulaciones de la interfaz se traducen en cambios en el modelo).
+Cada interfaz debe ser una "vista" y un "controlador". Como una "vista", la interfaz debe anotar cualquier cambio en el backend y cambiar la pantalla en consecuencia. Como un "controlador", la interfaz debe permitir al usuario transmitir solicitudes de cambio al backend (define cómo las manipulaciones de la interfaz se traducen en cambios en el modelo).
 
 Hay muchas formas de disciplinarse para mantener su aplicación separada. Un par de ideas útiles:
 

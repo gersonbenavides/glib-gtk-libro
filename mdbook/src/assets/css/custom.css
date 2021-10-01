@@ -1,4 +1,7 @@
 div.caption {
+}
+
+div.caption p {
     font-size: .8em;
     font-weight: 600;
     text-align: center;
