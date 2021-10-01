@@ -10,7 +10,8 @@
 
 ## Descargas
 
-* [Libro en formato PDF](https://github.com/gersonbdev/glib-gtk-libro/raw/master/latex/glib-gtk-libro.pdf)
+* [Libro en formato PDF en inglés](https://people.gnome.org/~swilmet/glib-gtk-dev-platform.pdf)
+* [Libro en formato PDF en español](https://raw.githubusercontent.com/gersonbdev/glib-gtk-libro/master/latex/glib-gtk-libro.pdf)
 * [Repositorio del libro en inglés](https://github.com/swilmet/glib-gtk-book)
 * [Repositorio del libro en español](https://github.com/gersonbdev/glib-gtk-libro)
 
