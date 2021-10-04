@@ -3,7 +3,7 @@
 Un proyecto importante para GLib y GTK es GNOME. GNOME, que también forma parte de GNU, es un entorno de escritorio libre iniciado en 1997 por Miguel de Icaza y Federico Mena-Quintero. GNOME hace un uso extensivo de GTK, y el último ahora es desarrollado principalmente por desarrolladores de GNOME.
 
 
-“GNOME” es en realidad un acrónimo: GNU Network Object Model Environment.
+"GNOME" es en realidad un acrónimo: GNU Network Object Model Environment.
 
 > **📌 Nota:** En cuanto a GTK, el nombre completo de GNOME rara vez se usa y no refleja la realidad actual.
 
@@ -18,4 +18,4 @@ El marco de desarrollo de GNOME permite escribir aplicaciones interoperables, co
 
 En el momento de escribir este artículo, hay nuevas versiones estables de GLib, GTK y GNOME cada seis meses, alrededor de marzo y septiembre. Un número de versión tiene la forma "`major.minor.micro`", donde "`minor`" es incluso para versiones estables e isodd para versiones inestables. Por ejemplo, las versiones 3.18. * Son estables, pero las versiones 3.19. * Son inestables. Una nueva versión micro estable (por ejemplo, 3.18.0 → 3.18.1) no agrega nuevas funciones, solo actualizaciones de traducción, corrección de errores y mejoras de rendimiento. Los componentes de GNOME deben instalarse con las mismas versiones, junto con la versión de GTK y GLib lanzada al mismo tiempo; por ejemplo, es una mala idea ejecutar un demonio GNOME en la versión 3.18 con el centro de control en la versión 3.16. En el momento de escribir este artículo, las últimas versiones estables son: GLib 2.46, GTK 3.18 y GNOME 3.18, todas lanzadas al mismo tiempo en septiembre de 2015. Para una biblioteca, un nuevo número de versión principal generalmente significa que ha habido una interrupción de la API, pero afortunadamente la versión principal anterior. Las versiones se pueden instalar en paralelo con la nueva versión. Durante un ciclo de desarrollo (por ejemplo, 3.19), no hay garantías de estabilidad API para *nuevas* funciones; pero al ser uno de los primeros en adoptarlo, sus comentarios son útiles para descubrir más rápidamente fallas y errores de diseño.
 
-Más información sobre GNOME: (www.gnome.org)
+Más información sobre GNOME: [www.gnome.org](https://www.gnome.org/)

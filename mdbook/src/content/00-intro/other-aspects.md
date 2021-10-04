@@ -1,14 +1,10 @@
 # Otros aspectos a tener en cuenta
 
-Si tiene dudas sobre el idioma a elegir, aquí hay otros aspectos a tener en cuenta.
-Tenga en cuenta que este texto está un poco sesgado ya que se eligió el lenguaje
-C.
+Si tiene dudas sobre el idioma a elegir, aquí hay otros aspectos a tener en cuenta. Tenga en cuenta que este texto está un poco sesgado ya que se eligió el lenguaje C.
 
-C es un lenguaje de tipo estático: los tipos de variables y los prototipos de funcio-
-nes en un programa se conocen en el momento de la compilación. El compilador descubre muchos errores triviales, como un error tipográfico en el nombre de una función. El compilador también es de gran ayuda cuando se hacen refactorizaciones de código, lo cual es esencial para el mantenimiento a largo plazo de un programa. Por ejemplo, cuando divide una clase en dos, si el código que usa la clase inicial no se actualiza correctamente, el compilador se lo informará amablemente.
+C es un lenguaje de tipo estático: los tipos de variables y los prototipos de funciones en un programa se conocen en el momento de la compilación. El compilador descubre muchos errores triviales, como un error tipográfico en el nombre de una función. El compilador también es de gran ayuda cuando se hacen refactorizaciones de código, lo cual es esencial para el mantenimiento a largo plazo de un programa. Por ejemplo, cuando divide una clase en dos, si el código que usa la clase inicial no se actualiza correctamente, el compilador se lo informará amablemente.
 
-> **📌 Nota:** Bueno, amablemente quizás no sea la mejor descripción, arrojar un montón de errores está
-más cerca de la realidad.
+> **📌 Nota:** Bueno, amablemente quizás no sea la mejor descripción, arrojar un montón de errores está más cerca de la realidad.
 
 Con el desarrollo basado en pruebas (TDD), y escribiendo pruebas unitarias para *todo*, también es factible escribir una enorme base de código en un lenguaje de tipo dinámico como Python. Con una muy buena cobertura de código, las pruebas unitarias también detectarán errores al refactorizar el código. Pero las pruebas unitarias pueden ser mucho más lentas de ejecutar que compilar el código, ya que también prueba el comportamiento del programa. Por lo tanto, puede que no sea conveniente ejecutar todas las pruebas unitarias al realizar refactorizaciones de código. ¡Por supuesto, escribir pruebas unitarias también es una buena práctica para una base de código C! Sin embargo, para la parte GUI del código, escribir pruebas unitarias a menudo no es una tarea de alta prioridad si la aplicación está bien probada por sus desarrolladores.
 

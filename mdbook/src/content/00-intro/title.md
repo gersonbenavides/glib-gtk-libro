@@ -4,7 +4,7 @@
 
 <p align="center">
 
-<img src="../../assets/img/logo-gtk.svg" alt="Logo de GTK" width="256" />
+<img src="https://gersonbdev.github.io/glib-gtk-libro/assets/img/logo-gtk.svg" alt="Logo de GTK" width="256" />
 
 </p>
 
@@ -26,7 +26,7 @@ Dupont.
 
 ## Licencia
 
-![License CC BY-SA](../../assets/img/license-cc-by-sa-88x31.png)
+![License CC BY-SA](https://gersonbdev.github.io/glib-gtk-libro/assets/img/license-cc-by-sa-88x31.png)
 
 Este trabajo está autorizado bajo una licencia internacional Creative Commons Attribution-ShareAlike 4.0:
 
