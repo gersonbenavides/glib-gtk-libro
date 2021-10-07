@@ -22,7 +22,7 @@ Preste atención a no usar la función `sprintf()` que causa fallas, crea agujer
 
 <a id="glib-strdup"></a>
 
-```
+```c
 #include <glib.h>
 
 gchar * g_strdup (const gchar *str);
@@ -93,7 +93,7 @@ El listado 2.10 muestra algunas funciones semi-estándar más que envuelve GLib.
 
 <a id="glib-strconcat"></a>
 
-```
+```c
 #include <glib.h>
 
 gchar * g_strconcat (const gchar *string1, ...);
@@ -110,7 +110,7 @@ GLib proporciona algunas funciones convenientes para concatenar cadenas, que se 
 
 <a id="glib-strvector"></a>
 
-```
+```c
 #include <glib.h>
 
 gchar ** g_strsplit (const gchar *string,

@@ -1,60 +1,60 @@
-## Noticias en 0.8, 2019-03-29
+## Novedades en 0.8, 2019-03-29
 
 ---
 
 * Incluye un borrador de un nuevo capítulo: "Ejemplo de una arquitectura de código de aplicación GTK +".
-* Introducción: se agrego la sección "Lista de tareas pendientes para este libro y una actualización rápida de 2019"
+* Introducción: Se agrego la sección "Lista de tareas pendientes para este libro y una actualización rápida de 2019"
   (mejor que nada).
 
-## Noticias en 0.7, 2017-04-21
+## Novedades en 0.7, 2017-04-21
 
 ---
 
-* Escriba un nuevo capítulo: "Una suave introducción a GObject".
-* Mejorar el capítulo semi-OOP en C.
-* Agregue subtítulos al libro: "Una guía de inicio".
-* Introducción: agregue la sección de apoyo financiero.
-* Separe el libro en 3 partes.
-* Capítulo de lectura adicional: hablar sobre Meson además de las Autotools.
+* Se escribe un nuevo capítulo: "Una suave introducción a GObject".
+* Se mejora el capítulo semi-OOP en C.
+* Se agrega subtítulos al libro: "Una guía de inicio".
+* Introducción: Se agrega la sección de apoyo financiero.
+* Se separa el libro en 3 partes.
+* Capítulo de lectura adicional: Habla sobre Meson además de las Autotools.
 
-## Noticias en 0.6, 2016-08-08
+## Novedades en 0.6, 2016-08-08
 
 ---
 
-* Mejorar la sección semi-OOP en C
-* Pequeñas mejoras aquí y allá
+* Se mejora la sección semi-OOP en C.
+* Pequeñas mejoras aquí y allá.
 * Nuevo sitio web: https://people.gnome.org/~swilmet/glib-gtk-book/
 
-## Noticias en 0.5, 2016-07-14
+## Novedades en 0.5, 2016-07-14
 
 ---
 
-* Inicie el capítulo "Programación orientada a objetos en C" con una sección detallada "Programación Semi-Orientada a Objetos en C".
+* Se inicia el capítulo "Programación orientada a objetos en C" con una sección detallada "Programación Semi-Orientada a Objetos en C".
 
-## Noticias en 0.4, 2016-07-05
-
----
-
-* Introducción: mejorar la ruta de aprendizaje
-* Introducción: agregar sección de agradecimientos
-* Pequeñas mejoras aquí y allá
-
-## Noticias en 0.3, 2016-02-08
+## Novedades en 0.4, 2016-07-05
 
 ---
 
-* Introducción: explica GTK-Doc y GObject Introspection
-* Más información: enlace a la serie HowDoI
-* Pequeñas mejoras aquí y allá
+* Introducción: Se mejora la ruta de aprendizaje.
+* Introducción: Se Agrega sección de agradecimientos.
+* Pequeñas mejoras aquí y allá.
 
-## Noticias en 0.2, 2015-05-22
+## Novedades en 0.3, 2016-02-08
 
 ---
 
-* GLib: agregar sección para el bucle de eventos principal
-* Pequeñas mejoras aquí y allá
+* Introducción: Se explica GTK-Doc y GObject Introspection.
+* Más información: enlace a la serie HowDoI.
+* Pequeñas mejoras aquí y allá.
 
-## Noticias en 0.1, 2014-11-16
+## Novedades en 0.2, 2015-05-22
+
+---
+
+* GLib: Se agrega sección para el bucle de eventos principal.
+* Pequeñas mejoras aquí y allá.
+
+## Novedades en 0.1, 2014-11-16
 
 ---
 

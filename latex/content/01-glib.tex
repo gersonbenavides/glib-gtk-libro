@@ -184,7 +184,7 @@ GLib envuelve el estándar \lstinline{malloc()} y \lstinline{free()} con sus pro
 Estos son agradables de varias maneras pequeñas:
 
 \begin{itemize}
-    \item \lstinline{g_malloc()} siempre devuelve un \lstinline{gpointer}, nunca un \lstinline{char *}, por lo que no es necesario emitir el valor de retorno \footnote{Antes del estándar ANSI / ISO C, el \lstinline{void *} el tipo de puntero genérico no existía y \lstinline{malloc()} devolvió un valor de \lstinline{char *}. Actualmente, \lstinline{malloc()} devuelve un tipo \lstinline{void *} ---~que es lo mismo que \lstinline{gpointer}~--- y \lstinline{void *} permite conversiones de puntero implícitas en C. Lanzando el valor de retorno de \lstinline{malloc()} es necesario si: el desarrollador quiere admitir compiladores antiguos; o si el desarrollador piensa que una conversión explícita aclara el código; o si se usa un compilador de C++, porque en C++ se requiere una conversión del tipo \lstinline{void *}.}.
+    \item \lstinline{g_malloc()} siempre devuelve un \lstinline{gpointer}, nunca un \lstinline{char *}, por lo que no es necesario emitir el valor de retorno \footnote{Antes del estándar ANSI/ISO C, el tipo de puntero genérico \lstinline{void *} no existía y \lstinline{malloc()} devolvía un valor \lstinline{char *}. Actualmente, \lstinline{malloc()} devuelve un tipo \lstinline{void *} ---~que es lo mismo que \lstinline{gpointer}~--- y \lstinline{void *} permite conversiones de puntero implícitas en C. Lanzando el valor de retorno de \lstinline{malloc()} es necesario si: el desarrollador quiere admitir compiladores antiguos; o si el desarrollador piensa que una conversión explícita aclara el código; o si se usa un compilador de C++, porque en C++ se requiere una conversión del tipo \lstinline{void *}.}.
     
     \item \lstinline{g_malloc()} aborta el programa si el \lstinline{malloc()} subyacente falla, por lo que no tiene que buscar un valor devuelto \lstinline{NULL}.
     
@@ -202,7 +202,7 @@ gpointer g_realloc (gpointer mem, gsize n_bytes);
 gpointer g_memdup (gconstpointer mem, guint n_bytes);
 \end{lstlisting}
 
-Es importante hacer coincidir \lstinline{g_malloc()} con \lstinline{g_free()}, plain \lstinline{malloc()} con \lstinline{free()} y (si estás usando C ++) \lstinline[language=C++]{new} con \lstinline[language=C++]{delete}. De lo contrario, pueden suceder cosas malas, ya que estos asignadores pueden usar diferentes grupos de memoria (y \lstinline[language=C++]{new}/\lstinline[language=C++]{delete} llama a constructores y destructores).
+Es importante hacer coincidir \lstinline{g_malloc()} con \lstinline{g_free()}, \lstinline{malloc()} simple con \lstinline{free()} y (si estás usando C ++) \lstinline[language=C++]{new} con \lstinline[language=C++]{delete}. De lo contrario, pueden suceder cosas malas, ya que estos asignadores pueden usar diferentes grupos de memoria (y \lstinline[language=C++]{new}/\lstinline[language=C++]{delete} llama a constructores y destructores).
 
 Por supuesto, hay un \lstinline{g_realloc()} equivalente a \lstinline{realloc()}. También hay un conveniente \lstinline{g_malloc0()} que llena la memoria asignada con ceros, y \lstinline{g_memdup()} que devuelve una copia de \lstinline{n_bytes} bytes comenzando en \lstinline{mem}. \lstinline{g_realloc()} y \lstinline{g_malloc0()} aceptarán ambos un tamaño de 0, por coherencia con \lstinline{g_malloc()}. Sin embargo, \lstinline{g_memdup()} no lo hará.
 
@@ -274,7 +274,7 @@ const gchar * g_strerror (gint errnum);
 const gchar * g_strsignal (gint signum);
 \end{lstlisting}
 
-El listado~\ref{glib-strformats} muestra algunas funciones semi-estándar más que envuelve GLib. \lstinline{g_strtod} es como \lstinline{strtod()} -- convierte la cadena \lstinline{nptr} en un double -- con la excepción de que también intentará convertir el double en la configuración local de \lstinline{"C"} si no puede convertirlo en la configuración local predeterminada del usuario. \lstinline{* endptr} se establece en el primer carácter no convertido, es decir, cualquier texto después de la representación numérica. Si la conversión falla, \lstinline{*endptr} se establece en \lstinline{nptr}. \lstinline{endptr} puede ser \lstinline{NULL}, lo que hace que se ignore.
+El listado~\ref{glib-strformats} muestra algunas funciones semi-estándar más que envuelve GLib. \lstinline{g_strtod} es como \lstinline{strtod()} -- convierte la cadena \lstinline{nptr} en un double -- con la excepción de que también intentará convertir el double en la configuración local de \lstinline{"C"} si no puede convertirlo en la configuración local predeterminada del usuario. \lstinline{*endptr} se establece en el primer carácter no convertido, es decir, cualquier texto después de la representación numérica. Si la conversión falla, \lstinline{*endptr} se establece en \lstinline{nptr}. \lstinline{endptr} puede ser \lstinline{NULL}, lo que hace que se ignore.
 
 \lstinline{g_strerror()} y \lstinline{g_strsignal()} son como sus equivalentes no \lstinline{g_}, pero portátiles. (Devuelven una representación de cadena para un \lstinline{errno} o un número de señal).
 
@@ -371,7 +371,7 @@ void g_slist_free (GSList *list);
 void g_slist_free_full (GSList *list, GDestroyNotify free_func);
 \end{lstlisting}
 
-Listado~\ref{glib-listfree} muestra funciones para borrar una lista completa. \lstinline{g_slist_free()} elimina todos los enlaces de una sola vez. \lstinline{g_slist_free()} no tiene valor de retorno porque siempre sería \lstinline{NULL}, y simplemente puede asignar ese valor a su lista si lo desea. Obviamente, \lstinline{g_slist_free()} libera solo las celdas de la lista; no tiene forma de saber qué hacer con el contenido de la lista. La función más inteligente \lstinline{g_slist_free_full()} toma un segundo argumento con un puntero de función de destrucción que se llama en los datos de cada elemento. Para liberar la lista que contiene cadenas asignadas dinámicamente, puede escribir:
+El Listado~\ref{glib-listfree} muestra funciones para borrar una lista completa. \lstinline{g_slist_free()} elimina todos los enlaces de una sola vez. \lstinline{g_slist_free()} no tiene valor de retorno porque siempre sería \lstinline{NULL}, y simplemente puede asignar ese valor a su lista si lo desea. Obviamente, \lstinline{g_slist_free()} libera solo las celdas de la lista; no tiene forma de saber qué hacer con el contenido de la lista. La función más inteligente \lstinline{g_slist_free_full()} toma un segundo argumento con un puntero de función de destrucción que se llama en los datos de cada elemento. Para liberar la lista que contiene cadenas asignadas dinámicamente, puede escribir:
 \begin{lstlisting}
 g_slist_free_full (list, g_free);
 
@@ -428,7 +428,7 @@ efficient_append (&list, &list_end, g_strdup ("Baz"));
 
 Por supuesto, debe tener cuidado de no utilizar ninguna función de lista que pueda cambiar el final de la lista sin actualizar \lstinline{list_end}.
 
-\begin{lstlisting}[float, caption={Accessing data in a linked list}, label=glib-listaccess]
+\begin{lstlisting}[float, caption={Acceder a datos en una lista vinculada}, label=glib-listaccess]
 #include <glib.h>
 
 typedef void (* GFunc) (gpointer data, gpointer user_data);
@@ -509,11 +509,11 @@ GSList * g_slist_find_custom (GSList *list, gconstpointer data, GCompareFunc fun
 
 Finalmente, hay algunas disposiciones para listas ordenadas, que se muestran en Listado~\ref{glib-listsorted}. Para usarlos, debe escribir un \lstinline{GCompareFunc}, que es como la función de comparación en el estándar C \lstinline{qsort()}.
 
-Si \lstinline{a <b}, \lstinline{GCompareFunc} debería devolver un valor negativo; si \lstinline{a> b} un valor positivo; si \lstinline{a == b} debería devolver 0.
+Si \lstinline{a < b}, \lstinline{GCompareFunc} debería devolver un valor negativo; si \lstinline{a > b} un valor positivo; si \lstinline{a == b} debería devolver 0.
 
 Una vez que tenga una función de comparación, puede insertar un elemento en una lista ya ordenada u ordenar una lista completa. Las listas se ordenan en orden ascendente. Incluso puedes reciclar tu \lstinline{GCompareFunc} para encontrar elementos de la lista, usando \lstinline{g_slist_find_custom()}.
 
-Tenga cuidado con las listas ordenadas; su mal uso puede volverse muy ineficaz rápidamente. Por ejemplo, \lstinline{g_slist_insert_sorted()} es una operación $O(n)$, pero si la usa en un bucle para insertar varios elementos, el bucle se ejecuta en tiempo cuadrático ($O(n^2)$). Es mejor simplemente anteponer todos sus elementos y luego llamar a \lstinline{g_slist_sort()}. \lstinline{g_slist_sort()} se ejecuta en $O(n\log n)$.
+Tenga cuidado con las listas ordenadas; su mal uso puede volverse muy ineficaz rápidamente. Por ejemplo, \lstinline{g_slist_insert_sorted()} es una operación $O(n)$, pero si la usa en un bucle para insertar varios elementos, el bucle se ejecuta en tiempo cuadrático ($O(n^2)$). Es mejor simplemente anteponer todos sus elementos y luego llamar a \lstinline{g_slist_sort()}. \lstinline{g_slist_sort()} se ejecuta en $O(n \log n)$.
 
 También puede usar la estructura de datos \lstinline{GSequence} para datos ordenados. \lstinline{GSequence} tiene una API de lista, pero se implementa internamente con un árbol binario equilibrado.
 
