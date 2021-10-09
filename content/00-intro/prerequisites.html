@@ -157,37 +157,7 @@
 <p>No es estrictamente necesario, pero se recomienda encarecidamente utilizar un sistema de control de versiones como Git. Un buen libro es <em><strong>Pro Git</strong></em>, de Scott Chacon <span class="pro-git"></span>.</p>
 </li>
 </ul>
-<script>
-/* Asignacion de referencias en todo la pagina */
 
-let i = 0;
-
-let ref01 = document.getElementsByClassName("k-r-book");
-for( i = 0; i < ref01.length; i++ ) {
-    ref01[i].innerHTML = "<a href=\"./bibliography.html#k-r-book\">[1]</a>";
-}
-
-let ref02 = document.getElementsByClassName("oop-book");
-for( i = 0; i < ref02.length; i++ ) {
-    ref02[i].innerHTML = "<a href=\"./bibliography.html#oop-book\">[2]</a>";
-}
-
-let ref03 = document.getElementsByClassName("algo-book");
-for( i = 0; i < ref03.length; i++ ) {
-    ref03[i].innerHTML = "<a href=\"./bibliography.html#algo-book\">[4]</a>";
-}
-
-let ref04 = document.getElementsByClassName("unix-impatient");
-for( i = 0; i < ref04.length; i++ ) {
-    ref04[i].innerHTML = "<a href=\"./bibliography.html#unix-impatient\">[5]</a>";
-}
-
-let ref05 = document.getElementsByClassName("pro-git");
-for( i = 0; i < ref05.length; i++ ) {
-    ref05[i].innerHTML = "<a href=\"./bibliography.html#pro-git\">[6]</a>";
-}
-
-</script>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -214,20 +184,6 @@ for( i = 0; i < ref05.length; i++ ) {
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3000/__livereload");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         <!-- Google Analytics Tag -->
         <script type="text/javascript">
             var localAddrs = ["localhost", "127.0.0.1", ""];
@@ -255,5 +211,7 @@ for( i = 0; i < ref05.length; i++ ) {
         <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../.././src/assets/js/refs-intro.js"></script>
+        <script type="text/javascript" src="../.././src/assets/js/refs-glib.js"></script>
     </body>
 </html>

@@ -148,9 +148,9 @@ g_return_if_fail (condition);
 g_return_val_if_fail (condition, return_value);
 </code></pre>
 <div class="caption">
-<p><span class="glib-precondition"></span>: Comprobaciones de condiciones previas.</p>
+<p><span class="glib-precondition">Listado</span>: Comprobaciones de condiciones previas.</p>
 </div>
-<p>El <span class="glib-precondition"></span> muestra las verificaciones de condiciones previas de GLib. <code>g_return_if_fail()</code> imprime una advertencia y regresa inmediatamente de la función actual si <code>condition</code> es <code>FALSE</code>. <code>g_return_val_if_fail()</code> es similar pero le permite devolver algún <code>return_value</code>. Estos macros son increíblemente útiles, si las usa libremente, especialmente en
+<p>El <span class="glib-precondition">Listado</span> muestra las verificaciones de condiciones previas de GLib. <code>g_return_if_fail()</code> imprime una advertencia y regresa inmediatamente de la función actual si <code>condition</code> es <code>FALSE</code>. <code>g_return_val_if_fail()</code> es similar pero le permite devolver algún <code>return_value</code>. Estos macros son increíblemente útiles, si las usa libremente, especialmente en
 combinación con la verificación de tipo en tiempo de ejecución de GObject, reducirá a la mitad el tiempo que dedica a buscar punteros incorrectos y errores
 tipográficos.</p>
 <p>Usar estas funciones es simple; aquí hay un ejemplo de la implementación de la tabla hash GLib:</p>
@@ -183,9 +183,9 @@ g_assert (condition);
 g_assert_not_reached ();
 </code></pre>
 <div class="caption">
-<p><span class="glib-assertions"></span>: Afirmaciones.</p>
+<p><span class="glib-assertions">Listado</span>: Afirmaciones.</p>
 </div>
-<p>GLib también tiene macros de aserción más tradicionales, que se muestran en el <span class="glib-assertions"></span>. <code>g_assert()</code> es básicamente idéntico a <code>assert()</code>, pero responde a <code>G_DISABLE_ASSERT</code> y se comporta consistentemente en todas las plataformas. También se proporciona <code>g_assert_not_reached()</code>; esta es una afirmación que siempre falla. Las afirmaciones llaman a <code>abort()</code> para salir del programa y (si su entorno lo admite) descargan un archivo central con fines de depuración.</p>
+<p>GLib también tiene macros de aserción más tradicionales, que se muestran en el <span class="glib-assertions">Listado</span>. <code>g_assert()</code> es básicamente idéntico a <code>assert()</code>, pero responde a <code>G_DISABLE_ASSERT</code> y se comporta consistentemente en todas las plataformas. También se proporciona <code>g_assert_not_reached()</code>; esta es una afirmación que siempre falla. Las afirmaciones llaman a <code>abort()</code> para salir del programa y (si su entorno lo admite) descargan un archivo central con fines de depuración.</p>
 <p>Las afirmaciones fatales deben usarse para verificar la <em>consistencia interna</em> de una función o biblioteca, mientras que <code>g_return_if_fail()</code> está destinado a garantizar que se pasen valores cuerdos a las interfaces públicas de un módulo de programa. Es decir, si una aserción falla, normalmente busca un error en el módulo que contiene la aserción; Si falla una comprobación de <code>g_return_if_fail()</code>, normalmente busca el error en el código que invoca el módulo.</p>
 <p>Este código del módulo de cálculos calendáricos de GLib muestra la diferencia:</p>
 <pre><code class="language-c">GDate *
@@ -225,25 +225,7 @@ g_date_new_dmy (GDateDay   day,
   }
 </code></pre>
 <p>Todas las macros de depuración imprimen una advertencia utilizando la función <code>g_log()</code> de GLib, lo que significa que la advertencia incluye el nombre de la aplicación o biblioteca de origen y, opcionalmente, puede instalar una rutina de impresión de advertencias de reemplazo. Por ejemplo, puede enviar todas las advertencias a un cuadro de diálogo o archivo de registro en lugar de imprimirlas en la consola.</p>
-<script>
-/* Asignacion de indice de listados en todo la pagina */
 
-let lst = 2;
-let i = 0;
-
-lst += 1
-let lst01 = document.getElementsByClassName("glib-precondition");
-for( i = 0; i < lst01.length; i++ ) {
-    lst01[i].innerHTML = "<a href=\"#glib-precondition\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst02 = document.getElementsByClassName("glib-assertions");
-for( i = 0; i < lst02.length; i++ ) {
-    lst02[i].innerHTML = "<a href=\"#glib-assertions\">Listado 2." + lst + "</a>";
-}
-
-</script>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -270,20 +252,6 @@ for( i = 0; i < lst02.length; i++ ) {
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3000/__livereload");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         <!-- Google Analytics Tag -->
         <script type="text/javascript">
             var localAddrs = ["localhost", "127.0.0.1", ""];
@@ -311,5 +279,7 @@ for( i = 0; i < lst02.length; i++ ) {
         <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../.././src/assets/js/refs-intro.js"></script>
+        <script type="text/javascript" src="../.././src/assets/js/refs-glib.js"></script>
     </body>
 </html>

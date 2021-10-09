@@ -145,9 +145,9 @@
 <pre><code class="language-c">gint g_snprintf (gchar *string, gulong n, gchar const *format, ...);
 </code></pre>
 <div class="caption">
-<p><span class="glib-strext"></span>: Envoltorio de portabilidad.</p>
+<p><span class="glib-strext">Listado</span>: Envoltorio de portabilidad.</p>
 </div>
-<p>El <span class="glib-strext"></span> muestra un sustituto que GLib proporciona para la función <code>snprintf()</code>. <code>g_snprintf()</code> envuelve el <code>snprintf()</code> nativo en las plataformas que lo tienen y proporciona una implementación en las que no lo tienen.</p>
+<p>El <span class="glib-strext">Listado</span> muestra un sustituto que GLib proporciona para la función <code>snprintf()</code>. <code>g_snprintf()</code> envuelve el <code>snprintf()</code> nativo en las plataformas que lo tienen y proporciona una implementación en las que no lo tienen.</p>
 <p>Preste atención a no usar la función <code>sprintf()</code> que causa fallas, crea agujeros de seguridad y generalmente es maligna. Al usar <code>g_snprintf()</code> o <code>g_strdup_printf()</code> relativamente seguros (ver más abajo), puedes despedirte de <code>sprintf()</code> para siempre.</p>
 <p><a id="glib-strdup"></a></p>
 <pre><code class="language-c">#include &lt;glib.h&gt;
@@ -159,9 +159,9 @@ gchar * g_strdup_vprintf (const gchar *format, va_list args);
 gchar * g_strnfill (gsize length, gchar fill_char);
 </code></pre>
 <div class="caption">
-<p><span class="glib-strdup"></span>: Asignar cadenas.</p>
+<p><span class="glib-strdup">Listado</span>: Asignar cadenas.</p>
 </div>
-<p>El <span class="glib-strdup"></span> muestra la amplia gama de funciones de GLib para asignar cadenas. Como era de esperar, <code>g_strdup()</code> y <code>g_strndup()</code> producen una copia asignada de <code>str</code> o los primeros <code>n</code> caracteres de <code>str</code>. Para mantener la coherencia con las funciones de asignación de memoria GLib, devuelven <code>NULL</code> si se les pasa un puntero <code>NULL</code>. Las variantes <code>printf()</code> devuelven una cadena formateada. <code>g_strnfill()</code> devuelve una cadena de tamaño <code>length</code> rellena con <code>fill_char</code>.</p>
+<p>El <span class="glib-strdup">Listado</span> muestra la amplia gama de funciones de GLib para asignar cadenas. Como era de esperar, <code>g_strdup()</code> y <code>g_strndup()</code> producen una copia asignada de <code>str</code> o los primeros <code>n</code> caracteres de <code>str</code>. Para mantener la coherencia con las funciones de asignación de memoria GLib, devuelven <code>NULL</code> si se les pasa un puntero <code>NULL</code>. Las variantes <code>printf()</code> devuelven una cadena formateada. <code>g_strnfill()</code> devuelve una cadena de tamaño <code>length</code> rellena con <code>fill_char</code>.</p>
 <p><code>g_strdup_printf()</code> merece una mención especial; es una forma más sencilla de manejar este código común:</p>
 <pre><code class="language-c">gchar *str = g_malloc (256);
 g_snprintf (str, 256, &quot;%d printf-style %s&quot;, num, string);
@@ -177,9 +177,9 @@ gchar * g_strchomp (gchar *string);
 gchar * g_strstrip (gchar *string);
 </code></pre>
 <div class="caption">
-<p><span class="glib-strmanip"></span>: Modificaciones de cadenas in situ.</p>
+<p><span class="glib-strmanip">Listado</span>: Modificaciones de cadenas in situ.</p>
 </div>
-<p>Las funciones del <span class="glib-strmanip"></span> modifican una cadena en el lugar: <code>g_strchug ()</code> y <code>g_strchomp()</code> &quot;chug&quot; la cadena (elimina los espacios iniciales), o &quot;chomp&quot; (eliminar los espacios finales). Esas dos funciones devuelven la cadena, además de modificarla en el lugar; en algunos casos, puede ser conveniente utilizar el valor de retorno. Hay una macro, <code>g_strstrip()</code>, que combina ambas funciones para eliminar los espacios iniciales y finales.</p>
+<p>Las funciones del <span class="glib-strmanip">Listado</span> modifican una cadena en el lugar: <code>g_strchug ()</code> y <code>g_strchomp()</code> &quot;chug&quot; la cadena (elimina los espacios iniciales), o &quot;chomp&quot; (eliminar los espacios finales). Esas dos funciones devuelven la cadena, además de modificarla en el lugar; en algunos casos, puede ser conveniente utilizar el valor de retorno. Hay una macro, <code>g_strstrip()</code>, que combina ambas funciones para eliminar los espacios iniciales y finales.</p>
 <p><a id="glib-strformats"></a></p>
 <pre><code class="language-c">#include &lt;glib.h&gt;
 
@@ -188,7 +188,7 @@ const gchar * g_strerror (gint errnum);
 const gchar * g_strsignal (gint signum);
 </code></pre>
 <div class="caption">
-<p><span class="glib-strformats"></span>: Conversiones de cadenas.</p>
+<p><span class="glib-strformats">Listado</span>: Conversiones de cadenas.</p>
 </div>
 <p>El listado 2.10 muestra algunas funciones semi-estándar más que envuelve GLib. <code>g_strtod</code> es como <code>strtod()</code> -- convierte la cadena <code>nptr</code> en un double -- con la excepción de que también intentará convertir el double en la configuración local de <code>&quot;C&quot;</code> si no puede convertirlo en la configuración local predeterminada del usuario. <code>*endptr</code> se establece en el primer carácter no convertido, es decir, cualquier texto después de la representación numérica. Si la conversión falla, <code>*endptr</code> se establece en <code>nptr</code>. <code>endptr</code> puede ser <code>NULL</code>, lo que hace que se ignore.</p>
 <p><code>g_strerror()</code> y <code>g_strsignal()</code> son como sus equivalentes no <code>g_ </code>, pero portátiles. (Devuelven una representación de cadena para un errno o un número de señal).</p>
@@ -199,9 +199,9 @@ gchar * g_strconcat (const gchar *string1, ...);
 gchar * g_strjoin (const gchar *separator, ...);
 </code></pre>
 <div class="caption">
-<p><span class="glib-strconcat"></span>: Concatenar cadenas.</p>
+<p><span class="glib-strconcat">Listado</span>: Concatenar cadenas.</p>
 </div>
-<p>GLib proporciona algunas funciones convenientes para concatenar cadenas, que se muestran en el <span class="glib-strconcat"></span>. <code>g_strconcat()</code> devuelve una cadena recién asignada creada concatenando cada una de las cadenas en la lista de argumentos. El último argumento debe ser <code>NULL</code>, por lo que <code>g_strconcat()</code> sabe cuándo detenerse. <code>g_strjoin()</code> es similar, pero <code>separator</code> se inserta entre cada cadena. Si <code>separator</code> es <code>NULL</code> , no se usa ningún separador.</p>
+<p>GLib proporciona algunas funciones convenientes para concatenar cadenas, que se muestran en el <span class="glib-strconcat">Listado</span>. <code>g_strconcat()</code> devuelve una cadena recién asignada creada concatenando cada una de las cadenas en la lista de argumentos. El último argumento debe ser <code>NULL</code>, por lo que <code>g_strconcat()</code> sabe cuándo detenerse. <code>g_strjoin()</code> es similar, pero <code>separator</code> se inserta entre cada cadena. Si <code>separator</code> es <code>NULL</code> , no se usa ningún separador.</p>
 <p><a id="glib-strvector"></a></p>
 <pre><code class="language-c">#include &lt;glib.h&gt;
 
@@ -212,51 +212,10 @@ gchar * g_strjoinv (const gchar *separator, gchar **str_array);
 void g_strfreev (gchar **str_array);
 </code></pre>
 <div class="caption">
-<p><span class="glib-strvector"></span>: Manipulación de vectores de cadena terminados en <code>NULL</code>.</p>
+<p><span class="glib-strvector">Listado</span>: Manipulación de vectores de cadena terminados en <code>NULL</code>.</p>
 </div>
-<p>Finalmente, el <span class="glib-strvector"></span> resume algunas rutinas que manipulan matrices de cadenas terminadas en <code>NULL</code>. <code>g_strsplit()</code> rompe <code>string</code> en cada <code>delimiter</code>, devolviendo una matriz recién asignada. <code>g_strjoinv()</code> concatena cada cadena en la matriz con un <code>separator</code> opcional, devolviendo una cadena asignada. <code>g_strfreev()</code> libera cada cadena en la matriz y luego la propia matriz.</p>
-<script>
-/* Asignacion de indice de listados en todo la pagina */
+<p>Finalmente, el <span class="glib-strvector">Listado</span> resume algunas rutinas que manipulan matrices de cadenas terminadas en <code>NULL</code>. <code>g_strsplit()</code> rompe <code>string</code> en cada <code>delimiter</code>, devolviendo una matriz recién asignada. <code>g_strjoinv()</code> concatena cada cadena en la matriz con un <code>separator</code> opcional, devolviendo una cadena asignada. <code>g_strfreev()</code> libera cada cadena en la matriz y luego la propia matriz.</p>
 
-let lst = 6;
-let i = 0;
-
-lst += 1
-let lst01 = document.getElementsByClassName("glib-strext");
-for( i = 0; i < lst01.length; i++ ) {
-    lst01[i].innerHTML = "<a href=\"#glib-strext\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst02 = document.getElementsByClassName("glib-strdup");
-for( i = 0; i < lst02.length; i++ ) {
-    lst02[i].innerHTML = "<a href=\"#glib-strdup\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst03 = document.getElementsByClassName("glib-strmanip");
-for( i = 0; i < lst03.length; i++ ) {
-    lst03[i].innerHTML = "<a href=\"#glib-strmanip\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst04 = document.getElementsByClassName("glib-strformats");
-for( i = 0; i < lst04.length; i++ ) {
-    lst04[i].innerHTML = "<a href=\"#glib-strformats\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst05 = document.getElementsByClassName("glib-strconcat");
-for( i = 0; i < lst05.length; i++ ) {
-    lst05[i].innerHTML = "<a href=\"#glib-strconcat\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst06 = document.getElementsByClassName("glib-strvector");
-for( i = 0; i < lst06.length; i++ ) {
-    lst06[i].innerHTML = "<a href=\"#glib-strvector\">Listado 2." + lst + "</a>";
-}
-</script>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -283,20 +242,6 @@ for( i = 0; i < lst06.length; i++ ) {
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3000/__livereload");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         <!-- Google Analytics Tag -->
         <script type="text/javascript">
             var localAddrs = ["localhost", "127.0.0.1", ""];
@@ -324,5 +269,7 @@ for( i = 0; i < lst06.length; i++ ) {
         <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../.././src/assets/js/refs-intro.js"></script>
+        <script type="text/javascript" src="../.././src/assets/js/refs-glib.js"></script>
     </body>
 </html>

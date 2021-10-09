@@ -150,9 +150,9 @@ struct _GSList
 };
 </code></pre>
 <div class="caption">
-<p><span class="glib-gslist-cell"></span>: Celda <code>GSList</code></p>
+<p><span class="glib-gslist-cell">Listado</span>: Celda <code>GSList</code></p>
 </div>
-<p>Una celda <code>GSList</code> es una estructura autoexplicativa que se muestra en el <span class="glib-gslist-cell"></span>. Los campos de estructura son públicos, por lo que puede usarlos directamente para acceder a los datos o para recorrer la lista.</p>
+<p>Una celda <code>GSList</code> es una estructura autoexplicativa que se muestra en el <span class="glib-gslist-cell">Listado</span>. Los campos de estructura son públicos, por lo que puede usarlos directamente para acceder a los datos o para recorrer la lista.</p>
 <p>En la implementación de GLib, la lista vacía es simplemente un puntero <code>NULL</code>. Siempre es seguro pasar <code>NULL</code> a las funciones de lista, ya que es una lista válida de longitud 0. El código para crear una lista y agregar un elemento podría verse así:</p>
 <pre><code class="language-c">GSList *list = NULL;
 gchar *element = g_strdup (&quot;a string&quot;);
@@ -168,9 +168,9 @@ GSList * g_slist_insert (GSList *list, gpointer data, gint position);
 GSList * g_slist_remove (GSList *list, gconstpointer data);
 </code></pre>
 <div class="caption">
-<p><span class="glib-listchanging"></span>: Cambiar el contenido de la lista vinculada</p>
+<p><span class="glib-listchanging">Listado</span>: Cambiar el contenido de la lista vinculada</p>
 </div>
-<p>El <span class="glib-listchanging"></span> muestra las funciones básicas para cambiar el contenido de <code>GSList</code>. Para todos estos, debe asignar el valor de retorno a su puntero de lista en caso de que cambie el encabezado de la lista. Tenga en cuenta que GLib <em>no</em> almacena un puntero al final de la lista, por lo que las funciones de agregar, insertar y eliminar se ejecutan en <code>O(n)</code> tiempo, con <code>n</code> la longitud de la lista.</p>
+<p>El <span class="glib-listchanging">Listado</span> muestra las funciones básicas para cambiar el contenido de <code>GSList</code>. Para todos estos, debe asignar el valor de retorno a su puntero de lista en caso de que cambie el encabezado de la lista. Tenga en cuenta que GLib <em>no</em> almacena un puntero al final de la lista, por lo que las funciones de agregar, insertar y eliminar se ejecutan en <code>O(n)</code> tiempo, con <code>n</code> la longitud de la lista.</p>
 <p>GLib se encargará de los problemas de memoria, desasignando y asignando celdas de lista según sea necesario. Por ejemplo, el siguiente código eliminaría el elemento agregado anteriormente y vaciaría la lista:</p>
 <pre><code class="language-c">list = g_slist_remove (list, element);
 </code></pre>
@@ -196,9 +196,9 @@ void g_slist_free (GSList *list);
 void g_slist_free_full (GSList *list, GDestroyNotify free_func);
 </code></pre>
 <div class="caption">
-<p><span class="glib-listfree"></span>: Liberar listas enteras vinculadas</p>
+<p><span class="glib-listfree">Listado</span>: Liberar listas enteras vinculadas</p>
 </div>
-<p>El <span class="glib-listfree"></span> muestra funciones para borrar una lista completa. <code>g_slist_free()</code> elimina todos los enlaces de una sola vez. <code>g_slist_free()</code> no tiene valor de retorno porque siempre sería <code>NULL</code>, y simplemente puede asignar ese valor a su lista si lo desea. Obviamente, <code>g_slist_free()</code> libera solo las celdas de la lista; no tiene forma de saber qué hacer con el contenido de la lista. La función más inteligente <code>g_slist_free_full()</code> toma un segundo argumento con un puntero de función de destrucción que se llama en los datos de cada elemento. Para liberar la lista que contiene cadenas asignadas dinámicamente, puede escribir:</p>
+<p>El <span class="glib-listfree">Listado</span> muestra funciones para borrar una lista completa. <code>g_slist_free()</code> elimina todos los enlaces de una sola vez. <code>g_slist_free()</code> no tiene valor de retorno porque siempre sería <code>NULL</code>, y simplemente puede asignar ese valor a su lista si lo desea. Obviamente, <code>g_slist_free()</code> libera solo las celdas de la lista; no tiene forma de saber qué hacer con el contenido de la lista. La función más inteligente <code>g_slist_free_full()</code> toma un segundo argumento con un puntero de función de destrucción que se llama en los datos de cada elemento. Para liberar la lista que contiene cadenas asignadas dinámicamente, puede escribir:</p>
 <pre><code class="language-c">g_slist_free_full (list, g_free);
 
 /* If list may be used later: */
@@ -261,9 +261,9 @@ gint g_slist_index (GSList *list, gconstpointer data);
 void g_slist_foreach (GSList *list, GFunc func, gpointer user_data);
 </code></pre>
 <div class="caption">
-<p><span class="glib-listaccess"></span>: Acceder a datos en una lista vinculada</p>
+<p><span class="glib-listaccess">Listado</span>: Acceder a datos en una lista vinculada</p>
 </div>
-<p>Para acceder a los elementos de la lista, se proporcionan las funciones del <span class="glib-listaccess"></span>. Ninguno de estos cambia la estructura de la lista. <code>g_slist_foreach()</code> aplica un <code>GFunc</code> a cada elemento de la lista.</p>
+<p>Para acceder a los elementos de la lista, se proporcionan las funciones del <span class="glib-listaccess">Listado</span>. Ninguno de estos cambia la estructura de la lista. <code>g_slist_foreach()</code> aplica un <code>GFunc</code> a cada elemento de la lista.</p>
 <p>Usado en <code>g_slist_foreach()</code>, su <code>GFunc</code> se llamará en cada <code>list-&gt;data</code> en <code>list</code>, pasando el <code>user_data</code> que proporcionó a <code>g_slist_foreach()</code>. <code>g_slist_foreach()</code> es comparable a la función &quot;map&quot; de Scheme.</p>
 <p>Por ejemplo, es posible que tenga una lista de cadenas y que desee poder crear una lista paralela con alguna transformación aplicada a las cadenas. Aquí hay algo de código, usando la función <code>efficient_append()</code> de un ejemplo anterior:</p>
 <pre><code class="language-c">typedef struct _AppendContext AppendContext;
@@ -311,9 +311,9 @@ GSList * g_slist_reverse (GSList *list);
 GSList * g_slist_copy (GSList *list);
 </code></pre>
 <div class="caption">
-<p><span class="glib-listmanip"></span>: Manipular una lista vinculada</p>
+<p><span class="glib-listmanip">Listado</span>: Manipular una lista vinculada</p>
 </div>
-<p>Hay algunas prácticas rutinas de manipulación de listas, listadas en <span class="glib-listmanip"></span>. Con la excepción de <code>g_slist_copy()</code>, todos estos afectan las listas en el lugar. Lo que significa que debe asignar el valor de retorno y olvidarse del puntero pasado, tal como lo hace al agregar o eliminar elementos de la lista. <code>g_slist_copy()</code> devuelve una lista recién asignada, por lo que puede continuar usando ambas listas y debe liberar ambas listas eventualmente.</p>
+<p>Hay algunas prácticas rutinas de manipulación de listas, listadas en <span class="glib-listmanip">Listado</span>. Con la excepción de <code>g_slist_copy()</code>, todos estos afectan las listas en el lugar. Lo que significa que debe asignar el valor de retorno y olvidarse del puntero pasado, tal como lo hace al agregar o eliminar elementos de la lista. <code>g_slist_copy()</code> devuelve una lista recién asignada, por lo que puede continuar usando ambas listas y debe liberar ambas listas eventualmente.</p>
 <p><a id="glib-listsorted"></a></p>
 <pre><code class="language-c">#include &lt;glib.h&gt;
 
@@ -324,55 +324,14 @@ GSList * g_slist_sort (GSList *list, GCompareFunc compare_func);
 GSList * g_slist_find_custom (GSList *list, gconstpointer data, GCompareFunc func);
 </code></pre>
 <div class="caption">
-<p><span class="glib-listsorted"></span>: Listas ordenadas</p>
+<p><span class="glib-listsorted">Listado</span>: Listas ordenadas</p>
 </div>
-<p>Finalmente, hay algunas disposiciones para listas ordenadas, que se muestran en <span class="glib-listsorted"></span>. Para usarlos, debe escribir un <code>GCompareFunc</code>, que es como la función de comparación en el estándar C <code>qsort()</code>.</p>
+<p>Finalmente, hay algunas disposiciones para listas ordenadas, que se muestran en <span class="glib-listsorted">Listado</span>. Para usarlos, debe escribir un <code>GCompareFunc</code>, que es como la función de comparación en el estándar C <code>qsort()</code>.</p>
 <p>Si <code>a &lt; b</code> , <code>GCompareFunc</code> debería devolver un valor negativo; si <code>a &gt; b</code> un valor positivo; si <code>a == b</code> debería devolver 0.</p>
 <p>Una vez que tenga una función de comparación, puede insertar un elemento en una lista ya ordenada u ordenar una lista completa. Las listas se ordenan en orden ascendente. Incluso puedes reciclar tu GCompareFunc para encontrar elementos de la lista, usando <code>g_slist_find_custom()</code>.</p>
 <p>Tenga cuidado con las listas ordenadas; su mal uso puede volverse muy ineficaz rápidamente. Por ejemplo, <code>g_slist_insert_sorted()</code> es una operación <code>O(n)</code>, pero si la usa en un bucle para insertar varios elementos, el bucle se ejecuta en tiempo cuadrático (<code>O(n^2)</code>). Es mejor simplemente anteponer todos sus elementos y luego llamar a <code>g_slist_sort()</code>. <code>g_slist_sort()</code> se ejecuta en <code>O(n log n)</code>.</p>
 <p>También puede usar la estructura de datos <code>GSequence</code> para datos ordenados. <code>GSequence</code> tiene una API de lista, pero se implementa internamente con un árbol binario equilibrado.</p>
-<script>
-/* Asignacion de indice de listados en todo la pagina */
 
-let lst = 12;
-let i = 0;
-
-lst += 1
-let lst01 = document.getElementsByClassName("glib-gslist-cell");
-for( i = 0; i < lst01.length; i++ ) {
-    lst01[i].innerHTML = "<a href=\"#glib-gslist-cell\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst02 = document.getElementsByClassName("glib-listchanging");
-for( i = 0; i < lst02.length; i++ ) {
-    lst02[i].innerHTML = "<a href=\"#glib-listchanging\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst03 = document.getElementsByClassName("glib-listfree");
-for( i = 0; i < lst03.length; i++ ) {
-    lst03[i].innerHTML = "<a href=\"#glib-listfree\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst04 = document.getElementsByClassName("glib-listaccess");
-for( i = 0; i < lst04.length; i++ ) {
-    lst04[i].innerHTML = "<a href=\"#glib-listaccess\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst05 = document.getElementsByClassName("glib-listmanip");
-for( i = 0; i < lst05.length; i++ ) {
-    lst05[i].innerHTML = "<a href=\"#glib-listmanip\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst06 = document.getElementsByClassName("glib-listsorted");
-for( i = 0; i < lst06.length; i++ ) {
-    lst06[i].innerHTML = "<a href=\"#glib-listsorted\">Listado 2." + lst + "</a>";
-}
-</script>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -399,20 +358,6 @@ for( i = 0; i < lst06.length; i++ ) {
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3000/__livereload");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         <!-- Google Analytics Tag -->
         <script type="text/javascript">
             var localAddrs = ["localhost", "127.0.0.1", ""];
@@ -440,5 +385,7 @@ for( i = 0; i < lst06.length; i++ ) {
         <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../.././src/assets/js/refs-intro.js"></script>
+        <script type="text/javascript" src="../.././src/assets/js/refs-glib.js"></script>
     </body>
 </html>
