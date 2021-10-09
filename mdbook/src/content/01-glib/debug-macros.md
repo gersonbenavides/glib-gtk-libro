@@ -16,11 +16,11 @@ g_return_val_if_fail (condition, return_value);
 
 <div class="caption">
 
-<p><span class="glib-precondition"></span>: Comprobaciones de condiciones previas.</p>
+<p><span class="glib-precondition">Listado</span>: Comprobaciones de condiciones previas.</p>
 
 </div>
 
-El <span class="glib-precondition"></span> muestra las verificaciones de condiciones previas de GLib. `g_return_if_fail()` imprime una advertencia y regresa inmediatamente de la función actual si `condition` es `FALSE`. `g_return_val_if_fail()` es similar pero le permite devolver algún `return_value`. Estos macros son increíblemente útiles, si las usa libremente, especialmente en
+El <span class="glib-precondition">Listado</span> muestra las verificaciones de condiciones previas de GLib. `g_return_if_fail()` imprime una advertencia y regresa inmediatamente de la función actual si `condition` es `FALSE`. `g_return_val_if_fail()` es similar pero le permite devolver algún `return_value`. Estos macros son increíblemente útiles, si las usa libremente, especialmente en
 combinación con la verificación de tipo en tiempo de ejecución de GObject, reducirá a la mitad el tiempo que dedica a buscar punteros incorrectos y errores
 tipográficos.
 
@@ -63,11 +63,11 @@ g_assert_not_reached ();
 
 <div class="caption">
 
-<p><span class="glib-assertions"></span>: Afirmaciones.</p>
+<p><span class="glib-assertions">Listado</span>: Afirmaciones.</p>
 
 </div>
 
-GLib también tiene macros de aserción más tradicionales, que se muestran en el <span class="glib-assertions"></span>. `g_assert()` es básicamente idéntico a `assert()`, pero responde a `G_DISABLE_ASSERT` y se comporta consistentemente en todas las plataformas. También se proporciona `g_assert_not_reached()`; esta es una afirmación que siempre falla. Las afirmaciones llaman a `abort()` para salir del programa y (si su entorno lo admite) descargan un archivo central con fines de depuración.
+GLib también tiene macros de aserción más tradicionales, que se muestran en el <span class="glib-assertions">Listado</span>. `g_assert()` es básicamente idéntico a `assert()`, pero responde a `G_DISABLE_ASSERT` y se comporta consistentemente en todas las plataformas. También se proporciona `g_assert_not_reached()`; esta es una afirmación que siempre falla. Las afirmaciones llaman a `abort()` para salir del programa y (si su entorno lo admite) descargan un archivo central con fines de depuración.
 
 Las afirmaciones fatales deben usarse para verificar la *consistencia interna* de una función o biblioteca, mientras que `g_return_if_fail()` está destinado a garantizar que se pasen valores cuerdos a las interfaces públicas de un módulo de programa. Es decir, si una aserción falla, normalmente busca un error en el módulo que contiene la aserción; Si falla una comprobación de `g_return_if_fail()`, normalmente busca el error en el código que invoca el módulo.
 
@@ -116,23 +116,3 @@ switch (value)
 ```
 
 Todas las macros de depuración imprimen una advertencia utilizando la función `g_log()` de GLib, lo que significa que la advertencia incluye el nombre de la aplicación o biblioteca de origen y, opcionalmente, puede instalar una rutina de impresión de advertencias de reemplazo. Por ejemplo, puede enviar todas las advertencias a un cuadro de diálogo o archivo de registro en lugar de imprimirlas en la consola.
-
-<script>
-/* Asignacion de indice de listados en todo la pagina */
-
-let lst = 2;
-let i = 0;
-
-lst += 1
-let lst01 = document.getElementsByClassName("glib-precondition");
-for( i = 0; i < lst01.length; i++ ) {
-    lst01[i].innerHTML = "<a href=\"#glib-precondition\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst02 = document.getElementsByClassName("glib-assertions");
-for( i = 0; i < lst02.length; i++ ) {
-    lst02[i].innerHTML = "<a href=\"#glib-assertions\">Listado 2." + lst + "</a>";
-}
-
-</script>

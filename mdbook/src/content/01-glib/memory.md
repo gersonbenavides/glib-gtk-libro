@@ -1,6 +1,6 @@
 # Memoria
 
-GLib envuelve el estándar `malloc()` y `free()` con sus propias variantes `g_`, `g_malloc()` y `g_free()`, que se muestran en el <span class="glib-malloc-free"></span>. Estos son agradables de varias maneras pequeñas:
+GLib envuelve el estándar `malloc()` y `free()` con sus propias variantes `g_`, `g_malloc()` y `g_free()`, que se muestran en el <span class="glib-malloc-free">Listado</span>. Estos son agradables de varias maneras pequeñas:
 
 * `g_malloc()` siempre devuelve un `gpointer`, nunca un `char *`, por lo que no es necesario emitir el valor de retorno.
 
@@ -25,7 +25,7 @@ gpointer g_memdup (gconstpointer mem, guint n_bytes);
 
 <div class="caption">
 
-<p><span class="glib-malloc-free"></span>: Asignación de memoria GLib</p>
+<p><span class="glib-malloc-free">Listado</span>: Asignación de memoria GLib</p>
 
 </div>
 
@@ -35,7 +35,7 @@ Por supuesto, hay un `g_realloc()` equivalente a `realloc()`. También hay un co
 
 Si no es obvio: `g_malloc0()` llena la memoria sin procesar con bits no configurados, no el valor 0 para cualquier tipo que pretenda poner allí. De vez en cuando, alguien espera obtener una matriz de números de coma flotante inicializados en 0.0; *no* se garantiza que funcione de forma portátil.
 
-Por último, existen macros de asignación con reconocimiento de tipos, que se muestran en el <span class="glib-g_new"></span>. El argumento `type` para cada uno de estos es el nombre de un tipo, y el argumento `count` es el número de bloques de tamaño `type` a asignar. Estas macros le ahorran algo de escritura y multiplicación y, por lo tanto, son menos propensas a errores. Se lanzan automáticamente al tipo de puntero de destino, por lo que intentar asignar la memoria asignada al tipo de puntero incorrecto debería activar una advertencia del compilador. (Si tiene las advertencias activadas, ¡como debería hacerlo un programador responsable!)
+Por último, existen macros de asignación con reconocimiento de tipos, que se muestran en el <span class="glib-g_new">Listado</span>. El argumento `type` para cada uno de estos es el nombre de un tipo, y el argumento `count` es el número de bloques de tamaño `type` a asignar. Estas macros le ahorran algo de escritura y multiplicación y, por lo tanto, son menos propensas a errores. Se lanzan automáticamente al tipo de puntero de destino, por lo que intentar asignar la memoria asignada al tipo de puntero incorrecto debería activar una advertencia del compilador. (Si tiene las advertencias activadas, ¡como debería hacerlo un programador responsable!)
 
 <a id="glib-g_new"></a>
 
@@ -49,26 +49,6 @@ g_renew (type, mem, count);
 
 <div class="caption">
 
-<p><span class="glib-g_new"></span>: Macros de asignación</p>
+<p><span class="glib-g_new">Listado</span>: Macros de asignación</p>
 
 </div>
-
-<script>
-/* Asignacion de indice de listados en todo la pagina */
-
-let lst = 4;
-let i = 0;
-
-lst += 1
-let lst01 = document.getElementsByClassName("glib-malloc-free");
-for( i = 0; i < lst01.length; i++ ) {
-    lst01[i].innerHTML = "<a href=\"#glib-malloc-free\">Listado 2." + lst + "</a>";
-}
-
-lst += 1
-let lst02 = document.getElementsByClassName("glib-g_new");
-for( i = 0; i < lst02.length; i++ ) {
-    lst02[i].innerHTML = "<a href=\"#glib-g_new\">Listado 2." + lst + "</a>";
-}
-
-</script>
