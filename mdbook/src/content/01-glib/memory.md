@@ -25,7 +25,7 @@ gpointer g_memdup (gconstpointer mem, guint n_bytes);
 
 <div class="caption">
 
-<p><span class="glib-malloc-free">Listado</span>: Asignación de memoria GLib</p>
+<p><span class="glib-malloc-free">Listado</span>: Asignación de memoria GLib.</p>
 
 </div>
 
@@ -49,6 +49,10 @@ g_renew (type, mem, count);
 
 <div class="caption">
 
-<p><span class="glib-g_new">Listado</span>: Macros de asignación</p>
+<p><span class="glib-g_new">Listado</span>: Macros de asignación.</p>
 
 </div>
+
+<!-- Habilitacion del enumeramiento de referencias -->
+
+<div class="refs-glib"></div>

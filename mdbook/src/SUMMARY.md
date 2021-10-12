@@ -23,7 +23,7 @@
 		- [Manejo de string](./content/01-glib/str-handling.md)
 	- [Estructura de datos](./content/01-glib/data-struct.md)
 		- [Listas](./content/01-glib/lists.md)
-		- [Árboles]()
+		- [Árboles](./content/01-glib/trees.md)
 		- [Tablas hash]()
 	- [El bucle del evento principal]()
 	- [Otras características]()

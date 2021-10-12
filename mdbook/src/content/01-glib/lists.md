@@ -16,7 +16,7 @@ struct _GSList
 
 <div class="caption">
 
-<p><span class="glib-gslist-cell">Listado</span>: Celda <code>GSList</code></p>
+<p><span class="glib-gslist-cell">Listado</span>: Celda <code>GSList</code>.</p>
 
 </div>
 
@@ -45,7 +45,7 @@ GSList * g_slist_remove (GSList *list, gconstpointer data);
 
 <div class="caption">
 
-<p><span class="glib-listchanging">Listado</span>: Cambiar el contenido de la lista vinculada</p>
+<p><span class="glib-listchanging">Listado</span>: Cambiar el contenido de la lista vinculada.</p>
 
 </div>
 
@@ -90,7 +90,7 @@ void g_slist_free_full (GSList *list, GDestroyNotify free_func);
 
 <div class="caption">
 
-<p><span class="glib-listfree">Listado</span>: Liberar listas enteras vinculadas</p>
+<p><span class="glib-listfree">Listado</span>: Liberar listas enteras vinculadas.</p>
 
 </div>
 
@@ -174,7 +174,7 @@ void g_slist_foreach (GSList *list, GFunc func, gpointer user_data);
 
 <div class="caption">
 
-<p><span class="glib-listaccess">Listado</span>: Acceder a datos en una lista vinculada</p>
+<p><span class="glib-listaccess">Listado</span>: Acceder a datos en una lista vinculada.</p>
 
 </div>
 
@@ -236,7 +236,7 @@ GSList * g_slist_copy (GSList *list);
 
 <div class="caption">
 
-<p><span class="glib-listmanip">Listado</span>: Manipular una lista vinculada</p>
+<p><span class="glib-listmanip">Listado</span>: Manipular una lista vinculada.</p>
 
 </div>
 
@@ -256,7 +256,7 @@ GSList * g_slist_find_custom (GSList *list, gconstpointer data, GCompareFunc fun
 
 <div class="caption">
 
-<p><span class="glib-listsorted">Listado</span>: Listas ordenadas</p>
+<p><span class="glib-listsorted">Listado</span>: Listas ordenadas.</p>
 
 </div>
 
@@ -269,3 +269,7 @@ Una vez que tenga una función de comparación, puede insertar un elemento en un
 Tenga cuidado con las listas ordenadas; su mal uso puede volverse muy ineficaz rápidamente. Por ejemplo, `g_slist_insert_sorted()` es una operación `O(n)`, pero si la usa en un bucle para insertar varios elementos, el bucle se ejecuta en tiempo cuadrático (`O(n^2)`). Es mejor simplemente anteponer todos sus elementos y luego llamar a `g_slist_sort()`. `g_slist_sort()` se ejecuta en `O(n log n)`.
 
 También puede usar la estructura de datos `GSequence` para datos ordenados. `GSequence` tiene una API de lista, pero se implementa internamente con un árbol binario equilibrado.
+
+<!-- Habilitacion del enumeramiento de referencias -->
+
+<div class="refs-glib"></div>

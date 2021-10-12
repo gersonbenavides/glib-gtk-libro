@@ -116,3 +116,7 @@ switch (value)
 ```
 
 Todas las macros de depuración imprimen una advertencia utilizando la función `g_log()` de GLib, lo que significa que la advertencia incluye el nombre de la aplicación o biblioteca de origen y, opcionalmente, puede instalar una rutina de impresión de advertencias de reemplazo. Por ejemplo, puede enviar todas las advertencias a un cuadro de diálogo o archivo de registro en lugar de imprimirlas en la consola.
+
+<!-- Habilitacion del enumeramiento de referencias -->
+
+<div class="refs-glib"></div>
