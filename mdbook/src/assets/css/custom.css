@@ -12,6 +12,13 @@ div.caption code {
     font-weight: 400;
 }
 
+div.caption img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 span.caption {
     font-size: .8em;
     font-weight: 600;

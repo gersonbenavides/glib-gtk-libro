@@ -2,11 +2,11 @@
 
 *Por Sébastien Wilmet y Gerson Benavides*
 
-<p align="center">
+<div class="caption">
 
-<img src="https://gersonbdev.github.io/glib-gtk-libro/assets/img/logo-gtk.svg" alt="Logo de GTK" width="256" />
+<img src="https://gersonbdev.github.io/glib-gtk-libro/assets/img/logo-gtk.svg" alt="Logo de GTK" width="256px" />
 
-</p>
+</div>
 
 ## Descargas
 

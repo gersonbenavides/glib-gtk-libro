@@ -5,8 +5,11 @@ let refs_glib = document.getElementsByClassName("refs-glib");
 if( refs_glib.length > 0 ) {
 
     const ch_glib = 2;
-    let lst_glib = 0;
     let i_glib = 0;
+
+    /* BEGIN LISTING */
+
+    let lst_glib = 0;
     
     lst_glib += 1
     let glib_simplemacros = document.getElementsByClassName("glib-simplemacros");
@@ -116,6 +119,99 @@ if( refs_glib.length > 0 ) {
         glib_listsorted[i_glib].innerHTML = "<a href=\"../01-glib/lists.html#glib-listsorted\">Listado " + ch_glib + "." + lst_glib + "</a>";
     }
 
+    lst_glib += 1
+    let glib_treeconstruct = document.getElementsByClassName("glib-treeconstruct");
+    for( i_glib = 0; i_glib < glib_treeconstruct.length; i_glib++ ) {
+        glib_treeconstruct[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-treeconstruct\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_treemanip = document.getElementsByClassName("glib-treemanip");
+    for( i_glib = 0; i_glib < glib_treemanip.length; i_glib++ ) {
+        glib_treemanip[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-treemanip\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_treesize = document.getElementsByClassName("glib-treesize");
+    for( i_glib = 0; i_glib < glib_treesize.length; i_glib++ ) {
+        glib_treesize[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-treesize\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_treetraverse = document.getElementsByClassName("glib-treetraverse");
+    for( i_glib = 0; i_glib < glib_treetraverse.length; i_glib++ ) {
+        glib_treetraverse[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-treetraverse\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_nodecell = document.getElementsByClassName("glib-nodecell");
+    for( i_glib = 0; i_glib < glib_nodecell.length; i_glib++ ) {
+        glib_nodecell[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-nodecell\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_nodeaccess = document.getElementsByClassName("glib-nodeaccess");
+    for( i_glib = 0; i_glib < glib_nodeaccess.length; i_glib++ ) {
+        glib_nodeaccess[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-nodeaccess\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_nodenew = document.getElementsByClassName("glib-nodenew");
+    for( i_glib = 0; i_glib < glib_nodenew.length; i_glib++ ) {
+        glib_nodenew[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-nodenew\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_nodebuild = document.getElementsByClassName("glib-nodebuild");
+    for( i_glib = 0; i_glib < glib_nodebuild.length; i_glib++ ) {
+        glib_nodebuild[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-nodebuild\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_nodeconv = document.getElementsByClassName("glib-nodeconv");
+    for( i_glib = 0; i_glib < glib_nodeconv.length; i_glib++ ) {
+        glib_nodeconv[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-nodeconv\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_nodedestroy = document.getElementsByClassName("glib-nodedestroy");
+    for( i_glib = 0; i_glib < glib_nodedestroy.length; i_glib++ ) {
+        glib_nodedestroy[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-nodedestroy\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_nodeextrema = document.getElementsByClassName("glib-nodeextrema");
+    for( i_glib = 0; i_glib < glib_nodeextrema.length; i_glib++ ) {
+        glib_nodeextrema[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-nodeextrema\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_nodeproperties = document.getElementsByClassName("glib-nodeproperties");
+    for( i_glib = 0; i_glib < glib_nodeproperties.length; i_glib++ ) {
+        glib_nodeproperties[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-nodeproperties\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_nodeaccessors = document.getElementsByClassName("glib-nodeaccessors");
+    for( i_glib = 0; i_glib < glib_nodeaccessors.length; i_glib++ ) {
+        glib_nodeaccessors[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-nodeaccessors\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    /* END LISTING */
+    
+
+    /* BEGIN FIGURES */
+
+    let fig_glib = 0;
+
+    fig_glib += 1
+    let glib_event_loop = document.getElementsByClassName("glib-event-loop");
+    for( i_glib = 0; i_glib < glib_event_loop.length; i_glib++ ) {
+        glib_event_loop[i_glib].innerHTML = "<a href=\"../01-glib/main-loop.html#glib-event-loop\">Figura " + ch_glib + "." + fig_glib + "</a>";
+    }
+
+    /* END FIGURES */
+    
 }
 
 /* END REFERENCES GLIB */

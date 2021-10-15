@@ -224,7 +224,7 @@ Hay dos macros para detectar la parte superior e inferior de un árbol `GNode`, 
 
 <a id="glib-nodeproperties"></a>
 
-```
+```c
 #include <glib.h>
 
 guint g_node_n_nodes (GNode *root, GTraverseFlags flags);

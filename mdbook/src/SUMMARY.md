@@ -24,9 +24,9 @@
 	- [Estructura de datos](./content/01-glib/data-struct.md)
 		- [Listas](./content/01-glib/lists.md)
 		- [Árboles](./content/01-glib/trees.md)
-		- [Tablas hash]()
-	- [El bucle del evento principal]()
-	- [Otras características]()
+		- [Tablas hash](./content/01-glib/hash-tables.md)
+	- [El bucle del evento principal](./content/01-glib/main-loop.md)
+	- [Otras características](./content/01-glib/other-feat.md)
 
 - [Programación orientada a objetos en C]()
 	- [Programación semi-orientada a objetos en C]()

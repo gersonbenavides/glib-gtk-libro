@@ -69,7 +69,7 @@ gchar * g_strstrip (gchar *string);
 
 </div>
 
-Las funciones del <span class="glib-strmanip">Listado</span> modifican una cadena en el lugar: `g_strchug ()` y `g_strchomp()` "chug" la cadena (elimina los espacios iniciales), o "chomp" (eliminar los espacios finales). Esas dos funciones devuelven la cadena, además de modificarla en el lugar; en algunos casos, puede ser conveniente utilizar el valor de retorno. Hay una macro, `g_strstrip()`, que combina ambas funciones para eliminar los espacios iniciales y finales.
+Las funciones del <span class="glib-strmanip">Listado</span> modifican una cadena en el lugar: `g_strchug()` y `g_strchomp()` "chug" la cadena (elimina los espacios iniciales), o "chomp" (eliminar los espacios finales). Esas dos funciones devuelven la cadena, además de modificarla en el lugar; en algunos casos, puede ser conveniente utilizar el valor de retorno. Hay una macro, `g_strstrip()`, que combina ambas funciones para eliminar los espacios iniciales y finales.
 
 <a id="glib-strformats"></a>
 
