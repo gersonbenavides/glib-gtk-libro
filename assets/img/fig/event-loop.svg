@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="23cm" height="15cm" viewBox="119 37 442 294" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="120" y="100" width="60" height="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="120" y="100" width="60" height="10"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="120" y="110" width="60" height="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="120" y="110" width="60" height="10"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="120" y="120" width="60" height="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="120" y="120" width="60" height="10"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="120" y="130" width="60" height="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="120" y="130" width="60" height="10"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="150" y1="70" x2="150" y2="91.382"/>
+    <polygon style="fill: #000000" points="150,98.882 145,88.882 150,91.382 155,88.882 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="150,98.882 145,88.882 150,91.382 155,88.882 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="240" y="37.7492" width="140" height="36.0623"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="240" y="37.7492" width="140" height="36.0623"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="240" y="100" width="140" height="40"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="240" y="100" width="140" height="40"/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" d="M 387.081,115.412 A 35.776,35.776 0 0 0 380,55.7804"/>
+    <polygon style="fill: #000000" points="381.003,119.507 387.774,110.61 387.735,116.2 392.184,119.585 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="381.003,119.507 387.774,110.61 387.735,116.2 392.184,119.585 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" d="M 232.919,60.3679 A 35.776,35.776 0 0 0 240,120"/>
+    <polygon style="fill: #000000" points="238.997,56.2734 232.226,65.1707 232.265,59.5807 227.816,56.1955 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="238.997,56.2734 232.226,65.1707 232.265,59.5807 227.816,56.1955 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="310" y1="140" x2="310" y2="181.382"/>
+    <polygon style="fill: #000000" points="310,188.882 305,178.882 310,181.382 315,178.882 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="310,188.882 305,178.882 310,181.382 315,178.882 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="240" y="190" width="140" height="52.2973"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="240" y="190" width="140" height="52.2973"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="310" y1="242.298" x2="310" y2="281.562"/>
+    <polygon style="fill: #000000" points="310,289.062 305,279.062 310,281.562 315,279.062 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="310,289.062 305,279.062 310,281.562 315,279.062 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="240" y="290.18" width="140" height="40"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="240" y="290.18" width="140" height="40"/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="310" y="310.18">
+    <tspan x="310" y="310.18"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="310" y="310.18">
+    <tspan x="310" y="310.18"></tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="380" y1="216.148" x2="411.382" y2="216.22"/>
+    <polygon style="fill: #000000" points="418.882,216.237 408.87,221.214 411.382,216.22 408.893,211.214 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="418.882,216.237 408.87,221.214 411.382,216.22 408.893,211.214 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="420" y="189.585" width="140" height="53.3114"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x="420" y="189.585" width="140" height="53.3114"/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="308.572" y="52.3774">
+    <tspan x="308.572" y="52.3774">Obtener el proximo</tspan>
+    <tspan x="308.572" y="68.3774">evento</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="274.63" y="49.549">
+    <tspan x="274.63" y="49.549"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="311.262" y="115.442">
+    <tspan x="311.262" y="115.442">Enviar evento a la</tspan>
+    <tspan x="311.262" y="131.442">aplicación</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="316.92" y="167.547">
+    <tspan x="316.92" y="167.547">Señal</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="308.258" y="202.866">
+    <tspan x="308.258" y="202.866">Devolución de</tspan>
+    <tspan x="308.258" y="218.866">llamada de la</tspan>
+    <tspan x="308.258" y="234.866">aplicación</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="124.968" y="61.036">
+    <tspan x="124.968" y="61.036">Eventos</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="311.42" y="306.304">
+    <tspan x="311.42" y="306.304">Trabajar un poco</tspan>
+    <tspan x="311.42" y="322.304">en el mismo hilo</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="490.772" y="204.896">
+    <tspan x="490.772" y="204.896">Lanzar algo de</tspan>
+    <tspan x="490.772" y="220.896">trabajo en otro</tspan>
+    <tspan x="490.772" y="236.896">hilo</tspan>
+  </text>
+</svg>
