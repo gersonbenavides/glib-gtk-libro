@@ -197,6 +197,30 @@ if( refs_glib.length > 0 ) {
         glib_nodeaccessors[i_glib].innerHTML = "<a href=\"../01-glib/trees.html#glib-nodeaccessors\">Listado " + ch_glib + "." + lst_glib + "</a>";
     }
 
+    lst_glib += 1
+    let glib_hashnew = document.getElementsByClassName("glib-hashnew");
+    for( i_glib = 0; i_glib < glib_hashnew.length; i_glib++ ) {
+        glib_hashnew[i_glib].innerHTML = "<a href=\"../01-glib/hash-tables.html#glib-hashnew\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_hashfuncs = document.getElementsByClassName("glib-hashfuncs");
+    for( i_glib = 0; i_glib < glib_hashfuncs.length; i_glib++ ) {
+        glib_hashfuncs[i_glib].innerHTML = "<a href=\"../01-glib/hash-tables.html#glib-hashfuncs\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_hashmanip = document.getElementsByClassName("glib-hashmanip");
+    for( i_glib = 0; i_glib < glib_hashmanip.length; i_glib++ ) {
+        glib_hashmanip[i_glib].innerHTML = "<a href=\"../01-glib/hash-tables.html#glib-hashmanip\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
+    lst_glib += 1
+    let glib_idle_timeout = document.getElementsByClassName("glib-idle-timeout");
+    for( i_glib = 0; i_glib < glib_idle_timeout.length; i_glib++ ) {
+        glib_idle_timeout[i_glib].innerHTML = "<a href=\"../01-glib/main-loop.html#glib-idle-timeout\">Listado " + ch_glib + "." + lst_glib + "</a>";
+    }
+
     /* END LISTING */
     
 

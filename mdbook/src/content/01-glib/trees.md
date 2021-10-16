@@ -4,8 +4,6 @@ Hay dos tipos diferentes de árboles en GLib; `GTree` es su árbol binario balan
 
 ## GTree
 
-<!-- hablar sobre g_tree_ref() y g_tree_unref()? Esas funciones suelen ser mejores que g_tree_destroy(), pero necesita un poco de explicación sobre la gestión de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable. -->
-
 <a id="glib-treeconstruct"></a>
 
 ```c

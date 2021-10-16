@@ -5,13 +5,25 @@
 
 ---
 
-- [ ] 
+- [ ] Traducir diagramas.
+- [ ] Tradicir comenatarios en listados.
 
-## Texto 
+## Latex 
 
 ---
 
-Las siguientes tareas son propuestas por el autor en el repositorio oficial. Vea también la lista de QUE HACER (más pública) en la introducción, además de los comentarios de QUE HACER/ARREGLAR en los archivos *.tex.
+Las siguientes tareas son propuestas por el autor en el repositorio oficial. Vea también la lista de QUE
+HACER (más pública) en la introducción, además de los comentarios de QUE HACER/ARREGLAR en los archivos
+*.tex.
+
+Tenga en cuenta que el desarrollo del texto se continuara en el formato mdBook por tanto las siguientes
+propuestas se verian en este ultimo.
+
+### Redacción
+
+- (GLib -> Estructuras de datos -> Árboles -> GTree): Hablar sobre g_tree_ref() y g_tree_unref()? Esas
+funciones suelen ser mejores que g_tree_destroy(), pero necesita un poco de explicación sobre la gestión
+de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
 
 ### Infraestructura de libro
 

@@ -264,7 +264,7 @@ gchar * g_strchomp (gchar *string);
 gchar * g_strstrip (gchar *string);
 \end{lstlisting}
 
-Las funciones del Listado ~\ref{glib-strmanip} modifican una cadena en el lugar: \lstinline{g_strchug ()} y \lstinline{g_strchomp()} ``chug'' la cadena (elimina los espacios iniciales), o ``chomp'' (eliminar los espacios finales). Esas dos funciones devuelven la cadena, además de modificarla en el lugar; en algunos casos, puede ser conveniente utilizar el valor de retorno. Hay una macro, \lstinline{g_strstrip()}, que combina ambas funciones para eliminar los espacios iniciales y finales.
+Las funciones del Listado ~\ref{glib-strmanip} modifican una cadena en el lugar: \lstinline{g_strchug()} y \lstinline{g_strchomp()} ``chug'' la cadena (elimina los espacios iniciales), o ``chomp'' (eliminar los espacios finales). Esas dos funciones devuelven la cadena, además de modificarla en el lugar; en algunos casos, puede ser conveniente utilizar el valor de retorno. Hay una macro, \lstinline{g_strstrip()}, que combina ambas funciones para eliminar los espacios iniciales y finales.
 
 \begin{lstlisting}[float, caption={Conversiones de cadenas}, label=glib-strformats]
 #include <glib.h>
@@ -523,7 +523,7 @@ Hay dos tipos diferentes de árboles en GLib; \lstinline{GTree} es su árbol bin
 
 \subsubsection{GTree}
 
-% ARREGLARME hablar sobre g_tree_ref() y g_tree_unref()? Esas funciones suelen ser mejores que g_tree_destroy(), pero necesita un poco de explicación sobre la gestión de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
+% ARREGLAR hablar sobre g_tree_ref() y g_tree_unref()? Esas funciones suelen ser mejores que g_tree_destroy(), pero necesita un poco de explicación sobre la gestión de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
 \begin{lstlisting}[float, caption={Creando y destruyendo árboles binarios balanceados}, label=glib-treeconstruct]
 #include <glib.h>
 
@@ -542,7 +542,7 @@ GTree * g_tree_new_full (GCompareDataFunc key_compare_func,
 void g_tree_destroy (GTree *tree);
 \end{lstlisting}
 
-Para crear y destruir un \lstinline {GTree}, use un constructor y un destructor que se muestran en el Listado~\ref{glib-treeconstruct}. \lstinline{GCompareFunc} es la misma \lstinline{qsort()}-función de comparación de estilo descrita para \lstinline{GSList}; en este caso, se utiliza para comparar claves en el árbol. \lstinline{g_tree_new_full()} es útil para facilitar la gestión de la memoria para claves y valores asignados dinámicamente.
+Para crear y destruir un \lstinline{GTree}, use un constructor y un destructor que se muestran en el Listado~\ref{glib-treeconstruct}. \lstinline{GCompareFunc} es la misma \lstinline{qsort()}-función de comparación de estilo descrita para \lstinline{GSList}; en este caso, se utiliza para comparar claves en el árbol. \lstinline{g_tree_new_full()} es útil para facilitar la gestión de la memoria para claves y valores asignados dinámicamente.
 
 La estructura \lstinline{GTree} es un tipo de datos opaco. Se accede y modifica a su contenido únicamente con funciones públicas.
 
@@ -720,7 +720,7 @@ El listado~\ref{glib-nodeaccessors} muestra algunas de las funciones restantes d
 
 Además de \lstinline{GHashFunc}, se requiere una \lstinline{GEqualFunc} para probar la igualdad de las claves. Se utiliza para encontrar el par clave-valor correcto cuando las colisiones hash dan como resultado más de un par en la misma ranura hash.
 
-Si usa el constructor básico \lstinline{g_hash_table_new()}, recuerde que GLib no tiene forma de saber cómo destruir los datos contenidos en su tabla hash; solo destruye la mesa misma. Si es necesario liberar las claves y los valores, use \lstinline{g_hash_table_new_full()}, las funciones de destrucción se llamarán en cada clave y valor antes de destruir la tabla hash.
+Si usa el constructor básico \lstinline{g_hash_table_new()}, recuerde que GLib no tiene forma de saber cómo destruir los datos contenidos en su tabla hash; solo destruye la tabla misma. Si es necesario liberar las claves y los valores, use \lstinline{g_hash_table_new_full()}, las funciones de destrucción se llamarán en cada clave y valor antes de destruir la tabla hash.
 
 \begin{lstlisting}[float, caption={\lstinline{GHashTable} constructores y destructores}, label=glib-hashnew]
 #include <glib.h>
@@ -739,7 +739,7 @@ GHashTable * g_hash_table_new_full (GHashFunc hash_func,
 void g_hash_table_destroy (GHashTable *hash_table);
 \end{lstlisting}
 
-Se proporcionan funciones de comparación y hash listas para usar para claves comunes: enteros, punteros, cadenas y otros tipos de GLib. Los más comunes se enumeran en el Listado~\ref{glib-hashfuncs}. Las funciones para enteros aceptan un puntero a \lstinline{gint}, en lugar de la \lstinline{gint} en sí. Si pasa \lstinline{NULL} como argumento de la función hash a \lstinline{g_hash_table_new()}, \lstinline{g_direct_hash ()} se usa por defecto. Si pasa \lstinline{NULL} como la función de igualdad de claves, entonces se usa una comparación de puntero simple (equivalente a \lstinline{g_direct_equal()}, pero sin una llamada de función).
+Se proporcionan funciones de comparación y hash listas para usar para claves comunes: enteros, punteros, cadenas y otros tipos de GLib. Los más comunes se enumeran en el Listado~\ref{glib-hashfuncs}. Las funciones para enteros aceptan un puntero a \lstinline{gint}, en lugar de a \lstinline{gint} en sí. Si pasa \lstinline{NULL} como argumento de la función hash a \lstinline{g_hash_table_new()}, \lstinline{g_direct_hash()} se usa por defecto. Si pasa \lstinline{NULL} como la función de igualdad de claves, entonces se usa una comparación de puntero simple (equivalente a \lstinline{g_direct_equal()}, pero sin una llamada de función).
 
 \begin{lstlisting}[float, caption={Hashes/comparaciones preescritos}, label=glib-hashfuncs]
 #include <glib.h>
@@ -774,7 +774,7 @@ gboolean g_hash_table_lookup_extended (GHashTable *hash_table,
 \begin{figure}
   \begin{center}
     \includegraphics[width=10cm]{assets/img/event-loop.pdf}
-    \caption{Structure of an event-driven application, with a main event loop}
+    \caption{Estructura de una aplicación impulsada por eventos, con un bucle de eventos principal}
     \label{glib-event-loop}
   \end{center}
 \end{figure}
@@ -804,7 +804,7 @@ main (gint   argc,
 
 El bucle de eventos GTK tiene un nivel ligeramente más alto que la abstracción del bucle de eventos GLib. \lstinline{gtk_main()} ejecuta el ciclo de eventos principal hasta que se llama a \lstinline{gtk_main_quit()}. \lstinline{gtk_main_quit()} normalmente se llama en la devolución de llamada de la función cuando se hace clic en el botón de cierre o se activa la acción del menú Salir.
 
-Una devolución de llamada es una función que se llama cuando se envía una señal. El sistema de señales está implementado por la biblioteca GObject. La escucha de una señal se logra con la función \lstinline{g_signal_connect()}:
+Una devolución de llamada es una función que se llama cuando se envía una señal. El sistema de señales está implementado por la biblioteca GObject. Escuchar una señal se logra con la función \lstinline{g_signal_connect()}:
 \begin{lstlisting}
 static void
 button_clicked_cb (GtkButton *button,
@@ -855,8 +855,8 @@ Simplemente no hay espacio para cubrir todas las funciones de GLib en este libro
 
 Parte del soporte de aplicaciones principales que no se ha mencionado aún:
 \begin{itemize}
-    \item \lstinline{GError}: un sistema de notificación de errores, similar a las excepciones en otros idiomas.
-    \item La función \lstinline{g_log ()} le permite imprimir advertencias, mensajes, etc. con niveles de registro configurables y rutinas de impresión conectables.
+    \item \lstinline{GError}: un sistema de notificación de errores, similar a las excepciones en otros lenguajes.
+    \item La función \lstinline{g_log()} le permite imprimir advertencias, mensajes, etc. con niveles de registro configurables y rutinas de impresión conectables.
 \end{itemize}
 
 Utilidades:
@@ -865,7 +865,7 @@ Utilidades:
     \item Un marco de prueba unitaria.
     \item Una instalación de temporizador.
     \item Funciones calendáricas/aritméticas de fechas.
-    \item Filename manipulation, such as \lstinline{g_path_get_basename()} and \lstinline{g_path_is_absolute()}.
+    \item Manipulación de nombre de archivo, como \lstinline{g_path_get_basename()} y \lstinline{g_path_is_absolute()}.
     \item Un analizador XML simple.
     \item Expresiones regulares compatibles con Perl.
 \end{itemize}
