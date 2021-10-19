@@ -11,3 +11,7 @@ Este libro asume que ya tiene algo de práctica en programación. A continuació
 * Si desea desarrollar su software en un sistema similar a Unix, otro requisito previo es saber cómo funciona Unix y estar familiarizado con la línea de comandos, un poco de scripts de shell y cómo escribir un Makefile. Un posible libro es ***UNIX for the Impatient***, de Paul Abrahams <span class="unix-impatient"></span>.
 
 * No es estrictamente necesario, pero se recomienda encarecidamente utilizar un sistema de control de versiones como Git. Un buen libro es ***Pro Git***, de Scott Chacon <span class="pro-git"></span>.
+
+<!-- Habilitacion del enumeramiento de referencias -->
+
+<div class="refs-biblio"></div>

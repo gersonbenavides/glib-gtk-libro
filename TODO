@@ -21,9 +21,11 @@ propuestas se verian en este ultimo.
 
 ### Redacción
 
-- (GLib -> Estructuras de datos -> Árboles -> GTree): Hablar sobre g_tree_ref() y g_tree_unref()? Esas
+- (glib -> glib -> data-struct -> trees -> gtree): Hablar sobre g_tree_ref() y g_tree_unref()? Esas
 funciones suelen ser mejores que g_tree_destroy(), pero necesita un poco de explicación sobre la gestión
 de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
+
+- (oop -> semi-oop -> header-ex -> Constructor de objetos): Explicar new() (asignación en el montón) vs init() (asignación en la pila) y dar un ejemplo con init(). Pero el ejemplo también requiere el código *.c, por lo que quizás sea mejor agregar la explicación en una subsección posterior.
 
 ### Infraestructura de libro
 
