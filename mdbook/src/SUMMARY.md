@@ -32,12 +32,22 @@
 
 # Programación orientada a objetos en C
 
-<!-- [Programación orientada a objetos en C](./content/oop/oop.md) -->
+<!-- [Programación orientada a objetos en C](./content/oop-semi/oop.md) -->
 
-- [Programación semi-orientada a objetos en C](./content/oop/oop-semi.md)
-	- [Ejemplo de encabezado](./content/oop/header-ex.md)
+- [Programación semi-orientada a objetos en C](./content/oop-semi/oop-semi.md)
+	- [Ejemplo de encabezado](./content/oop-semi/header-ex.md)
+		- [Espacio de nombres del proyecto](./content/oop-semi/prj-names.md)
+		- [Espacio de nombres de clase](./content/oop-semi/class-names.md)
+		- [¿Minúsculas, Mayúsculas o CamelCase?](./content/oop-semi/letter-case.md)
+		- [Incluir guardia](./content/oop-semi/incl-guard.md)
+		- [Soporte de C++](./content/oop-semi/cpp-supt.md)
+		- [#include](./content/oop-semi/include.md)
+		- [Definición de tipo](./content/oop-semi/type-def.md)
+		- [Constructor de objetos](./content/oop-semi/obj-ctor.md)
+		- [Destructor de objetos](./content/oop-semi/obj-dtor.md)
+		- [Otras funciones públicas](./content/oop-semi/other-func.md)
 	- [El archivo *.c correspondiente]()
-- [Una suave introducción a GObject](./content/oop/oop-gobject.md)
+- [Una suave introducción a GObject]()
 	- [Herencia]()
 	- [Macros de GObject]()
 	- [Interfaces]()

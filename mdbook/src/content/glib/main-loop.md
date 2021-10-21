@@ -92,4 +92,4 @@ gboolean g_source_remove (guint source_id);
 
 <!-- Habilitacion del enumeramiento de referencias -->
 
-<div class="refs-glib"></div>
+<div class="glib-refs"></div>

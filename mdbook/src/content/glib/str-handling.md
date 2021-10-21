@@ -130,4 +130,4 @@ Finalmente, el <span class="glib-strvector">Listado</span> resume algunas rutina
 
 <!-- Habilitacion del enumeramiento de referencias -->
 
-<div class="refs-glib"></div>
+<div class="glib-refs"></div>

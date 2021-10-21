@@ -55,4 +55,4 @@ g_renew (type, mem, count);
 
 <!-- Habilitacion del enumeramiento de referencias -->
 
-<div class="refs-glib"></div>
+<div class="glib-refs"></div>

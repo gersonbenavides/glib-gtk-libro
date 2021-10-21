@@ -1,0 +1,5 @@
+# Otras funciones públicas
+
+Las funciones `myapp_spell_checker_check_word()} y `myapp_spell_checker_get_suggestions()` son las características disponibles de la clase. Comprueba si una palabra está escrita correctamente y obtiene una lista de sugerencias para corregir una palabra mal escrita.
+
+El tipo de parámetro `word_length` es `gssize`, que es un tipo entero GLib que puede contener --- por ejemplo --- el resultado de `strlen()`, y también puede contener un valor negativo ya que --- contrario a `gsize` --- `gssize` es un tipo entero *con signo*. El parámetro `word_length` puede ser `-1` si la cadena está terminada en nul, es decir, si la cadena termina con el carácter especial `'\0'`. El propósito del parámetro `word_length` es poder pasar un puntero a una palabra que pertenece a una cadena más grande, sin la necesidad de llamar, por ejemplo, `g_strndup()`.

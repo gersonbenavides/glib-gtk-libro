@@ -119,4 +119,4 @@ Todas las macros de depuración imprimen una advertencia utilizando la función 
 
 <!-- Habilitacion del enumeramiento de referencias -->
 
-<div class="refs-glib"></div>
+<div class="glib-refs"></div>

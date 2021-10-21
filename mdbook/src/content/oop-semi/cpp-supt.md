@@ -1,0 +1,3 @@
+# Soporte de C++
+
+El par `G_BEGIN_DECLS`/`G_END_DECLS` permite que el encabezado se incluya desde el código C ++. Es más importante para una biblioteca, pero también es una buena práctica agregar esas macros en el código de la aplicación, incluso si la aplicación no usa C ++. De esa manera, una clase de aplicación se podría mover a una biblioteca fácilmente (puede ser difícil notar que faltan las macros `G_BEGIN_DECLS` y `G_END_DECLS`). Y si surge el deseo, la aplicación podría trasladarse a C ++ de forma incremental.

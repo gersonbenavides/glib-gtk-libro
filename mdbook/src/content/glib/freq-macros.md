@@ -55,4 +55,4 @@ Pero ten cuidado; estas macros le permiten almacenar un entero en un puntero, pe
 
 <!-- Habilitacion del enumeramiento de referencias -->
 
-<div class="refs-glib"></div>
+<div class="glib-refs"></div>

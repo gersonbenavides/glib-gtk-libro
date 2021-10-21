@@ -299,4 +299,4 @@ El <span class="glib-nodeaccessors">Listado</span> muestra algunas de las funcio
 
 <!-- Habilitacion del enumeramiento de referencias -->
 
-<div class="refs-glib"></div>
+<div class="glib-refs"></div>

@@ -29,7 +29,7 @@ if( refs_ch.length > 0 ) {
     ch += 1
     let ch_oop_semi = document.getElementsByClassName("ch-oop-semi");
     for( i_ch = 0; i_ch < ch_oop_semi.length; i_ch++ ) {
-        ch_oop_semi[i_ch].innerHTML = "<a href=\"../oop/oop-semi.html\">Capítulo " + ch + "</a>";
+        ch_oop_semi[i_ch].innerHTML = "<a href=\"../oop-semi/oop-semi.html\">Capítulo " + ch + "</a>";
     }
 
     ch += 1

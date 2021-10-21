@@ -272,4 +272,4 @@ También puede usar la estructura de datos `GSequence` para datos ordenados. `GS
 
 <!-- Habilitacion del enumeramiento de referencias -->
 
-<div class="refs-glib"></div>
+<div class="glib-refs"></div>

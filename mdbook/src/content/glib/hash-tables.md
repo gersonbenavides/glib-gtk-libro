@@ -78,4 +78,4 @@ gboolean g_hash_table_lookup_extended (GHashTable *hash_table,
 
 <!-- Habilitacion del enumeramiento de referencias -->
 
-<div class="refs-glib"></div>
+<div class="glib-refs"></div>
