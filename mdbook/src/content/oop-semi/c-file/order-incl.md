@@ -1,17 +1,15 @@
-# El archivo *.c correspondiente
+# Orden de \#include
 
-Veamos ahora el archivo \path{myapp-spell-checker.c}:
+En la parte superior del archivo, se encuentra la lista habitual de `#include`. Un detalle pequeño pero digno de mención es que el orden de inclusión no se eligió al azar. En cierto archivo \*.c, es mejor incluir primero su archivo \*.h correspondiente, y luego los otros encabezados.
 
-\vspace{0.7cm}
-\lstinputlisting[caption={myapp-spell-checker.c}, label=oop-semi-spell-checker-c]{assets/code/myapp-spell-checker.c}
+> **📌 Nota:** Excepto si tiene un archivo `config.h`, en ese caso debería `config.h`, *luego* el \*.h correspondiente, y luego los otros encabezados.
 
-\subsection{Orden de \#include}
-En la parte superior del archivo, se encuentra la lista habitual de `#include}. Un detalle pequeño pero digno de mención es que el orden de inclusión no se eligió al azar. En cierto archivo *.c, es mejor incluir primero su archivo *.h correspondiente, y luego los otros encabezados \footnote{Excepto si tiene un archivo \path{config.h}, en ese caso debería \path{config.h}, *luego} el *.h correspondiente, y luego los otros encabezados.}. Al incluir la primera \path{myapp-spell-checker.h}, si falta un `#include} en \path{myapp-spell-checker.h}, el compilador informará un error. Como se explica en la sección~\ref{oop-semi-include-in-header} p.~\pageref{oop-semi-include-in-header}, un encabezado siempre debe tener el mínimo requerido `#include}s para que ese encabezado se incluya a su vez.
+Al incluir la primera `myapp-spell-checker.h`, si falta un `#include` en `myapp-spell-checker.h`, el compilador informará un error. Como se explica en la sección <span class="ch-oop-semi-header-include"></span>, un encabezado siempre debe tener el mínimo requerido `#include`s para que ese encabezado se incluya a su vez.
 
-Además, dado que \path{glib.h} ya está incluido en \path{myapp-spell-checker.h}, no es necesario incluirlo una segunda vez en \path{myapp-spell-checker.c}.
+Además, dado que `glib.h` ya está incluido en `myapp-spell-checker.h`, no es necesario incluirlo una segunda vez en `myapp-spell-checker.c`.
 
 \subsection{Comentarios de GTK-Doc}
-La API pública está documentada con comentarios GTK-Doc. Un comentario de GTK-Doc comienza con `/**}, con el nombre del símbolo a documentar en la siguiente línea. Cuando nos referimos a un símbolo, existe una sintaxis especial a utilizar dependiendo del tipo de símbolo:
+La API pública está documentada con comentarios GTK-Doc. Un comentario de GTK-Doc comienza con `/**`, con el nombre del símbolo a documentar en la siguiente línea. Cuando nos referimos a un símbolo, existe una sintaxis especial a utilizar dependiendo del tipo de símbolo:
 \begin{itemize}
     \item Un parámetro de función tiene el prefijo `@}.
     \item El *nombre} de una `estructura} o `enum} tiene el prefijo `#}.

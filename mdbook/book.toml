@@ -9,7 +9,7 @@ title = "La plataforma de desarrollo GLib/GTK"
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "navy"
-google-analytics = "G-2BG5WVZ08D"
+# google-analytics = "G-2BG5WVZ08D"
 additional-css = ["./src/assets/css/custom.css"]
 additional-js = [
     "./src/assets/js/refs-ch.js",
