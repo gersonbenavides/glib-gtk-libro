@@ -14,4 +14,4 @@ Este libro asume que ya tiene algo de práctica en programación. A continuació
 
 <!-- Habilitacion del enumeramiento de referencias -->
 
-<div class="refs-biblio"></div>
+<div class="biblio-refs"></div>

@@ -1,8 +1,8 @@
 /* BEGIN REFERENCES BIBLIO */
 
-let refs_biblio = document.getElementsByClassName("refs-biblio");
+let biblio_refs = document.getElementsByClassName("biblio-refs");
 
-if( refs_biblio.length > 0 ) {
+if( biblio_refs.length > 0 ) {
 
     let i_biblio = 0;
     let ref_biblio = undefined;
@@ -12,7 +12,7 @@ if( refs_biblio.length > 0 ) {
     let bib_biblio = 0;    
 
     bib_biblio += 1;
-    let ref_biblio = document.getElementsByClassName("k-r-book");
+    ref_biblio = document.getElementsByClassName("k-r-book");
     for( i_biblio = 0; i_biblio < ref_biblio.length; i_biblio++ ) {
         ref_biblio[i_biblio].innerHTML = "<a href=\"../../intro/biblio.html#k-r-book\">[" + bib_biblio + "]</a>";
     }
@@ -48,37 +48,37 @@ if( refs_biblio.length > 0 ) {
     }
 
     bib_biblio += 1;
-    let ref_biblio = document.getElementsByClassName("autotools");
+    ref_biblio = document.getElementsByClassName("autotools");
     for( i_biblio = 0; i_biblio < ref_biblio.length; i_biblio++ ) {
         ref_biblio[i_biblio].innerHTML = "<a href=\"../../intro/biblio.html#autotools\">[" + bib_biblio + "]</a>";
     }
 
     bib_biblio += 1;
-    let ref_biblio = document.getElementsByClassName("code-complete");
+    ref_biblio = document.getElementsByClassName("code-complete");
     for( i_biblio = 0; i_biblio < ref_biblio.length; i_biblio++ ) {
         ref_biblio[i_biblio].innerHTML = "<a href=\"../../intro/biblio.html#code-complete\">[" + bib_biblio + "]</a>";
     }
 
     bib_biblio += 1;
-    let ref_biblio = document.getElementsByClassName("gtk-doc");
+    ref_biblio = document.getElementsByClassName("gtk-doc");
     for( i_biblio = 0; i_biblio < ref_biblio.length; i_biblio++ ) {
         ref_biblio[i_biblio].innerHTML = "<a href=\"../../intro/biblio.html#gtk-doc\">[" + bib_biblio + "]</a>";
     }
 
     bib_biblio += 1;
-    let ref_biblio = document.getElementsByClassName("gobject-introspection");
+    ref_biblio = document.getElementsByClassName("gobject-introspection");
     for( i_biblio = 0; i_biblio < ref_biblio.length; i_biblio++ ) {
         ref_biblio[i_biblio].innerHTML = "<a href=\"../../intro/biblio.html#gobject-introspection\">[" + bib_biblio + "]</a>";
     }
 
     bib_biblio += 1;
-    let ref_biblio = document.getElementsByClassName("gobject-introspection");
+    ref_biblio = document.getElementsByClassName("gobject-introspection");
     for( i_biblio = 0; i_biblio < ref_biblio.length; i_biblio++ ) {
         ref_biblio[i_biblio].innerHTML = "<a href=\"../../intro/biblio.html#gobject-introspection\">[" + bib_biblio + "]</a>";
     }
     
     bib_biblio += 1;
-    let ref_biblio = document.getElementsByClassName("gnome-programming-guidelines");
+    ref_biblio = document.getElementsByClassName("gnome-programming-guidelines");
     for( i_biblio = 0; i_biblio < ref_biblio.length; i_biblio++ ) {
         ref_biblio[i_biblio].innerHTML = "<a href=\"../../intro/biblio.html#gnome-programming-guidelines\">[" + bib_biblio + "]</a>";
     }

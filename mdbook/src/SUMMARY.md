@@ -46,16 +46,43 @@
 		- [Constructor de objetos](./content/oop-semi/hdr-ex/obj-ctor.md)
 		- [Destructor de objetos](./content/oop-semi/hdr-ex/obj-dtor.md)
 		- [Otras funciones públicas](./content/oop-semi/hdr-ex/other-func.md)
-	- [El archivo *.c correspondiente]()
-- [Una suave introducción a GObject]()
+	- [El archivo \*.c correspondiente](./content/oop-semi/c-file/c-file.md)
+		- [Orden de \#include](./content/oop-semi/c-file/order-incl.md)
+		- [Comentarios de GTK-Doc](./content/oop-semi/c-file/gtk-doc-cmnt.md)
+		- [Anotaciones de introspección de GObject](./content/oop-semi/c-file/gobj-introsp.md)
+		- [Funciones estáticas vs funciones no estáticas](./content/oop-semi/c-file/stc-vs-non-stc.md)
+		- [Programación defensiva](./content/oop-semi/c-file/defen-prog.md)
+		- [Estilo de codificación](./content/oop-semi/c-file/coding-style.md)
+- [Una suave introducción a GObject](./content/oop-gobj/chpt/oop-gobj.md)
 	- [Herencia]()
 	- [Macros de GObject]()
 	- [Interfaces]()
 	- [Recuento de referencias]()
+		- [Evitar ciclos de referencia con referencias débiles]()
+		- [Referencias flotantes]()
 	- [Señales y propiedades]()
-- [GTK]()
-	- [Ejemplo de una arquitectura de código de aplicación GTK]()
+		- [Conexión de una función de devolución de llamada a unaseñal]()
+		- [Desconexión de controladores de señales]()
+		- [Propiedades]()
+
+# GTK
+
+- [Ejemplo de una arquitectura de código de aplicación GTK]()
+	- [La función main() y GeditApp]()
+	- [GeditWindow]()
+	- [GeditNotebook y lo que contiene]()
+	- [¿Por qué y cuándo crear subclases de widgets GTK?]()
+	- [Widgets compuestos]()
+
+# Lectura adicional
+
 - [Lecturas adicionales]()
+	- [GTK y GIO]()
+	- [Escribir sus propias clases de GObject]()
+	- [Sistema de compilación]()
+		- [Las herramientas automáticas]()
+		- [Meson]()
+	- [Mejores prácticas de programación]()
 
 ---
 

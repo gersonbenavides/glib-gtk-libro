@@ -14,17 +14,32 @@ if( refs_ch.length > 0 ) {
     for( i_ch = 0; i_ch < ch_intro.length; i_ch++ ) {
         ch_intro[i_ch].innerHTML = "<a href=\"../../intro/chpt/intro.html\">Capítulo " + ch + "</a>";
     }
+        ch_intro = document.getElementsByClassName("ch-intro-why-and-when-c");
+        for( i_ch = 0; i_ch < ch_intro.length; i_ch++ ) {
+            ch_intro[i_ch].innerHTML = "<a href=\"../../intro/chpt/why-and-when-c.html\">¿Por qué y cuándo se usa el lenguaje C?</a>";
+        }
+
+            ch_intro = document.getElementsByClassName("ch-intro-separate-backend");
+            for( i_ch = 0; i_ch < ch_intro.length; i_ch++ ) {
+                ch_intro[i_ch].innerHTML = "<a href=\"../../intro/chpt/separate-backend.html\">Separación de backend del frontend</a>";
+            }
 
         let ch_learning_path = document.getElementsByClassName("ch-intro-learning-path");
         for( i_ch = 0; i_ch < ch_learning_path.length; i_ch++ ) {
             ch_learning_path[i_ch].innerHTML = "<a href=\"../../intro/sect/learning-path.html\">Ruta de aprendizaje</a>";
-        }
+        }        
 
     ch += 1
     let ch_glib = document.getElementsByClassName("ch-glib");
     for( i_ch = 0; i_ch < ch_glib.length; i_ch++ ) {
         ch_glib[i_ch].innerHTML = "<a href=\"../../glib/chpt/glib.html\">Capítulo " + ch + "</a>";
     }
+        
+        ch_glib = document.getElementsByClassName("ch-glib-dbg-macros");
+        for( i_ch = 0; i_ch < ch_glib.length; i_ch++ ) {
+            ch_glib[i_ch].innerHTML = "<a href=\"../../glib/basics/dbg-macros.html\">Macros de depuración</a>";
+        }
+
     
     ch += 1
     let ch_oop_semi = document.getElementsByClassName("ch-oop-semi");

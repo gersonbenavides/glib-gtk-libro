@@ -27,6 +27,8 @@ de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
 
 - (oop -> semi-oop -> header-ex -> obj-const): Explicar new() (asignación en el montón) vs init() (asignación en la pila) y dar un ejemplo con init(). Pero el ejemplo también requiere el código *.c, por lo que quizás sea mejor agregar la explicación en una subsección posterior.
 
+- (oop -> oop-gobj -> gobj-macros): Mostrar un ejemplo de una función que verifica sus argumentos con g_return?
+
 ### Infraestructura de libro
 
 - Smart ref con pageref si está en una página diferente: use el paquete varioref.
