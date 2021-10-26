@@ -52,37 +52,37 @@ if( glib_refs.length > 0 ) {
     enum_glib += 1
     ref_glib = document.getElementsByClassName("glib-strext");
     for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-handling.html#glib-strext\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strext\">Listado " + chpt_glib + "." + enum_glib + "</a>";
     }
     
     enum_glib += 1
     ref_glib = document.getElementsByClassName("glib-strdup");
     for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-handling.html#glib-strdup\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strdup\">Listado " + chpt_glib + "." + enum_glib + "</a>";
     }
     
     enum_glib += 1
     ref_glib = document.getElementsByClassName("glib-strmanip");
     for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-handling.html#glib-strmanip\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strmanip\">Listado " + chpt_glib + "." + enum_glib + "</a>";
     }
     
     enum_glib += 1
     ref_glib = document.getElementsByClassName("glib-strformats");
     for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-handling.html#glib-strformats\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strformats\">Listado " + chpt_glib + "." + enum_glib + "</a>";
     }
     
     enum_glib += 1
     ref_glib = document.getElementsByClassName("glib-strconcat");
     for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-handling.html#glib-strconcat\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strconcat\">Listado " + chpt_glib + "." + enum_glib + "</a>";
     }
     
     enum_glib += 1
     ref_glib = document.getElementsByClassName("glib-strvector");
     for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-handling.html#glib-strvector\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+        ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strvector\">Listado " + chpt_glib + "." + enum_glib + "</a>";
     }
     
     enum_glib += 1
