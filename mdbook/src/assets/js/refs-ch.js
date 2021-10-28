@@ -40,6 +40,11 @@ if( refs_ch.length > 0 ) {
             ch_glib[i_ch].innerHTML = "<a href=\"../../glib/basics/dbg-macros.html\">Macros de depuración</a>";
         }
 
+        ch_glib = document.getElementsByClassName("ch-glib-main-loop");
+        for( i_ch = 0; i_ch < ch_glib.length; i_ch++ ) {
+            ch_glib[i_ch].innerHTML = "<a href=\"../../glib/basics/ch-glib-main-loop.html\">El bucle del evento principal</a>";
+        }
+
     
     ch += 1
     let ch_oop_semi = document.getElementsByClassName("ch-oop-semi");
@@ -57,6 +62,11 @@ if( refs_ch.length > 0 ) {
     for( i_ch = 0; i_ch < ch_oop_gobject.length; i_ch++ ) {
         ch_oop_gobject[i_ch].innerHTML = "<a href=\"../../oop-gobject/chpt/oop-gobject.html\">Capítulo " + ch + "</a>";
     }
+
+        ch_oop_gobject = document.getElementsByClassName("ch-oop-gobject-sig-prop");
+        for( i_ch = 0; i_ch < ch_oop_gobject.length; i_ch++ ) {
+            ch_oop_gobject[i_ch].innerHTML = "<a href=\"../../oop-gobject/sig-prop/sig-prop.html\">Señales y propiedades</a>";
+        }  
 
     /* END REFS */
 }

@@ -6,7 +6,9 @@ Cuando un GObject hereda de `GInitiallyUnowned`, significa que GObject debe incl
 
 El Listado~\ref{oop-gobject-mem-management-normal} p.~\pageref{oop-gobject-mem-management-normal} muestra cómo se maneja la administración de memoria con un GObject normal. Compare esto con el Listado~\ref{oop-gobject-mem-management-floating}, que muestra cómo se maneja la administración de memoria con un GObject derivado de `GInitiallyUnowned`. La diferencia es que `g_object_unref()` no se llama en el último Listado, por lo que acorta el código.
 
-\begin{lstlisting}[float=p, caption={Memory management of normal GObjects.}, label=oop-gobject-mem-management-normal]
+<a id="oop-gobject-mem-management-normal"></a>
+
+```c
 /* Normal GObject */
 
 a_normal_gobject = normal_gobject_new ();
@@ -18,7 +20,13 @@ container_add (container, a_normal_gobject);
 /* We no longer need a_normal_gobject, so we unref it. */
 g_object_unref (a_normal_gobject);
 /* a_normal_gobject has now a reference count of 1. */
-\end{lstlisting}
+```
+
+<div class="caption">
+
+<p><span class="oop-gobject-mem-management-normal">Listado</span>: Gestión de la memoria de GObjects normales.</p>
+
+</div>
 
 \begin{lstlisting}[float=p, caption={Memory management of GObjects deriving from \lstinline{GInitiallyUnowned}.}, label=oop-gobject-mem-management-floating]
 /* GInitiallyUnowned object, e.g. a GtkWidget */
@@ -41,4 +49,3 @@ GObject
     └── GtkWidget
         └── GtkEntry
 \end{verbatim}
-

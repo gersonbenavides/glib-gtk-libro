@@ -15,17 +15,27 @@ El Listado~\ref{oop-gobject-gtkbutton-clicked} p.~\pageref{oop-gobject-gtkbutton
 
 > **📌 Nota:** La convención cuando se hace referencia a una señal de GObject es "`ClassName::signal-name`". Así es como se documenta con los comentarios de GTK-Doc.
 
-\begin{lstlisting}[float, caption={The prototype of the `GtkButton::clicked} signal.}, label=oop-gobject-gtkbutton-clicked]
+<a id="oop-gobject-gtkbutton-clicked"></a>
+
+```c
 void
 user_function (GtkButton *button,
                gpointer   user_data);
-\end{lstlisting}
+```
+
+<div class="caption">
+
+<p><span class="oop-gobject-gtkbutton-clicked">Listado</span>: El prototipo de la señal <code>GtkButton::clicked</code>.</p>
+
+</div>
 
 Cuando se usa `g_signal_connect()`, la función de devolución de llamada debe tener el mismo prototipo que el prototipo de señal. Muchas señales tienen más argumentos y algunas señales devuelven un valor. Si la devolución de llamada tiene un prototipo incompatible, sucederán cosas malas, habrá errores o bloqueos aleatorios.
 
 El Listado~\ref{oop-gobject-connect-to-signal} p.~\pageref{oop-gobject-connect-to-signal} muestra un ejemplo de cómo usar `g_signal_connect()`.
 
-\begin{lstlisting}[float, caption={How to connect to a signal}, label=oop-gobject-connect-to-signal]
+<a id="oop-gobject-connect-to-signal"></a>
+
+```c
 static void
 button_clicked_cb (GtkButton *button,
                    gpointer   user_data)
@@ -49,7 +59,13 @@ create_button (MyClass *my_class)
                     G_CALLBACK (button_clicked_cb),
                     my_class);
 }
-\end{lstlisting}
+```
+
+<div class="caption">
+
+<p><span class="oop-gobject-connect-to-signal">Listado</span>: Cómo conectarse a una señal</p>
+
+</div>
 
 La macro `G_CALLBACK()` es necesaria porque `g_signal_connect()` es genérica: se puede usar para conectarse a cualquier señal de cualquier clase de GObject, por lo que el puntero de función debe ser convertido.
 

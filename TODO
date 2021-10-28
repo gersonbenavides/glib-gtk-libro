@@ -29,6 +29,8 @@ de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
 
 - (oop -> oop-gobj -> gobj-macros): Mostrar un ejemplo de una función que verifica sus argumentos con g_return?
 
+- (gtk -> gtk-app-arch): Vuelve a explicar qué es un "widget" y un "contenedor". Y agregue un glosario al final.
+
 ### Infraestructura de libro
 
 - Smart ref con pageref si está en una página diferente: use el paquete varioref.

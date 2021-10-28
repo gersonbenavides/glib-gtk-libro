@@ -12,6 +12,7 @@ Este libro asume que ya tiene algo de práctica en programación. A continuació
 
 * No es estrictamente necesario, pero se recomienda encarecidamente utilizar un sistema de control de versiones como Git. Un buen libro es ***Pro Git***, de Scott Chacon <span class="pro-git"></span>.
 
+
 <!-- Habilitacion del enumeramiento de referencias -->
 
 <div class="biblio-refs"></div>

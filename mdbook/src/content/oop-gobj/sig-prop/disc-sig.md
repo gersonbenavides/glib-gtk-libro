@@ -16,8 +16,17 @@ El Listado~\ref{oop-gobject-disconnect-signal} muestra un ejemplo completo de c�
 
 El argumento de devolución de llamada `user_data` es una instancia de `MyTextView`, con `MyTextView` implementado con un estilo semi-OOP. Dado que el objeto del corrector ortográfico puede vivir más tiempo que la instancia de `MyTextView`, la señal debe desconectarse en el destructor `MyTextView`.
 
-\vspace{0.7cm}
-\lstinputlisting[caption={Desconectar un manejador de señales cuando se libera su argumento `user_data`.}, label=oop-gobject-disconnect-signal]{assets/code/disconnect-signal.c}
+<a id="oop-gobject-disconnect-signal"></a>
+
+```c
+{{#include ../../../assets/code/disconnect-signal.c}}
+```
+
+<div class="caption">
+
+<p><span class="oop-gobject-disconnect-signal">Listado</span>: Desconectar un manejador de señales cuando se libera su argumento `user_data`.</p>
+
+</div>
 
 En realidad, hay otras funciones de `g_signal_handler*()` que permiten desconectar los manejadores de señales:
 
