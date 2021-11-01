@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html lang="es" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Tablas hash - La plataforma de desarrollo GLib/GTK</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../.././src/assets/css/custom.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../../content/book/struct/title.html">La plataforma de desarrollo GLib/GTK</a></li><li class="chapter-item expanded "><a href="../../../content/intro/chpt/intro.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/intro/sect/glib-and-gtk.html"><strong aria-hidden="true">1.1.</strong> ¿Qué es GLib y GTK?</a></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/gnome-desktop.html"><strong aria-hidden="true">1.2.</strong> El escritorio GNOME</a></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/prerequisites.html"><strong aria-hidden="true">1.3.</strong> Prerrequisitos</a></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/why-and-when-c.html"><strong aria-hidden="true">1.4.</strong> ¿Por qué y cuándo se usa el lenguaje C?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/intro/sect/separate-backend.html"><strong aria-hidden="true">1.4.1.</strong> Separación de backend del frontend</a></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/other-aspects.html"><strong aria-hidden="true">1.4.2.</strong> Otros aspectos a tener en cuenta</a></li></ol></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/learning-path.html"><strong aria-hidden="true">1.5.</strong> Ruta de aprendizaje</a></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/environment.html"><strong aria-hidden="true">1.6.</strong> El entorno de desarrollo</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">GLib, la biblioteca principal</li><li class="chapter-item expanded "><a href="../../../content/glib/chpt/glib.html"><strong aria-hidden="true">2.</strong> GLib, la biblioteca principal</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/glib/basics/basics.html"><strong aria-hidden="true">2.1.</strong> Lo esencial</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/glib/basics/type-def.html"><strong aria-hidden="true">2.1.1.</strong> Definiciones de tipo</a></li><li class="chapter-item expanded "><a href="../../../content/glib/basics/freq-macros.html"><strong aria-hidden="true">2.1.2.</strong> Macros de uso frecuente</a></li><li class="chapter-item expanded "><a href="../../../content/glib/basics/dbg-macros.html"><strong aria-hidden="true">2.1.3.</strong> Macros de depuración</a></li><li class="chapter-item expanded "><a href="../../../content/glib/basics/memory.html"><strong aria-hidden="true">2.1.4.</strong> Memoria</a></li><li class="chapter-item expanded "><a href="../../../content/glib/basics/str-hdlg.html"><strong aria-hidden="true">2.1.5.</strong> Manejo de string</a></li></ol></li><li class="chapter-item expanded "><a href="../../../content/glib/data-struct/data-struct.html"><strong aria-hidden="true">2.2.</strong> Estructura de datos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/glib/data-struct/lists.html"><strong aria-hidden="true">2.2.1.</strong> Listas</a></li><li class="chapter-item expanded "><a href="../../../content/glib/data-struct/trees.html"><strong aria-hidden="true">2.2.2.</strong> Árboles</a></li><li class="chapter-item expanded "><a href="../../../content/glib/data-struct/hash-tables.html" class="active"><strong aria-hidden="true">2.2.3.</strong> Tablas hash</a></li></ol></li><li class="chapter-item expanded "><a href="../../../content/glib/sect/main-loop.html"><strong aria-hidden="true">2.3.</strong> El bucle del evento principal</a></li><li class="chapter-item expanded "><a href="../../../content/glib/sect/other-feat.html"><strong aria-hidden="true">2.4.</strong> Otras características</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Programación orientada a objetos en C</li><li class="chapter-item expanded "><a href="../../../content/oop-semi/chpt/oop-semi.html"><strong aria-hidden="true">3.</strong> Programación semi-orientada a objetos en C</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/hdr-ex.html"><strong aria-hidden="true">3.1.</strong> Ejemplo de encabezado</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/prj-names.html"><strong aria-hidden="true">3.1.1.</strong> Espacio de nombres del proyecto</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/class-names.html"><strong aria-hidden="true">3.1.2.</strong> Espacio de nombres de clase</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/letter-case.html"><strong aria-hidden="true">3.1.3.</strong> ¿Minúsculas, Mayúsculas o CamelCase?</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/incl-guard.html"><strong aria-hidden="true">3.1.4.</strong> Incluir guardia</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/cpp-supt.html"><strong aria-hidden="true">3.1.5.</strong> Soporte de C++</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/incl.html"><strong aria-hidden="true">3.1.6.</strong> #include</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/type-def.html"><strong aria-hidden="true">3.1.7.</strong> Definición de tipo</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/obj-ctor.html"><strong aria-hidden="true">3.1.8.</strong> Constructor de objetos</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/obj-dtor.html"><strong aria-hidden="true">3.1.9.</strong> Destructor de objetos</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/other-func.html"><strong aria-hidden="true">3.1.10.</strong> Otras funciones públicas</a></li></ol></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/c-file.html"><strong aria-hidden="true">3.2.</strong> El archivo *.c correspondiente</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/order-incl.html"><strong aria-hidden="true">3.2.1.</strong> Orden de #include</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/gtk-doc-cmnt.html"><strong aria-hidden="true">3.2.2.</strong> Comentarios de GTK-Doc</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/gobj-introsp.html"><strong aria-hidden="true">3.2.3.</strong> Anotaciones de introspección de GObject</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/stc-vs-non-stc.html"><strong aria-hidden="true">3.2.4.</strong> Funciones estáticas vs funciones no estáticas</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/defen-prog.html"><strong aria-hidden="true">3.2.5.</strong> Programación defensiva</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/coding-style.html"><strong aria-hidden="true">3.2.6.</strong> Estilo de codificación</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/chpt/oop-gobj.html"><strong aria-hidden="true">4.</strong> Una suave introducción a GObject</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sect/inherit.html"><strong aria-hidden="true">4.1.</strong> Herencia</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sect/gobj-macros.html"><strong aria-hidden="true">4.2.</strong> Macros de GObject</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sect/intfc.html"><strong aria-hidden="true">4.3.</strong> Interfaces</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/ref-cnt/ref-cnt.html"><strong aria-hidden="true">4.4.</strong> Recuento de referencias</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-gobj/ref-cnt/avoid-ref.html"><strong aria-hidden="true">4.4.1.</strong> Evitar ciclos de referencia con referencias débiles</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/ref-cnt/float-ref.html"><strong aria-hidden="true">4.4.2.</strong> Referencias flotantes</a></li></ol></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sig-prop/sig-prop.html"><strong aria-hidden="true">4.5.</strong> Señales y propiedades</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sig-prop/cnct-callb-sig.html"><strong aria-hidden="true">4.5.1.</strong> Conexión de una función de devolución de llamada a una señal</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sig-prop/disc-sig.html"><strong aria-hidden="true">4.5.2.</strong> Desconexión de controladores de señales</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sig-prop/prop.html"><strong aria-hidden="true">4.5.3.</strong> Propiedades</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">GTK</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Ejemplo de una arquitectura de código de aplicación GTK</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> La función main() y GeditApp</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> GeditWindow</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> GeditNotebook y lo que contiene</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.4.</strong> ¿Por qué y cuándo crear subclases de widgets GTK?</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.5.</strong> Widgets compuestos</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">Lectura adicional</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Lecturas adicionales</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> GTK y GIO</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> Escribir sus propias clases de GObject</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Sistema de compilación</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.1.</strong> Las herramientas automáticas</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.2.</strong> Meson</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> Mejores prácticas de programación</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../../content/book/struct/biblio.html">Bibliografía</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">La plataforma de desarrollo GLib/GTK</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gersonbdev/glib-gtk-libro" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="tablas-hash"><a class="header" href="#tablas-hash">Tablas hash</a></h1>
+<p><code>GHashTable</code> es una implementación de tabla hash simple, que proporciona una matriz asociativa con búsquedas en tiempo constante. Para crear y destruir una <code>GHashTable</code>, use un constructor y un destructor listados en <span class="glib-hashnew">Listado</span>. Debe proporcionar una <code>GHashFunc</code>, que debería devolver un entero positivo cuando se le pase una clave hash. Cada <code>guint</code> devuelto (módulo del tamaño de la tabla) corresponde a un &quot;slot&quot; o &quot;bucket&quot; en el hash; <code>GHashTable</code> maneja las colisiones almacenando una lista vinculada de pares clave-valor en cada espacio. Por lo tanto, los valores de <code>guint</code> devueltos por su <code>GHashFunc</code> deben distribuirse de manera bastante uniforme sobre el conjunto de posibles valores de <code>guint</code>, o la tabla hash degenerará en una lista enlazada. Su <code>GHashFunc</code> también debe ser rápido, ya que se usa para cada búsqueda.</p>
+<p>Además de <code>GHashFunc</code>, se requiere una <code>GEqualFunc</code> para probar la igualdad de las claves. Se utiliza para encontrar el par clave-valor correcto cuando las colisiones hash dan como resultado más de un par en la misma ranura hash.</p>
+<p>Si usa el constructor básico <code>g_hash_table_new()</code>, recuerde que GLib no tiene forma de saber cómo destruir los datos contenidos en su tabla hash; solo destruye la tabla misma. Si es necesario liberar las claves y los valores, use <code>g_hash_table_new_full()</code>, las funciones de destrucción se llamarán en cada clave y valor antes de destruir la tabla hash.</p>
+<p><a id="glib-hashnew"></a></p>
+<pre><code class="language-c">#include &lt;glib.h&gt;
+
+typedef guint (* GHashFunc) (gconstpointer key);
+typedef gboolean (* GEqualFunc) (gconstpointer a, gconstpointer b);
+typedef void (* GDestroyNotify) (gpointer data);
+
+GHashTable * g_hash_table_new (GHashFunc hash_func, GEqualFunc key_equal_func);
+
+GHashTable * g_hash_table_new_full (GHashFunc hash_func,
+                                    GEqualFunc key_equal_func,
+                                    GDestroyNotify key_destroy_func,
+                                    GDestroyNotify value_destroy_func);
+
+void g_hash_table_destroy (GHashTable *hash_table);
+</code></pre>
+<div class="caption">
+<p><span class="glib-hashnew">Listado</span>: <code>GHashTable</code> constructores y destructores</p>
+</div>
+<p>Se proporcionan funciones de comparación y hash listas para usar para claves comunes: enteros, punteros, cadenas y otros tipos de GLib. Los más comunes se enumeran en el <span class="glib-hashfuncs">Listado</span>. Las funciones para enteros aceptan un puntero a <code>gint</code>, en lugar de a <code>gint</code> en sí. Si pasa <code>NULL</code> como argumento de la función hash a <code>g_hash_table_new()</code>, <code>g_direct_hash()</code> se usa por defecto. Si pasa <code>NULL</code> como la función de igualdad de claves, entonces se usa una comparación de puntero simple (equivalente a <code>g_direct_equal()</code>, pero sin una llamada de función).</p>
+<p><a id="glib-hashfuncs"></a></p>
+<pre><code class="language-c">#include &lt;glib.h&gt;
+
+guint g_int_hash (gconstpointer key);
+gboolean g_int_equal (gconstpointer key1, gconstpointer key2);
+guint g_direct_hash (gconstpointer key);
+gboolean g_direct_equal (gconstpointer key1, gconstpointer key2);
+guint g_str_hash (gconstpointer key);
+gboolean g_str_equal (gconstpointer key1, gconstpointer key2);
+</code></pre>
+<div class="caption">
+<p><span class="glib-hashfuncs">Listado</span>: Hashes/comparaciones preescritos</p>
+</div>
+<p>Manipular la tabla hash es simple. Las rutinas se resumen en <span class="glib-hashmanip">Listado</span>. Las inserciones <em>no</em> copian la clave o el valor; estos se ingresan en la tabla exactamente como los proporciona, reemplazando cualquier par clave-valor preexistente con la misma clave (&quot;igual&quot; está definido por sus funciones hash e igualdad, recuerde). Si esto es un problema, debe realizar una búsqueda o eliminar antes de insertar. Tenga especial cuidado si asigna claves o valores de forma dinámica. Si ha proporcionado funciones <code>GDestroyNotify</code>, éstas se llamarán automáticamente en el antiguo par clave-valor antes de reemplazarlo.</p>
+<p>El <code>g_hash_table_lookup()</code> simple devuelve el valor que encuentra asociado con <code>key</code>, o <code>NULL</code> si no hay ningún valor. A veces esto no funciona. Por ejemplo, <code>NULL</code> puede ser un valor válido en sí mismo. Si está utilizando cadenas como claves, especialmente cadenas asignadas dinámicamente, saber que una clave está en la tabla puede no ser suficiente; es posible que desee recuperar el <code>gchar*</code> exacto que utiliza la tabla hash para representar la clave <code>&quot;foo&quot;</code> . Se proporciona una segunda función de búsqueda para casos como estos. <code>g_hash_table_lookup_extended()</code> devuelve <code>TRUE</code> si la búsqueda se realizó correctamente; si devuelve <code>TRUE</code>, coloca la clave y el valor que encontró en las ubicaciones proporcionadas.</p>
+<p><a id="glib-hashmanip"></a></p>
+<pre><code class="language-c">#include &lt;glib.h&gt;
+
+gboolean g_hash_table_insert (GHashTable *hash_table, gpointer key, gpointer value);
+gboolean g_hash_table_remove (GHashTable *hash_table, gconstpointer key);
+gpointer g_hash_table_lookup (GHashTable *hash_table, gconstpointer key);
+gboolean g_hash_table_lookup_extended (GHashTable *hash_table,
+                                       gconstpointer lookup_key,
+                                       gpointer *orig_key,
+                                       gpointer *value);
+</code></pre>
+<div class="caption">
+<p><span class="glib-hashmanip">Listado</span>: Manipular una <code>GHashTable</code></p>
+</div>
+<!-- Habilitacion del enumeramiento de referencias -->
+<div class="glib-refs"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../content/glib/data-struct/trees.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../../content/glib/sect/main-loop.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../content/glib/data-struct/trees.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../../content/glib/sect/main-loop.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../../.././src/assets/js/refs-ch.js"></script>
+        <script type="text/javascript" src="../../.././src/assets/js/refs-biblio.js"></script>
+        <script type="text/javascript" src="../../.././src/assets/js/refs-intro.js"></script>
+        <script type="text/javascript" src="../../.././src/assets/js/refs-glib.js"></script>
+        <script type="text/javascript" src="../../.././src/assets/js/refs-oop-semi.js"></script>
+        <script type="text/javascript" src="../../.././src/assets/js/refs-oop-gobj.js"></script>
+    </body>
+</html>

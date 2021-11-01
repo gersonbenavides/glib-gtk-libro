@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="es" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Propiedades - La plataforma de desarrollo GLib/GTK</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../.././src/assets/css/custom.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../../content/book/struct/title.html">La plataforma de desarrollo GLib/GTK</a></li><li class="chapter-item expanded "><a href="../../../content/intro/chpt/intro.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/intro/sect/glib-and-gtk.html"><strong aria-hidden="true">1.1.</strong> ¿Qué es GLib y GTK?</a></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/gnome-desktop.html"><strong aria-hidden="true">1.2.</strong> El escritorio GNOME</a></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/prerequisites.html"><strong aria-hidden="true">1.3.</strong> Prerrequisitos</a></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/why-and-when-c.html"><strong aria-hidden="true">1.4.</strong> ¿Por qué y cuándo se usa el lenguaje C?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/intro/sect/separate-backend.html"><strong aria-hidden="true">1.4.1.</strong> Separación de backend del frontend</a></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/other-aspects.html"><strong aria-hidden="true">1.4.2.</strong> Otros aspectos a tener en cuenta</a></li></ol></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/learning-path.html"><strong aria-hidden="true">1.5.</strong> Ruta de aprendizaje</a></li><li class="chapter-item expanded "><a href="../../../content/intro/sect/environment.html"><strong aria-hidden="true">1.6.</strong> El entorno de desarrollo</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">GLib, la biblioteca principal</li><li class="chapter-item expanded "><a href="../../../content/glib/chpt/glib.html"><strong aria-hidden="true">2.</strong> GLib, la biblioteca principal</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/glib/basics/basics.html"><strong aria-hidden="true">2.1.</strong> Lo esencial</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/glib/basics/type-def.html"><strong aria-hidden="true">2.1.1.</strong> Definiciones de tipo</a></li><li class="chapter-item expanded "><a href="../../../content/glib/basics/freq-macros.html"><strong aria-hidden="true">2.1.2.</strong> Macros de uso frecuente</a></li><li class="chapter-item expanded "><a href="../../../content/glib/basics/dbg-macros.html"><strong aria-hidden="true">2.1.3.</strong> Macros de depuración</a></li><li class="chapter-item expanded "><a href="../../../content/glib/basics/memory.html"><strong aria-hidden="true">2.1.4.</strong> Memoria</a></li><li class="chapter-item expanded "><a href="../../../content/glib/basics/str-hdlg.html"><strong aria-hidden="true">2.1.5.</strong> Manejo de string</a></li></ol></li><li class="chapter-item expanded "><a href="../../../content/glib/data-struct/data-struct.html"><strong aria-hidden="true">2.2.</strong> Estructura de datos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/glib/data-struct/lists.html"><strong aria-hidden="true">2.2.1.</strong> Listas</a></li><li class="chapter-item expanded "><a href="../../../content/glib/data-struct/trees.html"><strong aria-hidden="true">2.2.2.</strong> Árboles</a></li><li class="chapter-item expanded "><a href="../../../content/glib/data-struct/hash-tables.html"><strong aria-hidden="true">2.2.3.</strong> Tablas hash</a></li></ol></li><li class="chapter-item expanded "><a href="../../../content/glib/sect/main-loop.html"><strong aria-hidden="true">2.3.</strong> El bucle del evento principal</a></li><li class="chapter-item expanded "><a href="../../../content/glib/sect/other-feat.html"><strong aria-hidden="true">2.4.</strong> Otras características</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Programación orientada a objetos en C</li><li class="chapter-item expanded "><a href="../../../content/oop-semi/chpt/oop-semi.html"><strong aria-hidden="true">3.</strong> Programación semi-orientada a objetos en C</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/hdr-ex.html"><strong aria-hidden="true">3.1.</strong> Ejemplo de encabezado</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/prj-names.html"><strong aria-hidden="true">3.1.1.</strong> Espacio de nombres del proyecto</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/class-names.html"><strong aria-hidden="true">3.1.2.</strong> Espacio de nombres de clase</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/letter-case.html"><strong aria-hidden="true">3.1.3.</strong> ¿Minúsculas, Mayúsculas o CamelCase?</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/incl-guard.html"><strong aria-hidden="true">3.1.4.</strong> Incluir guardia</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/cpp-supt.html"><strong aria-hidden="true">3.1.5.</strong> Soporte de C++</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/incl.html"><strong aria-hidden="true">3.1.6.</strong> #include</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/type-def.html"><strong aria-hidden="true">3.1.7.</strong> Definición de tipo</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/obj-ctor.html"><strong aria-hidden="true">3.1.8.</strong> Constructor de objetos</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/obj-dtor.html"><strong aria-hidden="true">3.1.9.</strong> Destructor de objetos</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/hdr-ex/other-func.html"><strong aria-hidden="true">3.1.10.</strong> Otras funciones públicas</a></li></ol></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/c-file.html"><strong aria-hidden="true">3.2.</strong> El archivo *.c correspondiente</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/order-incl.html"><strong aria-hidden="true">3.2.1.</strong> Orden de #include</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/gtk-doc-cmnt.html"><strong aria-hidden="true">3.2.2.</strong> Comentarios de GTK-Doc</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/gobj-introsp.html"><strong aria-hidden="true">3.2.3.</strong> Anotaciones de introspección de GObject</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/stc-vs-non-stc.html"><strong aria-hidden="true">3.2.4.</strong> Funciones estáticas vs funciones no estáticas</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/defen-prog.html"><strong aria-hidden="true">3.2.5.</strong> Programación defensiva</a></li><li class="chapter-item expanded "><a href="../../../content/oop-semi/c-file/coding-style.html"><strong aria-hidden="true">3.2.6.</strong> Estilo de codificación</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/chpt/oop-gobj.html"><strong aria-hidden="true">4.</strong> Una suave introducción a GObject</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sect/inherit.html"><strong aria-hidden="true">4.1.</strong> Herencia</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sect/gobj-macros.html"><strong aria-hidden="true">4.2.</strong> Macros de GObject</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sect/intfc.html"><strong aria-hidden="true">4.3.</strong> Interfaces</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/ref-cnt/ref-cnt.html"><strong aria-hidden="true">4.4.</strong> Recuento de referencias</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-gobj/ref-cnt/avoid-ref.html"><strong aria-hidden="true">4.4.1.</strong> Evitar ciclos de referencia con referencias débiles</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/ref-cnt/float-ref.html"><strong aria-hidden="true">4.4.2.</strong> Referencias flotantes</a></li></ol></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sig-prop/sig-prop.html"><strong aria-hidden="true">4.5.</strong> Señales y propiedades</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sig-prop/cnct-callb-sig.html"><strong aria-hidden="true">4.5.1.</strong> Conexión de una función de devolución de llamada a una señal</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sig-prop/disc-sig.html"><strong aria-hidden="true">4.5.2.</strong> Desconexión de controladores de señales</a></li><li class="chapter-item expanded "><a href="../../../content/oop-gobj/sig-prop/prop.html" class="active"><strong aria-hidden="true">4.5.3.</strong> Propiedades</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">GTK</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Ejemplo de una arquitectura de código de aplicación GTK</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> La función main() y GeditApp</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> GeditWindow</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> GeditNotebook y lo que contiene</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.4.</strong> ¿Por qué y cuándo crear subclases de widgets GTK?</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.5.</strong> Widgets compuestos</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">Lectura adicional</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Lecturas adicionales</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> GTK y GIO</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> Escribir sus propias clases de GObject</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Sistema de compilación</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.1.</strong> Las herramientas automáticas</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.2.</strong> Meson</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> Mejores prácticas de programación</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../../content/book/struct/biblio.html">Bibliografía</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">La plataforma de desarrollo GLib/GTK</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gersonbdev/glib-gtk-libro" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="propiedades"><a class="header" href="#propiedades">Propiedades</a></h1>
+<p>Si ha mirado la referencia de la API GTK o GIO, debe haber notado que algunas clases de GObject tienen una o más <em>propiedades</em>. Una propiedad es como una variable de instancia, también llamada &quot;attribute&quot;, pero es diferente en el contexto de GObject porque tiene propiedades interesantes adicionales (Pun intencionado).</p>
+<p>Como se dijo anteriormente al comienzo de la sección <span class="ch-oop-gobject-sig-prop"></span>, un buen ejemplo de una propiedad es el estado de un botón de verificación, es decir, un valor booleano que describe si el botón está actualmente marcado o no. Si ya conoce un poco de GTK, es posible que haya descubierto que hay un botón de verificación disponible con el widget <code>GtkCheckButton</code>. Pero había una pequeña trampa si quería encontrar la propiedad de la que estaba hablando, porque la propiedad está implementada en la clase padre <code>GtkToggleButton</code>: la propiedad <code>GtkToggleButton:active</code></p>
+<blockquote>
+<p><strong>📌 Nota:</strong> De la misma manera como las señales se documentan con GTK-Doc como &quot;<code>ClassName::signal-name</code>&quot;, las propiedades se documentan como &quot;<code>ClassName:property-name</code>&quot;.</p>
+</blockquote>
+<h2 id="la-señal-notify"><a class="header" href="#la-señal-notify">La señal <code>notify</code></a></h2>
+<p>El atributo principal (Pun también intencionado) de una propiedad (además de representar un valor) es que la clase GObject emite la señal <code>GObject::notify</code> cuando cambia el valor de una propiedad.</p>
+<p>Hay un concepto de señales GObject que aún no se ha explicado y se usa con la señal <code>GObject::notify</code>: cuando se emite una señal, se puede proporcionar un <em>detail</em>. En el caso de la señal de notificación, el detalle es el nombre de la propiedad cuyo valor ha cambiado. Dado que solo hay una señal para todas las propiedades, gracias al <em>detail</em> es posible conectar una devolución de llamada para recibir una notificación solo cuando una determinada propiedad haya cambiado. Si el <em>detail</em> no se proporciona al conectar la devolución de llamada, la devolución de llamada se llamará cuando <em>cualquiera</em> de las propiedades del objeto cambie, lo que generalmente no es lo que se desea.</p>
+<p>Será más claro con un ejemplo. El <span class="oop-gobject-connect-to-notify">Listado</span> muestra cómo conectarse a la señal de notificación. Tenga en cuenta que en lugar de conectarse a la señal detallada <code>&quot;notify::active&quot;</code>, en realidad es más conveniente utilizar la señal <code>GtkToggleButton::toggled</code>. Hay mejores casos de uso en el mundo real en los que es necesario conectarse a la señal de notificación, pero al menos el <span class="oop-gobject-connect-to-notify">Listado</span> es, con suerte, comprensible con solo un conocimiento limitado de GTK (y si mira la documentación en Devhelp en paralelo).</p>
+<p><a id="oop-gobject-connect-to-notify"></a></p>
+<pre><code class="language-c">/* If you look at the notify signal documentation, the first parameter
+ * has the type GObject, not GtkCheckButton. Since GtkCheckButton is a
+ * sub-class of GObject, the C language allows to write GtkCheckButton
+ * directly.
+ */
+static void
+check_button_notify_cb (GtkCheckButton *check_button,
+                        GParamSpec     *pspec,
+                        gpointer        user_data)
+{
+  /* Called each time that any property of check_button changes. */
+}
+
+static void
+check_button_notify_active_cb (GtkCheckButton *check_button,
+                               GParamSpec     *pspec,
+                               gpointer        user_data)
+{
+  MyWindow *window = MY_WINDOW (user_data);
+  gboolean active;
+
+  active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check_button));
+  gtk_widget_set_visible (window-&gt;side_panel, active);
+}
+
+static GtkWidget *
+create_check_button (MyWindow *window)
+{
+  GtkWidget *check_button;
+
+  check_button = gtk_check_button_new_with_label (&quot;Show side panel&quot;);
+
+  /* Connect without the detail. */
+  g_signal_connect (check_button,
+                    &quot;notify&quot;,
+                    G_CALLBACK (check_button_notify_cb),
+                    NULL);
+
+  /* Connect with the detail, to be notified only when
+   * the GtkToggleButton:active property changes.
+   */
+  g_signal_connect (check_button,
+                    &quot;notify::active&quot;,
+                    G_CALLBACK (check_button_notify_active_cb),
+                    window);
+
+  return check_button;
+}
+</code></pre>
+<div class="caption">
+<p><span class="oop-gobject-connect-to-notify">Listado</span>: Conexión a la señal de notificación para escuchar cambios en la propiedad.</p>
+</div>
+<h2 id="vinculaciones-de-propiedad"><a class="header" href="#vinculaciones-de-propiedad">Vinculaciones de propiedad</a></h2>
+<p>Otro aspecto útil de las propiedades es que dos propiedades se pueden vincular fácilmente: cuando una propiedad cambia, la otra se actualiza para tener el mismo valor. Lo mismo se puede lograr con la señal <code>&quot;notify&quot;</code>, pero existen funciones de nivel superior.</p>
+<p>Se pueden vincular dos propiedades de varias formas con una de las funciones <code>g_object_bind_property*()</code>. El <span class="oop-gobject-binding-properties">Listado</span> muestra una implementación más simple del <span class="oop-gobject-connect-to-notify">Listado</span>; el código es equivalente, pero usa la función <code>g_object_bind_property()</code>.</p>
+<p><a id="oop-gobject-binding-properties"></a></p>
+<pre><code class="language-c">static GtkWidget *
+create_check_button (MyWindow *window)
+{
+  GtkWidget *check_button;
+
+  check_button = gtk_check_button_new_with_label (&quot;Show side panel&quot;);
+
+  /* When the GtkToggleButton:active property of check_button changes,
+   * the GtkWidget:visible property of window-&gt;side_panel is updated to
+   * have the same boolean value.
+   *
+   * It would be useful to add G_BINDING_SYNC_CREATE to the flags, but
+   * in that case the code would not be equivalent to the previous
+   * code Listing.
+   */
+  g_object_bind_property (check_button, &quot;active&quot;,
+                          window-&gt;side_panel, &quot;visible&quot;,
+                          G_BINDING_DEFAULT);
+
+  return check_button;
+}
+</code></pre>
+<div class="caption">
+<p><span class="oop-gobject-binding-properties">Listado</span>: Vinculando dos propiedades.</p>
+</div>
+<!-- Habilitacion del enumeramiento de referencias -->
+<div class="refs-ch"></div>
+<div class="oop-gobj-refs"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../content/oop-gobj/sig-prop/disc-sig.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../../content/book/struct/biblio.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../content/oop-gobj/sig-prop/disc-sig.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../../content/book/struct/biblio.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../../.././src/assets/js/refs-ch.js"></script>
+        <script type="text/javascript" src="../../.././src/assets/js/refs-biblio.js"></script>
+        <script type="text/javascript" src="../../.././src/assets/js/refs-intro.js"></script>
+        <script type="text/javascript" src="../../.././src/assets/js/refs-glib.js"></script>
+        <script type="text/javascript" src="../../.././src/assets/js/refs-oop-semi.js"></script>
+        <script type="text/javascript" src="../../.././src/assets/js/refs-oop-gobj.js"></script>
+    </body>
+</html>

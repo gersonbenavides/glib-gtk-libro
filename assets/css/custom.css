@@ -28,3 +28,9 @@ span.caption code {
     font-size: 0.875em;
     font-weight: 400;
 }
+
+/* Estilo de texto */
+
+span.text-monospace {
+    font-family: "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace;
+} 

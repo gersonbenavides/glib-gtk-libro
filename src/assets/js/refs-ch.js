@@ -12,31 +12,61 @@ if( refs_ch.length > 0 ) {
     ch += 1
     let ch_intro = document.getElementsByClassName("ch-intro");
     for( i_ch = 0; i_ch < ch_intro.length; i_ch++ ) {
-        ch_intro[i_ch].innerHTML = "<a href=\"../intro/intro.html\">Capítulo " + ch + "</a>";
+        ch_intro[i_ch].innerHTML = "<a href=\"../../intro/chpt/intro.html\">Capítulo " + ch + "</a>";
     }
+        ch_intro = document.getElementsByClassName("ch-intro-why-and-when-c");
+        for( i_ch = 0; i_ch < ch_intro.length; i_ch++ ) {
+            ch_intro[i_ch].innerHTML = "<a href=\"../../intro/chpt/why-and-when-c.html\">¿Por qué y cuándo se usa el lenguaje C?</a>";
+        }
+
+            ch_intro = document.getElementsByClassName("ch-intro-separate-backend");
+            for( i_ch = 0; i_ch < ch_intro.length; i_ch++ ) {
+                ch_intro[i_ch].innerHTML = "<a href=\"../../intro/chpt/separate-backend.html\">Separación de backend del frontend</a>";
+            }
 
         let ch_learning_path = document.getElementsByClassName("ch-intro-learning-path");
         for( i_ch = 0; i_ch < ch_learning_path.length; i_ch++ ) {
-            ch_learning_path[i_ch].innerHTML = "<a href=\"../intro/learning-path.html\">Ruta de aprendizaje</a>";
-        }
+            ch_learning_path[i_ch].innerHTML = "<a href=\"../../intro/sect/learning-path.html\">Ruta de aprendizaje</a>";
+        }        
 
     ch += 1
     let ch_glib = document.getElementsByClassName("ch-glib");
     for( i_ch = 0; i_ch < ch_glib.length; i_ch++ ) {
-        ch_glib[i_ch].innerHTML = "<a href=\"../glib/glib.html\">Capítulo " + ch + "</a>";
+        ch_glib[i_ch].innerHTML = "<a href=\"../../glib/chpt/glib.html\">Capítulo " + ch + "</a>";
     }
+        
+        ch_glib = document.getElementsByClassName("ch-glib-dbg-macros");
+        for( i_ch = 0; i_ch < ch_glib.length; i_ch++ ) {
+            ch_glib[i_ch].innerHTML = "<a href=\"../../glib/basics/dbg-macros.html\">Macros de depuración</a>";
+        }
+
+        ch_glib = document.getElementsByClassName("ch-glib-main-loop");
+        for( i_ch = 0; i_ch < ch_glib.length; i_ch++ ) {
+            ch_glib[i_ch].innerHTML = "<a href=\"../../glib/basics/ch-glib-main-loop.html\">El bucle del evento principal</a>";
+        }
+
     
     ch += 1
     let ch_oop_semi = document.getElementsByClassName("ch-oop-semi");
     for( i_ch = 0; i_ch < ch_oop_semi.length; i_ch++ ) {
-        ch_oop_semi[i_ch].innerHTML = "<a href=\"../oop-semi/oop-semi.html\">Capítulo " + ch + "</a>";
+        ch_oop_semi[i_ch].innerHTML = "<a href=\"../../oop-semi/chpt/oop-semi.html\">Capítulo " + ch + "</a>";
     }
+        
+        ch_oop_semi = document.getElementsByClassName("ch-oop-semi-header-include");
+        for( i_ch = 0; i_ch < ch_oop_semi.length; i_ch++ ) {
+            ch_oop_semi[i_ch].innerHTML = "<a href=\"../../oop-semi/hdr-ex/incl.html\">\#include</a>";
+        }
 
     ch += 1
     let ch_oop_gobject = document.getElementsByClassName("ch-oop-gobject");
     for( i_ch = 0; i_ch < ch_oop_gobject.length; i_ch++ ) {
-        ch_oop_gobject[i_ch].innerHTML = "<a href=\"../oop/oop-gobject.html\">Capítulo " + ch + "</a>";
+        ch_oop_gobject[i_ch].innerHTML = "<a href=\"../../oop-gobject/chpt/oop-gobject.html\">Capítulo " + ch + "</a>";
     }
+
+        ch_oop_gobject = document.getElementsByClassName("ch-oop-gobject-sig-prop");
+        for( i_ch = 0; i_ch < ch_oop_gobject.length; i_ch++ ) {
+            ch_oop_gobject[i_ch].innerHTML = "<a href=\"../../oop-gobject/sig-prop/sig-prop.html\">Señales y propiedades</a>";
+        }  
 
     /* END REFS */
 }
