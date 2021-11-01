@@ -19,7 +19,7 @@ Lo primero a tener en cuenta es el uso del espacio de nombres `` Myapp ''. Cada 
 Es una buena práctica elegir un espacio de nombres para su código, para evitar conflictos de símbolos en el momento del enlace. Es especialmente importante tener un espacio de nombres para una biblioteca, pero también es mejor tener uno para una aplicación. Por supuesto, el espacio de nombres debe ser único para cada base de código; por ejemplo, debe \emph{no} reutilizar los espacios de nombres ``G'' o ``Gtk'' para su aplicación o biblioteca.
 
 \subsection{Espacio de nombres de clase}
-Además, hay un segundo espacio de nombres con el nombre de la clase, aquí ``SpellChecker''. Si sigue esa convención de forma coherente, el nombre de un símbolo es más predecible, lo que facilita el trabajo con la API. El nombre de un símbolo siempre será ``espacio de nombres del proyecto'' + ``nombre de la clase''+ ``nombre del símbolo''.
+Además, hay un segundo espacio de nombres con el nombre de la clase, aquí ``SpellChecker''. Si sigue esa convención de forma coherente, el nombre de un símbolo es más predecible, lo que facilita el trabajo con la API. El nombre de un símbolo siempre será ``espacio de nombres del proyecto'' + ``nombre de la clase'' + ``nombre del símbolo''.
 
 \subsection{¿Minúsculas, Mayúsculas o CamelCase?}
 Dependiendo del tipo de símbolo, su nombre está en mayúsculas, minúsculas o CamelCase. La convención en el mundo GLib es:
@@ -41,14 +41,14 @@ El encabezado contiene el típico protector de inclusión:
 #endif /* MYAPP_SPELL_CHECKER_H */
 \end{lstlisting}
 
-Evita que el encabezado se incluya varias veces en el mismo archivo * .c.
+Evita que el encabezado se incluya varias veces en el mismo archivo *.c.
 
-\subsection{Soporte C++}
+\subsection{Soporte de C++}
 El par \lstinline{G_BEGIN_DECLS}/\lstinline{G_END_DECLS} permite que el encabezado se incluya desde el código C ++. Es más importante para una biblioteca, pero también es una buena práctica agregar esas macros en el código de la aplicación, incluso si la aplicación no usa C ++. De esa manera, una clase de aplicación se podría mover a una biblioteca fácilmente (puede ser difícil notar que faltan las macros \lstinline{G_BEGIN_DECLS} y \lstinline{G_END_DECLS}). Y si surge el deseo, la aplicación podría trasladarse a C ++ de forma incremental.
 
 \subsection{\#include}
 \label{oop-semi-include-in-header}
-Hay varias formas de organizar los \lstinline{#include} en una base de código C. La convención en GLib/GTK es que incluir un encabezado en un archivo *.c no debería requerir incluir otro encabezado de antemano \footnote{Esa es la regla general, pero existen excepciones: por ejemplo, incluir \lstinline {glib/gi18n-lib.h} requiere que se defina \lstinline{GETTEXT_PACKAGE}, este último suele estar presente en el encabezado \lstinline{config.h}.}.
+Hay varias formas de organizar los \lstinline{#include} en una base de código C. La convención en GLib/GTK es que incluir un encabezado en un archivo *.c no debería requerir incluir otro encabezado de antemano \footnote{Esa es la regla general, pero existen excepciones: por ejemplo, incluir \lstinline{glib/gi18n-lib.h} requiere que se defina \lstinline{GETTEXT_PACKAGE}, este último suele estar presente en el encabezado \lstinline{config.h}.}.
 
 \path{myapp-spell-checker.h} contiene el siguiente \lstinline{#include}:
 \begin{lstlisting}
@@ -73,7 +73,7 @@ La \lstinline{struct _MyappSpellChecker} se declarará en el archivo \path{myapp
 
 Tenga en cuenta que \lstinline{myapp_spell_checker_new()} se puede llamar varias veces para crear diferentes objetos. Cada objeto tiene sus propios datos. Esa es la diferencia fundamental con las variables globales: si los datos se almacenan en variables globales, puede haber como máximo una instancia de ellos \footnote{A menos que la variable global almacene los ``objetos'' en una estructura de datos agregados como una matriz, un lista enlazada o una tabla hash, con un identificador como el parámetro ``\emph{self}'' (por ejemplo, un número entero o una cadena) para acceder a un elemento específico. Pero este es un código realmente desagradable, ¡por favor no lo hagas!}.
 
-%PARA HACER explicar new() (asignación en el montón) vs init() (asignación en la pila) y dar un ejemplo con init(). Pero el ejemplo también requiere el código *.c, por lo que quizás sea mejor agregar la explicación en una subsección posterior.
+%POR HACER explicar new() (asignación en el montón) vs init() (asignación en la pila) y dar un ejemplo con init(). Pero el ejemplo también requiere el código *.c, por lo que quizás sea mejor agregar la explicación en una subsección posterior.
 
 \subsection{Destructor de objetos}
 \lstinline{myapp_spell_checker_free()} es el destructor de la clase. Destruye un objeto liberando su memoria y liberando otros recursos asignados.

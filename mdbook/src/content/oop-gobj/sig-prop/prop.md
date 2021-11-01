@@ -114,3 +114,5 @@ create_check_button (MyWindow *window)
 <!-- Habilitacion del enumeramiento de referencias -->
 
 <div class="refs-ch"></div>
+
+<div class="oop-gobj-refs"></div>

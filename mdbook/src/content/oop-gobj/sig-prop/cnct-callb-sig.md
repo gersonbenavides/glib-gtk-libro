@@ -11,7 +11,7 @@ Para conectar una devolución de llamada a una señal, se puede usar la función
 * `g_signal_connect_object()`
 * Y algunas más avanzadas.
 
-El Listado~\ref{oop-gobject-gtkbutton-clicked} p.~\pageref{oop-gobject-gtkbutton-clicked} muestra el prototipo de la señal `GtkButton::clicked`.
+El <span class="oop-gobject-gtkbutton-clicked">Listado</span> muestra el prototipo de la señal `GtkButton::clicked`.
 
 > **📌 Nota:** La convención cuando se hace referencia a una señal de GObject es "`ClassName::signal-name`". Así es como se documenta con los comentarios de GTK-Doc.
 
@@ -31,7 +31,7 @@ user_function (GtkButton *button,
 
 Cuando se usa `g_signal_connect()`, la función de devolución de llamada debe tener el mismo prototipo que el prototipo de señal. Muchas señales tienen más argumentos y algunas señales devuelven un valor. Si la devolución de llamada tiene un prototipo incompatible, sucederán cosas malas, habrá errores o bloqueos aleatorios.
 
-El Listado~\ref{oop-gobject-connect-to-signal} p.~\pageref{oop-gobject-connect-to-signal} muestra un ejemplo de cómo usar `g_signal_connect()`.
+El <span class="oop-gobject-connect-to-signal">Listado</span> muestra un ejemplo de cómo usar `g_signal_connect()`.
 
 <a id="oop-gobject-connect-to-signal"></a>
 
@@ -84,3 +84,7 @@ El lenguaje C permite escribir una firma de función de devolución de llamada d
 > **📌 Nota:** Al igual que con los lenguajes naturales, la redundancia permite comprender mejor y más rápidamente lo que leemos o escuchamos.
 
 * Los tipos de argumentos se pueden modificar a un tipo compatible: p. Ej. otra clase en la jerarquía de herencia, o en el ejemplo anterior, reemplazando "`gpointer`" por "`MyClass *`" (pero hacer eso hace que el código sea un poco menos robusto porque `No se llama a la macro MY_CLASS()`).
+
+<!-- Habilitacion del enumeramiento de referencias -->
+
+<div class="oop-gobj-refs"></div>
