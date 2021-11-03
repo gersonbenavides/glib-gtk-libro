@@ -31,6 +31,8 @@ de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
 
 - (gtk -> gtk-app-arch): Vuelve a explicar qué es un "widget" y un "contenedor". Y agregue un glosario al final.
 
+- (gtk -> gtk-app-arch -> comp-widg): mostrar un ejemplo de código.
+
 ### Infraestructura de libro
 
 - Smart ref con pageref si está en una página diferente: use el paquete varioref.

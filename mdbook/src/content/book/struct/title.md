@@ -24,6 +24,9 @@ Dupont.
 
 > **⚠ Advertencia:** Este "libro" está lejos de estar terminado, estás leyendo la versión 0.8. Si tiene algún comentario, no dude en ponerse en contacto con el editor en [gersonbdev@gmail.com](mailto:gersonbdev@gmail.com).
 
+
+<a id="title-lic"></a>
+
 ## Licencia
 
 ![License CC BY-SA](https://gersonbdev.github.io/glib-gtk-libro/assets/img/license-cc-by-sa-88x31.png)

@@ -3,14 +3,14 @@
 [La plataforma de desarrollo GLib/GTK](./content/book/struct/title.md)
 
 - [Introducción](./content/intro/chpt/intro.md)
-	- [¿Qué es GLib y GTK?](./content/intro/sect/glib-and-gtk.md)
-	- [El escritorio GNOME](./content/intro/sect/gnome-desktop.md)
-	- [Prerrequisitos](./content/intro/sect/prerequisites.md)
-	- [¿Por qué y cuándo se usa el lenguaje C?](./content/intro/sect/why-and-when-c.md)
-		- [Separación de backend del frontend](./content/intro/sect/separate-backend.md)
+	- [¿Qué es GLib y GTK?](./content/intro/sect/glib-gtk.md)
+	- [El escritorio GNOME](./content/intro/sect/gnome-dskt.md)
+	- [Prerrequisitos](./content/intro/sect/preq.md)
+	- [¿Por qué y cuándo se usa el lenguaje C?](./content/intro/sect/why-when-c.md)
+		- [Separación de backend del frontend](./content/intro/sect/sep-backend.md)
 		- [Otros aspectos a tener en cuenta](./content/intro/sect/other-aspects.md)
-	- [Ruta de aprendizaje](./content/intro/sect/learning-path.md)
-	- [El entorno de desarrollo](./content/intro/sect/environment.md)
+	- [Ruta de aprendizaje](./content/intro/sect/lrn-path.md)
+	- [El entorno de desarrollo](./content/intro/sect/dev-env.md)
 
 ---
 
@@ -21,7 +21,7 @@
 		- [Definiciones de tipo](./content/glib/basics/type-def.md)
 		- [Macros de uso frecuente](./content/glib/basics/freq-macros.md)
 		- [Macros de depuración](./content/glib/basics/dbg-macros.md)
-		- [Memoria](./content/glib/basics/memory.md)
+		- [Memoria](./content/glib/basics/mem.md)
 		- [Manejo de string](./content/glib/basics/str-hdlg.md)
 	- [Estructura de datos](./content/glib/data-struct/data-struct.md)
 		- [Listas](./content/glib/data-struct/lists.md)
@@ -67,22 +67,22 @@
 
 # GTK
 
-- [Ejemplo de una arquitectura de código de aplicación GTK]()
-	- [La función main() y GeditApp]()
-	- [GeditWindow]()
-	- [GeditNotebook y lo que contiene]()
-	- [¿Por qué y cuándo crear subclases de widgets GTK?]()
-	- [Widgets compuestos]()
+- [Ejemplo de una arquitectura de código de aplicación GTK](./content/gtk-app-arch/chpt/gtk-app-arch.md)
+	- [La función main() y GeditApp](./content/gtk-app-arch/sect/main-func.md)
+	- [GeditWindow](./content/gtk-app-arch/sect/geditwindow.md)
+	- [GeditNotebook y lo que contiene](./content/gtk-app-arch/sect/geditnotebook.md)
+	- [¿Por qué y cuándo crear subclases de widgets GTK?](./content/gtk-app-arch/sect/why-when-sub-class.md)
+	- [Widgets compuestos](./content/gtk-app-arch/sect/comp-widg.md)
 
 # Lectura adicional
 
-- [Lecturas adicionales]()
-	- [GTK y GIO]()
-	- [Escribir sus propias clases de GObject]()
-	- [Sistema de compilación]()
-		- [Las herramientas automáticas]()
-		- [Meson]()
-	- [Mejores prácticas de programación]()
+- [Lecturas adicionales](./content/fthr-rdg/chpt/fthr-rdg.md)
+	- [GTK y GIO](./content/fthr-rdg/sect/gtk-gio.md)
+	- [Escribir sus propias clases de GObject](./content/fthr-rdg/sect/wrtg-gobj-class.md)
+	- [Sistema de compilación](./content/fthr-rdg/bld-sys/bld-sys.md)
+		- [Las Autotools](./content/fthr-rdg/bld-sys/autotools.md)
+		- [Meson](./content/fthr-rdg/bld-sys/meson.md)
+	- [Mejores prácticas de programación](./content/fthr-rdg/sect/prog-prac.md)
 
 ---
 

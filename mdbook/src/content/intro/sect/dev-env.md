@@ -2,7 +2,7 @@
 
 Esta sección describe el entorno de desarrollo que se usa normalmente al programar con GLib y GTK en un sistema Unix.
 
-En una distribución GNU / Linux, a menudo se puede instalar un solo paquete o grupo para obtener un entorno de desarrollo C completo, que incluye, entre otros:
+En una distribución GNU/Linux, a menudo se puede instalar un solo paquete o grupo para obtener un entorno de desarrollo C completo, que incluye, entre otros:
 
 * Un compilador compatible con C89, GCC por ejemplo.
 * El depurador GNU GDB.
