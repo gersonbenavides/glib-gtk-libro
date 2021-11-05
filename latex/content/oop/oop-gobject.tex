@@ -28,7 +28,7 @@ GObject
 
 Significa que cuando crea un objeto \lstinline{GtkApplication}, también tiene acceso a las funciones, señales y propiedades de \lstinline{GApplication} (implementado en GIO) y \lstinline{GObject}. Por supuesto, las funciones \lstinline{g_application_*} toman como primer argumento una variable de tipo ``\lstinline{GApplication *}'', no ``\lstinline{GtkApplication *}''. Para convertir la variable en el tipo correcto, la forma recomendada es usar la macro \lstinline{G_APPLICATION()}. Por ejemplo:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 GtkApplication *app;
 
 g_application_mark_busy (G_APPLICATION (app));
@@ -43,7 +43,8 @@ No todas las macros estándar de GObject se explicarán aquí, solo las macros �
 Cada clase GObject define una macro de la forma \lstinline{NAMESPACE_CLASSNAME(object)}, que convierte la variable al tipo ``\lstinline{NamespaceClassname *}'' y comprueba en tiempo de ejecución si la variable contiene correctamente un \lstinline{NamespaceClassname} objeto o una subclase del mismo. Si la variable es \lstinline{NULL} o contiene un objeto incompatible, la macro imprime un mensaje de advertencia crítico en la consola y devuelve NULL.
 
 Un elenco estándar también funciona, pero la mayoría de las veces no se recomienda porque no hay comprobaciones de tiempo de ejecución:
-\begin{lstlisting}
+
+\begin{lstlisting}[language=C]
 GtkApplication *app;
 
 /* Not recommended */
@@ -61,7 +62,8 @@ Con GObject es posible crear interfaces. Una interfaz es solo una API, no contie
 Por ejemplo, GTK contiene la interfaz \lstinline{GtkOrientable} que es implementada por muchos widgets y permite establecer la orientación: horizontal o vertical.
 
 Las dos macros explicadas en la sección anterior también funcionan para interfaces. Un ejemplo con \lstinline{GtkGrid}:
-\begin{lstlisting}
+
+\begin{lstlisting}[language=C]
 GtkWidget *vgrid;
 
 vgrid = gtk_grid_new ();
@@ -112,7 +114,7 @@ Cuando un GObject hereda de \lstinline{GInitiallyUnowned}, significa que GObject
 
 El Listado~\ref{oop-gobject-mem-management-normal} p.~\pageref{oop-gobject-mem-management-normal} muestra cómo se maneja la administración de memoria con un GObject normal. Compare esto con el Listado~\ref{oop-gobject-mem-management-floating}, que muestra cómo se maneja la administración de memoria con un GObject derivado de \lstinline{GInitiallyUnowned}. La diferencia es que \lstinline{g_object_unref()} no se llama en el último Listado, por lo que acorta el código.
 
-\begin{lstlisting}[float=p, caption={Gestión de la memoria de GObjects normales.}, label=oop-gobject-mem-management-normal]
+\begin{lstlisting}[language=C, caption={Gestión de la memoria de GObjects normales.}, label=oop-gobject-mem-management-normal]
 /* Normal GObject */
 
 a_normal_gobject = normal_gobject_new ();
@@ -126,7 +128,7 @@ g_object_unref (a_normal_gobject);
 /* a_normal_gobject has now a reference count of 1. */
 \end{lstlisting}
 
-\begin{lstlisting}[float=p, caption={Gestión de memoria de GObjects derivados de \lstinline{GInitiallyUnowned}.}, label=oop-gobject-mem-management-floating]
+\begin{lstlisting}[language=C, caption={Gestión de memoria de GObjects derivados de \lstinline{GInitiallyUnowned}.}, label=oop-gobject-mem-management-floating]
 /* GInitiallyUnowned object, e.g. a GtkWidget */
 
 widget = gtk_entry_new ();
@@ -173,7 +175,7 @@ Para conectar una devolución de llamada a una señal, se puede usar la función
 
 El Listado~\ref{oop-gobject-gtkbutton-clicked} p.~\pageref{oop-gobject-gtkbutton-clicked} muestra el prototipo de la señal \lstinline{GtkButton::clicked} \footnote{La convención cuando se hace referencia a una señal de GObject es ``\lstinline{ClassName::signal-name}''. Así es como se documenta con los comentarios de GTK-Doc.}.
 
-\begin{lstlisting}[float, caption={El prototipo de la señal \lstinline{GtkButton::clicked}.}, label=oop-gobject-gtkbutton-clicked]
+\begin{lstlisting}[language=C, caption={El prototipo de la señal \lstinline{GtkButton::clicked}.}, label=oop-gobject-gtkbutton-clicked]
 void
 user_function (GtkButton *button,
                gpointer   user_data);
@@ -183,7 +185,7 @@ Cuando se usa \lstinline{g_signal_connect()}, la función de devolución de llam
 
 El Listado~\ref{oop-gobject-connect-to-signal} p.~\pageref{oop-gobject-connect-to-signal} muestra un ejemplo de cómo usar \lstinline{g_signal_connect()}.
 
-\begin{lstlisting}[float, caption={Cómo conectarse a una señal}, label=oop-gobject-connect-to-signal]
+\begin{lstlisting}[language=C, caption={Cómo conectarse a una señal}, label=oop-gobject-connect-to-signal]
 static void
 button_clicked_cb (GtkButton *button,
                    gpointer   user_data)
@@ -240,7 +242,7 @@ El Listado~\ref{oop-gobject-disconnect-signal} muestra un ejemplo completo de c�
 El argumento de devolución de llamada \lstinline{user_data} es una instancia de \lstinline{MyTextView}, con \lstinline{MyTextView} implementado con un estilo semi-OOP. Dado que el objeto del corrector ortográfico puede vivir más tiempo que la instancia de \lstinline{MyTextView}, la señal debe desconectarse en el destructor \lstinline{MyTextView}.
 
 \vspace{0.7cm}
-\lstinputlisting[caption={Desconectar un manejador de señales cuando se libera su argumento \lstinline{user_data}.}, label=oop-gobject-disconnect-signal]{assets/code/disconnect-signal.c}
+\lstinputlisting[language=C, caption={Desconectar un manejador de señales cuando se libera su argumento \lstinline{user_data}.}, label=oop-gobject-disconnect-signal]{assets/code/disconnect-signal.c}
 
 En realidad, hay otras funciones de \lstinline{g_signal_handler*()} que permiten desconectar los manejadores de señales:
 \begin{itemize}
@@ -267,7 +269,7 @@ Hay un concepto de señales GObject que aún no se ha explicado y se usa con la 
 
 Será más claro con un ejemplo. El Listado~\ref{oop-gobject-connect-to-notify} p.~\pageref{oop-gobject-connect-to-notify} muestra cómo conectarse a la señal de notificación. Tenga en cuenta que en lugar de conectarse a la señal detallada \lstinline{"notify::active"}, en realidad es más conveniente utilizar la señal \lstinline{GtkToggleButton::toggled}. Hay mejores casos de uso en el mundo real en los que es necesario conectarse a la señal de notificación, pero al menos el Listado~\ref{oop-gobject-connect-to-notify} es, con suerte, comprensible con solo un conocimiento limitado de GTK (y si mira la documentación en Devhelp en paralelo).
 
-\begin{lstlisting}[float, caption={Conexión a la señal de notificación para escuchar cambios en la propiedad.}, label=oop-gobject-connect-to-notify]
+\begin{lstlisting}[language=C, caption={Conexión a la señal de notificación para escuchar cambios en la propiedad.}, label=oop-gobject-connect-to-notify]
 /* If you look at the notify signal documentation, the first parameter
  * has the type GObject, not GtkCheckButton. Since GtkCheckButton is a
  * sub-class of GObject, the C language allows to write GtkCheckButton
@@ -325,7 +327,7 @@ Otro aspecto útil de las propiedades es que dos propiedades se pueden vincular 
 Se pueden vincular dos propiedades de varias formas con una de las funciones \lstinline{g_object_bind_property*()}. El Listado~\ref{oop-gobject-binding-properties} muestra una implementación más simple del Listado~\ref{oop-gobject-connect-to-notify}; el código es equivalente, pero usa la función \lstinline{g_object_bind_property()}.
 
 \vspace{0.7cm}
-\begin{lstlisting}[caption={Vinculando dos propiedades.}, label=oop-gobject-binding-properties]
+\begin{lstlisting}[language=C, caption={Vinculando dos propiedades.}, label=oop-gobject-binding-properties]
 static GtkWidget *
 create_check_button (MyWindow *window)
 {

@@ -1,51 +1,63 @@
 # POR HACER
 
-
-## mdBook
-
+## General
 ---
 
-- [ ] Traducir diagramas.
-- [ ] Tradicir comenatarios en listados.
+* Organizar nombre de etiquetas de referencias.
+* Actualizar enlaces a sitios web inexistentes.
 
-## Latex 
 
+## Redacción
 ---
 
-Las siguientes tareas son propuestas por el autor en el repositorio oficial. Vea también la lista de QUE
-HACER (más pública) en la introducción, además de los comentarios de QUE HACER/ARREGLAR en los archivos
-*.tex.
+* (glib -> glib -> data-struct -> trees -> gtree): Hablar sobre g_tree_ref() y g_tree_unref()? 
+  Esas funciones suelen ser mejores que g_tree_destroy(), pero necesita un poco de explicación
+  sobre la gestión de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
 
-Tenga en cuenta que el desarrollo del texto se continuara en el formato mdBook por tanto las siguientes
-propuestas se verian en este ultimo.
+* (oop -> semi-oop -> header-ex -> obj-const): Explicar new() (asignación en el montón) vs
+  init() (asignación en la pila) y dar un ejemplo con init(). Pero el ejemplo también requiere el
+  código *.c, por lo que quizás sea mejor agregar la explicación en una subsección posterior.
 
-### Redacción
+* (oop -> oop-gobj -> gobj-macros): Mostrar un ejemplo de una función que verifica sus argumentos con g_return?
 
-- (glib -> glib -> data-struct -> trees -> gtree): Hablar sobre g_tree_ref() y g_tree_unref()? Esas
-funciones suelen ser mejores que g_tree_destroy(), pero necesita un poco de explicación sobre la gestión
-de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
+* (gtk -> gtk-app-arch): Vuelve a explicar qué es un "widget" y un "contenedor". Y agregue un glosario al final.
 
-- (oop -> semi-oop -> header-ex -> obj-const): Explicar new() (asignación en el montón) vs init() (asignación en la pila) y dar un ejemplo con init(). Pero el ejemplo también requiere el código *.c, por lo que quizás sea mejor agregar la explicación en una subsección posterior.
+* (gtk -> gtk-app-arch -> comp-widg): mostrar un ejemplo de código.
 
-- (oop -> oop-gobj -> gobj-macros): Mostrar un ejemplo de una función que verifica sus argumentos con g_return?
+* Hacer que el capítulo~\ref{gtk-app-arch} (sobre GTK) sea más fácil de entender y adaptar el resto del documento
+  para integrar mejor el capítulo;
 
-- (gtk -> gtk-app-arch): Vuelve a explicar qué es un "widget" y un "contenedor". Y agregue un glosario al final.
+* GTK + ha cambiado de nombre a GTK, el signo más se ha eliminado. Adaptar el texto en consecuencia;
 
-- (gtk -> gtk-app-arch -> comp-widg): mostrar un ejemplo de código.
+* Ya no se recomienda Jhbuild, en su lugar se recomienda Flatpak\footnote{\url{https://flatpak.org/}}
+  y Build-Stream\footnote{\url{https://buildstream.build/}};
 
-### Infraestructura de libro
+* Hablar sobre las especificaciones de freedesktop.org\footnote{\url{https://www.freedesktop.org/}};
 
-- Smart ref con pageref si está en una página diferente: use el paquete varioref.
-- Índice.
-- Glosario.
-- Convenciones con más macros.
+* La mayoría de los módulos GNOME activos se han migrado ahora al sistema de compilación Meson
+  (en lugar de Autotools);
+
+* Escribir un capítulo sobre el desarrollo de bibliotecas C/GObject;
+
+* Hablar sobre el lenguaje de programación Rust.
+
+
+## Infraestructura de libro
+---
+
+* Smart ref con pageref si está en una página diferente: use el paquete varioref.
+* Índice.
+* Glosario.
+* Convenciones con más macros.
 
 Arquitectura de la aplicación GTK
 
-- Adaptar otros capítulos (intro, lecturas complementarias,…).
-- Agregue una captura de pantalla o una maqueta simplificada de gedit.
-- ¿Agregar ejemplos de código?
+* Adaptar otros capítulos (intro, lecturas complementarias,…).
+* Agregar una captura de pantalla o una maqueta simplificada de gedit.
+* ¿Agregar ejemplos de código?
 
-### Misc
 
-- Divida la parte GLib en varios capítulos.
+## Misc
+---
+
+* Dividir la parte GLib en varios capítulos.

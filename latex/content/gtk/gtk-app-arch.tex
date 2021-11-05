@@ -46,9 +46,9 @@ La singularidad del proceso tiene varias ventajas, por dar algunos ejemplos conc
   \item Una aplicación no necesita sincronizar explícitamente su estado y datos entre diferentes procesos. En aras del argumento, digamos que en gedit el usuario puede crear `` herramientas de compilación '' personalizadas para compilar el archivo o proyecto actual. gedit guarda las herramientas de construcción personalizadas en un archivo XML y se muestran en el menú para ejecutar sus comandos. En Linux, el archivo XML se guarda, por ejemplo, en el directorio \texttt{\textasciitilde{}/.local/share/} del usuario. Sin la unicidad del proceso, si un proceso gedit modifica las herramientas de compilación personalizadas, los otros procesos gedit deben volver a cargar el archivo XML y deben asegurarse de que no haya carreras (dos procesos gedit diferentes no deben modificar el archivo XML al mismo tiempo) . Con la unicidad del proceso, ese problema no existe, todas las ventanas gedit comparten el mismo estado de la aplicación, y el desarrollador puede asumir que solo un proceso por usuario puede modificar el archivo XML \footnote{Tenga en cuenta que esto no sería cierto si fuera posible abrir \emph{varias} sesiones gráficas para el mismo usuario, en la misma máquina (con soporte para múltiples puestos) o al menos compartir el almacenamiento de respaldo para el directorio de inicio (por ejemplo, con montajes NFS). Pero GNOME y la mayoría de las aplicaciones no admiten esto, un usuario puede abrir como máximo una sesión gráfica a la vez para el mismo directorio de inicio. Para los inicios de sesión en la misma máquina física, esto se aplica mediante GDM (el administrador de pantalla GNOME y la pantalla de inicio de sesión) y D-Bus. En el caso de montajes NFS, esto no se aplica, pero si el mismo usuario abre varias sesiones gráficas en diferentes equipos, es posible que algunos programas no funcionen correctamente. Entonces, aunque la unicidad del proceso de \lstinline{GApplication} está documentada como por \emph{sesión de usuario}, en la práctica podemos decir que es simplemente por \emph{usuario}.} (Por supuesto, el usuario todavía tiene la posibilidad de editar el archivo XML a mano, pero en ese caso la aplicación se puede reiniciar, normalmente se espera que el usuario modifique las herramientas de compilación de la GUI que proporciona gedit).
 \end{itemize}
 
-Otra característica importante de \lstinline {GApplication} es ejecutar el ciclo de eventos principal. El bucle de eventos principal de GLib se describió en la sección~\ref{glib-main-event-loop} p.~\pageref{glib-main-event-loop}. Con \lstinline{GApplication}, esto se hace con la función \lstinline{g_application_run()}. Una versión minimalista de la función \lstinline{main()} en gedit se vería así:
+Otra característica importante de \lstinline{GApplication} es ejecutar el ciclo de eventos principal. El bucle de eventos principal de GLib se describió en la sección~\ref{glib-main-event-loop} p.~\pageref{glib-main-event-loop}. Con \lstinline{GApplication}, esto se hace con la función \lstinline{g_application_run()}. Una versión minimalista de la función \lstinline{main()} en gedit se vería así:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 int
 main (int    argc,
       char **argv)
@@ -109,7 +109,7 @@ Por lo tanto, durante la vida útil de una aplicación GTK, el programador a men
 
 \section{Widgets compuestos}
 
-Los widgets compuestos son contenedores que ya contienen una colección útil de widgets secundarios en un paquete agradable. Implementar un widget compuesto es fácil \footnote{Una vez que sepa cómo subclasificar una clase GObject.}, Solo necesita:
+Los widgets compuestos son contenedores que ya contienen una colección útil de widgets secundarios en un paquete agradable. Implementar un widget compuesto es fácil \footnote{Una vez que sepa cómo subclasificar una clase GObject.}, solo necesita:
 \begin{enumerate}
   \item Subclase un contenedor como \lstinline{GtkGrid} o \lstinline{GtkBin} o \lstinline{GtkWindow};
   \item En el constructor de la clase, cree los widgets secundarios y agréguelos al contenedor.

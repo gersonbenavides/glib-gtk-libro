@@ -1,0 +1,111 @@
+% Codificación predeterminada en UTF-8 (puede ser que esto sea innecesario en versiones recientes de LaTeX).
+\usepackage[utf8]{inputenc}
+
+% Elección de idioma
+\usepackage[spanish]{babel}
+
+% Margenes (Se usan las dadas dentro de las normas APA)
+\usepackage[top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm]{geometry}
+
+% Acentuación mejorada en fuentes.
+\usepackage[T1]{fontenc}
+
+% Soporte de latino moderno romano (caracteres especiales de otro idiomas como el alemán).
+\usepackage{lmodern}
+
+% Mejora en posicionamiento de figuras e imágenes.
+\usepackage{float}
+
+% Habilitación de iconos de Fontawesome.
+\usepackage{fontawesome5}
+
+% Habilitación de uso de colores.
+\usepackage[dvipsnames]{xcolor}
+
+\definecolor{codebg}{RGB}{249, 245, 215}
+\definecolor{codered}{RGB}{204, 36, 29}
+\definecolor{codegreen}{RGB}{152, 151, 26}
+\definecolor{codeyellow}{RGB}{215, 153, 33}
+\definecolor{codeblue}{RGB}{69, 133, 136}
+\definecolor{codepurple}{RGB}{177, 98, 134}
+\definecolor{codegray}{RGB}{124, 111, 100}
+\definecolor{codefg}{RGB}{60, 56, 54}
+\definecolor{backcolour}{RGB}{246,247,246}
+
+% Soporte de manipulación de imágenes.
+\usepackage{graphicx}
+\graphicspath{ {assets/img/} }
+
+% Espacio entre dos párrafos.
+\usepackage{parskip}
+
+% Caracteres de dibujo de caja de páginas de códigos antiguas.
+\usepackage{pmboxdraw}
+
+% Mejora en tablas
+\usepackage{multirow}
+
+% Propiedades y vínculos de archivos PDF
+\usepackage{hyperref}
+\hypersetup{
+    pdftitle = {La plataforma de desarrollo GLib/GTK},
+    pdfauthor = {Sébastien Wilmet, Gerson Benavides},
+    pdfcreator = {TeX Live},
+    pdfproducer = {TeX Live},
+    pdfborder = 0 0 0
+}
+
+% Enlaces extensos en varias lineas
+
+\usepackage{xurl}
+
+% Ajuste de paginas
+\usepackage{pagecolor}
+\usepackage{afterpage}
+
+% Listados de lenguajes de programación.
+\usepackage{listings}
+
+% Personalización de estilos generales
+\lstdefinestyle{gruvbox}{
+    % Estilo de texto
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    % Colores de texto
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegray},
+    keywordstyle=\color{codered},
+    stringstyle=\color{codegreen},
+    identifierstyle=\color{codefg},
+    % frame=single,
+    % numbers=left,                    
+    % numbersep=5pt,
+    % numberstyle=\tiny\color{codegray}
+}
+
+\lstset{style=gruvbox}
+
+% Personalización de lenguajes
+\lstdefinestyle{GLib/GTK}{language=C,
+    morekeywords={
+        gint,
+        guint,
+        gchar
+    },
+}
+
+\newcommand{\shellcmd}[1]{\texttt{#1}}
+
+% Ajustes del libro
+
+\newcommand{\bookversion}{0.9 alpha}
+
+\renewcommand{\lstlistingname}{Listado}
+

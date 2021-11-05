@@ -11,7 +11,7 @@ Otra idea importante de OOP es \emph{ocultar todos los datos dentro de su clase}
 
 El Listado~\ref{oop-semi-spell-checker-h} p.~\pageref{oop-semi-spell-checker-h} muestra un ejemplo de un encabezado que proporciona un simple corrector ortográfico. Este es un código ficticio; si necesita un corrector ortográfico en su aplicación GTK, probablemente usaría hoy en día la biblioteca gspell \footnote{\url{https://wiki.gnome.org/Projects/gspell}}.
 
-\lstinputlisting[float, caption={myapp-spell-checker.h}, label=oop-semi-spell-checker-h]{assets/code/myapp-spell-checker.h}
+\lstinputlisting[language=C, caption={myapp-spell-checker.h}, label=oop-semi-spell-checker-h]{assets/code/myapp-spell-checker.h}
 
 \subsection{Espacio de nombres del proyecto}
 Lo primero a tener en cuenta es el uso del espacio de nombres `` Myapp ''. Cada símbolo del encabezado tiene como prefijo el espacio de nombres del proyecto.
@@ -32,7 +32,7 @@ Dependiendo del tipo de símbolo, su nombre está en mayúsculas, minúsculas o 
 \subsection{Incluir guardia}
 El encabezado contiene el típico protector de inclusión:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 #ifndef MYAPP_SPELL_CHECKER_H
 #define MYAPP_SPELL_CHECKER_H
 
@@ -99,8 +99,8 @@ Además, dado que \path{glib.h} ya está incluido en \path{myapp-spell-checker.h
 La API pública está documentada con comentarios GTK-Doc. Un comentario de GTK-Doc comienza con \lstinline{/**}, con el nombre del símbolo a documentar en la siguiente línea. Cuando nos referimos a un símbolo, existe una sintaxis especial a utilizar dependiendo del tipo de símbolo:
 \begin{itemize}
     \item Un parámetro de función tiene el prefijo \lstinline{@}.
-    \item El \emph{nombre} de una \lstinline{estructura} o \lstinline{enum} tiene el prefijo \lstinline{#}.
-    \item Una constante ---~por ejemplo, una \lstinline{enum} \emph{valor} ~---tiene el prefijo \lstinline{%}.
+    \item El \emph{nombre} de una \lstinline{estructura} o \lstinline{enum} tiene el prefijo \lstinline{\#}.
+    \item Una constante ---~por ejemplo, una \lstinline{enum} \emph{valor} ~---tiene el prefijo \lstinline{\%}.
     \item Una función tiene el sufijo \lstinline{()}.
 \end{itemize}
 
@@ -112,7 +112,8 @@ Cada biblioteca basada en GLib debe tener una documentación GTK-Doc. Pero tambi
 
 \subsection{Anotaciones de introspección de GObject}
 El comentario de GTK-Doc para la función \lstinline{myapp_spell_checker_get_suggestions()} contiene anotaciones de GObject Introspection para el valor de retorno:
-\begin{lstlisting}
+
+\begin{lstlisting}[language=C]
 /**
  * ...
  * Returns: (transfer full) (element-type utf8): the list of suggestions.
@@ -149,7 +150,8 @@ Tenga en cuenta que las macros \lstinline{g_return} deben usarse solo para los p
 Finalmente, vale la pena explicar algunas cosas sobre el estilo de codificación. Se le anima a utilizar desde el principio el mismo estilo de codificación para su proyecto, ya que puede ser algo difícil de cambiar después. Si cada programa tiene diferentes convenciones de código, es una pesadilla para alguien dispuesto a contribuir.
 
 Aquí hay un ejemplo de una definición de función:
-\begin{lstlisting}
+
+\begin{lstlisting}[language=C]
 gboolean
 myapp_spell_checker_check_word (MyappSpellChecker *checker,
                                 const gchar       *word,
@@ -162,7 +164,8 @@ myapp_spell_checker_check_word (MyappSpellChecker *checker,
 Vea cómo se alinean los parámetros: hay un parámetro por línea, con el tipo alineado en el paréntesis de apertura y con los nombres alineados en la misma columna. Algunos editores de texto se pueden configurar para hacerlo automáticamente.
 
 Para una función \emph{call}, si poner todos los parámetros en la misma línea da como resultado una línea demasiado larga, los parámetros también deben estar alineados entre paréntesis, para que el código sea más fácil de leer:
-\begin{lstlisting}
+
+\begin{lstlisting}[language=C]
   function_call (one_param,
                  another_param,
                  yet_another_param);
@@ -183,7 +186,8 @@ $ git grep -n -E "^function_name"
 \end{lstlisting}
 
 Asimismo, existe una manera fácil de encontrar la declaración de una \lstinline{struct} pública. La convención es prefijar el nombre del tipo con un guión bajo al declarar la \lstinline{struct}. Por ejemplo:
-\begin{lstlisting}
+
+\begin{lstlisting}[language=C]
 /* In the header: */
 typedef struct _MyappSpellChecker MyappSpellChecker;
 

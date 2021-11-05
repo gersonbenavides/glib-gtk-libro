@@ -1,52 +1,5 @@
 \chapter{Introducción}
 
-Este texto es una guía para comenzar con la plataforma de desarrollo GLib/GTK, haciendo uso del lenguaje C. En ocasiones se asumirá que el lector usa un sistema similar a Unix.
-
-La traducción de este libro fue hecha por Gerson Benavides.
-
-Advertencia: este “libro” está lejos de estar terminado, estás leyendo la versión~\bookversion. Si tiene algún comentario, no dude en ponerse en contacto con el autor en swilmet@gnome.org o con el traductor en gersonbdev@gmail.com, ¡gracias!
-
-Las fuentes de este libro en el idioma original están disponibles en:\\
-\url{https://github.com/swilmet/glib-gtk-book}
-
-Si desea las fuentes de la traducción puede dirigirse a:\\
-\url{https://github.com/gersonbdev/glib-gtk-libro}
-
-\section{Licencia}
-\label{intro-license}
-
-\begin{center}
-    \includegraphics[height=0.8cm]{assets/img/creative-commons.pdf}
-\end{center}
-
-Este trabajo está autorizado bajo una licencia internacional Creative Commons Attribution-ShareAlike 4.0:\\
-\url{https://creativecommons.org/licenses/by-sa/4.0/}
-
-Algunas secciones están basadas en el libro \emph{GTK+/Gnome Application Development}, escrito en 1999, editado por New Riders Publishing y con licencia de Open Publication License. La última versión de la licencia de publicación abierta se puede encontrar en:\\
-\url{http://www.opencontent.org/openpub/}
-
-\section{Soporte financiero}
-Si te gusta esta guía, ¡puedes apoyarla económicamente!
-
-La guía se publica como un documento Free/\emph{Libre} y es gratuita. Pero no se materializa en un espacio vacío; se necesita tiempo para escribir. Al donar, demuestras tu aprecio por este trabajo y ayudas a su desarrollo futuro.
-
-Hay un botón de donación disponible en\\
-\url{https://people.gnome.org/~swilmet/glib-gtk-book/}
-
-¡Gracias!
-
-\section{Lista de tareas para este libro y una actualización rápida de 2019}
-
-\begin{itemize}
-    \item Hacer que el capítulo~\ref{gtk-app-arch} (sobre GTK) sea más fácil de entender y adaptar el resto del documento para integrar mejor el capítulo;
-    \item GTK + ha cambiado de nombre a GTK, el signo más se ha eliminado. Adaptar el texto en consecuencia;
-    \item Ya no se recomienda Jhbuild, en su lugar se recomienda Flatpak\footnote{\url{https://flatpak.org/}} y Build-Stream\footnote{\url{https://buildstream.build/}};
-    \item Hablar sobre las especificaciones de freedesktop.org\footnote{\url{https://www.freedesktop.org/}};
-    \item La mayoría de los módulos GNOME activos se han migrado ahora al sistema de compilación Meson (en lugar de Autotools);
-    \item Escribir un capítulo sobre el desarrollo de bibliotecas C/GObject;
-    \item Hablar sobre el lenguaje de programación Rust.
-\end{itemize}
-
 \section{¿Qué es GLib y GTK?}
 
 En términos generales, GLib es un conjunto de bibliotecas: GLib core, GObject y GIO. Esas tres bibliotecas se desarrollan en el mismo repositorio de Git llamado \emph{glib}, por lo que cuando se hace referencia a ``GLib'', puede significar ``GLib core'' o el conjunto más amplio que incluye también GObject y GIO.
@@ -73,7 +26,7 @@ El sitio web de GLib/GTK es: \url{http://www.gtk.org}
 
 \section{El escritorio GNOME}
 
-Un proyecto importante para GLib y GTK es GNOME. GNOME, que también forma parte de GNU, es un entorno de escritorio libre iniciado en 1997 por Miguel~de~Icaza y Federico~Mena-Quintero. GNOME hace un uso extensivo de GTK, y el último ahora es desarrollado principalmente por desarrolladores de GNOME.
+Un proyecto importante para GLib y GTK es GNOME. GNOME, que también forma parte de GNU, es un entorno de escritorio libre iniciado en 1997 por Miguel~de~Icaza y Federico~Mena-Quintero. GNOME hace un uso extensivo de GTK, y este último ahora es desarrollado principalmente por desarrolladores de GNOME.
 
 ``GNOME'' es en realidad un acrónimo: GNU Network Object Model Environment\footnote{En cuanto a GTK, el nombre completo de GNOME rara vez se usa y no refleja la realidad actual.}. Originalmente, el proyecto tenía la intención de crear un marco para objetos de aplicación, similar a las tecnologías OLE y COM de Microsoft. Sin embargo, el alcance del proyecto se expandió rápidamente; quedó claro se requería un trabajo preliminar sustancial antes de que la parte del nombre de ``network object'' pudiera convertirse en realidad. Las versiones antiguas de GNOME incluían una arquitectura de incrustación de objetos llamada Bonobo, y GNOME 1.0 incluía un ORB CORBA rápido y ligero llamado ORBit. Bonobo ha sido reemplazado por D-Bus un sistema de comunicación entre procesos.
 
@@ -105,7 +58,28 @@ Este libro asume que ya tiene algo de práctica en programación. A continuació
 
 \section{¿Por qué y cuándo se usa el lenguaje C?}
 
-Las bibliotecas GLib y GTK pueden ser utilizadas por otros lenguajes de programación además de C. Gracias a GObject Introspection, los enlaces automáticos están disponibles para una variedad de idiomas para todas las bibliotecas basadas en GObject. Los enlaces oficiales de GNOME están disponibles para los siguientes lenguajes: C ++, JavaScript, Perl, Python y Vala\footnote{\url{https://wiki.gnome.org/Projects/Vala}}. Vala es un nuevo lenguaje de programación basado en GObject que integra las peculiaridades de GObject directamente en su sintaxis similar a C\#. Más allá de los enlaces oficiales de GNOME, GLib y GTK se pueden usar en más de una docena de lenguajes de programación, con un nivel de soporte variable. Entonces, ¿por qué y cuándo elegir el lenguaje C? Para escribir un demonio en un sistema Unix, C es el idioma \emph{predeterminado}. Pero es menos obvio para una aplicación. Para responder a la pregunta, veamos primero cómo estructurar el código base de una aplicación.
+Las bibliotecas GLib y GTK pueden ser utilizadas por otros lenguajes de programación además de C. Gracias a GObject Introspection, los enlaces automáticos están disponibles para una gran variedad de lenguajes, de manera que puedan ser usadas todas las bibliotecas basadas en GObject por estos. Los enlaces oficiales de GNOME están disponibles para los siguientes lenguajes \footnote{Aunque existen enlaces a más lenguajes, los expresados en la tabla son los más activos es sus repositorios y con una mayor comunidad.}:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \multicolumn{1}{|c|}{\textbf{Lenguaje}} & \multicolumn{1}{c|}{\textbf{v3}}       & \multicolumn{1}{c|}{\textbf{v4}}       & \multicolumn{1}{c|}{\textbf{Enlace}}                               \\ \hline
+    C++                                     & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://www.gtkmm.org/en/index.html}         \\ \hline
+    JavaScript                              & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://gjs.guide/}                          \\ \hline
+    Python                                  & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://pygobject.readthedocs.io/en/latest/} \\ \hline
+    Rust                                    & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://gtk-rs.org/}                         \\ \hline
+    Vala                                    & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://valadoc.org/}                        \\ \hline
+    \end{tabular}
+\end{table}
+
+Una buena alternativa a C es Vala, el cual es un lenguaje de programación que integra las peculiaridades de GObject directamente en su sintaxis similar a C\#. De manera que todo el código hecho en Vala es traducido a código en C, el cual hace uso de GObject directamente, esto puede resultar útil si desea código cercano a C pero haciendo uso de un lenguaje más moderno\footnote{Tenga en cuenta que el lenguaje Vala podría considerarse un lenguaje de nicho, teniendo una comunidad pequeña si es comparado con lenguajes más populares.}.
+
+Otra alternativa importante a considerar si desea trabajar con GLib/GTK es el lenguaje Rust, un lenguaje moderno que genera programas eficientes en memoria, gracias a un verificador de prestamos que validan las referencias, por lo cual no necesita de un recolector de basura como otros lenguajes de programación para asegurar la seguridad de la memoria.
+
+Más allá de los enlaces oficiales de GNOME; GLib y GTK se pueden usar en más de una docena de lenguajes de programación, con un nivel de soporte variable. Entonces, \emph{¿por qué y cuándo elegir el lenguaje C?}.
+
+Por ejemplo, para escribir un demonio en un sistema tipo Unix, C es el lenguaje \emph{predeterminado}. Pero es menos obvio que lenguaje usar para una aplicación. Para responder a la pregunta, veamos primero cómo estructurar el código base de una aplicación.
 
 % Adaptado de una pregunta de preguntas frecuentes en GGAD.
 \subsection{Separación de backend del frontend}
@@ -167,7 +141,7 @@ Así que este libro comienza con la biblioteca principal GLib (parte~\ref{glib} 
 
 Esta sección describe el entorno de desarrollo que se usa normalmente al programar con GLib y GTK en un sistema Unix.
 
-En una distribución GNU / Linux, a menudo se puede instalar un solo paquete o grupo para obtener un entorno de desarrollo C completo, que incluye, entre otros:
+En una distribución GNU/Linux, a menudo se puede instalar un solo paquete o grupo para obtener un entorno de desarrollo C completo, que incluye, entre otros:
 \begin{itemize}
     \item un compilador compatible con C89, GCC por ejemplo;
     \item el depurador GNU GDB;
@@ -187,6 +161,3 @@ Para leer la documentación de la API de GLib y GTK, Devhelp es una aplicación 
 
 Cuando utilice GLib o GTK, preste atención a no utilizar API obsoletas para el código recién escrito. Asegúrese de leer la documentación más reciente. También están disponibles en línea en:\\
 \url{https://developer.gnome.org/}
-
-\section{Agradecimientos}
-Gracias a: Christian Stadelmann, Errol van~de~l'Isle, Andrew Colin Kissa y Link Dupont.

@@ -12,7 +12,7 @@ Las bibliotecas GLib y GTK pueden ser utilizadas por otros lenguajes de programa
 
 > **📌 Nota:** Aunque existen enlaces a más lenguajes, los expresados en la tabla son los más activos es sus repositorios y con una mayor comunidad.
 
-Una buena alternativa es Vala, el cual es un nuevo lenguaje de programación basado en GObject que integra las peculiaridades de GObject directamente en su sintaxis similar a C#. De manera que, todo el código hecho en Vala es traducido a código en C, el cual hace uso de GObject directamente, esto puede resultar útil si desea código cercano a C pero haciendo uso de un lenguaje más moderno.
+Una buena alternativa es Vala, el cual es un nuevo lenguaje de programación que integra las peculiaridades de GObject directamente en su sintaxis similar a C#. De manera que todo el código hecho en Vala es traducido a código en C, el cual hace uso de GObject directamente, esto puede resultar útil si desea código cercano a C pero haciendo uso de un lenguaje más moderno.
 
 > **📌 Nota:** Tenga en cuenta que el lenguaje Vala podría considerarse un lenguaje de nicho, teniendo una comunidad pequeña si es comparado con lenguajes más populares.
 

@@ -1,7 +1,6 @@
 # El escritorio GNOME
 
-Un proyecto importante para GLib y GTK es GNOME. GNOME, que también forma parte de GNU, es un entorno de escritorio libre iniciado en 1997 por Miguel de Icaza y Federico Mena-Quintero. GNOME hace un uso extensivo de GTK, y el último ahora es desarrollado principalmente por desarrolladores de GNOME.
-
+Un proyecto importante para GLib y GTK es GNOME. GNOME, que también forma parte de GNU, es un entorno de escritorio libre iniciado en 1997 por Miguel de Icaza y Federico Mena-Quintero. GNOME hace un uso extensivo de GTK, y este último ahora es desarrollado principalmente por desarrolladores de GNOME.
 
 "GNOME" es en realidad un acrónimo: GNU Network Object Model Environment.
 

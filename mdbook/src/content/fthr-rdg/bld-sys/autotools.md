@@ -1,4 +1,4 @@
-# Las herramientas automáticas
+# Las Autotools
 
 Las Autotools comprenden tres componentes principales: Autoconf, Automake y Libtool. Está basado en scripts de shell, macros m4 y `make`.
 
