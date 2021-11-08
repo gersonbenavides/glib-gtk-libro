@@ -12,7 +12,7 @@ Las bibliotecas GLib se pueden utilizar para escribir servicios del sistema oper
 
 GTK es un conjunto de herramientas de widgets basado en GLib que se puede utilizar para desarrollar aplicaciones con una interfaz gráfica de usuario (GUI). Un “widget” es un elemento de la GUI, por ejemplo, un botón, un texto, un menú, etc. Y hay algunos tipos especiales de widgets que se denominan “containers”, que pueden contener otros widgets, para ensamblar los elementos en una ventana. GTK proporciona una amplia gama de widgets y contenedores.
 
-La primera versión de GTK +, o GIMP Tool Kit, fue escrita principalmente por Peter Mattis en 1996 para el GIMP (Programa de manipulación de imágenes GNU), pero se ha convertido rápidamente en una biblioteca de uso general. El “+” se ha agregado más tarde para distinguir entre la versión original y una nueva versión que agregó características orientadas a objetos. GLib comenzó como parte de GTK +, pero ahora es una biblioteca independiente.
+La primera versión de GTK, o GIMP Tool Kit, fue escrita principalmente por Peter Mattis en 1996 para GIMP (Programa de manipulación de imágenes GNU), pero se ha convertido rápidamente en una biblioteca de uso general. Una vez el proyecto se movió fuera del árbol de fuentes de GIMP para distinguir entre la versión original y una nueva versión que agregó características orientadas a objetos se agrego al nombre un "+" denominándose la biblioteca como GTK+ (actualmente este nombre esta en desuso y se conoce simplemente como GTK). GLib comenzó como parte de GTK, pero ahora es una biblioteca independiente.
 
 > **📌 Nota:** El nombre "The GIMP Tool Kit" ahora rara vez se usa, hoy se conoce más comúnmente como GTK para abreviar.
 
@@ -24,7 +24,8 @@ Aunque GLib y GTK están escritos en C, los enlaces de lenguaje están disponibl
 
 Además, las anotaciones también son útiles para el programador en C porque es una forma buena y concisa de documentar ciertos aspectos recurrentes de la API.
 
-GLib y GTK son parte del Proyecto GNU, cuyo objetivo general es desarrollar un sistema operativo libre (llamado GNU) más aplicaciones que lo acompañen. GNU significa “GNU’s Not Unix”, una forma divertida de decir que el sistema operativo GNU es compatible con Unix. Puede obtener más información sobre
-GNU en [www.gnu.org](https://www.gnu.org).
+En el momento de escribir este artículo, hay nuevas versiones estables de GLib y GTK cada seis meses, alrededor de marzo y septiembre. Un número de versión tiene la forma "`major.minor.micro`", donde "`minor`" designa ciclos estables si es par y ciclos de desarrollo (versiones inestables) si es impar. Por ejemplo, las versiones 4.4.\* son estables, pero las versiones 4.5.\* son inestables. Una nueva versión "`micro`" estable (por ejemplo, 4.4.0 → 4.4.1) no agrega nuevas funciones, solo actualizaciones de traducción, corrección de errores y mejoras de rendimiento. Para una biblioteca, un nuevo número de versión "`major`" generalmente significa que ha habido una ruptura de la API, pero afortunadamente las versiones principales anteriores se pueden instalar en paralelo con la nueva versión. Durante un ciclo de desarrollo (por ejemplo, 4.5), no hay garantías de estabilidad en la API para *nuevas* funciones; pero al ser uno de los primeros en adoptarlo, sus comentarios son útiles para descubrir más rápidamente fallas y errores de diseño.
 
-El sitio web de GLib/GTK es: [www.gtk.org](http://www.gtk.org)
+GLib y GTK son parte del Proyecto GNU, cuyo objetivo general es desarrollar un sistema operativo libre (llamado GNU) más aplicaciones que lo acompañen. GNU significa “GNU’s Not Unix”, una forma divertida de decir que el sistema operativo GNU es compatible con Unix. Puede obtener más información sobre GNU en <https://www.gnu.org>.
+
+El sitio web de GLib/GTK es: <http://www.gtk.org<>

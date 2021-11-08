@@ -88,7 +88,7 @@ El tipo de parámetro \lstinline{word_length} es \lstinline{gssize}, que es un t
 Veamos ahora el archivo \path{myapp-spell-checker.c}:
 
 \vspace{0.7cm}
-\lstinputlisting[caption={myapp-spell-checker.c}, label=oop-semi-spell-checker-c]{assets/code/myapp-spell-checker.c}
+\lstinputlisting[style=GLib/GTK, caption={myapp-spell-checker.c}, label=oop-semi-spell-checker-c]{assets/code/myapp-spell-checker.c}
 
 \subsection{Orden de \#include}
 En la parte superior del archivo, se encuentra la lista habitual de \lstinline{#include}. Un detalle pequeño pero digno de mención es que el orden de inclusión no se eligió al azar. En cierto archivo *.c, es mejor incluir primero su archivo *.h correspondiente, y luego los otros encabezados \footnote{Excepto si tiene un archivo \path{config.h}, en ese caso debería \path{config.h}, \emph{luego} el *.h correspondiente, y luego los otros encabezados.}. Al incluir la primera \path{myapp-spell-checker.h}, si falta un \lstinline{#include} en \path{myapp-spell-checker.h}, el compilador informará un error. Como se explica en la sección~\ref{oop-semi-include-in-header} p.~\pageref{oop-semi-include-in-header}, un encabezado siempre debe tener el mínimo requerido \lstinline{#include}s para que ese encabezado se incluya a su vez.
