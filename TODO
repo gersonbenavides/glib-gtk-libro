@@ -10,6 +10,8 @@
 ## Redacción
 ---
 
+* ¿Remplazar demonios por daemons?, explicar su funcionamiento general.
+
 * (glib -> glib -> data-struct -> trees -> gtree): Hablar sobre g_tree_ref() y g_tree_unref()? 
   Esas funciones suelen ser mejores que g_tree_destroy(), pero necesita un poco de explicación
   sobre la gestión de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
@@ -38,8 +40,6 @@
   (en lugar de Autotools);
 
 * Escribir un capítulo sobre el desarrollo de bibliotecas C/GObject;
-
-* Hablar sobre el lenguaje de programación Rust.
 
 
 ## Infraestructura de libro
