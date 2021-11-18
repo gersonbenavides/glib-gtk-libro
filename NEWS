@@ -1,19 +1,16 @@
 ## Novedades en 0.8.1, 2021-11-03
-
 ---
 
 * Se sincronizó el libro en formato mdBook con la versión de LaTeX.
 * Varias mejoras en la traducción general.
 
 ## Novedades en 0.8, 2019-03-29
-
 ---
 
 * Incluye un borrador de un nuevo capítulo: "Ejemplo de una arquitectura de código de aplicación GTK +".
 * Introducción: Se agrego la sección "Lista de tareas pendientes para este libro y una actualización rápida de 2019" (mejor que nada).
 
 ## Novedades en 0.7, 2017-04-21
-
 ---
 
 * Se escribe un nuevo capítulo: "Una suave introducción a GObject".
@@ -24,7 +21,6 @@
 * Capítulo de lectura adicional: Habla sobre Meson además de las Autotools.
 
 ## Novedades en 0.6, 2016-08-08
-
 ---
 
 * Se mejora la sección semi-OOP en C.
@@ -32,14 +28,12 @@
 * Nuevo sitio web: https://people.gnome.org/~swilmet/glib-gtk-book/
 
 ## Novedades en 0.5, 2016-07-14
-
 ---
 
 * Se inicia el capítulo "Programación orientada a objetos en C" con una sección detallada
 "Programación Semi-Orientada a Objetos en C".
 
 ## Novedades en 0.4, 2016-07-05
-
 ---
 
 * Introducción: Se mejora la ruta de aprendizaje.
@@ -47,7 +41,6 @@
 * Pequeñas mejoras aquí y allá.
 
 ## Novedades en 0.3, 2016-02-08
-
 ---
 
 * Introducción: Se explica GTK-Doc y GObject Introspection.
@@ -55,14 +48,12 @@
 * Pequeñas mejoras aquí y allá.
 
 ## Novedades en 0.2, 2015-05-22
-
 ---
 
 * GLib: Se agrega sección para el bucle de eventos principal.
 * Pequeñas mejoras aquí y allá.
 
 ## Novedades en 0.1, 2014-11-16
-
 ---
 
 * Primera versión, con una introducción, un capítulo sobre GLib y un capítulo de lectura adicional.

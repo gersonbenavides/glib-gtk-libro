@@ -2,7 +2,7 @@
 
 Este libro asume que ya tiene algo de práctica en programación. A continuación, se muestra una lista de requisitos previos recomendados, con referencias de libros.
 
-* Este texto supone que ya conoces el lenguaje C. El libro de referencia es ***The C Programming Language***, de Brian Kernighan y Dennis Ritchie <span class="k-r-book"></span>.
+* Este texto supone que ya conoce el lenguaje C. El libro de referencia es ***The C Programming Language***, de Brian Kernighan y Dennis Ritchie <span class="k-r-book"></span>.
 
 * La programación orientada a objetos (OOP) también es necesaria para aprender GObject. Debe estar familiarizado con conceptos como herencia, una interfaz, un método virtual o polimorfismo. Un buen libro, con más de sesenta pautas, es ***Object-Oriented Design Heuristics***, de Arthur Riel <span class="oop-book"></span>.
 

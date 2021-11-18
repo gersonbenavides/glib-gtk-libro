@@ -10,6 +10,13 @@ GObject -- que depende del núcleo GLib -- simplifica la programación orientada
 
 GIO -- que depende de GLib core y GObject -- proporciona API de alto nivel para entrada/salida: lectura de un archivo local, un archivo remoto, un flujo de red, comunicación entre procesos con D-Bus y muchos más.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=4cm]{assets/img/diag/glib-struct-001.pdf}
+    \caption{Estructura de la biblioteca GLib.}
+    \label{fig-glib-struct-001}
+\end{figure}
+
 Las bibliotecas GLib se pueden utilizar para escribir servicios del sistema operativo, bibliotecas, utilidades de línea de comandos y demás. GLib ofrece API de mayor nivel que el estándar POSIX; por lo tanto, es más cómodo escribir un programa en C con GLib.
 
 GTK es un conjunto de herramientas de widgets basado en GLib que se puede utilizar para desarrollar aplicaciones con una interfaz gráfica de usuario (GUI). Un ``widget'' es un elemento de la GUI, por ejemplo, un botón, un texto, un menú, etc. Y hay algunos tipos especiales de widgets que se denominan ``containers'', que pueden contener otros widgets, para ensamblar los elementos en una ventana. GTK proporciona una amplia gama de widgets y contenedores.
@@ -47,7 +54,7 @@ Más información sobre GNOME: \url{https://www.gnome.org/}
 Este libro asume que ya tiene algo de práctica en programación. A continuación, se muestra una lista de requisitos previos recomendados, con referencias de libros.
 
 \begin{itemize}
-    \item Este texto supone que ya conoces el lenguaje C. El libro de referencia es \emph{El lenguaje de programación C}, de Brian Kernighan y Den-nis Ritchie \cite{k-r-book}.
+    \item Este texto supone que ya conoce el lenguaje C. El libro de referencia es \emph{The C Programming Language}, de Brian Kernighan y Dennis Ritchie \cite{k-r-book}.
     
     \item La programación orientada a objetos (OOP) también es necesaria para aprender GObject. Debe estar familiarizado con conceptos como herencia, una interfaz, un método virtual o polimorfismo. Un buen libro, con más de sesenta pautas, es \emph{Heurística de diseño orientado a objetos}, de Arthur~Riel \cite{oop-book}.
     
@@ -66,12 +73,12 @@ Las bibliotecas GLib y GTK pueden ser utilizadas por otros lenguajes de programa
     \centering
     \begin{tabular}{|l|l|l|l|}
     \hline
-    \multicolumn{1}{|c|}{\textbf{Lenguaje}} & \multicolumn{1}{c|}{\textbf{v3}}       & \multicolumn{1}{c|}{\textbf{v4}}       & \multicolumn{1}{c|}{\textbf{Enlace}}                               \\ \hline
-    C++                                     & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://www.gtkmm.org/en/index.html}         \\ \hline
-    JavaScript                              & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://gjs.guide/}                          \\ \hline
-    Python                                  & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://pygobject.readthedocs.io/en/latest/} \\ \hline
-    Rust                                    & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://gtk-rs.org/}                         \\ \hline
-    Vala                                    & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://valadoc.org/}                        \\ \hline
+    \multicolumn{1}{|c|}{\textbf{Lenguaje}} & \multicolumn{1}{c|}{\textbf{v3}} & \multicolumn{1}{c|}{\textbf{v4}} & \multicolumn{1}{c|}{\textbf{Enlace}} \\ \hline
+    C++        & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://www.gtkmm.org/}            \\ \hline
+    JavaScript & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://gjs.guide/}                \\ \hline
+    Python     & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://pygobject.readthedocs.io/} \\ \hline
+    Rust       & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://gtk-rs.org/}               \\ \hline
+    Vala       & \faIcon[regular]{check-square} & \faIcon[regular]{check-square} & \url{https://valadoc.org/}              \\ \hline
     \end{tabular}
 \end{table}
 
@@ -88,9 +95,9 @@ Por ejemplo, para escribir un demonio en un sistema tipo Unix, C es el lenguaje 
 \label{intro-backend-frontend-separation}
 Una buena práctica es separar la interfaz gráfica de usuario del resto de la aplicación. Por diversas razones, la interfaz gráfica de una aplicación tiende a ser una pieza de software excepcionalmente volátil y en constante cambio. Es el foco de la mayoría de las solicitudes de cambio de los usuarios. Es difícil planificar y ejecutar bien la primera vez; a menudo descubrirá que algún aspecto es desagradable de usar solo después de haberlo escrito. A veces es deseable tener varias interfaces de usuario diferentes, por ejemplo, una versión de línea de comandos o una interfaz basada en web.
 
-En términos prácticos, esto significa que cualquier aplicación grande debe tener una separación radical entre sus diversos \emph{frontends} o interfaces y el \emph{backend}. El backend debe contener todas las ``partes duras'': sus algoritmos y estructuras de datos, el trabajo real realizado por la aplicación. Piense en ello como un ``modelo'' abstracto que se muestra y manipula el usuario.
+En términos prácticos, esto significa que cualquier aplicación grande debe tener una separación radical entre sus diversos \emph{frontends} o interfaces y el \emph{backend}. El backend debe contener todas las ``partes complejas'': sus algoritmos y estructuras de datos, el trabajo real realizado por la aplicación. Piense en ello como un ``modelo'' abstracto que se muestra y manipula el usuario.
 
-Cada interfaz debe ser una `` vista '' y un `` controlador ''. Como una `` vista '', la interfaz debe anotar cualquier cambio en el backend y cambiar la pantalla en consecuencia. Como un `` controlador '', la interfaz debe permitir al usuario transmitir solicitudes de cambio al backend (define cómo las manipulaciones de la interfaz se traducen en cambios en el modelo).
+Cada interfaz debe ser una ``vista'' y un ``controlador''. Como una ``vista'', la interfaz debe anotar cualquier cambio en el backend y cambiar la pantalla en consecuencia. Como un ``controlador'', la interfaz debe permitir al usuario transmitir solicitudes de cambio al backend (define cómo las manipulaciones de la interfaz se traducen en cambios en el modelo).
 
 Hay muchas formas de disciplinarse para mantener su aplicación separada. Un par de ideas útiles:
 
@@ -102,7 +109,7 @@ Hay muchas formas de disciplinarse para mantener su aplicación separada. Un par
 El lenguaje C es una buena opción para la parte de backend de una aplicación. Al utilizar GObject y GObject Introspection, su biblioteca estará disponible para otros proyectos escritos en varios lenguajes de programación. Por otro lado, una biblioteca de Python o JavaScript no se puede utilizar en otros lenguajes. Para las interfaces, un idioma de nivel superior puede ser más conveniente, dependiendo de los idiomas con los que ya domine.
 
 \subsection{Otros aspectos a tener en cuenta}
-Si tiene dudas sobre el idioma a elegir, aquí hay otros aspectos a tener en cuenta. Tenga en cuenta que este texto está un poco sesgado ya que se eligió el lenguaje C.
+Si tiene dudas sobre el lenguaje a elegir, aquí hay otros aspectos a tener en cuenta. Tenga en cuenta que este texto está un poco sesgado ya que se eligió el lenguaje C.
 
 C es un lenguaje de tipo estático: los tipos de variables y los prototipos de funciones en un programa se conocen en el momento de la compilación. El compilador descubre muchos errores triviales, como un error tipográfico en el nombre de una función. El compilador también es de gran ayuda cuando se hacen refactorizaciones de código, lo cual es esencial para el mantenimiento a largo plazo de un programa. Por ejemplo, cuando divide una clase en dos, si el código que usa la clase inicial no se actualiza correctamente, el compilador se lo informará amablemente\footnote{Bueno, \emph{amablemente} quizás no sea la mejor descripción, arrojar un montón de errores está más cerca de la realidad.}. Con el desarrollo basado en pruebas (TDD), y escribiendo pruebas unitarias para \emph{todo}, también es factible escribir una enorme base de código en un lenguaje de tipo dinámico como Python. Con una muy buena cobertura de código, las pruebas unitarias también detectarán errores al refactorizar el código. Pero las pruebas unitarias pueden ser mucho más lentas de ejecutar que compilar el código, ya que también prueba el comportamiento del programa. Por lo tanto, puede que no sea conveniente ejecutar todas las pruebas unitarias al realizar refactorizaciones de código. ¡Por supuesto, escribir pruebas unitarias también es una buena práctica para una base de código C! Sin embargo, para la parte GUI del código, escribir pruebas unitarias a menudo no es una tarea de alta prioridad si la aplicación está bien probada por sus desarrolladores.
 
@@ -112,20 +119,28 @@ El lenguaje C tiene una \emph{cadena de herramientas} muy buena: compiladores es
 
 Para algunos programas, un recolector de basura no es apropiado porque pausa el programa regularmente para liberar la memoria no utilizada. Para secciones de código críticas, como animaciones en tiempo real, no es conveniente pausar el programa (un recolector de basura a veces puede ejecutarse durante varios segundos). En este caso, la gestión manual de la memoria como en C es una solución.
 
-Menos importante, pero útil; la verbosidad de C en combinación con las convenciones GLib / GTK tiene una ventaja: el código se puede buscar fácilmente con un comando como \shellcmd{grep}. Por ejemplo, la función \lstinline{gtk_widget_show()} contiene el espacio de nombres (\lstinline{gtk}), la clase (\lstinline{widget}) y el método (\lstinline{show}). Con un lenguaje orientado a objetos, la sintaxis es generalmente \lstinline[language=C++]{object.show()}. Si se busca ``show'' en el código, probablemente habrá más falsos positivos, por lo que se necesita una herramienta más inteligente. Otra ventaja es que conocer el espacio de nombres y la clase de un método puede ser útil al leer el código, es otra forma de auto-documentación.
+Menos importante, pero útil; la verbosidad de C en combinación con las convenciones GLib/GTK tiene una ventaja: el código se puede buscar fácilmente con un comando como \shellcmd{grep}. Por ejemplo, la función \lstinline{gtk_widget_show()} contiene el espacio de nombres (\lstinline{gtk}), la clase (\lstinline{widget}) y el método (\lstinline{show}). Con un lenguaje orientado a objetos, la sintaxis es generalmente \lstinline[language=C++]{object.show()}. Si se busca ``show'' en el código, probablemente habrá más falsos positivos, por lo que se necesita una herramienta más inteligente. Otra ventaja es que conocer el espacio de nombres y la clase de un método puede ser útil al leer el código, es otra forma de auto-documentación.
 
 
-Más importante aún, la documentación de la API GLib / GTK está escrita principalmente para el lenguaje C. No es conveniente leer la documentación de C mientras se programa en otro idioma. Algunas herramientas están actualmente en desarrollo para generar la documentación de la API para otros lenguajes de destino, por lo que es de esperar que en el futuro ya no sea un problema.
+Más importante aún, la documentación de la API GLib/GTK está escrita principalmente para el lenguaje C. No es conveniente leer la documentación de C mientras se programa en otro idioma. Algunas herramientas están actualmente en desarrollo para generar la documentación de la API para otros lenguajes de destino, por lo que es de esperar que en el futuro ya no sea un problema.
 
-GLib / GTK están escritos en C. Entonces, cuando se programa en C, no hay capa adicional. Una capa adicional es potencialmente una fuente de errores adicionales y cargas de mantenimiento. Además, usar el lenguaje C probablemente sea mejor para propósitos pedagógicos. Un lenguaje de nivel superior puede ocultar algunos detalles sobre GLib / GTK. Por lo tanto, el código es más corto, pero cuando tiene un problema, debe comprender no solo cómo funciona la función de la biblioteca, sino también cómo funciona el enlace del idioma.
+GLib/GTK están escritos en C. Entonces, cuando se programa en C, no hay capa adicional. Una capa adicional es potencialmente una fuente de errores adicionales y cargas de mantenimiento. Además, usar el lenguaje C probablemente sea mejor para propósitos pedagógicos. Un lenguaje de nivel superior puede ocultar algunos detalles sobre GLib/GTK. Por lo tanto, el código es más corto, pero cuando tiene un problema, debe comprender no solo cómo funciona la función de la biblioteca, sino también cómo funciona el enlace del idioma.
 
-Dicho esto, si (1) no se siente cómodo en C, (2) ya domina un lenguaje de nivel superior con compatibilidad con GObject Introspection, (3) planea escribir solo una pequeña aplicación o complemento, luego elige el lenguaje de nivel superior tiene mucho sentido.
+Dicho esto, si:
+
+\begin{enumerate}
+    \item No se siente cómodo en C.
+    \item Ya domina un lenguaje de nivel superior con compatibilidad con GObject Introspection.
+    \item Planea escribir solo una pequeña aplicación o complemento.
+\end{enumerate}
+
+Elegir un lenguaje de nivel superior tiene mucho sentido.
 
 \section{Ruta de aprendizaje}
 \label{intro-learning-path}
 % PARA HACER cuando el libro esté terminado, cambie el nombre de esta sección a "Estructura del libro"
 
-Normalmente, esta sección debería llamarse `` Estructura del libro '', pero como puede ver, el libro está lejos de estar terminado, por lo que la sección se llama `` Ruta de aprendizaje ''.
+Normalmente, esta sección debería llamarse ``Estructura del libro'', pero como puede ver, el libro está lejos de estar terminado, por lo que la sección se llama ``Ruta de aprendizaje''.
 
 El camino de aprendizaje lógico es:
 \begin{enumerate}
@@ -145,11 +160,11 @@ Esta sección describe el entorno de desarrollo que se usa normalmente al progra
 
 En una distribución GNU/Linux, a menudo se puede instalar un solo paquete o grupo para obtener un entorno de desarrollo C completo, que incluye, entre otros:
 \begin{itemize}
-    \item un compilador compatible con C89, GCC por ejemplo;
-    \item el depurador GNU GDB;
+    \item Un compilador compatible con C89, GCC por ejemplo;
+    \item El depurador GNU GDB;
     \item GNU Make;
-    \item los Autotools (Autoconf, Automake y Libtool);
-    \item las páginas de manual de: el kernel de Linux y glibc \footnote{No confunda la biblioteca GNU C (glibc) con GLib. El primero es de nivel inferior.}.
+    \item Las Autotools (Autoconf, Automake y Libtool);
+    \item Las páginas del manual de: El kernel de Linux y glibc \footnote{No confunda la biblioteca GNU C (glibc) con GLib. El primero es de nivel inferior.}.
 \end{itemize}
 
 Para utilizar GLib y GTK como desarrollador, existen varias soluciones:
@@ -159,7 +174,8 @@ Para utilizar GLib y GTK como desarrollador, existen varias soluciones:
     \url{https://wiki.gnome.org/Projects/Jhbuild}
 \end{itemize}
 
-Para leer la documentación de la API de GLib y GTK, Devhelp es una aplicación útil, si ha instalado el paquete -dev o -doc. Para el editor de texto o IDE, hay muchas opciones (y una fuente de muchos trolls): Vim, Emacs, gedit, Anjuta, MonoDevelop / Xamarin Studio, Geany,… Un prometedor IDE especializado para GNOME es Builder, actualmente en desarrollo. Para crear una GUI con GTK, puede escribir directamente el código para hacerlo o puede usar Glade para diseñar la GUI gráficamente. Finalmente, GTK-Doc se usa para escribir documentación de API y agregar las anotaciones de GObject Introspection.
+Para leer la documentación de la API de GLib y GTK, Devhelp es una aplicación útil, si ha instalado el paquete -dev o -doc. Para el editor de texto o IDE, hay muchas opciones (y una fuente de muchos trolls): Vim, Emacs, gedit, Anjuta, MonoDevelop/Xamarin Studio, Geany,… Un prometedor IDE especializado para GNOME es Builder, actualmente en desarrollo. Para crear una GUI con GTK, puede escribir directamente el código para hacerlo o puede usar Glade para diseñar la GUI gráficamente. Finalmente, GTK-Doc se usa para escribir documentación de API y agregar las anotaciones de GObject Introspection.
 
 Cuando utilice GLib o GTK, preste atención a no utilizar API obsoletas para el código recién escrito. Asegúrese de leer la documentación más reciente. También están disponibles en línea en:\\
+
 \url{https://developer.gnome.org/}
