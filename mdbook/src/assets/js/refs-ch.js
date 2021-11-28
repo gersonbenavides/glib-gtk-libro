@@ -12,9 +12,9 @@ if( refs_ch.length > 0 ) {
 	for( i_ch = 0; i_ch < ch_title.length; i_ch++ ) {
 		ch_title[i_ch].innerHTML = "<a href=\"../../book/struct/title.html\">Capítulo " + ch + "</a>";
 	}
-		ch_title = document.getElementsByClassName("ch-title-lic");
+		ch_title = document.getElementsByClassName("ch-title-lic"); 
 		for( i_ch = 0; i_ch < ch_title.length; i_ch++ ) {
-			ch_title[i_ch].innerHTML = "<a href=\"../../book/struct/title#title-lic.html\">Licencia</a>";
+			ch_title[i_ch].innerHTML = "<a href=\"../../book/struct/title.html#title-lic\">Licencia</a>";
 		}
 
 	ch += 1

@@ -50,7 +50,7 @@ g_hash_table_foreach (GHashTable *hash_table,
 }
 ```
 
-Sin las comprobaciones, pasar `NULL` como parámetro a esta función resultaría en una misteriosa falla de segmentación. La persona que usa la biblioteca tendría que averiguar dónde ocurrió el error con un depurador y tal vez incluso indagar en el código GLib para ver qué estaba mal. Con las comprobaciones, obtendrán un bonito mensaje de error que les indicará que los argumentos `NULL` no están permitidos.
+Sin las comprobaciones, pasar `NULL` como parámetro a esta función resultaría en una misteriosa falla de segmentación. La persona que usa la biblioteca tendría que averiguar dónde ocurrió el error con un depurador y tal vez incluso indagar en el código GLib para ver qué estaba mal. Con las comprobaciones, obtendrán un mensaje de error que les indicará que los argumentos `NULL` no están permitidos.
 
 <a id="glib-assertions"></a>
 
@@ -63,13 +63,13 @@ g_assert_not_reached ();
 
 <div class="caption">
 
-<p><span class="glib-assertions">Listado</span>: Afirmaciones.</p>
+<p><span class="glib-assertions">Listado</span>: Aserciones.</p>
 
 </div>
 
-GLib también tiene macros de aserción más tradicionales, que se muestran en el <span class="glib-assertions">Listado</span>. `g_assert()` es básicamente idéntico a `assert()`, pero responde a `G_DISABLE_ASSERT` y se comporta consistentemente en todas las plataformas. También se proporciona `g_assert_not_reached()`; esta es una afirmación que siempre falla. Las afirmaciones llaman a `abort()` para salir del programa y (si su entorno lo admite) descargan un archivo central con fines de depuración.
+GLib también tiene macros de aserción más tradicionales, que se muestran en el <span class="glib-assertions">Listado</span>. `g_assert()` es básicamente idéntico a `assert()`, pero responde a `G_DISABLE_ASSERT` y se comporta consistentemente en todas las plataformas. También se proporciona `g_assert_not_reached()`; esta es una aserción que siempre falla. Las aserciones llaman a `abort()` para salir del programa y (si su entorno lo admite) descargan un archivo central con fines de depuración.
 
-Las afirmaciones fatales deben usarse para verificar la *consistencia interna* de una función o biblioteca, mientras que `g_return_if_fail()` está destinado a garantizar que se pasen valores cuerdos a las interfaces públicas de un módulo de programa. Es decir, si una aserción falla, normalmente busca un error en el módulo que contiene la aserción; Si falla una comprobación de `g_return_if_fail()`, normalmente busca el error en el código que invoca el módulo.
+Las aserciones fatales deben usarse para verificar la *consistencia interna* de una función o biblioteca, mientras que `g_return_if_fail()` está destinado a garantizar que se pasen valores cuerdos a las interfaces públicas de un módulo de programa. Es decir, si una aserción falla, normalmente busca un error en el módulo que contiene la aserción; Si falla una comprobación de `g_return_if_fail()`, normalmente busca el error en el código que invoca el módulo.
 
 Este código del módulo de cálculos calendáricos de GLib muestra la diferencia:
 
@@ -97,7 +97,7 @@ g_date_new_dmy (GDateDay   day,
 }
 ```
 
-La verificación de condiciones previas al principio asegura que el usuario pasa en valores razonables para el día, mes y año; la afirmación al final asegura que GLib construyó un objeto sano, dados valores cuerdos.
+La verificación de condiciones previas al principio asegura que el usuario pasa en valores razonables para el día, mes y año; la aserción al final asegura que GLib construyó un objeto correctamente, dados valores adecuados.
 
 `g_assert_not_reached()` debe usarse para marcar situaciones "imposibles"; un uso común es detectar declaraciones de cambio que no manejan todos los valores posibles de una enumeración:
 

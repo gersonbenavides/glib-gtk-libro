@@ -48,10 +48,10 @@ gpointer my_pointer;
 
 my_int = 5;
 my_pointer = GINT_TO_POINTER (my_int);
-printf ("We are storing %d\n", GPOINTER_TO_INT (my_pointer));
+printf ("Estamos almacenando %d\n", GPOINTER_TO_INT (my_pointer));
 ```
 
-Pero ten cuidado; estas macros le permiten almacenar un entero en un puntero, pero almacenar un puntero en un entero *no* funcionará. Para hacerlo de forma portátil, debe almacenar el puntero en un `long`. (Sin embargo, sin duda es una mala idea hacerlo).
+Pero tenga cuidado; estas macros le permiten almacenar un entero en un puntero, pero almacenar un puntero en un entero *no* funcionará. Para hacerlo de forma portátil, debe almacenar el puntero en un `long`. (Sin embargo, sin duda es una mala idea hacerlo).
 
 <!-- Habilitacion del enumeramiento de referencias -->
 

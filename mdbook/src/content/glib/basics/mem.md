@@ -29,7 +29,7 @@ gpointer g_memdup (gconstpointer mem, guint n_bytes);
 
 </div>
 
-Es importante hacer coincidir `g_malloc()` con `g_free()`, `malloc()` simple con `free()` y si estás usando C++ `new` con `delete`. De lo contrario, pueden suceder errores, ya que estos asignadores pueden usar diferentes grupos de memoria (y `new`/`delete` llama a constructores y destructores).
+Es importante hacer coincidir `g_malloc()` con `g_free()`, `malloc()` simple con `free()` y si estás usando C++ `new` con `delete`. De lo contrario, pueden suceder comportamientos no esperados, ya que estos asignadores pueden usar diferentes grupos de memoria (y `new`/`delete` llama a constructores y destructores).
 
 Por supuesto, hay un `g_realloc()` equivalente a `realloc()`. También hay un conveniente `g_malloc0()` que llena la memoria asignada con ceros, y `g_memdup()` que devuelve una copia de `n_bytes` bytes comenzando en `mem`. `g_realloc()` y `g_malloc0()` aceptarán ambos un tamaño de 0, por coherencia con `g_malloc()`. Sin embargo, `g_memdup()` no lo hará.
 

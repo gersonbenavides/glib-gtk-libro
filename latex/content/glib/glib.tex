@@ -6,7 +6,7 @@ GLib es la biblioteca central de bajo nivel que forma la base para proyectos com
 
 Este capítulo cubre algunas de las funciones más utilizadas. GLib es simple y los conceptos son familiares; así que nos moveremos rápidamente. Para obtener una cobertura más completa de GLib, consulte la última documentación de la API que viene con la biblioteca (para el entorno de desarrollo, consulte la sección~\ref{intro-dev-environment} en la p.~\pageref{intro-dev-environment}). Por cierto: si tiene preguntas muy específicas sobre la implementación, no tema mirar el código fuente. Normalmente, la documentación contiene suficiente información, pero si encuentra un detalle faltante, por favor presente un error (por supuesto, lo mejor sería con un parche proporcionado).
 
-Las diversas instalaciones de GLib están destinadas a tener una interfaz coherente; el estilo de codificación está orientado a semiobjetos, y los identificadores tienen el prefijo `` g '' para crear una especie de espacio de nombres.
+Las diversas instalaciones de GLib están destinadas a tener una interfaz coherente; el estilo de codificación está orientado a semiobjetos, y los identificadores tienen el prefijo ``g'' para crear una especie de espacio de nombres.
 
 GLib tiene algunos encabezados de nivel superior:
 \begin{itemize}
@@ -18,7 +18,7 @@ GLib tiene algunos encabezados de nivel superior:
 \end{itemize}
 
 \bigskip
-Nota: en lugar de reinventar la rueda, este capítulo se basa en gran medida en el capítulo correspondiente del libro \emph{GTK+/Gnome Application Development} de Havoc Pennington, con licencia de Open Publication License (consulte la sección~\ref{intro-license} p.~\pageref{intro-license}). GLib tiene una API muy estable. A pesar de que el libro de Havoc Pennington fue escrito en 1999 (para GLib 1.2), solo se requirieron algunas actualizaciones para adaptarse a las últimas versiones de GLib (versión~2.42 en el momento de escribir este artículo)
+Nota: en lugar de reinventar la rueda, este capítulo se basa en gran medida en el capítulo correspondiente del libro \emph{GTK+/Gnome Application Development} de Havoc Pennington, con licencia de Open Publication License (consulte la sección~\ref{intro-license} p.~\pageref{intro-license}). GLib tiene una API muy estable. A pesar de que el libro de Havoc Pennington fue escrito en 1999 (para GLib 1.2), solo se requirieron algunas actualizaciones para adaptarse a las últimas versiones de GLib (versión~2.70 en el momento de escribir este artículo)
 
 \section{Lo esencial}
 
@@ -74,10 +74,10 @@ gpointer my_pointer;
 
 my_int = 5;
 my_pointer = GINT_TO_POINTER (my_int);
-printf ("We are storing %d\n", GPOINTER_TO_INT (my_pointer));
+printf ("Estamos almacenando %d\n", GPOINTER_TO_INT (my_pointer));
 \end{lstlisting}
 
-Pero ten cuidado; estas macros le permiten almacenar un entero en un puntero, pero almacenar un puntero en un entero \emph{no} funcionará. Para hacerlo de forma portátil, debe almacenar el puntero en un \lstinline{long}. (Sin embargo, sin duda es una mala idea hacerlo).
+Pero tenga cuidado; estas macros le permiten almacenar un entero en un puntero, pero almacenar un puntero en un entero \emph{no} funcionará. Para hacerlo de forma portátil, debe almacenar el puntero en un \lstinline{long}. (Sin embargo, sin duda es una mala idea hacerlo).
 
 \subsection{Macros de depuración}
 \label{glib-debugging-macros}
@@ -121,18 +121,18 @@ g_hash_table_foreach (GHashTable *hash_table,
 }
 \end{lstlisting}
 
-Sin las comprobaciones, pasar \lstinline{NULL} como parámetro a esta función resultaría en una misteriosa falla de segmentación. La persona que usa la biblioteca tendría que averiguar dónde ocurrió el error con un depurador y tal vez incluso indagar en el código GLib para ver qué estaba mal. Con las comprobaciones, obtendrán un bonito mensaje de error que les indicará que los argumentos \lstinline{NULL} no están permitidos.
+Sin las comprobaciones, pasar \lstinline{NULL} como parámetro a esta función resultaría en una misteriosa falla de segmentación. La persona que usa la biblioteca tendría que averiguar dónde ocurrió el error con un depurador y tal vez incluso indagar en el código GLib para ver qué estaba mal. Con las comprobaciones, obtendrán un mensaje de error que les indicará que los argumentos \lstinline{NULL} no están permitidos.
 
-\begin{lstlisting}[style=GLib/GTK, caption={Afirmaciones}, label=glib-assertions]
+\begin{lstlisting}[style=GLib/GTK, caption={Aserciones}, label=glib-assertions]
 #include <glib.h>
 
 g_assert (condition);
 g_assert_not_reached ();
 \end{lstlisting}
 
-GLib también tiene macros de aserción más tradicionales, que se muestran en el Listado~\ref{glib-assertions}. \lstinline{g_assert()} es básicamente idéntico a \lstinline{assert()}, pero responde a \lstinline{G_DISABLE_ASSERT} y se comporta consistentemente en todas las plataformas. También se proporciona \lstinline{g_assert_not_reached()}; esta es una afirmación que siempre falla. Las afirmaciones llaman a \lstinline{abort()} para salir del programa y (si su entorno lo admite) descargan un archivo central con fines de depuración.
+GLib también tiene macros de aserción más tradicionales, que se muestran en el Listado~\ref{glib-assertions}. \lstinline{g_assert()} es básicamente idéntico a \lstinline{assert()}, pero responde a \lstinline{G_DISABLE_ASSERT} y se comporta consistentemente en todas las plataformas. También se proporciona \lstinline{g_assert_not_reached()}; esta es una aserción que siempre falla. Las aserciones llaman a \lstinline{abort()} para salir del programa y (si su entorno lo admite) descargan un archivo central con fines de depuración.
 
-Las afirmaciones fatales deben usarse para verificar la \emph{consistencia interna} de una función o biblioteca, mientras que \lstinline{g_return_if_fail()} está destinado a garantizar que se pasen valores cuerdos a las interfaces públicas de un módulo de programa. Es decir, si una aserción falla, normalmente busca un error en el módulo que contiene la aserción; Si falla una comprobación de \lstinline{g_return_if_fail()}, normalmente busca el error en el código que invoca el módulo.
+Las aserciones fatales deben usarse para verificar la \emph{consistencia interna} de una función o biblioteca, mientras que \lstinline{g_return_if_fail()} está destinado a garantizar que se pasen valores cuerdos a las interfaces públicas de un módulo de programa. Es decir, si una aserción falla, normalmente busca un error en el módulo que contiene la aserción; Si falla una comprobación de \lstinline{g_return_if_fail()}, normalmente busca el error en el código que invoca el módulo.
 
 Este código del módulo de cálculos calendáricos de GLib muestra la diferencia:
 \begin{lstlisting}[style=GLib/GTK]
@@ -159,11 +159,11 @@ g_date_new_dmy (GDateDay   day,
 }
 \end{lstlisting}
 
-La verificación de condiciones previas al principio asegura que el usuario pasa en valores razonables para el día, mes y año; la afirmación al final asegura que GLib construyó un objeto sano, dados valores cuerdos.
+La verificación de condiciones previas al principio asegura que el usuario pasa en valores razonables para el día, mes y año; la aserción al final asegura que GLib construyó un objeto correctamente, dados valores adecuados.
 
-\lstinline{g_assert_not_reached()} debe usarse para marcar situaciones `` imposibles ''; un uso común es detectar declaraciones de cambio que no manejan todos los valores posibles de una enumeración:
+\lstinline{g_assert_not_reached()} debe usarse para marcar situaciones ``imposibles''; un uso común es detectar declaraciones de cambio que no manejan todos los valores posibles de una enumeración:
 
-\begin{lstlisting}[style=GLib/GTK,]
+\begin{lstlisting}[style=GLib/GTK]
 switch (value)
   {
   case FOO_ONE:
@@ -203,7 +203,7 @@ gpointer g_realloc (gpointer mem, gsize n_bytes);
 gpointer g_memdup (gconstpointer mem, guint n_bytes);
 \end{lstlisting}
 
-Es importante hacer coincidir \lstinline{g_malloc()} con \lstinline{g_free()}, \lstinline{malloc()} simple con \lstinline{free()} y (si estás usando C ++) \lstinline[style=GLib/GTK]{new} con \lstinline[style=GLib/GTK]{delete}. De lo contrario, pueden suceder cosas malas, ya que estos asignadores pueden usar diferentes grupos de memoria (y \lstinline[style=GLib/GTK]{new}/\lstinline[style=GLib/GTK]{delete} llama a constructores y destructores).
+Es importante hacer coincidir \lstinline{g_malloc()} con \lstinline{g_free()}, \lstinline{malloc()} simple con \lstinline{free()} y (si estás usando C ++) \lstinline[style=GLib/GTK]{new} con \lstinline[style=GLib/GTK]{delete}. De lo contrario, pueden suceder comportamientos no esperados, ya que estos asignadores pueden usar diferentes grupos de memoria (y \lstinline[style=GLib/GTK]{new}/\lstinline[style=GLib/GTK]{delete} llama a constructores y destructores).
 
 Por supuesto, hay un \lstinline{g_realloc()} equivalente a \lstinline{realloc()}. También hay un conveniente \lstinline{g_malloc0()} que llena la memoria asignada con ceros, y \lstinline{g_memdup()} que devuelve una copia de \lstinline{n_bytes} bytes comenzando en \lstinline{mem}. \lstinline{g_realloc()} y \lstinline{g_malloc0()} aceptarán ambos un tamaño de 0, por coherencia con \lstinline{g_malloc()}. Sin embargo, \lstinline{g_memdup()} no lo hará.
 
@@ -247,13 +247,13 @@ gchar * g_strnfill (gsize length, gchar fill_char);
 El listado~\ref{glib-strdup} muestra la amplia gama de funciones de GLib para asignar cadenas. Como era de esperar, \lstinline{g_strdup()} y \lstinline{g_strndup()} producen una copia asignada de \lstinline{str} o los primeros \lstinline{n} caracteres de \lstinline{str}. Para mantener la coherencia con las funciones de asignación de memoria GLib, devuelven \lstinline{NULL} si se les pasa un puntero \lstinline{NULL}. Las variantes \lstinline{printf()} devuelven una cadena formateada. \lstinline{g_strnfill()} devuelve una cadena de tamaño \lstinline{length} rellena con \lstinline{fill_char}.
 
 \lstinline{g_strdup_printf()} merece una mención especial; es una forma más sencilla de manejar este código común:
-\begin{lstlisting}[style=GLib/GTK,]
+\begin{lstlisting}[style=GLib/GTK]
 gchar *str = g_malloc (256);
 g_snprintf (str, 256, "%d printf-style %s", num, string);
 \end{lstlisting}
 
 En su lugar, podría decir esto y evitar tener que averiguar la longitud adecuada del búfer para arrancar:
-\begin{lstlisting}[style=GLib/GTK,]
+\begin{lstlisting}[style=GLib/GTK]
 gchar *str = g_strdup_printf ("%d printf-style %s", num, string);
 \end{lstlisting}
 
@@ -321,9 +321,9 @@ struct _GSList
 Una celda \lstinline{GSList} es una estructura autoexplicativa que se muestra en el Listado~\ref{glib-gslist-cell}. Los campos de estructura son públicos, por lo que puede usarlos directamente para acceder a los datos o para recorrer la lista.
 
 En la implementación de GLib, la lista vacía es simplemente un puntero \lstinline{NULL}. Siempre es seguro pasar \lstinline{NULL} a las funciones de lista, ya que es una lista válida de longitud 0. El código para crear una lista y agregar un elemento podría verse así:
-\begin{lstlisting}
+\begin{lstlisting}[style=GLib/GTK]
 GSList *list = NULL;
-gchar *element = g_strdup ("a string");
+gchar *element = g_strdup ("Una cadena de caracteres");
 list = g_slist_append (list, element);
 \end{lstlisting}
 
@@ -338,7 +338,7 @@ GSList * g_slist_insert (GSList *list, gpointer data, gint position);
 GSList * g_slist_remove (GSList *list, gconstpointer data);
 \end{lstlisting}
 
-El listado~\ref{glib-listchanging} muestra las funciones básicas para cambiar el contenido de \lstinline{GSList}. Para todos estos, debe asignar el valor de retorno a su puntero de lista en caso de que cambie el encabezado de la lista. Tenga en cuenta que GLib \emph{no} almacena un puntero al final de la lista, por lo que las funciones de agregar, insertar y eliminar se ejecutan en $O(n)$ tiempo, con $n$ la longitud de la lista.
+El listado~\ref{glib-listchanging} muestra las funciones básicas para cambiar el contenido de \lstinline{GSList}. Para todos estos, debe asignar el valor de retorno a su puntero de lista en caso de que cambie el encabezado de la lista. Tenga en cuenta que GLib \emph{no} almacena un puntero al final de la lista, por lo que las funciones de agregar, insertar y eliminar se ejecutan en el tiempo $O(n)$, con $n$ la longitud de la lista.
 
 GLib se encargará de los problemas de memoria, desasignando y asignando celdas de lista según sea necesario. Por ejemplo, el siguiente código eliminaría el elemento agregado anteriormente y vaciaría la lista:
 
@@ -362,7 +362,7 @@ GSList *l;
 for (l = list; l != NULL; l = l->next)
   {
     gchar *str = l->data;
-    g_print ("Element: %s\n", str);
+    g_print ("Elemento: %s\n", str);
   }
 \end{lstlisting}
 
@@ -380,7 +380,7 @@ El Listado~\ref{glib-listfree} muestra funciones para borrar una lista completa.
 \begin{lstlisting}[style=GLib/GTK]
 g_slist_free_full (list, g_free);
 
-/* If list may be used later: */
+/* Si la lista se puede usar mas tarde: */
 list = NULL;
 \end{lstlisting}
 
@@ -396,7 +396,7 @@ g_slist_free (list);
 list = NULL;
 \end{lstlisting}
 
-Construir una lista usando \lstinline{g_slist_append()} es una \emph{terrible} idea; use \lstinline{g_slist_prepend()} y luego llame a \lstinline{g_slist_reverse()} si necesita elementos en un orden en particular. Si prevé agregar con frecuencia a una lista, también puede mantener un puntero al último elemento. El siguiente código se puede usar para realizar agregados eficientes \footnote{Una forma más conveniente es usar el tipo de datos \lstinline{GQueue}: una cola de dos extremos que mantiene un puntero a la cabeza, un puntero a la cola y el longitud de la lista doblemente enlazada.}:
+Construir una lista usando \lstinline{g_slist_append()} es una \emph{terrible} idea; use \lstinline{g_slist_prepend()} y luego llame a \lstinline{g_slist_reverse()} si necesita elementos en un orden en particular. Si prevé agregar con frecuencia a una lista, también puede mantener un puntero al último elemento. El siguiente código se puede usar para realizar agregados eficientes \footnote{Una forma más conveniente es usar el tipo de datos \lstinline{GQueue}: una cola de dos extremos que mantiene un puntero a la cabeza, un puntero a la cola y la longitud de la lista doblemente enlazada.}:
 
 \pagebreak[2]
 

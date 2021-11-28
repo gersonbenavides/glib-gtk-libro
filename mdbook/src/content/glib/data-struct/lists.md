@@ -26,7 +26,7 @@ En la implementación de GLib, la lista vacía es simplemente un puntero `NULL`.
 
 ```c
 GSList *list = NULL;
-gchar *element = g_strdup ("a string");
+gchar *element = g_strdup ("Una cadena de caracteres");
 list = g_slist_append (list, element);
 ```
 
@@ -49,7 +49,7 @@ GSList * g_slist_remove (GSList *list, gconstpointer data);
 
 </div>
 
-El <span class="glib-listchanging">Listado</span> muestra las funciones básicas para cambiar el contenido de `GSList`. Para todos estos, debe asignar el valor de retorno a su puntero de lista en caso de que cambie el encabezado de la lista. Tenga en cuenta que GLib *no* almacena un puntero al final de la lista, por lo que las funciones de agregar, insertar y eliminar se ejecutan en `O(n)` tiempo, con `n` la longitud de la lista.
+El <span class="glib-listchanging">Listado</span> muestra las funciones básicas para cambiar el contenido de `GSList`. Para todos estos, debe asignar el valor de retorno a su puntero de lista en caso de que cambie el encabezado de la lista. Tenga en cuenta que GLib *no* almacena un puntero al final de la lista, por lo que las funciones de agregar, insertar y eliminar se ejecutan en el tiempo `O(n)`, con `n` la longitud de la lista.
 
 GLib se encargará de los problemas de memoria, desasignando y asignando celdas de lista según sea necesario. Por ejemplo, el siguiente código eliminaría el elemento agregado anteriormente y vaciaría la lista:
 
@@ -73,7 +73,7 @@ GSList *l;
 for (l = list; l != NULL; l = l->next)
   {
     gchar *str = l->data;
-    g_print ("Element: %s\n", str);
+    g_print ("Elemento: %s\n", str);
   }
 ```
 
@@ -99,7 +99,7 @@ El <span class="glib-listfree">Listado</span> muestra funciones para borrar una 
 ```c
 g_slist_free_full (list, g_free);
 
-/* If list may be used later: */
+/* Si la lista se puede usar mas tarde: */
 list = NULL;
 ```
 
@@ -117,7 +117,7 @@ list = NULL;
 
 Construir una lista usando `g_slist_append()` es una *terrible* idea; use `g_slist_prepend()` y luego llame a `g_slist_reverse()` si necesita elementos en un orden en particular. Si prevé agregar con frecuencia a una lista, también puede mantener un puntero al último elemento.
 
-> **📌 Nota:** Una forma más conveniente es usar el tipo de datos GQueue: una cola de dos extremos que mantiene un puntero a la cabeza, un puntero a la cola y el longitud de la lista doblemente enlazada.
+> **📌 Nota:** Una forma más conveniente es usar el tipo de datos GQueue: una cola de dos extremos que mantiene un puntero a la cabeza, un puntero a la cola y la longitud de la lista doblemente enlazada.
 
 El siguiente código se puede usar para realizar agregados eficientes:
 
