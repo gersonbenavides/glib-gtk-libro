@@ -11,7 +11,7 @@ Un elenco estándar también funciona, pero la mayoría de las veces no se recom
 ```c
 GtkApplication *app;
 
-/* Not recommended */
+/* No recomendado */
 g_application_mark_busy ((GApplication *) app);
 ```
 

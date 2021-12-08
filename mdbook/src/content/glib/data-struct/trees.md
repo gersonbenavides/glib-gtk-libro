@@ -245,9 +245,9 @@ Puede pedirle a GLib que proporcione información útil sobre un `GNode`, inclui
 
 `GTraverseType` es una enumeración; hay cuatro valores posibles. Estos son sus significados:
 
-* `G_PRE_ORDER` visita el nodo actual, luego recurre a cada niño por turno.
+* `G_PRE_ORDER` visita el nodo actual, luego recurre a cada hijo por turno.
 
-* `G_POST_ORDER` recurre a cada niño en orden, luego visita el nodo actual.
+* `G_POST_ORDER` recurre a cada hijo en orden, luego visita el nodo actual.
 
 * `G_IN_ORDER` primero recurre al hijo más a la izquierda del nodo, luego visita el nodo mismo y luego recurre al resto de los hijos del nodo. Esto no es muy útil; en su mayoría, está diseñado para su uso con un árbol binario.
 

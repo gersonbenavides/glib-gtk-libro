@@ -8,6 +8,6 @@ Sin embargo, este capítulo da un paso atrás del capítulo anterior, es solo un
 
 Entonces, para obtener información más detallada sobre GObject y saber cómo crear subclases, la documentación de referencia de GObject contiene capítulos introductorios: "*Conceptos*" y "*Tutorial*", disponibles en:
 
-[developer.gnome.org/gobject/stable/](https://developer.gnome.org/gobject/stable/)
+<https://docs.gtk.org/gobject/>
 
 Para explicar ciertos conceptos, se toman algunos ejemplos de GTK o GIO. Al leer este capítulo, se le anima a abrir Devhelp en paralelo, para mirar la referencia de API y ver por sí mismo cómo se documenta una biblioteca basada en GObject. El objetivo es que seas autónomo y puedas aprender cualquier clase nueva de GObject, ya sea en GIO, GTK o cualquier otra biblioteca.

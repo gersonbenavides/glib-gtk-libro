@@ -45,10 +45,10 @@ $ git grep -n -E "^function_name"
 Asimismo, existe una manera fácil de encontrar la declaración de una `struct` pública. La convención es prefijar el nombre del tipo con un guión bajo al declarar la `struct`. Por ejemplo:
 
 ```c
-/* In the header: */
+/* En el encabezado: */
 typedef struct _MyappSpellChecker MyappSpellChecker;
 
-/* In the *.c file: */
+/* En el archivo *.c: */
 struct _MyappSpellChecker
 {
   /* ... */

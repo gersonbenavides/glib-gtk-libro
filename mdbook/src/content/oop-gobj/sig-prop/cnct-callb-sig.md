@@ -42,7 +42,7 @@ button_clicked_cb (GtkButton *button,
 {
   MyClass *my_class = MY_CLASS (user_data);
 
-  g_message ("Button clicked!");
+  g_message ("Boton pulsado!");
 }
 
 static void
@@ -50,10 +50,10 @@ create_button (MyClass *my_class)
 {
   GtkButton *button;
 
-  /* Create the button */
+  /* Crea el boton */
   /* ... */
 
-  /* Connect the callback function */
+  /* Conectar la funcion de devolucion de llamada */
   g_signal_connect (button,
                     "clicked",
                     G_CALLBACK (button_clicked_cb),

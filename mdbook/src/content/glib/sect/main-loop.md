@@ -12,7 +12,7 @@
 
 Las aplicaciones actuales a menudo se basan en eventos. Para las aplicaciones GUI, hay muchas fuentes de eventos: una pulsación de tecla, un clic del mouse, un gesto táctil, un mensaje de otra aplicación, un cambio en el sistema de archivos, estar conectado o desconectado de la red, etc. Una aplicación necesita reaccionar a esos eventos. Por ejemplo, cuando se presiona una tecla cuando una entrada de texto tiene el foco, el carácter debe insertarse y mostrarse en la pantalla.
 
-Pero la programación dirigida por eventos también se aplica a los demonios. La comunicación entre procesos también ocurre entre daemons y aplicaciones. Un demonio podría recibir un evento cuando llega un paquete a una interfaz de red. Un demonio de impresora podría recibir eventos cuando una impresora está conectada, desconectada, tiene poco papel, etc. Un demonio de montaje puede escuchar las memorias USB insertadas. Otro demonio puede escuchar las conexiones de monitores externos para reconfigurar las pantallas, y así sucesivamente.
+Pero la programación dirigida por eventos también se aplica a los daemons. La comunicación entre procesos también ocurre entre daemons y aplicaciones. Un daemon podría recibir un evento cuando llega un paquete a una interfaz de red. Un daemon de impresora podría recibir eventos cuando una impresora está conectada, desconectada, tiene poco papel, etc. Un daemon de montaje puede escuchar las memorias USB insertadas. Otro daemon puede escuchar las conexiones de monitores externos para reconfigurar las pantallas, y así sucesivamente.
 
 Un programa impulsado por eventos no está estructurado de la misma manera que un programa por lotes. El trabajo a realizar por un programa por lotes se determina al principio. Luego analiza la entrada, realiza algunos cálculos sobre ella y genera un informe. Por ejemplo, la mayoría de los comandos y scripts de Unix son programas por lotes.
 
@@ -25,9 +25,9 @@ gint
 main (gint   argc,
       gchar *argv[])
 {
-  /* Create main window and attach signal callbacks. */
+  /* Cree una ventana principal y adjunte devoluciones de llamada de senal. */
 
-  /* Run the main event loop. */
+  /* Ejecute el bucle de eventos principal. */
   gtk_main ();
 
   return 0;
@@ -45,7 +45,7 @@ button_clicked_cb (GtkButton *button,
 {
   MyObject *self = user_data;
 
-  /* Do something */
+  /* Hacer algo */
 }
 
 static void
@@ -53,9 +53,9 @@ create_button (MyObject *self)
 {
   GtkButton *button;
 
-  /* Create button */
+  /* Crear boton */
 
-  /* Attach signal callback */
+  /* Adjuntar devolucion de llamada de senal */
   g_signal_connect (button,
                     "clicked",
                     G_CALLBACK (button_clicked_cb),

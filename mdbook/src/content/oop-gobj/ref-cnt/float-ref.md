@@ -9,17 +9,17 @@ El <span class="oop-gobject-mem-management-normal">Listado</span> muestra cómo 
 <a id="oop-gobject-mem-management-normal"></a>
 
 ```c
-/* Normal GObject */
+/* GObject normal */
 
 a_normal_gobject = normal_gobject_new ();
-/* a_normal_gobject has now a reference count of 1. */
+/* a_normal_gobject tiene ahora un recuento de referencia de 1. */
 
 container_add (container, a_normal_gobject);
-/* a_normal_gobject has now a reference count of 2. */
+/* a_normal_gobject tiene ahora un recuento de referencia de 2. */
 
-/* We no longer need a_normal_gobject, so we unref it. */
+/* Ya no necesitamos un a_normal_gobject, por lo que lo anulamos. */
 g_object_unref (a_normal_gobject);
-/* a_normal_gobject has now a reference count of 1. */
+/* a_normal_gobject tiene ahora un recuento de referencia de 1. */
 ```
 
 <div class="caption">
@@ -31,15 +31,15 @@ g_object_unref (a_normal_gobject);
 <a id="oop-gobject-mem-management-floating"></a>
 
 ```c
-/* GInitiallyUnowned object, e.g. a GtkWidget */
+/* Objeto GInitiallyUnowned, p. Ej. un GtkWidget */
 
 widget = gtk_entry_new ();
-/* widget has now just a floating reference. */
+/* widget tiene ahora solo una referencia flotante. */
 
 gtk_container_add (container, widget);
-/* The container has called g_object_ref_sink(), taking
- * ownership of the floating reference. The code is
- * simplified because we must not call g_object_unref().
+/* El contenedor ha llamado a g_object_ref_sink(), tomando
+ * posesion de la referencia flotante. El codigo esta
+ * simplificado porque no debemos llamar a g_object_unref().
  */
 ```
 

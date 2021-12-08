@@ -9,14 +9,14 @@ Otra idea importante de OOP es \emph{ocultar todos los datos dentro de su clase}
 
 \section{Ejemplo de encabezado}
 
-El Listado~\ref{oop-semi-spell-checker-h} p.~\pageref{oop-semi-spell-checker-h} muestra un ejemplo de un encabezado que proporciona un simple corrector ortográfico. Este es un código ficticio; si necesita un corrector ortográfico en su aplicación GTK, probablemente usaría hoy en día la biblioteca gspell \footnote{\url{https://wiki.gnome.org/Projects/gspell}}.
+El Listado~\ref{oop-semi-spell-checker-h} p.~\pageref{oop-semi-spell-checker-h} muestra un ejemplo de un encabezado que proporciona un simple corrector ortográfico. Este es un código ficticio; si necesita un corrector ortográfico en su aplicación GTK, probablemente usaría hoy en día la biblioteca gspell \footnote{\url{https://gitlab.gnome.org/GNOME/gspell}}.
 
-\lstinputlisting[language=C, caption={myapp-spell-checker.h}, label=oop-semi-spell-checker-h]{assets/code/myapp-spell-checker.h}
+\lstinputlisting[style=GLib/GTK, caption={myapp-spell-checker.h}, label=oop-semi-spell-checker-h]{assets/code/myapp-spell-checker.h}
 
 \subsection{Espacio de nombres del proyecto}
 Lo primero a tener en cuenta es el uso del espacio de nombres `` Myapp ''. Cada símbolo del encabezado tiene como prefijo el espacio de nombres del proyecto.
 
-Es una buena práctica elegir un espacio de nombres para su código, para evitar conflictos de símbolos en el momento del enlace. Es especialmente importante tener un espacio de nombres para una biblioteca, pero también es mejor tener uno para una aplicación. Por supuesto, el espacio de nombres debe ser único para cada base de código; por ejemplo, debe \emph{no} reutilizar los espacios de nombres ``G'' o ``Gtk'' para su aplicación o biblioteca.
+Es una buena práctica elegir un espacio de nombres para su código, para evitar conflictos de símbolos en el momento del enlace. Es especialmente importante tener un espacio de nombres para una biblioteca, pero también es mejor tener uno para una aplicación. Por supuesto, el espacio de nombres debe ser único para cada base de código; por ejemplo, \emph{no} debe reutilizar los espacios de nombres ``G'' o ``Gtk'' para su aplicación o biblioteca.
 
 \subsection{Espacio de nombres de clase}
 Además, hay un segundo espacio de nombres con el nombre de la clase, aquí ``SpellChecker''. Si sigue esa convención de forma coherente, el nombre de un símbolo es más predecible, lo que facilita el trabajo con la API. El nombre de un símbolo siempre será ``espacio de nombres del proyecto'' + ``nombre de la clase'' + ``nombre del símbolo''.
@@ -32,7 +32,7 @@ Dependiendo del tipo de símbolo, su nombre está en mayúsculas, minúsculas o 
 \subsection{Incluir guardia}
 El encabezado contiene el típico protector de inclusión:
 
-\begin{lstlisting}[language=C]
+\begin{lstlisting}[style=GLib/GTK]
 #ifndef MYAPP_SPELL_CHECKER_H
 #define MYAPP_SPELL_CHECKER_H
 
@@ -51,7 +51,7 @@ El par \lstinline{G_BEGIN_DECLS}/\lstinline{G_END_DECLS} permite que el encabeza
 Hay varias formas de organizar los \lstinline{#include} en una base de código C. La convención en GLib/GTK es que incluir un encabezado en un archivo *.c no debería requerir incluir otro encabezado de antemano \footnote{Esa es la regla general, pero existen excepciones: por ejemplo, incluir \lstinline{glib/gi18n-lib.h} requiere que se defina \lstinline{GETTEXT_PACKAGE}, este último suele estar presente en el encabezado \lstinline{config.h}.}.
 
 \path{myapp-spell-checker.h} contiene el siguiente \lstinline{#include}:
-\begin{lstlisting}
+\begin{lstlisting}[style=GLib/GTK]
 #include <glib.h>
 \end{lstlisting}
 
@@ -62,14 +62,14 @@ Si se elimina el \lstinline{#include} en \path{myapp-spell-checker.h}, cada arch
 \subsection{Definición de tipo}
 El tipo \lstinline{MyappSpellChecker} se define de la siguiente manera:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=GLib/GTK]
 typedef struct _MyappSpellChecker MyappSpellChecker;
 \end{lstlisting}
 
 La \lstinline{struct _MyappSpellChecker} se declarará en el archivo \path{myapp-spell-checker.c}. Cuando usa \lstinline{MyappSpellChecker} en otro archivo, no debería necesitar saber qué contiene \lstinline{struct}, debería usar las funciones públicas de la clase en su lugar. La excepción a la mejor práctica de OOP es cuando llamar a una función sería un problema de rendimiento, por ejemplo, para estructuras de datos de bajo nivel utilizadas para gráficos por computadora (coordenadas, rectángulos,…). Pero recuerde: \emph{la optimización prematura es la raíz de todos los males} (Donald~Knuth).
 
 \subsection{Constructor de objetos}
-\lstinline{myapp_spell_checker_new()} es el constructor de la clase. Toma un parámetro de código de idioma ---~por ejemplo \lstinline{"en_US"}~--- y devuelve una \emph{instancia} de la clase, también llamada \emph{objeto}. Lo que hace la función es simplemente asignar dinámicamente la \lstinline{estructura} y devolver el puntero. Ese valor de retorno se usa luego como el primer parámetro de las funciones restantes de la clase. En algunos lenguajes como Python, ese primer parámetro se llama parámetro \emph{self}, ya que hace referencia a `` sí mismo '', es decir, a su propia clase. Otros lenguajes orientados a objetos como Java y C ++ tienen la palabra clave \emph{this} para acceder a los datos del objeto.
+\lstinline{myapp_spell_checker_new()} es el constructor de la clase. Toma un parámetro de código de idioma ---~por ejemplo \lstinline{"en_US"}~--- y devuelve una \emph{instancia} de la clase, también llamada \emph{objeto}. Lo que hace la función es simplemente asignar dinámicamente la \lstinline{estructura} y devolver el puntero. Ese valor de retorno se usa luego como el primer parámetro de las funciones restantes de la clase. En algunos lenguajes como Python, ese primer parámetro se llama parámetro \emph{self}, ya que hace referencia a ``sí mismo'', es decir, a su propia clase. Otros lenguajes orientados a objetos como Java y C ++ tienen la palabra clave \emph{this} para acceder a los datos del objeto.
 
 Tenga en cuenta que \lstinline{myapp_spell_checker_new()} se puede llamar varias veces para crear diferentes objetos. Cada objeto tiene sus propios datos. Esa es la diferencia fundamental con las variables globales: si los datos se almacenan en variables globales, puede haber como máximo una instancia de ellos \footnote{A menos que la variable global almacene los ``objetos'' en una estructura de datos agregados como una matriz, un lista enlazada o una tabla hash, con un identificador como el parámetro ``\emph{self}'' (por ejemplo, un número entero o una cadena) para acceder a un elemento específico. Pero este es un código realmente desagradable, ¡por favor no lo hagas!}.
 
@@ -81,7 +81,7 @@ Tenga en cuenta que \lstinline{myapp_spell_checker_new()} se puede llamar varias
 \subsection{Otras funciones públicas}
 Las funciones \lstinline{myapp_spell_checker_check_word()} y \lstinline{myapp_spell_checker_get_suggestions()} son las características disponibles de la clase. Comprueba si una palabra está escrita correctamente y obtiene una lista de sugerencias para corregir una palabra mal escrita.
 
-El tipo de parámetro \lstinline{word_length} es \lstinline{gssize}, que es un tipo entero GLib que puede contener ---~por ejemplo~--- el resultado de \lstinline{strlen()}, y también puede contener un valor negativo ya que ---~contrario a \lstinline{gsize}~--- \lstinline {gssize} es un tipo entero \emph{con signo}. El parámetro \lstinline{word_length} puede ser \lstinline{-1} si la cadena está terminada en nul, es decir, si la cadena termina con el carácter especial \lstinline{'\0'}. El propósito del parámetro \lstinline{word_length} es poder pasar un puntero a una palabra que pertenece a una cadena más grande, sin la necesidad de llamar, por ejemplo, \lstinline{g_strndup()}.
+El tipo de parámetro \lstinline{word_length} es \lstinline{gssize}, que es un tipo entero GLib que puede contener ---~por ejemplo~--- el resultado de \lstinline{strlen()}, y también puede contener un valor negativo ya que ---~contrario a \lstinline{gsize}~--- \lstinline {gssize} es un tipo entero \emph{con signo}. El parámetro \lstinline{word_length} puede ser \lstinline{-1} si la cadena está terminada en nulo, es decir, si la cadena termina con el carácter especial \lstinline{'\0'}. El propósito del parámetro \lstinline{word_length} es poder pasar un puntero a una palabra que pertenece a una cadena más grande, sin la necesidad de llamar, por ejemplo, \lstinline{g_strndup()}.
 
 \section{El archivo *.c correspondiente}
 
@@ -113,10 +113,10 @@ Cada biblioteca basada en GLib debe tener una documentación GTK-Doc. Pero tambi
 \subsection{Anotaciones de introspección de GObject}
 El comentario de GTK-Doc para la función \lstinline{myapp_spell_checker_get_suggestions()} contiene anotaciones de GObject Introspection para el valor de retorno:
 
-\begin{lstlisting}[language=C]
+\begin{lstlisting}[style=GLib/GTK]
 /**
  * ...
- * Returns: (transfer full) (element-type utf8): the list of suggestions.
+ * Returns: (transfer full) (element-type utf8): la lista de sugerencias.
  */
 \end{lstlisting}
 
@@ -151,7 +151,7 @@ Finalmente, vale la pena explicar algunas cosas sobre el estilo de codificación
 
 Aquí hay un ejemplo de una definición de función:
 
-\begin{lstlisting}[language=C]
+\begin{lstlisting}[style=GLib/GTK]
 gboolean
 myapp_spell_checker_check_word (MyappSpellChecker *checker,
                                 const gchar       *word,
@@ -165,7 +165,7 @@ Vea cómo se alinean los parámetros: hay un parámetro por línea, con el tipo 
 
 Para una función \emph{call}, si poner todos los parámetros en la misma línea da como resultado una línea demasiado larga, los parámetros también deben estar alineados entre paréntesis, para que el código sea más fácil de leer:
 
-\begin{lstlisting}[language=C]
+\begin{lstlisting}[style=GLib/GTK]
   function_call (one_param,
                  another_param,
                  yet_another_param);
@@ -187,11 +187,11 @@ $ git grep -n -E "^function_name"
 
 Asimismo, existe una manera fácil de encontrar la declaración de una \lstinline{struct} pública. La convención es prefijar el nombre del tipo con un guión bajo al declarar la \lstinline{struct}. Por ejemplo:
 
-\begin{lstlisting}[language=C]
-/* In the header: */
+\begin{lstlisting}[style=GLib/GTK]
+/* En el encabezado: */
 typedef struct _MyappSpellChecker MyappSpellChecker;
 
-/* In the *.c file: */
+/* En el archivo *.c: */
 struct _MyappSpellChecker
 {
   /* ... */

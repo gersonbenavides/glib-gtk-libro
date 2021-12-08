@@ -5,7 +5,7 @@ El comentario de GTK-Doc para la función `myapp_spell_checker_get_suggestions()
 ```c
 /**
  * ...
- * Returns: (transfer full) (element-type utf8): the list of suggestions.
+ * Returns: (transfer full) (element-type utf8): la lista de sugerencias.
  */
 ```
 
