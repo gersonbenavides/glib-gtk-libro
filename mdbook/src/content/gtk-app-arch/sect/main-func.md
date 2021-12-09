@@ -35,7 +35,7 @@ main (int    argc,
   GeditApp *app;
   int status;
 
-  /* Init i18n (internationalization) here. */
+  /* Inicializacion de i18n (internacionalizacion) aqui. */
 
   app = gedit_app_new ();
   status = g_application_run (G_APPLICATION (app), argc, argv);

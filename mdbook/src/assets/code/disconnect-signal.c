@@ -15,8 +15,8 @@ word_added_to_personal_cb (GspellChecker *spell_checker,
 {
   MyTextView *text_view = user_data;
 
-  g_message ("Word '%s' has been added to the user's personal "
-             "dictionary. text_view=%p will be updated accordingly.",
+  g_message ("La palabra '%s' se ha agregado al diccionario personal "
+             "del usuario. text_view=%p se actualizara en consecuencia.",
              word,
              text_view);
 }
@@ -30,13 +30,15 @@ my_text_view_new (GspellChecker *spell_checker)
 
   text_view = g_new0 (MyTextView, 1);
 
-  /* We store the spell_checker GObject in the instance variable, so
-   * we increase the reference count to be sure that spell_checker
-   * stays alive during the lifetime of text_view.
+  /* Almacenamos el GObject de spell_checker en la variable
+   * de instancia, por lo que aumentamos el recuento de referencias
+   * para asegurarnos de que el corrector ortografico permanece activo
+   * durante la vida util de la text_view.
    *
-   * Note that spell_checker is provided externally, so spell_checker
-   * can live longer than text_view, hence the need to disconnect the
-   * signal in my_text_view_free().
+   * Tenga en cuenta que el corrector ortografico se proporciona de
+   * forma externa, por lo que el corrector ortografico puede vivir mas
+   * tiempo que text_view, de ahi la necesidad de desconectar la señal
+   * en my_text_view_free().
    */
   text_view->spell_checker = g_object_ref (spell_checker);
 
@@ -61,23 +63,23 @@ my_text_view_free (MyTextView *text_view)
       g_signal_handler_disconnect (text_view->spell_checker,
                                    text_view->word_added_to_personal_handler_id);
 
-      /* Here resetting the value to 0 is not necessary because
-       * text_view will anyway be freed, it is just to have a more
-       * complete example.
+      /* Aqui no es necesario restablecer el valor a 0 porque
+       * text_view de todos modos se liberara, es solo para tener
+       * un ejemplo mas completo.
        */
       text_view->word_added_to_personal_handler_id = 0;
     }
 
-  /* The equivalent of:
+  /* El equivalente de:
    * if (text_view->spell_checker != NULL)
    * {
    *   g_object_unref (text_view->spell_checker);
    *   text_view->spell_checker = NULL;
    * }
    *
-   * After decreasing the reference count, spell_checker may still be
-   * alive if another part of the program still references the same
-   * spell_checker.
+   * Despues de disminuir el recuento de referencias, spell_checker
+   * aun puede estar activo si otra parte del programa todavia
+   * hace referencia al mismo corrector ortografico.
    */
   g_clear_object (&text_view->spell_checker);
 

@@ -18,7 +18,7 @@ Debería poder usar cualquier clase de GObject en GIO, solo lea la descripción 
 \end{itemize}
 
 Para crear aplicaciones gráficas con GTK, no se preocupe, la documentación de referencia tiene una guía de introducción, disponible con Devhelp o en línea en: \\
-\url{https://developer.gnome.org/gtk3/stable/}
+\url{https://docs.gtk.org/gtk4/}
 
 Después de leer la guía de introducción, lea toda la referencia de la API para familiarizarse con los widgets, contenedores y clases base disponibles. Algunos widgets tienen una API bastante grande, por lo que también están disponibles algunos tutoriales externos, por ejemplo, para \lstinline{GtkTextView} y \lstinline{GtkTreeView}. Consulte la página de documentación en: \\
 \url{http://www.gtk.org}
@@ -31,7 +31,7 @@ También hay una serie de pequeños tutoriales sobre varios temas GLib/GTK: \\
 El capítulo~\ref{oop-gobject} explica cómo \emph{usar} una clase GObject existente, que es muy útil para aprender GTK, pero no explica cómo \emph{crear} tus propias clases GObject. Escribir sus propias clases de GObject permite contar con referencias, puede crear sus propias propiedades y señales, puede implementar interfaces, anular funciones virtuales (si la función virtual no está asociada a una señal), etc.
 
 Como se explicó al principio del capítulo~\ref{oop-gobject}, si desea obtener información más detallada sobre GObject y saber cómo crear subclases, la documentación de referencia de GObject contiene capítulos introductorios: ``\emph{Concepts}'' y ``\emph{Tutorial}'', disponibles como de costumbre en Devhelp o en línea en: \\
-\url{https://developer.gnome.org/gobject/stable/}
+\url{https://docs.gtk.org/gobject/}
 
 \section{Sistema de compilación}
 
@@ -50,7 +50,7 @@ Pero Autotools tiene la reputación de ser difícil de aprender.
 \subsection{Meson}
 
 Meson es un sistema de construcción bastante nuevo, es más fácil de aprender que Autotools y también resulta en construcciones más rápidas. Algunos módulos de GNOME ya usan Meson. Consulte el sitio web para obtener más información:\\
-\url{http://mesonbuild.com/}
+\url{https://mesonbuild.com/}
 
 \section{Mejores prácticas de programación}
 
@@ -61,11 +61,11 @@ La siguiente lista no tiene nada que ver con el desarrollo de GLib/GTK, pero es 
 \begin{itemize}
   \item \emph{El} libro sobre las mejores prácticas de programación es \emph{Code Complete}, de Steve~McConnell \cite{code-complete}. Muy recomendable \footnote{Aunque el editor de \emph{Código completo} es Microsoft Press, el libro no está relacionado con Microsoft o Windows. El autor a veces explica cosas relacionadas con el código abierto, UNIX y Linux, pero uno puede lamentar la ausencia total de la mención ``software libre/free'' y todos los beneficios de la libertad, en particular para este tipo de libros: poder aprender leyendo el código de otros. Pero si está aquí, es de esperar que ya sepa todo esto.}.
 
-  \item Para obtener pautas sobre POO específicamente, consulte \emph{Heurística de diseño orientado a objetos}, de Arthur~Riel \cite{oop-book}.
+  \item Para obtener pautas sobre POO específicamente, consulte \emph{Object-Oriented Design Heuristics}, de Arthur~Riel \cite{oop-book}.
 
-  \item Una excelente fuente de información es la web de Martin ~ Fowler: refactorización, metodología ágil, diseño de código, ...\\
-  \url{http://martinfowler.com/}
+  \item Una excelente fuente de información es la web de Martin~Fowler: refactorización, metodología ágil, diseño de código, ...\\
+  \url{https://martinfowler.com/}
 \end{itemize}
 
-Más relacionados con GNOME, los artículos de Havoc ~ Pennington tienen buenos consejos que vale la pena leer, incluidos ``\emph{Trabajando en software libre}'', ``\emph{Interfaz de usuario de software libre}'' y ``\emph{Mantenimiento de software libre : Adición de funciones}'':\\
-\url{http://ometer.com/writing.html}
+Más relacionados con GNOME, los artículos de Havoc~Pennington tienen buenos consejos que vale la pena leer, incluidos ``\emph{Working on Free Software}'', ``\emph{Free software UI}'' y ``\emph{Free Software Maintenance: Adding Features}'':\\
+\url{https://ometer.com/writing.html}

@@ -17,17 +17,17 @@ Será más claro con un ejemplo. El <span class="oop-gobject-connect-to-notify">
 <a id="oop-gobject-connect-to-notify"></a>
 
 ```c
-/* If you look at the notify signal documentation, the first parameter
- * has the type GObject, not GtkCheckButton. Since GtkCheckButton is a
- * sub-class of GObject, the C language allows to write GtkCheckButton
- * directly.
+/* Si observa la documentacion de la señal de notificacion, el primer
+ * parametro tiene el tipo GObject, no GtkCheckButton. Dado que
+ * GtkCheckButton es una subclase de GObject, el lenguaje C permite
+ * escribir GtkCheckButton directamente.
  */
 static void
 check_button_notify_cb (GtkCheckButton *check_button,
                         GParamSpec     *pspec,
                         gpointer        user_data)
 {
-  /* Called each time that any property of check_button changes. */
+  /* Se llama cada vez que cambia alguna propiedad de check_button. */
 }
 
 static void
@@ -47,16 +47,16 @@ create_check_button (MyWindow *window)
 {
   GtkWidget *check_button;
 
-  check_button = gtk_check_button_new_with_label ("Show side panel");
+  check_button = gtk_check_button_new_with_label ("Mostrar panel lateral");
 
-  /* Connect without the detail. */
+  /* Conectese sin el detail. */
   g_signal_connect (check_button,
                     "notify",
                     G_CALLBACK (check_button_notify_cb),
                     NULL);
 
-  /* Connect with the detail, to be notified only when
-   * the GtkToggleButton:active property changes.
+  /* Conectese con el detail, para ser notificado solo
+   * cuando la propiedad GtkToggleButton:active cambia
    */
   g_signal_connect (check_button,
                     "notify::active",
@@ -87,15 +87,14 @@ create_check_button (MyWindow *window)
 {
   GtkWidget *check_button;
 
-  check_button = gtk_check_button_new_with_label ("Show side panel");
+  check_button = gtk_check_button_new_with_label ("Mostrar panel lateral");
 
-  /* When the GtkToggleButton:active property of check_button changes,
-   * the GtkWidget:visible property of window->side_panel is updated to
-   * have the same boolean value.
+  /* Cuando la propiedad GtkToggleButton:active de check_button cambia,
+   * la propiedad GtkWidget:visible de window->side_panel se actualiza
+   * para tener el mismo valor booleano.
    *
-   * It would be useful to add G_BINDING_SYNC_CREATE to the flags, but
-   * in that case the code would not be equivalent to the previous
-   * code Listing.
+   * Seria util agregar G_BINDING_SYNC_CREATE a las banderas, pero en
+   * ese caso el codigo no seria equivalente al listado de codigo anterior.
    */
   g_object_bind_property (check_button, "active",
                           window->side_panel, "visible",

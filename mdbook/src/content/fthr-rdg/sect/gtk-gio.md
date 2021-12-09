@@ -14,7 +14,7 @@ Debería poder usar cualquier clase de GObject en GIO, solo lea la descripción 
 Para crear aplicaciones gráficas con GTK, no se preocupe, la documentación de referencia tiene una guía de introducción, disponible con Devhelp o en línea en:
 
 
-[developer.gnome.org/gtk3/stable/](https://developer.gnome.org/gtk3/stable/)
+<https://docs.gtk.org/gtk4/>
 
 Después de leer la guía de introducción, lea toda la referencia de la API para familiarizarse con los widgets, contenedores y clases base disponibles. Algunos widgets tienen una API bastante grande, por lo que también están disponibles algunos tutoriales externos, por ejemplo, para `GtkTextView` y `GtkTreeView`. Consulte la página de documentación en:
 
