@@ -6,7 +6,7 @@ En términos generales, GLib es un conjunto de bibliotecas: GLib core, GObject y
 
 GLib core proporciona manejo de estructura de datos para C (listas enlazadas, árboles, tablas hash, ...), envoltorios de portabilidad, un bucle de eventos, hilos, carga dinámica de módulos y muchas funciones de utilidad.
 
-GObject -- que depende del núcleo GLib -- simplifica la programación orientada a objetos y los paradigmas de programación dirigida por eventos en C. La programación dirigida por eventos no solo es útil para interfaces gráficas de usuario (con eventos de usuario como pulsaciones de teclas y clics del mouse), pero también para demonios que responden a cambios de hardware (una memoria USB insertada, un segundo monitor conectado, una impresora con poco papel), o software que escucha conexiones de red o mensajes de otros procesos, etc.
+GObject -- que depende del núcleo GLib -- simplifica la programación orientada a objetos y los paradigmas de programación dirigida por eventos en C. La programación dirigida por eventos no solo es útil para interfaces gráficas de usuario (con eventos de usuario como pulsaciones de teclas y clics del mouse), pero también para daemons que responden a cambios de hardware (una memoria USB insertada, un segundo monitor conectado, una impresora con poco papel), o software que escucha conexiones de red o mensajes de otros procesos, etc.
 
 GIO -- que depende de GLib core y GObject -- proporciona API de alto nivel para entrada/salida: lectura de un archivo local, un archivo remoto, un flujo de red, comunicación entre procesos con D-Bus y muchos más.
 
@@ -21,7 +21,7 @@ Las bibliotecas GLib se pueden utilizar para escribir servicios del sistema oper
 
 GTK es un conjunto de herramientas de widgets basado en GLib que se puede utilizar para desarrollar aplicaciones con una interfaz gráfica de usuario (GUI). Un ``widget'' es un elemento de la GUI, por ejemplo, un botón, un texto, un menú, etc. Y hay algunos tipos especiales de widgets que se denominan ``containers'', que pueden contener otros widgets, para ensamblar los elementos en una ventana. GTK proporciona una amplia gama de widgets y contenedores.
 
-La primera versión de GTK, o GIMP Tool Kit\footnote{El nombre ``The GIMP Tool Kit'' ahora rara vez se usa, hoy se conoce más comúnmente como GTK para abreviar.}, fue escrita principalmente por Peter~Mattis en 1996 para GIMP (Programa de manipulación de imágenes GNU), pero se ha convertido rápidamente en una biblioteca de uso general. Una vez el proyecto se movió fuera del árbol de fuentes de GIMP para distinguir entre la versión original y una nueva versión que agregó características orientadas a objetos se agrego al nombre un ``+'' denominándose la biblioteca como GTK+ (actualmente este nombre esta en desuso y se conoce simplemente como GTK). GLib comenzó como parte de GTK, pero ahora es una biblioteca independiente.
+La primera versión de GTK, o GIMP Tool Kit\footnote{El nombre ``The GIMP Tool Kit'' ahora rara vez se usa, hoy se conoce más comúnmente como GTK para abreviar.}, fue escrita principalmente por Peter~Mattis, con la ayuda de Spencer~Kimball y Josh~MacDonald en 1996 para GIMP (programa de manipulación de imágenes GNU) mientras trabajaban en el eXperimental Computing Facility de la Universidad de California, Berkeley, convirtiéndose rápidamente en una biblioteca de uso general. Una vez el proyecto se movió fuera del árbol de fuentes de GIMP para distinguir entre la versión original y una nueva versión que agregó características orientadas a objetos se agrego al nombre un ``+'' denominándose la biblioteca como GTK+ (actualmente este nombre esta en desuso y se conoce simplemente como GTK). GLib comenzó como parte de GTK, pero ahora es una biblioteca independiente.
 
 Las API GLib y GTK están documentadas con GTK-Doc. Los comentarios especiales están escritos en el código fuente y GTK-Doc extrae esos comentarios para generar páginas HTML.
 
@@ -88,7 +88,7 @@ Otra alternativa importante a considerar si desea trabajar con GLib/GTK es el le
 
 Más allá de los enlaces oficiales de GNOME; GLib y GTK se pueden usar en más de una docena de lenguajes de programación, con un nivel de soporte variable. Entonces, \emph{¿por qué y cuándo elegir el lenguaje C?}.
 
-Por ejemplo, para escribir un demonio en un sistema tipo Unix, C es el lenguaje \emph{predeterminado}. Pero es menos obvio que lenguaje usar para una aplicación. Para responder a la pregunta, veamos primero cómo estructurar el código base de una aplicación.
+Por ejemplo, para escribir un daemon en un sistema tipo Unix, C es el lenguaje \emph{predeterminado}. Pero es menos obvio que lenguaje usar para una aplicación. Para responder a la pregunta, veamos primero cómo estructurar el código base de una aplicación.
 
 % Adaptado de una pregunta de preguntas frecuentes en GGAD.
 \subsection{Separación de backend del frontend}
@@ -153,25 +153,29 @@ Dado que GTK se basa en GLib y GObject, es mejor comprender primero los concepto
 
 Así que este libro comienza con la biblioteca principal GLib (parte~\ref{glib} p.~\pageref{glib}), luego presenta la Programación Orientada a Objetos en C (parte~\ref{oop} p.~\pageref{oop}) seguida de un capítulo de Lecturas Adicionales (p.~\pageref{further-reading})
 
-\section{El entorno de desarrollo}
-\label{intro-dev-environment}
+\section{Entorno de desarrollo}
+\label{intro-dev-env}
 
-Esta sección describe el entorno de desarrollo que se usa normalmente al programar con GLib y GTK en un sistema Unix.
+Esta sección describe el entorno de desarrollo que se usa normalmente al programar con GLib y GTK en un sistema tipo Unix. En una distribución GNU/Linux, a menudo se puede instalar un solo paquete o grupo para obtener un entorno de desarrollo C completo (esta se explica mas adelante), que incluye, entre otros:
 
-En una distribución GNU/Linux, a menudo se puede instalar un solo paquete o grupo para obtener un entorno de desarrollo C completo, que incluye, entre otros:
 \begin{itemize}
     \item Un compilador compatible con C89, GCC por ejemplo;
     \item El depurador GNU GDB;
     \item GNU Make;
     \item Las Autotools (Autoconf, Automake y Libtool);
-    \item Las páginas del manual de: El kernel de Linux y glibc \footnote{No confunda la biblioteca GNU C (glibc) con GLib. El primero es de nivel inferior.}.
+    \item Las páginas del manual de:
+    \begin{itemize}
+        \item El kernel de Linux
+        \item glibc\footnote{No confunda la biblioteca GNU C (glibc) con GLib. El primero es de nivel inferior.}.
+    \end{itemize}
 \end{itemize}
 
 Para utilizar GLib y GTK como desarrollador, existen varias soluciones:
+
 \begin{itemize}
     \item Los encabezados y la documentación se pueden instalar con el administrador de paquetes. El nombre de los paquetes suele terminar con uno de los siguientes sufijos: \texttt{-devel}, \texttt{-dev} o \texttt{-doc}. Por ejemplo \texttt{glib2-devel} y \texttt{glib2-doc} en Fedora.
-    \item Las últimas versiones de GLib y GTK se pueden instalar con BuildStream:\\
-    \url{https://wiki.gnome.org/Projects/BuildStream}
+    \item Si desea construir por usted mismo la últimas versiones de GLib y GTK lo puede hacer con Meson, para mas información se puede dirigir a:\\
+    \url{https://docs.gtk.org/gtk4/building.html}
 \end{itemize}
 
 Para leer la documentación de la API de GLib y GTK, Devhelp es una aplicación útil, si ha instalado el paquete -dev o -doc. Por otro lado para el editor de texto o IDE, hay muchas opciones (y con ellas una fuente de muchos trolls), como por ejemplo: Vim/Neovim, Emacs, gedit, Anjuta, MonoDevelop/Xamarin Studio, Geany, entre muchos otras. Un prometedor IDE especializado para GNOME es Builder, el cual de manera nativa posee integración con GLib/GTK y con su documentación, además de ofrecer integración con Git.
@@ -181,3 +185,74 @@ Para crear una \emph{interfaz gráfica de usuario} o GUI con GTK, puede escribir
 Cuando utilice GLib o GTK, preste atención a no utilizar API obsoletas para el código recién escrito. Asegúrese de leer la documentación más reciente, la cual esta disponible en línea en:\\
 
 \url{https://developer.gnome.org/}
+
+
+\section{Instalaciones}
+
+Esta sección presenta un ejemplo recomendado de entorno de desarrollo y su instalación. Tenga en cuenta que como se explica en la sección~\ref{intro-dev-env}, existen múltiples alternativas a los paquetes aquí propuestos que usted puede usar para el desarrollo (por ejemplo, el editor de texto o IDE).
+
+
+\subsection{Linux}
+
+Por la gran cantidad de distribuciones que posee GNU/Linux, explicar el proceso de instalación en todas se sale de los alcances de este texto, aun así tenga en cuenta que el nombre de los paquetes y el método de instalación tiende a ser parecido en cada una de ellas.
+
+\subsubsection{Compilador y utilidades}
+
+\begin{itemize}
+    \item \textbf{Fedora}
+\begin{lstlisting}[language=bash]
+$ sudo dnf groupinstall "Development Tools"
+\end{lstlisting}
+
+    \item \textbf{Ubuntu}
+\begin{lstlisting}[language=bash]
+$ sudo apt install build-essential
+\end{lstlisting}
+\end{itemize}
+
+
+\subsubsection{GTK/GLib}
+
+\begin{itemize}
+    \item \textbf{Fedora}
+\begin{lstlisting}[language=bash]
+$ sudo dnf install glib2-devel gtk4 gtk4-devel
+\end{lstlisting}
+
+    \item \textbf{Ubuntu}
+\begin{lstlisting}[language=bash]
+$ sudo apt install libglib2.0-dev libgtk-4-1 libgtk-4-dev
+\end{lstlisting}
+\end{itemize}
+
+
+\subsubsection{Flatpak}
+
+Si desarrolla en Linux, hacer uso de Flatpak es la mejor opción, ya que su flujo de trabajo se ubicara en contenedores, incluidas todas las dependencias. Esto le permitirá publicar su aplicación en múltiples distribuciones con un solo paquete. Para verificar si Flatpak esta instalado en su sistema, escriba en una terminal:
+
+\begin{lstlisting}[language=bash]
+$ flatpak --version
+\end{lstlisting}
+
+Si recibe como respuesta la versión de Flatpak ignore esta instalación, de lo contrario puede consultar este sitio web para ver si es necesario realizar algún paso extra en su distribución.
+
+\url{https://flatpak.org/setup/}
+
+
+\subsubsection{Editor de texto o IDE}
+
+Si no esta familiarizado con editores como Vim/Neovim o Emacs puede ser una buena idea iniciar con los siguientes editores:
+
+\begin{itemize}
+    \item \textbf{GNOME Builder}\\
+    El IDE de desarrollo de GNOME, le brindara algunas ventajas gracias a su integración nativa al entorno de desarrollo de aplicaciones GTK/GLib, permitiéndole por ejemplo descargar las dependencias de compilación con solo presionar ejecutar el proyecto. La instalación la puede hacer escribiendo.
+\begin{lstlisting}[language=bash]
+$ flatpak install flathub org.gnome.Builder
+\end{lstlisting}
+
+    \item \textbf{Visual Studio Code}\\
+    Quizás el editor de texto mas popular para el momento de escribir este libro, desarrollado de la mano de Mirosoft. Posee múltiples extensiones que le permitirán trabajar con C fácilmente. La instalación la puede hacer escribiendo.
+\begin{lstlisting}[language=bash]
+$ flatpak install flathub com.visualstudio.code
+\end{lstlisting}
+\end{itemize}

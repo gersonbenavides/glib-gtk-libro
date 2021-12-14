@@ -11,6 +11,10 @@
 		- [Otros aspectos a tener en cuenta](./content/intro/sect/other-aspects.md)
 	- [Ruta de aprendizaje](./content/intro/sect/lrn-path.md)
 	- [El entorno de desarrollo](./content/intro/sect/dev-env.md)
+	- [Instalación](./content/intro/install/install.md)
+		- [Linux](./content/intro/install/linux.md)
+		- [Windows]()
+		- [Mac]()
 
 ---
 
