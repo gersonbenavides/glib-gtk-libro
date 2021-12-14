@@ -5,8 +5,8 @@ struct _MyappSpellChecker
 {
   gchar *language_code;
 
-  /* Put here other data structures used to implement
-   * the spell checking.
+  /* Ponga aqui otras estructuras de datos utilizadas
+   * para implementar la revision ortografica.
    */
 };
 
@@ -18,9 +18,9 @@ load_dictionary (MyappSpellChecker *checker)
 
 /**
  * myapp_spell_checker_new:
- * @language_code: the language code to use.
+ * @language_code: el lenguaje del codigo a utlizar.
  *
- * Returns: a new #MyappSpellChecker object. Free with
+ * Returns: un nuevo objeto #MyappSpellChecker. Libre con
  * myapp_spell_checker_free().
  */
 MyappSpellChecker *
@@ -40,9 +40,9 @@ myapp_spell_checker_new (const gchar *language_code)
 
 /**
  * myapp_spell_checker_free:
- * @checker: a #MyappSpellChecker.
+ * @checker: un #MyappSpellChecker.
  *
- * Frees @checker.
+ * Libera @checker.
  */
 void
 myapp_spell_checker_free (MyappSpellChecker *checker)
@@ -56,11 +56,13 @@ myapp_spell_checker_free (MyappSpellChecker *checker)
 
 /**
  * myapp_spell_checker_check_word:
- * @checker: a #MyappSpellChecker.
- * @word: the word to check.
- * @word_length: the byte length of @word, or -1 if @word is nul-terminated.
+ * @checker: un #MyappSpellChecker.
+ * @word: la palabra para comprobar.
+ * @word_length: la longitud de bytes de @word, o -1 si @word
+ * es terminado en nulo.
  *
- * Returns: %TRUE if @word is correctly spelled, %FALSE otherwise.
+ * Returns: %TRUE si @word esta escrito correctamente, %FALSE
+ * de lo contrario.
  */
 gboolean
 myapp_spell_checker_check_word (MyappSpellChecker *checker,
@@ -71,21 +73,22 @@ myapp_spell_checker_check_word (MyappSpellChecker *checker,
   g_return_val_if_fail (word != NULL, FALSE);
   g_return_val_if_fail (word_length >= -1, FALSE);
 
-  /* ... Check if the word is present in a dictionary. */
+  /* ... Compruebe si la palabra esta presente en un diccionario. */
 
   return TRUE;
 }
 
 /**
  * myapp_spell_checker_get_suggestions:
- * @checker: a #MyappSpellChecker.
- * @word: a misspelled word.
- * @word_length: the byte length of @word, or -1 if @word is nul-terminated.
+ * @checker: un #MyappSpellChecker.
+ * @word: una palabra mal escrita.
+ * @word_length: la longitud de bytes de @word, o -1 si @word
+ * es terminado en nulo.
  *
- * Gets the suggestions for @word. Free the return value with
+ * Obtiene las sugerencias para @word. Libera el valor de retorno con
  * g_slist_free_full(suggestions, g_free).
  *
- * Returns: (transfer full) (element-type utf8): the list of suggestions.
+ * Returns: (transfer full) (element-type utf8): la lista de sugerencias.
  */
 GSList *
 myapp_spell_checker_get_suggestions (MyappSpellChecker *checker,

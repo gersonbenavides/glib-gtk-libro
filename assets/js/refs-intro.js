@@ -1,15 +1,23 @@
 /* BEGIN REFERENCES INTRO */
 
-let refs_intro = document.getElementsByClassName("refs-intro");
+let intro_refs = document.getElementsByClassName("intro-refs");
 
-if( refs_intro.length > 0 ) {
+if( intro_refs.length > 0 ) {
 
-    const ch_intro = 1;
-    let i_intro = 0;
+	const chpt_intro = 1;
+	let ref_intro = undefined;
+	let i_intro = 0;
+	let enum_intro = 0;
 
-    /* BEGIN REFS */
+	/* BEGIN REFS */
+	enum_intro = 0;
 
-    /* END REFS */
+	enum_intro += 1
+	ref_intro = document.getElementsByClassName("fig-glib-struct-001");
+	for( i_intro = 0; i_intro < ref_intro.length; i_intro++ ) {
+		ref_intro[i_intro].innerHTML = "<a href=\"../../intro/sect/glib-gtk.html#fig-glib-struct-001\">Figura " + chpt_intro + "." + enum_intro + "</a>";
+	}
+	/* END REFS */
 }
 
 /* END REFERENCES INTRO */
