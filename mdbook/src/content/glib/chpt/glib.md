@@ -18,4 +18,4 @@ GLib tiene algunos encabezados de nivel superior:
 
 <!-- Habilitacion del enumeramiento de referencias -->
 
-<div class="refs-ch"></div>
+<div class="ref-chapter"></div>

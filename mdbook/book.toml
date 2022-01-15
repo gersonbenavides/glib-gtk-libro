@@ -11,7 +11,7 @@ default-theme = "light"
 preferred-dark-theme = "navy"
 additional-css = ["./src/assets/css/custom.css"]
 additional-js = [
-    "./src/assets/js/refs-ch.js",
+    "./src/assets/js/refs.js",
     "./src/assets/js/refs-biblio.js",
     "./src/assets/js/refs-intro.js",    
     "./src/assets/js/refs-glib.js",

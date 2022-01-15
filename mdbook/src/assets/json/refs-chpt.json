@@ -1,0 +1,101 @@
+[
+
+    {
+        "reference": "chpt-title",
+        "source": "../../book/struct/title.html",
+        "title": "Portada",
+        "chapter": "same"
+    },
+        {
+            "reference": "chpt-title-lic",
+            "source": "../../book/struct/title.html#title-lic",
+            "title": "Licencia",
+            "chapter": "same"
+        },
+
+
+    {
+        "reference": "ch-intro",
+        "source": "../../intro/chpt/intro.html",
+        "title": "Introducción",
+        "chapter": "new"            
+    },
+        {
+            "reference": "ch-intro-why-and-when-c",
+            "source": "../../intro/chpt/why-when-c.html",
+            "title": "¿Por qué y cuándo se usa el lenguaje C?",
+            "chapter": "same"            
+        },
+        {
+            "reference": "ch-intro-separate-backend",
+            "source": "../../intro/chpt/sep-backend.html",
+            "title": "Separación de backend del frontend",
+            "chapter": "same"            
+        },
+        {
+            "reference": "ch-intro-learning-path",
+            "source": "../../intro/sect/lrn-path.html",
+            "title": "Ruta de aprendizaje",
+            "chapter": "same"            
+        },
+        {
+            "reference": "ch-intro-dev-env",
+            "source": "../../intro/sect/dev-env.html",
+            "title": "El entorno de desarrollo",
+            "chapter": "same"            
+        },
+
+
+    {
+        "reference": "ch-glib",
+        "source": "../../glib/chpt/glib.html",
+        "title": "GLib, la biblioteca principal",
+        "chapter": "new"            
+    },
+        {
+            "reference": "ch-glib-dbg-macros",
+            "source": "../../glib/basics/dbg-macros.html",
+            "title": "Macros de depuración",
+            "chapter": "same"            
+        },
+        {
+            "reference": "ch-glib-main-loop",
+            "source": "../../glib/basics/ch-glib-main-loop.html",
+            "title": "El bucle del evento principal",
+            "chapter": "same"            
+        },
+
+
+    {
+        "reference": "ch-oop-semi",
+        "source": "../../oop-semi/chpt/oop-semi.html",
+        "title": "Programación semi-orientada a objetos en C",
+        "chapter": "new"            
+    },
+        {
+            "reference": "ch-oop-semi-header-include",
+            "source": "../../oop-semi/hdr-ex/incl.html",
+            "title": "include",
+            "chapter": "same"            
+        },
+
+
+    {
+        "reference": "ch-oop-gobject",
+        "source": "../../oop-gobject/chpt/oop-gobj.html",
+        "title": "Una suave introducción a GObject",
+        "chapter": "new"            
+    },
+        {
+            "reference": "ch-oop-gobj-inherit",
+            "source": "../../oop-gobj/sect/inherit.html",
+            "title": "Herencia",
+            "chapter": "same"            
+        },
+        {
+            "reference": "ch-oop-gobject-sig-prop",
+            "source": "../../oop-gobj/sig-prop/sig-prop.html",
+            "title": "Señales y propiedades",
+            "chapter": "same"            
+        }
+]
