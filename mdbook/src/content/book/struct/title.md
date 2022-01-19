@@ -65,3 +65,9 @@ Este trabajo está autorizado bajo una licencia internacional Creative Commons A
 Algunas secciones están basadas en el libro *GTK+/Gnome Application Development*, escrito en 1999, editado por New Riders Publishing y con licencia de Open Publication License. La última versión de la licencia de publicación abierta se puede encontrar en:
 
 <http://www.opencontent.org/openpub/>
+
+<!-- Habilitacion del enumeramiento de referencias -->
+
+<div class="chpt-title"></div>
+
+<div class="glib-precondition"></div>

@@ -1,0 +1,57 @@
+[
+    {
+        "reference": "glib-simplemacros",
+        "type": "listing",
+        "source": "../../glib/basics/freq-macros.html#glib-simplemacros"
+    },
+    {
+        "reference": "glib-pointerint",
+        "type": "listing",
+        "source": "../../glib/basics/freq-macros.html#glib-pointerint"        
+    },
+    {
+        "reference": "glib-precondition",
+        "type": "listing",
+        "source": "../../glib/basics/dbg-macros.html#glib-precondition"
+    },
+    {
+        "reference": "glib-assertions",
+        "type": "listing",
+        "source": "../../glib/basics/dbg-macros.html#glib-assertions"
+    },
+    {
+        "reference": "glib-malloc-free",
+        "type": "listing",
+        "source": "../../glib/basics/memory.html#glib-malloc-free"        
+    },
+    {
+        "reference": "glib-g_new",
+        "type": "listing",
+        "source": "../../glib/basics/memory.html#glib-g_new"
+    },
+    {
+        "reference": "glib-strext",
+        "type": "listing",
+        "source": "../../glib/basics/str-hdlg.html#glib-strext"
+    },
+    {
+        "reference": "glib-strdup",
+        "type": "listing",
+        "source": "../../glib/basics/str-hdlg.html#glib-strdup"
+    },
+    {
+        "reference": "glib-strmanip",
+        "type": "listing",
+        "source": "../../glib/basics/str-hdlg.html#glib-strmanip"
+    },
+    {
+        "reference": "glib-strformats",
+        "type": "listing",
+        "source": "../../glib/basics/str-hdlg.html#glib-strformats"
+    },
+    {
+        "reference": "glib-strconcat",
+        "type": "listing",
+        "source": "../../glib/basics/str-hdlg.html#glib-strconcat"
+    }
+]

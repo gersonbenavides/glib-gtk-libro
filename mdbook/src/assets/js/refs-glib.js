@@ -13,71 +13,71 @@ if( glib_refs.length > 0 ) {
 
 	enum_glib = 0;
 	
-	enum_glib += 1
-	ref_glib = document.getElementsByClassName("glib-simplemacros");
-	for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-		ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/freq-macros.html#glib-simplemacros\">Listado " + chpt_glib + "." + enum_glib + "</a>";
-	}
+	// enum_glib += 1
+	// ref_glib = document.getElementsByClassName("glib-simplemacros");
+	// for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
+	// 	ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/freq-macros.html#glib-simplemacros\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+	// }
 	
-	enum_glib += 1
-	ref_glib = document.getElementsByClassName("glib-pointerint");
-	for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-		ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/freq-macros.html#glib-pointerint\">Listado " + chpt_glib + "." + enum_glib + "</a>";
-	}
+	// enum_glib += 1
+	// ref_glib = document.getElementsByClassName("glib-pointerint");
+	// for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
+	// 	ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/freq-macros.html#glib-pointerint\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+	// }
 	
-	enum_glib += 1
-	ref_glib = document.getElementsByClassName("glib-precondition");
-	for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-		ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/dbg-macros.html#glib-precondition\">Listado " + chpt_glib + "." + enum_glib + "</a>";
-	}
+	// enum_glib += 1
+	// ref_glib = document.getElementsByClassName("glib-precondition");
+	// for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
+	// 	ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/dbg-macros.html#glib-precondition\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+	// }
 	
-	enum_glib += 1
-	ref_glib = document.getElementsByClassName("glib-assertions");
-	for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-		ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/dbg-macros.html#glib-assertions\">Listado " + chpt_glib + "." + enum_glib + "</a>";
-	}
+	// enum_glib += 1
+	// ref_glib = document.getElementsByClassName("glib-assertions");
+	// for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
+	// 	ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/dbg-macros.html#glib-assertions\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+	// }
 	
-	enum_glib += 1
-	ref_glib = document.getElementsByClassName("glib-malloc-free");
-	for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-		ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/memory.html#glib-malloc-free\">Listado " + chpt_glib + "." + enum_glib + "</a>";
-	}
+	// enum_glib += 1
+	// ref_glib = document.getElementsByClassName("glib-malloc-free");
+	// for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
+	// 	ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/memory.html#glib-malloc-free\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+	// }
 	
-	enum_glib += 1
-	ref_glib = document.getElementsByClassName("glib-g_new");
-	for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-		ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/memory.html#glib-g_new\">Listado " + chpt_glib + "." + enum_glib + "</a>";
-	}
+	// enum_glib += 1
+	// ref_glib = document.getElementsByClassName("glib-g_new");
+	// for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
+	// 	ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/memory.html#glib-g_new\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+	// }
 	
-	enum_glib += 1
-	ref_glib = document.getElementsByClassName("glib-strext");
-	for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-		ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strext\">Listado " + chpt_glib + "." + enum_glib + "</a>";
-	}
+	// enum_glib += 1
+	// ref_glib = document.getElementsByClassName("glib-strext");
+	// for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
+	// 	ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strext\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+	// }
 	
-	enum_glib += 1
-	ref_glib = document.getElementsByClassName("glib-strdup");
-	for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-		ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strdup\">Listado " + chpt_glib + "." + enum_glib + "</a>";
-	}
+	// enum_glib += 1
+	// ref_glib = document.getElementsByClassName("glib-strdup");
+	// for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
+	// 	ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strdup\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+	// }
 	
-	enum_glib += 1
-	ref_glib = document.getElementsByClassName("glib-strmanip");
-	for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-		ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strmanip\">Listado " + chpt_glib + "." + enum_glib + "</a>";
-	}
+	// enum_glib += 1
+	// ref_glib = document.getElementsByClassName("glib-strmanip");
+	// for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
+	// 	ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strmanip\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+	// }
 	
-	enum_glib += 1
-	ref_glib = document.getElementsByClassName("glib-strformats");
-	for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-		ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strformats\">Listado " + chpt_glib + "." + enum_glib + "</a>";
-	}
+	// enum_glib += 1
+	// ref_glib = document.getElementsByClassName("glib-strformats");
+	// for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
+	// 	ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strformats\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+	// }
 	
-	enum_glib += 1
-	ref_glib = document.getElementsByClassName("glib-strconcat");
-	for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
-		ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strconcat\">Listado " + chpt_glib + "." + enum_glib + "</a>";
-	}
+	// enum_glib += 1
+	// ref_glib = document.getElementsByClassName("glib-strconcat");
+	// for( i_glib = 0; i_glib < ref_glib.length; i_glib++ ) {
+	// 	ref_glib[i_glib].innerHTML = "<a href=\"../../glib/basics/str-hdlg.html#glib-strconcat\">Listado " + chpt_glib + "." + enum_glib + "</a>";
+	// }
 	
 	enum_glib += 1
 	ref_glib = document.getElementsByClassName("glib-strvector");
