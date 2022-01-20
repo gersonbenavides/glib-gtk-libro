@@ -11,13 +11,7 @@ default-theme = "light"
 preferred-dark-theme = "navy"
 additional-css = ["./src/assets/css/custom.css"]
 additional-js = [
-    "./src/assets/js/refs.js",
-    "./src/assets/js/refs-biblio.js",
-    "./src/assets/js/refs-intro.js",    
-    "./src/assets/js/refs-glib.js",
-    "./src/assets/js/refs-oop-semi.js",
-    "./src/assets/js/refs-oop-gobj.js",
-    "./src/assets/js/refs-gtk-app-arch.js"
+    "./src/assets/js/refs.js"
 ]
 git-repository-url = "https://github.com/gersonbdev/glib-gtk-libro"
 git-repository-icon = "fa-github"
