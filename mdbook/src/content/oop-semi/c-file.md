@@ -6,7 +6,7 @@ Veamos ahora el archivo `myapp-spell-checker.c`:
 <a id="oop-semi-spell-checker-c"></a>
 
 ```c
-{{#include ../../../assets/code/myapp-spell-checker.c}}
+{{#include ../../assets/code/myapp-spell-checker.c}}
 ```
 
 <div class="caption">

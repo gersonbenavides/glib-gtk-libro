@@ -269,7 +269,3 @@ Una vez que tenga una función de comparación, puede insertar un elemento en un
 Tenga cuidado con las listas ordenadas; su mal uso puede volverse muy ineficaz rápidamente. Por ejemplo, `g_slist_insert_sorted()` es una operación `O(n)`, pero si la usa en un bucle para insertar varios elementos, el bucle se ejecuta en tiempo cuadrático (`O(n^2)`). Es mejor simplemente anteponer todos sus elementos y luego llamar a `g_slist_sort()`. `g_slist_sort()` se ejecuta en `O(n log n)`.
 
 También puede usar la estructura de datos `GSequence` para datos ordenados. `GSequence` tiene una API de lista, pero se implementa internamente con un árbol binario equilibrado.
-
-<!-- Habilitacion del enumeramiento de referencias -->
-
-<div class="glib-refs"></div>

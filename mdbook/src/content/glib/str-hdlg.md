@@ -127,7 +127,3 @@ void g_strfreev (gchar **str_array);
 </div>
 
 Finalmente, el <span class="glib-strvector">Listado</span> resume algunas rutinas que manipulan matrices de cadenas terminadas en `NULL`. `g_strsplit()` rompe `string` en cada `delimiter`, devolviendo una matriz recién asignada. `g_strjoinv()` concatena cada cadena en la matriz con un `separator` opcional, devolviendo una cadena asignada. `g_strfreev()` libera cada cadena en la matriz y luego la propia matriz.
-
-<!-- Habilitacion del enumeramiento de referencias -->
-
-<div class="glib-refs"></div>

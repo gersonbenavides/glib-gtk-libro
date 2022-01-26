@@ -2,41 +2,41 @@
     {
         "reference": "oop-gobject-mem-management-normal",
         "type": "listing",
-        "source": "../../oop-gobj/ref-cnt/float-ref.html#oop-gobject-mem-management-normal"
+        "source": "../oop-gobj/float-ref.html#oop-gobject-mem-management-normal"
     },
     {
         "reference": "oop-gobject-mem-management-floating",
         "type": "listing",
-        "source": "../../oop-gobj/ref-cnt/float-ref.html#oop-gobject-mem-management-floating"
+        "source": "../oop-gobj/float-ref.html#oop-gobject-mem-management-floating"
     },
     {
         "reference": "oop-gobject-gtkbutton-clicked",
         "type": "listing",
-        "source": "../../oop-gobj/sig-prop/cnct-callb-sig.html#oop-gobject-gtkbutton-clicked"
+        "source": "../oop-gobj/cnct-callb-sig.html#oop-gobject-gtkbutton-clicked"
     },
     {
         "reference": "oop-gobject-connect-to-signal",
         "type": "listing",
-        "source": "../../oop-gobj/sig-prop/cnct-callb-sig.html#oop-gobject-connect-to-signal"
+        "source": "../oop-gobj/cnct-callb-sig.html#oop-gobject-connect-to-signal"
     },
     {
         "reference": "oop-gobject-disconnect-signal",
         "type": "listing",
-        "source": "../../oop-gobj/sig-prop/disc-sig.html#oop-gobject-disconnect-signal"
+        "source": "../oop-gobj/disc-sig.html#oop-gobject-disconnect-signal"
     },
     {
         "reference": "oop-gobject-connect-to-notify",
         "type": "listing",
-        "source": "../../oop-gobj/sig-prop/prop.html#oop-gobject-connect-to-notify"
+        "source": "../oop-gobj/prop.html#oop-gobject-connect-to-notify"
     },
     {
         "reference": "oop-gobject-binding-properties",
         "type": "listing",
-        "source": "../../oop-gobj/sig-prop/prop.html#oop-gobject-binding-properties"
+        "source": "../oop-gobj/prop.html#oop-gobject-binding-properties"
     },
     {
         "reference": "oop-gobject-weak-ref-schema",
         "type": "figure",
-        "source": "../../oop-gobj/ref-cnt/avoid-ref.html#oop-gobject-weak-ref-schema"
+        "source": "../oop-gobj/avoid-ref.html#oop-gobject-weak-ref-schema"
     }
 ]

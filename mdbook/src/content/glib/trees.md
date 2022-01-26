@@ -296,7 +296,3 @@ GNode * g_node_last_child (GNode *node);
 </div>
 
 El <span class="glib-nodeaccessors">Listado</span> muestra algunas de las funciones restantes de `GNode`. Son sencillos; la mayoría de ellos son simplemente operaciones en la lista de hijos del nodo. Hay dos definiciones de tipos de función exclusivas de `GNode`: `GNodeTraverseFunc` y `GNodeForeachFunc`. Estos se llaman con un puntero al nodo que se está visitando y los datos de usuario que proporciona. Un `GNodeTraverseFunc` puede devolver `TRUE` para detener cualquier recorrido que esté en progreso; por lo tanto, puede usar `g_node_traverse()` para buscar el árbol por valor.
-
-<!-- Habilitacion del enumeramiento de referencias -->
-
-<div class="glib-refs"></div>

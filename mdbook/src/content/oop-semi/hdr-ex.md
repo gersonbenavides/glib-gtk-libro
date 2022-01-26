@@ -7,7 +7,7 @@ El <span class="oop-semi-spell-checker-h">Listado</span> muestra un ejemplo de u
 <a id="oop-semi-spell-checker-h"></a>
 
 ```c
-{{#include ../../../assets/code/myapp-spell-checker.h}}
+{{#include ../../assets/code/myapp-spell-checker.h}}
 ```
 
 <div class="caption">

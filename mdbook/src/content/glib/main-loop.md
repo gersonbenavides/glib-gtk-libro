@@ -4,7 +4,7 @@
 
 <div class="caption">
 
-<img src="../../../assets/img/diag/event-loop.svg" alt="Estructura de una aplicación impulsada por eventos" width="70%" />
+<img src="../../assets/img/diag/event-loop.svg" alt="Estructura de una aplicación impulsada por eventos" width="70%" />
 
 <p><span class="glib-event-loop">Figura</span>: Estructura de una aplicación impulsada por eventos, con un bucle de eventos principal</p>
 
@@ -89,7 +89,3 @@ gboolean g_source_remove (guint source_id);
 <p><span class="glib-idle-timeout">Listado</span>: Inactivos y tiempos de espera</p>
 
 </div>
-
-<!-- Habilitacion del enumeramiento de referencias -->
-
-<div class="glib-refs"></div>

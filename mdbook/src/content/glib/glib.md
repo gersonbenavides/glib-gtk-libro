@@ -15,7 +15,3 @@ GLib tiene algunos encabezados de nivel superior:
 * `glib/gprintf.h` y `glib/gstdio.h` para evitar hacer uso de todo `stdio`.
 
 > **📌 Nota:** En lugar de reinventar la rueda, este capítulo se basa en gran medida en el capítulo correspondiente del libro *GTK+/Gnome Application Development* de Havoc Pennington, con licencia de Open Publication License (consulte la sección <span class="ch-title-lic"></span>). GLib tiene una API muy estable. A pesar de que el libro de Havoc Pennington fue escrito en 1999 (para GLib 1.2), solo se requirieron algunas actualizaciones para adaptarse a las últimas versiones de GLib (versión 2.42 en el momento de escribir este artículo).
-
-<!-- Habilitacion del enumeramiento de referencias -->
-
-<div class="ref-chapter"></div>

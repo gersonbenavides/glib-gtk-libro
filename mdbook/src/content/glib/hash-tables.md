@@ -75,7 +75,3 @@ gboolean g_hash_table_lookup_extended (GHashTable *hash_table,
 <p><span class="glib-hashmanip">Listado</span>: Manipular una <code>GHashTable</code></p>
 
 </div>
-
-<!-- Habilitacion del enumeramiento de referencias -->
-
-<div class="glib-refs"></div>

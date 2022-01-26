@@ -15,7 +15,3 @@ La siguiente lista no tiene nada que ver con el desarrollo de GLib/GTK, pero es 
 Más relacionados con GNOME, los artículos de Havoc Pennington tienen buenos consejos que vale la pena leer, incluidos "*Working on Free Software*", "*Free software UI*" y "*Free Software Maintenance: Adding Features*":
 
 <https://ometer.com/writing.html>
-
-<!-- Habilitacion del enumeramiento de referencias -->
-
-<div class="biblio-refs"></div>

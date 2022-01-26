@@ -52,7 +52,3 @@ printf ("Estamos almacenando %d\n", GPOINTER_TO_INT (my_pointer));
 ```
 
 Pero tenga cuidado; estas macros le permiten almacenar un entero en un puntero, pero almacenar un puntero en un entero *no* funcionará. Para hacerlo de forma portátil, debe almacenar el puntero en un `long`. (Sin embargo, sin duda es una mala idea hacerlo).
-
-<!-- Habilitacion del enumeramiento de referencias -->
-
-<div class="glib-refs"></div>

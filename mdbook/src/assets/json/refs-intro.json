@@ -2,6 +2,6 @@
     {
         "reference": "fig-glib-struct-001",
         "type": "figure",
-        "source": "../../intro/sect/glib-gtk.html#fig-glib-struct-001"
+        "source": "../intro/glib-gtk.html#fig-glib-struct-001"
     }
 ]

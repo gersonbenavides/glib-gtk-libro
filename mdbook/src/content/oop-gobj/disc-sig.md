@@ -19,7 +19,7 @@ El argumento de devolución de llamada `user_data` es una instancia de `MyTextVi
 <a id="oop-gobject-disconnect-signal"></a>
 
 ```c
-{{#include ../../../assets/code/disconnect-signal.c}}
+{{#include ../../assets/code/disconnect-signal.c}}
 ```
 
 <div class="caption">

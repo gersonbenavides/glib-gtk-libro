@@ -12,7 +12,7 @@ GIO -- que depende de GLib core y GObject -- proporciona API de alto nivel para 
 
 <div class="caption">
 
-<img src="../../../assets/img/diag/glib-struct-001.svg" alt="Estructura de la biblioteca GLib." width="32%" />
+<img src="../../assets/img/diag/glib-struct-001.svg" alt="Estructura de la biblioteca GLib." width="32%" />
 
 <p><span class="fig-glib-struct-001">Figura</span>: Estructura de la biblioteca GLib.</p>
 

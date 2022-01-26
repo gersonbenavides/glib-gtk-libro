@@ -2,11 +2,11 @@
     {
         "reference": "oop-semi-spell-checker-h",
         "type": "listing",
-        "source": "../../oop-semi/hdr-ex/hdr-ex.html#oop-semi-spell-checker-h"
+        "source": "../oop-semi/hdr-ex.html#oop-semi-spell-checker-h"
     },
     {
         "reference": "oop-semi-spell-checker-c",
         "type": "listing",
-        "source": "../../oop-semi/c-file/c-file.html#oop-semi-spell-checker-c"
+        "source": "../oop-semi/c-file.html#oop-semi-spell-checker-c"
     }
 ]

@@ -2,11 +2,11 @@
     {
         "reference": "oop-gobject-mem-management-normal",
         "type": "listing",
-        "source": "../../gtk-app-arch/ref-cnt/float-ref.html#oop-gobject-mem-management-normal"
+        "source": "../gtk-app-arch/float-ref.html#oop-gobject-mem-management-normal"
     },
     {
         "reference": "fig-gedit-architecture",
         "type": "figure",
-        "source": "../../gtk-app-arch/chpt/gtk-app-arch.html#fig-gedit-architecture"
+        "source": "../gtk-app-arch/gtk-app-arch.html#fig-gedit-architecture"
     }
 ]

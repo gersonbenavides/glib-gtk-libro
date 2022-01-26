@@ -52,7 +52,3 @@ g_renew (type, mem, count);
 <p><span class="glib-g_new">Listado</span>: Macros de asignación.</p>
 
 </div>
-
-<!-- Habilitacion del enumeramiento de referencias -->
-
-<div class="glib-refs"></div>

@@ -1,26 +1,26 @@
-const SRC_CONTENTS_REFS_DATA = "../../../assets/json/refs-contents.json";
-const SRC_BIBLIO_REFS_DATA = "../../../assets/json/refs-biblio.json";
+const SRC_CONTENTS_REFS_DATA = "../../assets/json/refs-contents.json";
+const SRC_BIBLIO_REFS_DATA = "../../assets/json/refs-biblio.json";
 
 const CHPTS_REFS_DATA = [
     {
         reference: "chpt-intro",
-        source: "../../../assets/json/refs-intro.json"
+        source: "../../assets/json/refs-intro.json"
     },
     {
         reference: "chpt-glib",
-        source: "../../../assets/json/refs-glib.json"
+        source: "../../assets/json/refs-glib.json"
     },
     {
         reference: "chpt-oop-semi",
-        source: "../../../assets/json/refs-oop-semi.json"
+        source: "../../assets/json/refs-oop-semi.json"
     },
     {
         reference: "chpt-oop-gobj",
-        source: "../../../assets/json/refs-oop-gobj.json"
+        source: "../../assets/json/refs-oop-gobj.json"
     },
     {
         reference: "chpt-gtk-app-arch",
-        source: "../../../assets/json/refs-gtk-app-arch.json"
+        source: "../../assets/json/refs-gtk-app-arch.json"
     }
 ];
 
