@@ -1,0 +1,42 @@
+[
+    {
+        "reference": "oop-gobject-mem-management-normal",
+        "type": "listing",
+        "source": "../oop-gobj/float-ref.html#oop-gobject-mem-management-normal"
+    },
+    {
+        "reference": "oop-gobject-mem-management-floating",
+        "type": "listing",
+        "source": "../oop-gobj/float-ref.html#oop-gobject-mem-management-floating"
+    },
+    {
+        "reference": "oop-gobject-gtkbutton-clicked",
+        "type": "listing",
+        "source": "../oop-gobj/cnct-callb-sig.html#oop-gobject-gtkbutton-clicked"
+    },
+    {
+        "reference": "oop-gobject-connect-to-signal",
+        "type": "listing",
+        "source": "../oop-gobj/cnct-callb-sig.html#oop-gobject-connect-to-signal"
+    },
+    {
+        "reference": "oop-gobject-disconnect-signal",
+        "type": "listing",
+        "source": "../oop-gobj/disc-sig.html#oop-gobject-disconnect-signal"
+    },
+    {
+        "reference": "oop-gobject-connect-to-notify",
+        "type": "listing",
+        "source": "../oop-gobj/prop.html#oop-gobject-connect-to-notify"
+    },
+    {
+        "reference": "oop-gobject-binding-properties",
+        "type": "listing",
+        "source": "../oop-gobj/prop.html#oop-gobject-binding-properties"
+    },
+    {
+        "reference": "oop-gobject-weak-ref-schema",
+        "type": "figure",
+        "source": "../oop-gobj/avoid-ref.html#oop-gobject-weak-ref-schema"
+    }
+]

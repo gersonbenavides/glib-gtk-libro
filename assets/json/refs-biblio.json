@@ -1,0 +1,46 @@
+[
+    {
+        "reference": "k-r-book",
+        "source": "../book/biblio.html#k-r-book"
+    },
+    {
+        "reference": "oop-book",
+        "source": "../book/biblio.html#oop-book"
+    },
+    {
+        "reference": "design-patterns-book",
+        "source": "../book/biblio.html#design-patterns-book"
+    },
+    {
+        "reference": "algo-book",
+        "source": "../book/biblio.html#algo-book"
+    },
+    {
+        "reference": "unix-impatient",
+        "source": "../book/biblio.html#unix-impatient"
+    },
+    {
+        "reference": "pro-git",
+        "source": "../book/biblio.html#pro-git"
+    },
+    {
+        "reference": "autotools",
+        "source": "../book/biblio.html#autotools"
+    },
+    {
+        "reference": "code-complete",
+        "source": "../book/biblio.html#code-complete"
+    },
+    {
+        "reference": "gtk-doc",
+        "source": "../book/biblio.html#gtk-doc"
+    },
+    {
+        "reference": "gobject-introspection",
+        "source": "../book/biblio.html#gobject-introspection"
+    },
+    {
+        "reference": "gnome-programming-guidelines",
+        "source": "../book/biblio.html#gnome-programming-guidelines"
+    }
+]

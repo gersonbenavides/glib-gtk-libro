@@ -1,0 +1,182 @@
+[
+    {
+        "reference": "glib-simplemacros",
+        "type": "listing",
+        "source": "../glib/freq-macros.html#glib-simplemacros"
+    },
+    {
+        "reference": "glib-pointerint",
+        "type": "listing",
+        "source": "../glib/freq-macros.html#glib-pointerint"        
+    },
+    {
+        "reference": "glib-precondition",
+        "type": "listing",
+        "source": "../glib/dbg-macros.html#glib-precondition"
+    },
+    {
+        "reference": "glib-assertions",
+        "type": "listing",
+        "source": "../glib/dbg-macros.html#glib-assertions"
+    },
+    {
+        "reference": "glib-malloc-free",
+        "type": "listing",
+        "source": "../glib/memory.html#glib-malloc-free"        
+    },
+    {
+        "reference": "glib-g_new",
+        "type": "listing",
+        "source": "../glib/memory.html#glib-g_new"
+    },
+    {
+        "reference": "glib-strext",
+        "type": "listing",
+        "source": "../glib/str-hdlg.html#glib-strext"
+    },
+    {
+        "reference": "glib-strdup",
+        "type": "listing",
+        "source": "../glib/str-hdlg.html#glib-strdup"
+    },
+    {
+        "reference": "glib-strmanip",
+        "type": "listing",
+        "source": "../glib/str-hdlg.html#glib-strmanip"
+    },
+    {
+        "reference": "glib-strformats",
+        "type": "listing",
+        "source": "../glib/str-hdlg.html#glib-strformats"
+    },
+    {
+        "reference": "glib-strconcat",
+        "type": "listing",
+        "source": "../glib/str-hdlg.html#glib-strconcat"
+    },
+    {
+        "reference": "glib-strvector",
+        "type": "listing",
+        "source": "../glib/str-hdlg.html#glib-strvector"
+    },
+    {
+        "reference": "glib-gslist-cell",
+        "type": "listing",
+        "source": "../glib/lists.html#glib-gslist-cell"
+    },
+    {
+        "reference": "glib-listchanging",
+        "type": "listing",
+        "source": "../glib/lists.html#glib-listchanging"
+    },
+    {
+        "reference": "glib-listfree",
+        "type": "listing",
+        "source": "../glib/lists.html#glib-listfree"
+    },
+    {
+        "reference": "glib-listaccess",
+        "type": "listing",
+        "source": "../glib/lists.html#glib-listaccess"
+    },
+    {
+        "reference": "glib-listmanip",
+        "type": "listing",
+        "source": "../glib/lists.html#glib-listmanip"
+    },
+    {
+        "reference": "glib-listsorted",
+        "type": "listing",
+        "source": "../glib/lists.html#glib-listsorted"
+    },
+    {
+        "reference": "glib-treeconstruct",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-treeconstruct"
+    },
+    {
+        "reference": "glib-treemanip",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-treemanip"
+    },
+    {
+        "reference": "glib-treesize",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-treesize"
+    },
+    {
+        "reference": "glib-treetraverse",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-treetraverse"
+    },
+    {
+        "reference": "glib-nodecell",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-nodecell"
+    },
+    {
+        "reference": "glib-nodeaccess",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-nodeaccess"
+    },
+    {
+        "reference": "glib-nodenew",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-nodenew"
+    },
+    {
+        "reference": "glib-nodebuild",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-nodebuild"
+    },
+    {
+        "reference": "glib-nodeconv",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-nodeconv"
+    },
+    {
+        "reference": "glib-nodedestroy",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-nodedestroy"
+    },
+    {
+        "reference": "glib-nodeextrema",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-nodeextrema"
+    },
+    {
+        "reference": "glib-nodeproperties",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-nodeproperties"
+    },
+    {
+        "reference": "glib-nodeaccessors",
+        "type": "listing",
+        "source": "../glib/trees.html#glib-nodeaccessors"
+    },
+    {
+        "reference": "glib-hashnew",
+        "type": "listing",
+        "source": "../glib/hash-tables.html#glib-hashnew"
+    },
+    {
+        "reference": "glib-hashfuncs",
+        "type": "listing",
+        "source": "../glib/hash-tables.html#glib-hashfuncs"
+    },
+    {
+        "reference": "glib-hashmanip",
+        "type": "listing",
+        "source": "../glib/hash-tables.html#glib-hashmanip"
+    },
+    {
+        "reference": "glib-idle-timeout",
+        "type": "listing",
+        "source": "../glib/main-loop.html#glib-idle-timeout"
+    },
+    {
+        "reference": "glib-event-loop",
+        "type": "figure",
+        "source": "../glib/main-loop.html#glib-event-loop"
+    }
+]

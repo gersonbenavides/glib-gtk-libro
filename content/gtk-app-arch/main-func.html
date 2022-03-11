@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html lang="es" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>La función main() y GeditApp - La plataforma de desarrollo GLib/GTK</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BG5WVZ08D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BG5WVZ08D');
+</script>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.././src/assets/css/custom.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../content/book/title.html">La plataforma de desarrollo GLib/GTK</a></li><li class="chapter-item expanded "><a href="../../content/intro/intro.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/intro/glib-gtk.html"><strong aria-hidden="true">1.1.</strong> ¿Qué es GLib y GTK?</a></li><li class="chapter-item expanded "><a href="../../content/intro/gnome-dskt.html"><strong aria-hidden="true">1.2.</strong> El escritorio GNOME</a></li><li class="chapter-item expanded "><a href="../../content/intro/preq.html"><strong aria-hidden="true">1.3.</strong> Prerrequisitos</a></li><li class="chapter-item expanded "><a href="../../content/intro/why-when-c.html"><strong aria-hidden="true">1.4.</strong> ¿Por qué y cuándo se usa el lenguaje C?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/intro/sep-backend.html"><strong aria-hidden="true">1.4.1.</strong> Separación de backend del frontend</a></li><li class="chapter-item expanded "><a href="../../content/intro/other-aspects.html"><strong aria-hidden="true">1.4.2.</strong> Otros aspectos a tener en cuenta</a></li></ol></li><li class="chapter-item expanded "><a href="../../content/intro/lrn-path.html"><strong aria-hidden="true">1.5.</strong> Ruta de aprendizaje</a></li><li class="chapter-item expanded "><a href="../../content/intro/dev-env.html"><strong aria-hidden="true">1.6.</strong> El entorno de desarrollo</a></li><li class="chapter-item expanded "><a href="../../content/intro/install.html"><strong aria-hidden="true">1.7.</strong> Instalación</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/intro/linux.html"><strong aria-hidden="true">1.7.1.</strong> Linux</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.2.</strong> Windows</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.3.</strong> Mac</div></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">GLib, la biblioteca principal</li><li class="chapter-item expanded "><a href="../../content/glib/glib.html"><strong aria-hidden="true">2.</strong> GLib, la biblioteca principal</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/glib/basics.html"><strong aria-hidden="true">2.1.</strong> Lo esencial</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/glib/type-def.html"><strong aria-hidden="true">2.1.1.</strong> Definiciones de tipo</a></li><li class="chapter-item expanded "><a href="../../content/glib/freq-macros.html"><strong aria-hidden="true">2.1.2.</strong> Macros de uso frecuente</a></li><li class="chapter-item expanded "><a href="../../content/glib/dbg-macros.html"><strong aria-hidden="true">2.1.3.</strong> Macros de depuración</a></li><li class="chapter-item expanded "><a href="../../content/glib/mem.html"><strong aria-hidden="true">2.1.4.</strong> Memoria</a></li><li class="chapter-item expanded "><a href="../../content/glib/str-hdlg.html"><strong aria-hidden="true">2.1.5.</strong> Manejo de string</a></li></ol></li><li class="chapter-item expanded "><a href="../../content/glib/data-struct.html"><strong aria-hidden="true">2.2.</strong> Estructura de datos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/glib/lists.html"><strong aria-hidden="true">2.2.1.</strong> Listas</a></li><li class="chapter-item expanded "><a href="../../content/glib/trees.html"><strong aria-hidden="true">2.2.2.</strong> Árboles</a></li><li class="chapter-item expanded "><a href="../../content/glib/hash-tables.html"><strong aria-hidden="true">2.2.3.</strong> Tablas hash</a></li></ol></li><li class="chapter-item expanded "><a href="../../content/glib/main-loop.html"><strong aria-hidden="true">2.3.</strong> El bucle del evento principal</a></li><li class="chapter-item expanded "><a href="../../content/glib/other-feat.html"><strong aria-hidden="true">2.4.</strong> Otras características</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Programación orientada a objetos en C</li><li class="chapter-item expanded "><a href="../../content/oop-semi/oop-semi.html"><strong aria-hidden="true">3.</strong> Programación semi-orientada a objetos en C</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/oop-semi/hdr-ex.html"><strong aria-hidden="true">3.1.</strong> Ejemplo de encabezado</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/oop-semi/prj-names.html"><strong aria-hidden="true">3.1.1.</strong> Espacio de nombres del proyecto</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/class-names.html"><strong aria-hidden="true">3.1.2.</strong> Espacio de nombres de clase</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/letter-case.html"><strong aria-hidden="true">3.1.3.</strong> ¿Minúsculas, Mayúsculas o CamelCase?</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/incl-guard.html"><strong aria-hidden="true">3.1.4.</strong> Incluir guardia</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/cpp-supt.html"><strong aria-hidden="true">3.1.5.</strong> Soporte de C++</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/incl.html"><strong aria-hidden="true">3.1.6.</strong> #include</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/type-def.html"><strong aria-hidden="true">3.1.7.</strong> Definición de tipo</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/obj-ctor.html"><strong aria-hidden="true">3.1.8.</strong> Constructor de objetos</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/obj-dtor.html"><strong aria-hidden="true">3.1.9.</strong> Destructor de objetos</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/other-func.html"><strong aria-hidden="true">3.1.10.</strong> Otras funciones públicas</a></li></ol></li><li class="chapter-item expanded "><a href="../../content/oop-semi/c-file.html"><strong aria-hidden="true">3.2.</strong> El archivo *.c correspondiente</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/oop-semi/order-incl.html"><strong aria-hidden="true">3.2.1.</strong> Orden de #include</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/gtk-doc-cmnt.html"><strong aria-hidden="true">3.2.2.</strong> Comentarios de GTK-Doc</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/gobj-introsp.html"><strong aria-hidden="true">3.2.3.</strong> Anotaciones de introspección de GObject</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/stc-vs-non-stc.html"><strong aria-hidden="true">3.2.4.</strong> Funciones estáticas vs funciones no estáticas</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/defen-prog.html"><strong aria-hidden="true">3.2.5.</strong> Programación defensiva</a></li><li class="chapter-item expanded "><a href="../../content/oop-semi/coding-style.html"><strong aria-hidden="true">3.2.6.</strong> Estilo de codificación</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../content/oop-gobj/oop-gobj.html"><strong aria-hidden="true">4.</strong> Una suave introducción a GObject</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/oop-gobj/inherit.html"><strong aria-hidden="true">4.1.</strong> Herencia</a></li><li class="chapter-item expanded "><a href="../../content/oop-gobj/gobj-macros.html"><strong aria-hidden="true">4.2.</strong> Macros de GObject</a></li><li class="chapter-item expanded "><a href="../../content/oop-gobj/intfc.html"><strong aria-hidden="true">4.3.</strong> Interfaces</a></li><li class="chapter-item expanded "><a href="../../content/oop-gobj/ref-cnt.html"><strong aria-hidden="true">4.4.</strong> Recuento de referencias</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/oop-gobj/avoid-ref.html"><strong aria-hidden="true">4.4.1.</strong> Evitar ciclos de referencia con referencias débiles</a></li><li class="chapter-item expanded "><a href="../../content/oop-gobj/float-ref.html"><strong aria-hidden="true">4.4.2.</strong> Referencias flotantes</a></li></ol></li><li class="chapter-item expanded "><a href="../../content/oop-gobj/sig-prop.html"><strong aria-hidden="true">4.5.</strong> Señales y propiedades</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/oop-gobj/cnct-callb-sig.html"><strong aria-hidden="true">4.5.1.</strong> Conexión de una función de devolución de llamada a una señal</a></li><li class="chapter-item expanded "><a href="../../content/oop-gobj/disc-sig.html"><strong aria-hidden="true">4.5.2.</strong> Desconexión de controladores de señales</a></li><li class="chapter-item expanded "><a href="../../content/oop-gobj/prop.html"><strong aria-hidden="true">4.5.3.</strong> Propiedades</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">GTK</li><li class="chapter-item expanded "><a href="../../content/gtk-app-arch/gtk-app-arch.html"><strong aria-hidden="true">5.</strong> Ejemplo de una arquitectura de código de aplicación GTK</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/gtk-app-arch/main-func.html" class="active"><strong aria-hidden="true">5.1.</strong> La función main() y GeditApp</a></li><li class="chapter-item expanded "><a href="../../content/gtk-app-arch/geditwindow.html"><strong aria-hidden="true">5.2.</strong> GeditWindow</a></li><li class="chapter-item expanded "><a href="../../content/gtk-app-arch/geditnotebook.html"><strong aria-hidden="true">5.3.</strong> GeditNotebook y lo que contiene</a></li><li class="chapter-item expanded "><a href="../../content/gtk-app-arch/why-when-sub-class.html"><strong aria-hidden="true">5.4.</strong> ¿Por qué y cuándo crear subclases de widgets GTK?</a></li><li class="chapter-item expanded "><a href="../../content/gtk-app-arch/comp-widg.html"><strong aria-hidden="true">5.5.</strong> Widgets compuestos</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Lectura adicional</li><li class="chapter-item expanded "><a href="../../content/fthr-rdg/fthr-rdg.html"><strong aria-hidden="true">6.</strong> Lecturas adicionales</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/fthr-rdg/gtk-gio.html"><strong aria-hidden="true">6.1.</strong> GTK y GIO</a></li><li class="chapter-item expanded "><a href="../../content/fthr-rdg/wrtg-gobj-class.html"><strong aria-hidden="true">6.2.</strong> Escribir sus propias clases de GObject</a></li><li class="chapter-item expanded "><a href="../../content/fthr-rdg/bld-sys.html"><strong aria-hidden="true">6.3.</strong> Sistema de compilación</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../content/fthr-rdg/autotools.html"><strong aria-hidden="true">6.3.1.</strong> Las Autotools</a></li><li class="chapter-item expanded "><a href="../../content/fthr-rdg/meson.html"><strong aria-hidden="true">6.3.2.</strong> Meson</a></li></ol></li><li class="chapter-item expanded "><a href="../../content/fthr-rdg/prog-prac.html"><strong aria-hidden="true">6.4.</strong> Mejores prácticas de programación</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../content/book/biblio.html">Bibliografía</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">La plataforma de desarrollo GLib/GTK</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gersonbdev/glib-gtk-libro" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="la-función-main-y-geditapp"><a class="header" href="#la-función-main-y-geditapp">La función main() y GeditApp</a></h1>
+<p>Aunque no está representado en el esquema, el punto de entrada de una aplicación GTK (como para todos los programas en C) es la función <code>main()</code>. Para crear una aplicación GTK, lo principal que se debe hacer en <code>main()</code> es crear una instancia de <code>GtkApplication</code>, o una subclase de la misma. En el esquema vemos que <code>GeditApp</code> es una subclase de <code>GtkApplication</code>, por lo que la función <code>main()</code> de gedit crea un objeto <code>GeditApp</code>.</p>
+<p><code>GtkApplication</code> es la clase que contiene y representa la aplicación completa. Por lo general, solo hay una instancia de <code>GtkApplication</code> por proceso, por lo que puede considerarse una clase singleton. Lo que contiene <code>GtkApplication</code> son <em>windows</em>, por ejemplo, <code>GeditWindow</code> en el caso de gedit, además de otros tipos de ventanas como ventanas de diálogo.</p>
+<p>Ya vimos la jerarquía de clases <code>GtkApplication</code> en la sección <span class="ch-oop-gobj-inherit">Herencia</span> al explicar la herencia POO con GObject:</p>
+<pre><code class="language-plaintext">GObject
+└── GApplication
+    └── GtkApplication
+</code></pre>
+<p><code>GApplication</code> es parte de la biblioteca GIO e implementa las funciones que no están relacionadas con la interfaz gráfica de usuario (GUI). Entonces, para un programa que se ejecuta en la terminal, es posible usar solo <code>GApplication</code>.</p>
+<p>Una característica importante que proporciona <code>GApplication</code> es la unicidad del proceso (pero puede desactivarse si no se desea). Lo que hace la unicidad del proceso es tener solo un proceso por aplicación por sesión de usuario. Para que esa característica funcione, se debe proporcionar un ID de aplicación al crear el objeto <code>GApplication</code>. Con ese ID, <code>GApplication</code> busca si otro proceso ya ejecuta la misma aplicación en la misma sesión de usuario; si es el caso, comunica a la instancia primaria las acciones que deben realizarse (por ejemplo, abrir una nueva ventana, o abrir un nuevo archivo en una ventana existente, etc.). Cuando las acciones se realizan en la instancia principal, el segundo proceso finaliza inmediatamente. En Linux, <code>GApplication</code> utiliza el sistema de comunicación entre procesos (IPC) D-Bus para comunicarse entre los dos procesos.</p>
+<p>La singularidad del proceso tiene varias ventajas, por dar algunos ejemplos concretos:</p>
+<ul>
+<li>
+<p>Para una aplicación con una interfaz de documento con pestañas, al hacer clic en un archivo en un administrador de archivos como Nautilus, el archivo se puede abrir en una nueva pestaña en lugar de crear cada vez una nueva ventana. Para que esto funcione, la comunicación entre procesos es necesaria de una forma u otra;</p>
+</li>
+<li>
+<p>Una aplicación no necesita sincronizar explícitamente su estado y datos entre diferentes procesos. En aras del argumento, digamos que en gedit el usuario puede crear &quot;herramientas de compilación&quot; personalizadas para compilar el archivo o proyecto actual. gedit guarda las herramientas de construcción personalizadas en un archivo XML y se muestran en el menú para ejecutar sus comandos. En Linux, el archivo XML se guarda, por ejemplo, en el directorio <code>~/.local/share/</code> del usuario. Sin la unicidad del proceso, si un proceso gedit modifica las herramientas de compilación personalizadas, los otros procesos gedit deben volver a cargar el archivo XML y deben asegurarse de que no haya carreras (dos procesos gedit diferentes no deben modificar el archivo XML al mismo tiempo) . Con la unicidad del proceso, ese problema no existe, todas las ventanas gedit comparten el mismo estado de la aplicación, y el desarrollador puede asumir que solo un proceso por usuario puede modificar el archivo XML (Por supuesto, el usuario todavía tiene la posibilidad de editar el archivo XML a mano, pero en ese caso la aplicación se puede reiniciar, normalmente se espera que el usuario modifique las herramientas de compilación de la GUI que proporciona gedit).</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>📌 Nota:</strong> Tenga en cuenta que esto no sería cierto si fuera posible abrir <em>varias</em> sesiones gráficas para el mismo usuario, en la misma máquina (con soporte para múltiples puestos) o al menos compartir el almacenamiento de respaldo para el directorio de inicio (por ejemplo, con montajes NFS). Pero GNOME y la mayoría de las aplicaciones no admiten esto, un usuario puede abrir como máximo una sesión gráfica a la vez para el mismo directorio de inicio. Para los inicios de sesión en la misma máquina física, esto se aplica mediante GDM (el administrador de pantalla GNOME y la pantalla de inicio de sesión) y D-Bus. En el caso de montajes NFS, esto no se aplica, pero si el mismo usuario abre varias sesiones gráficas en diferentes equipos, es posible que algunos programas no funcionen correctamente. Entonces, aunque la unicidad del proceso de <code>GApplication</code> está documentada como por <em>sesión de usuario</em>, en la práctica podemos decir que es simplemente por <em>usuario</em>.</p>
+</blockquote>
+<p>Otra característica importante de <code>GApplication</code> es ejecutar el ciclo de eventos principal. El bucle de eventos principal de GLib se describió en la sección <span class="ch-glib-main-loop">El bucle del evento principal</span>. Con <code>GApplication</code>, esto se hace con la función <code>g_application_run()</code>. Una versión minimalista de la función <code>main()</code> en gedit se vería así:</p>
+<pre><code class="language-c">int
+main (int    argc,
+      char **argv)
+{
+  GeditApp *app;
+  int status;
+
+  /* Inicializacion de i18n (internacionalizacion) aqui. */
+
+  app = gedit_app_new ();
+  status = g_application_run (G_APPLICATION (app), argc, argv);
+  g_object_unref (app);
+
+  return status;
+}
+</code></pre>
+<p>Lo que hace <code>GeditApp</code> es básicamente lo que debería hacerse en <code>main()</code> si no hubiera una subclase <code>GtkApplication</code>. Esto incluye:</p>
+<ul>
+<li>
+<p>Configurando correctamente el objeto <code>GtkApplication</code>, por ejemplo, dando el ID de la aplicación;</p>
+</li>
+<li>
+<p>Conectando devoluciones de llamada a algunas señales, por ejemplo para crear una <code>GeditWindow</code> cuando sea necesario;</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>📌 Nota:</strong> Pero tenga en cuenta que en una subclase de GObject, en lugar de conectar devoluciones de llamada a señales de una clase principal con p. Ej. <code>g_signal_connect()</code>, es mejor anular las funciones virtuales en su lugar.</p>
+</blockquote>
+<ul>
+<li>Implementando <code>GAction</code> en toda la aplicación. <code>GAction</code> es una parte de clase de GIO que representa una acción que el usuario puede desencadenar. Una acción en toda la aplicación es, por ejemplo, salir de la aplicación o abrir el cuadro de diálogo de preferencias (porque las preferencias se aplican a toda la aplicación).</li>
+</ul>
+<p>Cuando comienzas a escribir una nueva aplicación GTK, no ves directamente la necesidad de una subclase <code>GtkApplication</code>, ya que el código en <code>main()</code>, más las devoluciones de llamada, aún son pequeñas. Pero cuando se agregan más y más características, es una buena idea en algún momento mover el código a una subclase <code>GtkApplication</code>. O para crear una subclase directamente. Una subclase es especialmente útil cuando surge la necesidad de almacenar datos adicionales.</p>
+<!-- Habilitacion del enumeramiento de referencias -->
+<div class="refs-ch"></div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../content/gtk-app-arch/gtk-app-arch.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../content/gtk-app-arch/geditwindow.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../content/gtk-app-arch/gtk-app-arch.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../content/gtk-app-arch/geditwindow.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../.././src/assets/js/refs.js"></script>
+
+
+    </body>
+</html>
