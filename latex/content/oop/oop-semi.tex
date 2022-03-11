@@ -22,11 +22,25 @@ Es una buena práctica elegir un espacio de nombres para su código, para evitar
 Además, hay un segundo espacio de nombres con el nombre de la clase, aquí ``SpellChecker''. Si sigue esa convención de forma coherente, el nombre de un símbolo es más predecible, lo que facilita el trabajo con la API. El nombre de un símbolo siempre será ``espacio de nombres del proyecto'' + ``nombre de la clase'' + ``nombre del símbolo''.
 
 \subsection{¿Minúsculas, Mayúsculas o CamelCase?}
-Dependiendo del tipo de símbolo, su nombre está en mayúsculas, minúsculas o CamelCase. La convención en el mundo GLib es:
+
+El correcto nombramiento de un símbolo (ya sea una variable, objeto, etc) es importante en el desarrollo del software, pues permite entender el contexto del código de una manera mucho más simple en su lectura.
+
+Dependiendo del tipo de símbolo, su nombre puede poseer un estilo diferente, como estar en mayúsculas, minúsculas o CamelCase. Es importante denotar que además del estilo de escritura, un buen nombre debe poseer sentido semántico y ser expresivo, de manera que otro programador entienda lo que es y lo que hace fácilmente. La convención en el mundo GLib es:
+
 \begin{itemize}
-    \item Letras mayúsculas para una constante, ya sea para un valor \lstinline{#define} o \lstinline{enum};
-    \item CamelCase para un tipo \lstinline{struct} o \lstinline{enum};
-    \item Minúsculas para funciones, variables, campos \lstinline{struct},…
+    \item Las \textbf{funciones}, \textbf{variables} y \textbf{campos struct} deben usar el estilo \emph{Snake case},\linebreak también conocido como  \lstinline{lower_case_with_underscores}, el cual consiste en la escritura solo con minúsculas y con guiones bajos en vez de espacios, por ejemplo: \lstinline{set_user}, \lstinline{get_user}. Las funciones deben representar acciones, por lo tanto como buena practica construya el nombre con un verbo que represente la acción seguido de un sustantivo.
+    
+    \item Las \textbf{estructuras}, \textbf{tipos} y \textbf{objetos} deben usar el tipo \emph{CamelCase}, es decir \linebreak \lstinline{CamelCaseWithoutUnderscores}, donde la escritura no posee espacios y el inicio de cada palabra se capitaliza con mayúsculas, por ejemplo: \lstinline{UserProfile}.
+    
+    \item Las \textbf{macros} y las \textbf{constantes} deben usar \lstinline{UPPER_CASE_WITH_UNDERSCORES}, ya sea para un valor \lstinline{#define} o \lstinline{enum}.
+    
+    \item Todos los símbolos deben tener como prefijo una versión corta (de 2 a 4 caracteres) del espacio de nombres. Esto se acorta simplemente para facilitar la escritura, pero aún debe ser único.
+    
+    \item Todos los métodos de una clase también deben tener el prefijo del nombre de la clase.
+    
+    \item Evite usar abreviaciones innecesarias y nombres no pronunciables, de manera que se priorice el fácil entendimiento del código.
+    
+    \item Escriba su código en el idioma inglés si busca que su proyecto tenga un desarrollo comunitario.
 \end{itemize}
 
 \subsection{Incluir guardia}
