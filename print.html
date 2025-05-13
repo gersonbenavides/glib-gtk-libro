@@ -1,27 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="es" class="sidebar-visible no-js light">
+<html lang="es" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>La plataforma de desarrollo GLib/GTK</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BG5WVZ08D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-2BG5WVZ08D');
-</script>
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -35,26 +25,30 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="./src/assets/css/custom.css">
 
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
     </head>
     <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -67,50 +61,60 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
-            var theme;
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            html.classList.add("js");
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
+            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="content/book/title.html">La plataforma de desarrollo GLib/GTK</a></li><li class="chapter-item expanded "><a href="content/intro/intro.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/intro/glib-gtk.html"><strong aria-hidden="true">1.1.</strong> ¿Qué es GLib y GTK?</a></li><li class="chapter-item expanded "><a href="content/intro/gnome-dskt.html"><strong aria-hidden="true">1.2.</strong> El escritorio GNOME</a></li><li class="chapter-item expanded "><a href="content/intro/preq.html"><strong aria-hidden="true">1.3.</strong> Prerrequisitos</a></li><li class="chapter-item expanded "><a href="content/intro/why-when-c.html"><strong aria-hidden="true">1.4.</strong> ¿Por qué y cuándo se usa el lenguaje C?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/intro/sep-backend.html"><strong aria-hidden="true">1.4.1.</strong> Separación de backend del frontend</a></li><li class="chapter-item expanded "><a href="content/intro/other-aspects.html"><strong aria-hidden="true">1.4.2.</strong> Otros aspectos a tener en cuenta</a></li></ol></li><li class="chapter-item expanded "><a href="content/intro/lrn-path.html"><strong aria-hidden="true">1.5.</strong> Ruta de aprendizaje</a></li><li class="chapter-item expanded "><a href="content/intro/dev-env.html"><strong aria-hidden="true">1.6.</strong> El entorno de desarrollo</a></li><li class="chapter-item expanded "><a href="content/intro/install.html"><strong aria-hidden="true">1.7.</strong> Instalación</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/intro/linux.html"><strong aria-hidden="true">1.7.1.</strong> Linux</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.2.</strong> Windows</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.3.</strong> Mac</div></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">GLib, la biblioteca principal</li><li class="chapter-item expanded "><a href="content/glib/glib.html"><strong aria-hidden="true">2.</strong> GLib, la biblioteca principal</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/glib/basics.html"><strong aria-hidden="true">2.1.</strong> Lo esencial</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/glib/type-def.html"><strong aria-hidden="true">2.1.1.</strong> Definiciones de tipo</a></li><li class="chapter-item expanded "><a href="content/glib/freq-macros.html"><strong aria-hidden="true">2.1.2.</strong> Macros de uso frecuente</a></li><li class="chapter-item expanded "><a href="content/glib/dbg-macros.html"><strong aria-hidden="true">2.1.3.</strong> Macros de depuración</a></li><li class="chapter-item expanded "><a href="content/glib/mem.html"><strong aria-hidden="true">2.1.4.</strong> Memoria</a></li><li class="chapter-item expanded "><a href="content/glib/str-hdlg.html"><strong aria-hidden="true">2.1.5.</strong> Manejo de string</a></li></ol></li><li class="chapter-item expanded "><a href="content/glib/data-struct.html"><strong aria-hidden="true">2.2.</strong> Estructura de datos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/glib/lists.html"><strong aria-hidden="true">2.2.1.</strong> Listas</a></li><li class="chapter-item expanded "><a href="content/glib/trees.html"><strong aria-hidden="true">2.2.2.</strong> Árboles</a></li><li class="chapter-item expanded "><a href="content/glib/hash-tables.html"><strong aria-hidden="true">2.2.3.</strong> Tablas hash</a></li></ol></li><li class="chapter-item expanded "><a href="content/glib/main-loop.html"><strong aria-hidden="true">2.3.</strong> El bucle del evento principal</a></li><li class="chapter-item expanded "><a href="content/glib/other-feat.html"><strong aria-hidden="true">2.4.</strong> Otras características</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Programación orientada a objetos en C</li><li class="chapter-item expanded "><a href="content/oop-semi/oop-semi.html"><strong aria-hidden="true">3.</strong> Programación semi-orientada a objetos en C</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/oop-semi/hdr-ex.html"><strong aria-hidden="true">3.1.</strong> Ejemplo de encabezado</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/oop-semi/prj-names.html"><strong aria-hidden="true">3.1.1.</strong> Espacio de nombres del proyecto</a></li><li class="chapter-item expanded "><a href="content/oop-semi/class-names.html"><strong aria-hidden="true">3.1.2.</strong> Espacio de nombres de clase</a></li><li class="chapter-item expanded "><a href="content/oop-semi/letter-case.html"><strong aria-hidden="true">3.1.3.</strong> ¿Minúsculas, Mayúsculas o CamelCase?</a></li><li class="chapter-item expanded "><a href="content/oop-semi/incl-guard.html"><strong aria-hidden="true">3.1.4.</strong> Incluir guardia</a></li><li class="chapter-item expanded "><a href="content/oop-semi/cpp-supt.html"><strong aria-hidden="true">3.1.5.</strong> Soporte de C++</a></li><li class="chapter-item expanded "><a href="content/oop-semi/incl.html"><strong aria-hidden="true">3.1.6.</strong> #include</a></li><li class="chapter-item expanded "><a href="content/oop-semi/type-def.html"><strong aria-hidden="true">3.1.7.</strong> Definición de tipo</a></li><li class="chapter-item expanded "><a href="content/oop-semi/obj-ctor.html"><strong aria-hidden="true">3.1.8.</strong> Constructor de objetos</a></li><li class="chapter-item expanded "><a href="content/oop-semi/obj-dtor.html"><strong aria-hidden="true">3.1.9.</strong> Destructor de objetos</a></li><li class="chapter-item expanded "><a href="content/oop-semi/other-func.html"><strong aria-hidden="true">3.1.10.</strong> Otras funciones públicas</a></li></ol></li><li class="chapter-item expanded "><a href="content/oop-semi/c-file.html"><strong aria-hidden="true">3.2.</strong> El archivo *.c correspondiente</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/oop-semi/order-incl.html"><strong aria-hidden="true">3.2.1.</strong> Orden de #include</a></li><li class="chapter-item expanded "><a href="content/oop-semi/gtk-doc-cmnt.html"><strong aria-hidden="true">3.2.2.</strong> Comentarios de GTK-Doc</a></li><li class="chapter-item expanded "><a href="content/oop-semi/gobj-introsp.html"><strong aria-hidden="true">3.2.3.</strong> Anotaciones de introspección de GObject</a></li><li class="chapter-item expanded "><a href="content/oop-semi/stc-vs-non-stc.html"><strong aria-hidden="true">3.2.4.</strong> Funciones estáticas vs funciones no estáticas</a></li><li class="chapter-item expanded "><a href="content/oop-semi/defen-prog.html"><strong aria-hidden="true">3.2.5.</strong> Programación defensiva</a></li><li class="chapter-item expanded "><a href="content/oop-semi/coding-style.html"><strong aria-hidden="true">3.2.6.</strong> Estilo de codificación</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="content/oop-gobj/oop-gobj.html"><strong aria-hidden="true">4.</strong> Una suave introducción a GObject</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/oop-gobj/inherit.html"><strong aria-hidden="true">4.1.</strong> Herencia</a></li><li class="chapter-item expanded "><a href="content/oop-gobj/gobj-macros.html"><strong aria-hidden="true">4.2.</strong> Macros de GObject</a></li><li class="chapter-item expanded "><a href="content/oop-gobj/intfc.html"><strong aria-hidden="true">4.3.</strong> Interfaces</a></li><li class="chapter-item expanded "><a href="content/oop-gobj/ref-cnt.html"><strong aria-hidden="true">4.4.</strong> Recuento de referencias</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/oop-gobj/avoid-ref.html"><strong aria-hidden="true">4.4.1.</strong> Evitar ciclos de referencia con referencias débiles</a></li><li class="chapter-item expanded "><a href="content/oop-gobj/float-ref.html"><strong aria-hidden="true">4.4.2.</strong> Referencias flotantes</a></li></ol></li><li class="chapter-item expanded "><a href="content/oop-gobj/sig-prop.html"><strong aria-hidden="true">4.5.</strong> Señales y propiedades</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/oop-gobj/cnct-callb-sig.html"><strong aria-hidden="true">4.5.1.</strong> Conexión de una función de devolución de llamada a una señal</a></li><li class="chapter-item expanded "><a href="content/oop-gobj/disc-sig.html"><strong aria-hidden="true">4.5.2.</strong> Desconexión de controladores de señales</a></li><li class="chapter-item expanded "><a href="content/oop-gobj/prop.html"><strong aria-hidden="true">4.5.3.</strong> Propiedades</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">GTK</li><li class="chapter-item expanded "><a href="content/gtk-app-arch/gtk-app-arch.html"><strong aria-hidden="true">5.</strong> Ejemplo de una arquitectura de código de aplicación GTK</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/gtk-app-arch/main-func.html"><strong aria-hidden="true">5.1.</strong> La función main() y GeditApp</a></li><li class="chapter-item expanded "><a href="content/gtk-app-arch/geditwindow.html"><strong aria-hidden="true">5.2.</strong> GeditWindow</a></li><li class="chapter-item expanded "><a href="content/gtk-app-arch/geditnotebook.html"><strong aria-hidden="true">5.3.</strong> GeditNotebook y lo que contiene</a></li><li class="chapter-item expanded "><a href="content/gtk-app-arch/why-when-sub-class.html"><strong aria-hidden="true">5.4.</strong> ¿Por qué y cuándo crear subclases de widgets GTK?</a></li><li class="chapter-item expanded "><a href="content/gtk-app-arch/comp-widg.html"><strong aria-hidden="true">5.5.</strong> Widgets compuestos</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Lectura adicional</li><li class="chapter-item expanded "><a href="content/fthr-rdg/fthr-rdg.html"><strong aria-hidden="true">6.</strong> Lecturas adicionales</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/fthr-rdg/gtk-gio.html"><strong aria-hidden="true">6.1.</strong> GTK y GIO</a></li><li class="chapter-item expanded "><a href="content/fthr-rdg/wrtg-gobj-class.html"><strong aria-hidden="true">6.2.</strong> Escribir sus propias clases de GObject</a></li><li class="chapter-item expanded "><a href="content/fthr-rdg/bld-sys.html"><strong aria-hidden="true">6.3.</strong> Sistema de compilación</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="content/fthr-rdg/autotools.html"><strong aria-hidden="true">6.3.1.</strong> Las Autotools</a></li><li class="chapter-item expanded "><a href="content/fthr-rdg/meson.html"><strong aria-hidden="true">6.3.2.</strong> Meson</a></li></ol></li><li class="chapter-item expanded "><a href="content/fthr-rdg/prog-prac.html"><strong aria-hidden="true">6.4.</strong> Mejores prácticas de programación</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="content/book/biblio.html">Bibliografía</a></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -127,7 +131,7 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        <a href="https://github.com/gersonbdev/glib-gtk-libro" title="Git repository" aria-label="Git repository">
+                        <a href="https://github.com/gersonbenavides/glib-gtk-libro" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
@@ -146,7 +150,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -167,7 +171,7 @@
 <p>Tenga en cuenta que este libro está lejos de estar terminado, en este momento esta leyendo <code>versión 0.9 alpha</code>. Si tiene algún comentario, no dude en ponerse en contacto escribiendo a <a href="mailto:gersonbdev@gmail.com">gersonbdev@gmail.com</a>.</p>
 <h2 id="enlaces"><a class="header" href="#enlaces">Enlaces</a></h2>
 <p>El código fuente y los diferentes formatos del libro se pueden encontrar en los siguientes enlaces:</p>
-<table><thead><tr><th>Idioma</th><th>Formato</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Idioma</th><th>Formato</th></tr></thead><tbody>
 <tr><td>ES</td><td><a href="https://gersonbdev.github.io/glib-gtk-libro/">Web</a></td></tr>
 <tr><td></td><td><a href="https://raw.githubusercontent.com/gersonbdev/glib-gtk-libro/master/glib-gtk-libro.pdf">PDF</a></td></tr>
 <tr><td></td><td><a href="https://github.com/gersonbdev/glib-gtk-libro">Repositorio</a></td></tr>
@@ -175,6 +179,7 @@
 <tr><td></td><td><a href="https://people.gnome.org/%7Eswilmet/glib-gtk-dev-platform.pdf">PDF</a></td></tr>
 <tr><td></td><td><a href="https://github.com/swilmet/glib-gtk-book">Repositorio</a></td></tr>
 </tbody></table>
+</div>
 <h2 id="contribución"><a class="header" href="#contribución">Contribución</a></h2>
 <p>Si desea contribuir con el desarrollo de este libro puede apoyar con:</p>
 <ul>
@@ -201,20 +206,20 @@ Dupont.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introducción"><a class="header" href="#introducción">Introducción</a></h1>
 <p>Este texto es una guía para comenzar con la plataforma de desarrollo GLib/GTK, haciendo uso del lenguaje C. En ocasiones se asumirá que el lector usa un sistema similar a Unix.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="qué-es-glib-y-gtk"><a class="header" href="#qué-es-glib-y-gtk">¿Qué es GLib y GTK?</a></h1>
-<p>En términos generales, GLib es un conjunto de bibliotecas: GLib core, GObject y GIO. Esas tres bibliotecas se desarrollan en el mismo repositorio de Git llamado <em>glib</em>, por lo que cuando se hace referencia a &quot;GLib&quot;, puede significar &quot;GLib core&quot; o el conjunto más amplio que incluye también GObject y GIO.</p>
+<p>En términos generales, GLib es un conjunto de bibliotecas: GLib core, GObject y GIO. Esas tres bibliotecas se desarrollan en el mismo repositorio de Git llamado <em>glib</em>, por lo que cuando se hace referencia a "GLib", puede significar "GLib core" o el conjunto más amplio que incluye también GObject y GIO.</p>
 <p>GLib core proporciona manejo de estructura de datos para C (listas enlazadas, árboles, tablas hash, ...), envoltorios de portabilidad, un bucle de eventos, hilos, carga dinámica de módulos y muchas funciones de utilidad.</p>
 <p>GObject -- que depende del núcleo GLib -- simplifica la programación orientada a objetos y los paradigmas de programación dirigida por eventos en C. La programación dirigida por eventos no solo es útil para interfaces gráficas de usuario (con eventos de usuario como pulsaciones de teclas y clics del mouse), pero también para daemons que responden a cambios de hardware (una memoria USB insertada, un segundo monitor conectado, una impresora con poco papel), o software que escucha conexiones de red o mensajes de otros procesos, etc.</p>
 <p>GIO -- que depende de GLib core y GObject -- proporciona API de alto nivel para entrada/salida: lectura de un archivo local, un archivo remoto, un flujo de red, comunicación entre procesos con D-Bus y muchos más.</p>
 <p><a id="fig-glib-struct-001"></a></p>
 <div class="caption">
-<img src="content/intro/../../assets/img/diag/glib-struct-001.svg" alt="Estructura de la biblioteca GLib." width="32%" />
+<img src="https://raw.githubusercontent.com/gersonbenavides/glib-gtk-libro/main/src/assets/images/diagrams/glib-struct-001.svg" alt="Estructura de la biblioteca GLib." width="32%" />
 <p><span class="fig-glib-struct-001">Figura</span>: Estructura de la biblioteca GLib.</p>
 </div>
 <p>Las bibliotecas GLib se pueden utilizar para escribir servicios del sistema operativo, bibliotecas, utilidades de línea de comandos y demás. GLib ofrece API de mayor nivel que el estándar POSIX; por lo tanto, es más cómodo escribir un programa en C con GLib.</p>
 <p>GTK es un conjunto de herramientas de widgets basado en GLib que se puede utilizar para desarrollar aplicaciones con una interfaz gráfica de usuario (GUI). Un “widget” es un elemento de la GUI, por ejemplo, un botón, un texto, un menú, etc. Y hay algunos tipos especiales de widgets que se denominan “containers”, que pueden contener otros widgets, para ensamblar los elementos en una ventana. GTK proporciona una amplia gama de widgets y contenedores.</p>
-<p>La primera versión de GTK, o GIMP Tool Kit, fue escrita principalmente por Peter Mattis, con la ayuda de Spencer Kimball y Josh MacDonald en 1996 para GIMP (programa de manipulación de imágenes GNU) mientras trabajaban en el eXperimental Computing Facility de la Universidad de California, Berkeley, convirtiéndose rápidamente en una biblioteca de uso general. Una vez el proyecto se movió fuera del árbol de fuentes de GIMP para distinguir entre la versión original y una nueva versión que agregó características orientadas a objetos se agrego al nombre un &quot;+&quot; denominándose la biblioteca como GTK+ (actualmente este nombre esta en desuso y se conoce simplemente como GTK). GLib comenzó como parte de GTK, pero ahora es una biblioteca independiente.</p>
+<p>La primera versión de GTK, o GIMP Tool Kit, fue escrita principalmente por Peter Mattis, con la ayuda de Spencer Kimball y Josh MacDonald en 1996 para GIMP (programa de manipulación de imágenes GNU) mientras trabajaban en el eXperimental Computing Facility de la Universidad de California, Berkeley, convirtiéndose rápidamente en una biblioteca de uso general. Una vez el proyecto se movió fuera del árbol de fuentes de GIMP para distinguir entre la versión original y una nueva versión que agregó características orientadas a objetos se agrego al nombre un "+" denominándose la biblioteca como GTK+ (actualmente este nombre esta en desuso y se conoce simplemente como GTK). GLib comenzó como parte de GTK, pero ahora es una biblioteca independiente.</p>
 <blockquote>
-<p><strong>📌 Nota:</strong> El nombre &quot;The GIMP Tool Kit&quot; ahora rara vez se usa, hoy se conoce más comúnmente como GTK para abreviar.</p>
+<p><strong>📌 Nota:</strong> El nombre "The GIMP Tool Kit" ahora rara vez se usa, hoy se conoce más comúnmente como GTK para abreviar.</p>
 </blockquote>
 <p>Las API GLib y GTK están documentadas con GTK-Doc. Los comentarios especiales están escritos en el código fuente y GTK-Doc extrae esos comentarios para generar páginas HTML.</p>
 <p>Aunque GLib y GTK están escritos en C, los enlaces de lenguaje están disponibles para JavaScript, Python, Perl y muchos otros lenguajes de programación. Al principio, se crearon enlaces manuales, que debían actualizarse cada vez que cambiaba la API de la biblioteca. Hoy en día, los enlaces de lenguaje son genéricos y, por lo tanto, se actualizan automáticamente cuando, por ejemplo, se agregan nuevas funciones, esto es gracias a GObject Introspection. Se agregan anotaciones especiales a los comentarios de GTK-Doc, para exponer más información de la que puede proporcionar la sintaxis de C, por ejemplo, sobre la transferencia de propiedad de contenido asignado dinámicamente.</p>
@@ -222,21 +227,21 @@ Dupont.</p>
 <p><strong>📌 Nota:</strong> Por ejemplo, si necesita liberar el valor de retorno.</p>
 </blockquote>
 <p>Además, las anotaciones también son útiles para el programador en C porque es una forma buena y concisa de documentar ciertos aspectos recurrentes de la API.</p>
-<p>En el momento de escribir este artículo, hay nuevas versiones estables de GLib y GTK cada seis meses, alrededor de marzo y septiembre. Un número de versión tiene la forma &quot;<code>major.minor.micro</code>&quot;, donde &quot;<code>minor</code>&quot; designa ciclos estables si es par y ciclos de desarrollo (versiones inestables) si es impar. Por ejemplo, las versiones 4.4.* son estables, pero las versiones 4.5.* son inestables. Una nueva versión &quot;<code>micro</code>&quot; estable (por ejemplo, 4.4.0 → 4.4.1) no agrega nuevas funciones, solo actualizaciones de traducción, corrección de errores y mejoras de rendimiento. Para una biblioteca, un nuevo número de versión &quot;<code>major</code>&quot; generalmente significa que ha habido una ruptura de la API, pero afortunadamente las versiones principales anteriores se pueden instalar en paralelo con la nueva versión. Durante un ciclo de desarrollo (por ejemplo, 4.5), no hay garantías de estabilidad en la API para <em>nuevas</em> funciones; pero al ser uno de los primeros en adoptarlo, sus comentarios son útiles para descubrir más rápidamente fallas y errores de diseño.</p>
+<p>En el momento de escribir este artículo, hay nuevas versiones estables de GLib y GTK cada seis meses, alrededor de marzo y septiembre. Un número de versión tiene la forma "<code>major.minor.micro</code>", donde "<code>minor</code>" designa ciclos estables si es par y ciclos de desarrollo (versiones inestables) si es impar. Por ejemplo, las versiones 4.4.* son estables, pero las versiones 4.5.* son inestables. Una nueva versión "<code>micro</code>" estable (por ejemplo, 4.4.0 → 4.4.1) no agrega nuevas funciones, solo actualizaciones de traducción, corrección de errores y mejoras de rendimiento. Para una biblioteca, un nuevo número de versión "<code>major</code>" generalmente significa que ha habido una ruptura de la API, pero afortunadamente las versiones principales anteriores se pueden instalar en paralelo con la nueva versión. Durante un ciclo de desarrollo (por ejemplo, 4.5), no hay garantías de estabilidad en la API para <em>nuevas</em> funciones; pero al ser uno de los primeros en adoptarlo, sus comentarios son útiles para descubrir más rápidamente fallas y errores de diseño.</p>
 <p>GLib y GTK son parte del Proyecto GNU, cuyo objetivo general es desarrollar un sistema operativo libre (llamado GNU) más aplicaciones que lo acompañen. GNU significa “GNU’s Not Unix”, una forma divertida de decir que el sistema operativo GNU es compatible con Unix. Puede obtener más información sobre GNU en <a href="https://www.gnu.org">https://www.gnu.org</a>.</p>
 <p>El sitio web de GLib/GTK es: <a href="http://www.gtk.org">http://www.gtk.org</a></p>
 <!-- Habilitacion del enumeramiento de referencias -->
 <div class="intro-refs"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="el-escritorio-gnome"><a class="header" href="#el-escritorio-gnome">El escritorio GNOME</a></h1>
 <p>Un proyecto importante para GLib y GTK es GNOME. GNOME, que también forma parte de GNU, es un entorno de escritorio libre iniciado en 1997 por Miguel de Icaza y Federico Mena-Quintero. GNOME hace un uso extensivo de GTK, y este último ahora es desarrollado principalmente por desarrolladores de GNOME.</p>
-<p>&quot;GNOME&quot; es en realidad un acrónimo: GNU Network Object Model Environment.</p>
+<p>"GNOME" es en realidad un acrónimo: GNU Network Object Model Environment.</p>
 <blockquote>
 <p><strong>📌 Nota:</strong> Como con GTK, el nombre completo de GNOME rara vez se usa y no refleja la realidad actual.</p>
 </blockquote>
-<p>Originalmente, el proyecto tenía la intención de crear un marco para objetos de aplicación, similar a las tecnologías OLE y COM de Microsoft. Sin embargo, el alcance del proyecto se expandió rápidamente; quedó claro se requería un trabajo preliminar sustancial antes de que la parte del nombre de &quot;network object&quot; pudiera convertirse en realidad. Las versiones antiguas de GNOME incluían una arquitectura de incrustación de objetos llamada Bonobo, y GNOME 1.0 incluía un ORB CORBA rápido y ligero llamado ORBit. Bonobo ha sido reemplazado por D-Bus un sistema de comunicación entre procesos.</p>
+<p>Originalmente, el proyecto tenía la intención de crear un marco para objetos de aplicación, similar a las tecnologías OLE y COM de Microsoft. Sin embargo, el alcance del proyecto se expandió rápidamente; quedó claro se requería un trabajo preliminar sustancial antes de que la parte del nombre de "network object" pudiera convertirse en realidad. Las versiones antiguas de GNOME incluían una arquitectura de incrustación de objetos llamada Bonobo, y GNOME 1.0 incluía un ORB CORBA rápido y ligero llamado ORBit. Bonobo ha sido reemplazado por D-Bus un sistema de comunicación entre procesos.</p>
 <p>GNOME tiene dos caras importantes. Desde la perspectiva del usuario, es un entorno de escritorio integrado y una suite de aplicaciones. Desde la perspectiva del programador, es un marco de desarrollo de aplicaciones (compuesto por numerosas bibliotecas útiles que se basan en GLib y GTK). Las aplicaciones
 escritas con las bibliotecas de GNOME funcionan bien incluso si el usuario no está ejecutando el entorno de escritorio, pero se integran bien con el escritorio de GNOME si está disponible.</p>
-<p>El entorno de escritorio incluye un &quot;shell&quot; para cambiar de tareas y ejecutar programas, un &quot;centro de control&quot; para la configuración, muchas aplicaciones como un administrador de archivos, un navegador web, un reproductor de películas, etc. Estos programas ocultan la línea de comandos tradicional de Unix detrás de una interfaz gráfica fácil de usar.</p>
-<p>El marco de desarrollo de GNOME permite escribir aplicaciones interoperables, coherentes y fáciles de usar. Los diseñadores de sistemas de ventanas como X11 o Wayland tomaron la decisión deliberada de no imponer ninguna política de interfaz de usuario a los desarrolladores; GNOME agrega una &quot;capa de política&quot;, creando una apariencia coherente. Las aplicaciones GNOME terminadas funcionan bien con el escritorio GNOME, pero también se pueden usar de forma &quot;independiente&quot; -- los usuarios solo necesitan instalar las bibliotecas compartidas de GNOME. Una aplicación GNOME no está vinculada a un sistema de ventanas específico, GTK proporciona backends para X Window System, Wayland, Mac OS X, Windows e incluso para un navegador web.</p>
+<p>El entorno de escritorio incluye un "shell" para cambiar de tareas y ejecutar programas, un "centro de control" para la configuración, muchas aplicaciones como un administrador de archivos, un navegador web, un reproductor de películas, etc. Estos programas ocultan la línea de comandos tradicional de Unix detrás de una interfaz gráfica fácil de usar.</p>
+<p>El marco de desarrollo de GNOME permite escribir aplicaciones interoperables, coherentes y fáciles de usar. Los diseñadores de sistemas de ventanas como X11 o Wayland tomaron la decisión deliberada de no imponer ninguna política de interfaz de usuario a los desarrolladores; GNOME agrega una "capa de política", creando una apariencia coherente. Las aplicaciones GNOME terminadas funcionan bien con el escritorio GNOME, pero también se pueden usar de forma "independiente" -- los usuarios solo necesitan instalar las bibliotecas compartidas de GNOME. Una aplicación GNOME no está vinculada a un sistema de ventanas específico, GTK proporciona backends para X Window System, Wayland, Mac OS X, Windows e incluso para un navegador web.</p>
 <p>Los componentes de GNOME deben instalarse con las mismas versiones, junto con la versión de GTK y GLib lanzada al mismo tiempo; por ejemplo, es una mala idea ejecutar un demonio GNOME en la versión 41 con el centro de control en la versión 40. En el momento de escribir este artículo, las últimas versiones estables son: GLib 2.70, GTK 4.4 y GNOME 41, todas lanzadas en el segundo semestre de 2021.</p>
 <p>Más información sobre GNOME: <a href="https://www.gnome.org/">https://www.gnome.org/</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prerrequisitos"><a class="header" href="#prerrequisitos">Prerrequisitos</a></h1>
@@ -261,13 +266,14 @@ escritas con las bibliotecas de GNOME funcionan bien incluso si el usuario no es
 <!-- Habilitacion del enumeramiento de referencias -->
 <div class="biblio-refs"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="por-qué-y-cuándo-se-usa-el-lenguaje-c"><a class="header" href="#por-qué-y-cuándo-se-usa-el-lenguaje-c">¿Por qué y cuándo se usa el lenguaje C?</a></h1>
 <p>Las bibliotecas GLib y GTK pueden ser utilizadas por otros lenguajes de programación además de C. Gracias a GObject Introspection, los enlaces automáticos están disponibles para una gran variedad de lenguajes, de manera que puedan ser usadas todas las bibliotecas basadas en GObject por estos. Los enlaces oficiales de GNOME están disponibles para los siguientes lenguajes:</p>
-<table><thead><tr><th>Lenguaje</th><th>v3</th><th>v4</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Lenguaje</th><th>v3</th><th>v4</th></tr></thead><tbody>
 <tr><td><a href="https://www.gtkmm.org/" title="gtkmm">C++</a></td><td>☑</td><td>☑</td></tr>
 <tr><td><a href="https://gjs.guide/" title="GJS">JavaScript</a></td><td>☑</td><td>☑</td></tr>
 <tr><td><a href="https://pygobject.readthedocs.io/" title="PyGObject">Python</a></td><td>☑</td><td>☑</td></tr>
 <tr><td><a href="https://gtk-rs.org/" title="gtk-rs">Rust</a></td><td>☑</td><td>☑</td></tr>
 <tr><td><a href="https://valadoc.org/" title="Vala">Vala</a></td><td>☑</td><td>☑</td></tr>
 </tbody></table>
+</div>
 <blockquote>
 <p><strong>📌 Nota:</strong> Aunque existen enlaces a más lenguajes, los expresados en la tabla son los más activos es sus repositorios y con una mayor comunidad.</p>
 </blockquote>
@@ -279,8 +285,8 @@ escritas con las bibliotecas de GNOME funcionan bien incluso si el usuario no es
 <p>Por ejemplo, para escribir un daemon en un sistema tipo Unix, C es el idioma <em>predeterminado</em>. Pero es menos obvio que lenguaje usar para una aplicación. Para responder a la pregunta, veamos primero cómo estructurar el código base de una aplicación.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="separación-de-backend-del-frontend"><a class="header" href="#separación-de-backend-del-frontend">Separación de backend del frontend</a></h1>
 <p>Una buena práctica es separar la interfaz gráfica de usuario del resto de la aplicación. Por diversas razones, la interfaz gráfica de una aplicación tiende a ser una pieza de software excepcionalmente volátil y en constante cambio. Es el foco de la mayoría de las solicitudes de cambio de los usuarios. Es difícil planificar y ejecutar bien la primera vez; a menudo descubrirá que algún aspecto es desagradable de usar solo después de haberlo escrito. A veces es deseable tener varias interfaces de usuario diferentes, por ejemplo, una versión de línea de comandos o una interfaz basada en web.</p>
-<p>En términos prácticos, esto significa que cualquier aplicación grande debe tener una separación radical entre sus diversos <em>frontends</em> o interfaces y el <em>backend</em>. El backend debe contener todas las &quot;partes complejas&quot;: sus algoritmos y estructuras de datos, el trabajo real realizado por la aplicación. Piense en ello como un &quot;modelo&quot; abstracto que se muestra y manipula el usuario.</p>
-<p>Cada interfaz debe ser una &quot;vista&quot; y un &quot;controlador&quot;. Como una &quot;vista&quot;, la interfaz debe anotar cualquier cambio en el backend y cambiar la pantalla en consecuencia. Como un &quot;controlador&quot;, la interfaz debe permitir al usuario transmitir solicitudes de cambio al backend (define cómo las manipulaciones de la interfaz se traducen en cambios en el modelo).</p>
+<p>En términos prácticos, esto significa que cualquier aplicación grande debe tener una separación radical entre sus diversos <em>frontends</em> o interfaces y el <em>backend</em>. El backend debe contener todas las "partes complejas": sus algoritmos y estructuras de datos, el trabajo real realizado por la aplicación. Piense en ello como un "modelo" abstracto que se muestra y manipula el usuario.</p>
+<p>Cada interfaz debe ser una "vista" y un "controlador". Como una "vista", la interfaz debe anotar cualquier cambio en el backend y cambiar la pantalla en consecuencia. Como un "controlador", la interfaz debe permitir al usuario transmitir solicitudes de cambio al backend (define cómo las manipulaciones de la interfaz se traducen en cambios en el modelo).</p>
 <p>Hay muchas formas de disciplinarse para mantener su aplicación separada. Un par de ideas útiles:</p>
 <ul>
 <li>Escriba el backend como una biblioteca. Al principio, la biblioteca puede ser interna a la aplicación y estar vinculada estáticamente, sin garantías de estabilidad API/ABI. Cuando el proyecto crezca, y si el código es útil para otros programas, puede convertir fácilmente su backend en una biblioteca compartida.</li>
@@ -297,7 +303,7 @@ escritas con las bibliotecas de GNOME funcionan bien incluso si el usuario no es
 <p>C es un lenguaje escrito explícitamente: los tipos de variables son visibles en el código. Es una forma de auto-documentar el código; por lo general, no es necesario agregar comentarios para explicar qué contienen las variables. Conocer el tipo de variable es importante para comprender el código, saber qué representa la variable y qué funciones se pueden llamar sobre ella. En un asunto relacionado, el objeto <em>self</em> se pasa explícitamente como un argumento de función. Por lo tanto, cuando se accede a un atributo a través del puntero <em>self</em>, se sabe de dónde procede el atributo. Algunos lenguajes orientados a objetos tienen <em>esta</em> palabra clave para ese propósito, pero a veces es opcional como en C ++ o Java. En este último caso, una función útil del editor de texto es resaltar atributos de manera diferente, por lo que incluso cuando no se usa <em>esta</em> palabra clave, usted sabe que es un atributo y no una variable local. Con el objeto <em>self</em> pasado como argumento, no hay posibles confusiones.</p>
 <p>El lenguaje C tiene una <em>cadena de herramientas</em> muy buena: compiladores estables (GCC, Clang,...), Editores de texto (Vim, Emacs,...), Depuradores (GDB, Valgrind,...), Herramientas de análisis estático, ...</p>
 <p>Para algunos programas, un recolector de basura no es apropiado porque pausa el programa regularmente para liberar la memoria no utilizada. Para secciones de código críticas, como animaciones en tiempo real, no es conveniente pausar el programa (un recolector de basura a veces puede ejecutarse durante varios segundos). En este caso, la gestión manual de la memoria como en C es una solución.</p>
-<p>Menos importante, pero útil; la verbosidad de C en combinación con las convenciones GLib/GTK tiene una ventaja: el código se puede buscar fácilmente con un comando como <code>grep</code>. Por ejemplo, la función <code>gtk_widget_show()</code> contiene el espacio de nombres (<code>gtk</code>), la clase (<code>widget</code>) y el método (<code>show</code>). Con un lenguaje orientado a objetos, la sintaxis es generalmente <code>object.show()</code>. Si se busca &quot;show&quot; en el código, probablemente habrá más falsos positivos, por lo que se necesita una herramienta más inteligente. Otra ventaja es que conocer el espacio de nombres y la clase de un método puede ser útil al leer el código, es otra forma de auto-documentación.</p>
+<p>Menos importante, pero útil; la verbosidad de C en combinación con las convenciones GLib/GTK tiene una ventaja: el código se puede buscar fácilmente con un comando como <code>grep</code>. Por ejemplo, la función <code>gtk_widget_show()</code> contiene el espacio de nombres (<code>gtk</code>), la clase (<code>widget</code>) y el método (<code>show</code>). Con un lenguaje orientado a objetos, la sintaxis es generalmente <code>object.show()</code>. Si se busca "show" en el código, probablemente habrá más falsos positivos, por lo que se necesita una herramienta más inteligente. Otra ventaja es que conocer el espacio de nombres y la clase de un método puede ser útil al leer el código, es otra forma de auto-documentación.</p>
 <p>Más importante aún, la documentación de la API GLib/GTK está escrita principalmente para el lenguaje C. No es conveniente leer la documentación de C mientras se programa en otro idioma. Algunas herramientas están actualmente en desarrollo para generar la documentación de la API para otros lenguajes de destino, por lo que es de esperar que en el futuro ya no sea un problema.</p>
 <p>GLib/GTK están escritos en C. Entonces, cuando se programa en C, no hay capa adicional. Una capa adicional es potencialmente una fuente de errores adicionales y cargas de mantenimiento. Además, usar el lenguaje C probablemente
 sea mejor para propósitos pedagógicos. Un lenguaje de nivel superior puede ocultar algunos detalles sobre GLib/GTK. Por lo tanto, el código es más corto, pero cuando tiene un problema, debe comprender no solo cómo funciona la función de la biblioteca, sino también cómo funciona el enlace del idioma.</p>
@@ -309,7 +315,7 @@ sea mejor para propósitos pedagógicos. Un lenguaje de nivel superior puede ocu
 </ul>
 <p>Elegir un lenguaje de nivel superior tiene mucho sentido.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ruta-de-aprendizaje"><a class="header" href="#ruta-de-aprendizaje">Ruta de aprendizaje</a></h1>
-<p>Normalmente, esta sección debería llamarse &quot;Estructura del libro&quot;, pero como puede ver, el libro está lejos de estar terminado, por lo que la sección se llama &quot;Ruta de aprendizaje&quot;.</p>
+<p>Normalmente, esta sección debería llamarse "Estructura del libro", pero como puede ver, el libro está lejos de estar terminado, por lo que la sección se llama "Ruta de aprendizaje".</p>
 <p>El camino de aprendizaje lógico es:</p>
 <ol>
 <li>Los fundamentos del núcleo GLib;</li>
@@ -358,7 +364,7 @@ sea mejor para propósitos pedagógicos. Un lenguaje de nivel superior puede ocu
 <ul>
 <li><strong>Fedora</strong></li>
 </ul>
-<pre><code class="language-console">$ sudo dnf groupinstall &quot;Development Tools&quot;
+<pre><code class="language-console">$ sudo dnf groupinstall "Development Tools"
 </code></pre>
 <ul>
 <li><strong>Ubuntu</strong></li>
@@ -395,7 +401,7 @@ sea mejor para propósitos pedagógicos. Un lenguaje de nivel superior puede ocu
 <div style="break-before: page; page-break-before: always;"></div><h1 id="glib-la-biblioteca-principal"><a class="header" href="#glib-la-biblioteca-principal">GLib, la biblioteca principal</a></h1>
 <p>GLib es la biblioteca central de bajo nivel que forma la base para proyectos como GTK y GNOME. Proporciona estructuras de datos, funciones de utilidad, envoltorios de portabilidad y otras funciones esenciales, como un bucle de eventos e hilos. GLib está disponible en la mayoría de los sistemas similares a Unix y Windows.</p>
 <p>Este capítulo cubre algunas de las funciones más utilizadas. GLib es simple y los conceptos son familiares; así que nos moveremos rápidamente. Para obtener una cobertura más completa de GLib, consulte la última documentación de la API que viene con la biblioteca (para el entorno de desarrollo, consulte la sección <span class="ch-intro-dev-env"></span>). Por cierto: si tiene preguntas muy específicas sobre la implementación, no tema mirar el código fuente. Normalmente, la ocumentación contiene suficiente información, pero si encuentra un detalle faltante, por favor presente un error (por supuesto, lo mejor sería con un parche proporcionado).</p>
-<p>Las diversas instalaciones de GLib están destinadas a tener una interfaz coherente; el estilo de codificación está orientado a semiobjetos, y los identificadores tienen el prefijo &quot;g&quot; para crear una especie de espacio de nombres.</p>
+<p>Las diversas instalaciones de GLib están destinadas a tener una interfaz coherente; el estilo de codificación está orientado a semiobjetos, y los identificadores tienen el prefijo "g" para crear una especie de espacio de nombres.</p>
 <p>GLib tiene algunos encabezados de nivel superior:</p>
 <ul>
 <li><code>glib.h</code>, el encabezado principal.</li>
@@ -451,7 +457,7 @@ gpointer my_pointer;
 
 my_int = 5;
 my_pointer = GINT_TO_POINTER (my_int);
-printf (&quot;Estamos almacenando %d\n&quot;, GPOINTER_TO_INT (my_pointer));
+printf ("Estamos almacenando %d\n", GPOINTER_TO_INT (my_pointer));
 </code></pre>
 <p>Pero tenga cuidado; estas macros le permiten almacenar un entero en un puntero, pero almacenar un puntero en un entero <em>no</em> funcionará. Para hacerlo de forma portátil, debe almacenar el puntero en un <code>long</code>. (Sin embargo, sin duda es una mala idea hacerlo).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="macros-de-depuración"><a class="header" href="#macros-de-depuración">Macros de depuración</a></h1>
@@ -527,7 +533,7 @@ g_date_new_dmy (GDateDay   day,
 }
 </code></pre>
 <p>La verificación de condiciones previas al principio asegura que el usuario pasa en valores razonables para el día, mes y año; la aserción al final asegura que GLib construyó un objeto correctamente, dados valores adecuados.</p>
-<p><code>g_assert_not_reached()</code> debe usarse para marcar situaciones &quot;imposibles&quot;; un uso común es detectar declaraciones de cambio que no manejan todos los valores posibles de una enumeración:</p>
+<p><code>g_assert_not_reached()</code> debe usarse para marcar situaciones "imposibles"; un uso común es detectar declaraciones de cambio que no manejan todos los valores posibles de una enumeración:</p>
 <pre><code class="language-c">switch (value)
   {
   case FOO_ONE:
@@ -611,10 +617,10 @@ gchar * g_strnfill (gsize length, gchar fill_char);
 <p>El <span class="glib-strdup">Listado</span> muestra la amplia gama de funciones de GLib para asignar cadenas. Como era de esperar, <code>g_strdup()</code> y <code>g_strndup()</code> producen una copia asignada de <code>str</code> o los primeros <code>n</code> caracteres de <code>str</code>. Para mantener la coherencia con las funciones de asignación de memoria GLib, devuelven <code>NULL</code> si se les pasa un puntero <code>NULL</code>. Las variantes <code>printf()</code> devuelven una cadena formateada. <code>g_strnfill()</code> devuelve una cadena de tamaño <code>length</code> rellena con <code>fill_char</code>.</p>
 <p><code>g_strdup_printf()</code> merece una mención especial; es una forma más sencilla de manejar este código común:</p>
 <pre><code class="language-c">gchar *str = g_malloc (256);
-g_snprintf (str, 256, &quot;%d printf-style %s&quot;, num, string);
+g_snprintf (str, 256, "%d printf-style %s", num, string);
 </code></pre>
 <p>En su lugar, podría decir esto y evitar tener que averiguar la longitud adecuada del búfer para arrancar:</p>
-<pre><code class="language-c">gchar *str = g_strdup_printf (&quot;%d printf-style %s&quot;, num, string);
+<pre><code class="language-c">gchar *str = g_strdup_printf ("%d printf-style %s", num, string);
 </code></pre>
 <p><a id="glib-strmanip"></a></p>
 <pre><code class="language-c">#include &lt;glib.h&gt;
@@ -626,7 +632,7 @@ gchar * g_strstrip (gchar *string);
 <div class="caption">
 <p><span class="glib-strmanip">Listado</span>: Modificaciones de cadenas in situ.</p>
 </div>
-<p>Las funciones del <span class="glib-strmanip">Listado</span> modifican una cadena en el lugar: <code>g_strchug()</code> y <code>g_strchomp()</code> &quot;chug&quot; la cadena (elimina los espacios iniciales), o &quot;chomp&quot; (eliminar los espacios finales). Esas dos funciones devuelven la cadena, además de modificarla en el lugar; en algunos casos, puede ser conveniente utilizar el valor de retorno. Hay una macro, <code>g_strstrip()</code>, que combina ambas funciones para eliminar los espacios iniciales y finales.</p>
+<p>Las funciones del <span class="glib-strmanip">Listado</span> modifican una cadena en el lugar: <code>g_strchug()</code> y <code>g_strchomp()</code> "chug" la cadena (elimina los espacios iniciales), o "chomp" (eliminar los espacios finales). Esas dos funciones devuelven la cadena, además de modificarla en el lugar; en algunos casos, puede ser conveniente utilizar el valor de retorno. Hay una macro, <code>g_strstrip()</code>, que combina ambas funciones para eliminar los espacios iniciales y finales.</p>
 <p><a id="glib-strformats"></a></p>
 <pre><code class="language-c">#include &lt;glib.h&gt;
 
@@ -637,7 +643,7 @@ const gchar * g_strsignal (gint signum);
 <div class="caption">
 <p><span class="glib-strformats">Listado</span>: Conversiones de cadenas.</p>
 </div>
-<p>El listado 2.10 muestra algunas funciones semi-estándar más que envuelve GLib. <code>g_strtod</code> es como <code>strtod()</code> -- convierte la cadena <code>nptr</code> en un double -- con la excepción de que también intentará convertir el double en la configuración local de <code>&quot;C&quot;</code> si no puede convertirlo en la configuración local predeterminada del usuario. <code>*endptr</code> se establece en el primer carácter no convertido, es decir, cualquier texto después de la representación numérica. Si la conversión falla, <code>*endptr</code> se establece en <code>nptr</code>. <code>endptr</code> puede ser <code>NULL</code>, lo que hace que se ignore.</p>
+<p>El listado 2.10 muestra algunas funciones semi-estándar más que envuelve GLib. <code>g_strtod</code> es como <code>strtod()</code> -- convierte la cadena <code>nptr</code> en un double -- con la excepción de que también intentará convertir el double en la configuración local de <code>"C"</code> si no puede convertirlo en la configuración local predeterminada del usuario. <code>*endptr</code> se establece en el primer carácter no convertido, es decir, cualquier texto después de la representación numérica. Si la conversión falla, <code>*endptr</code> se establece en <code>nptr</code>. <code>endptr</code> puede ser <code>NULL</code>, lo que hace que se ignore.</p>
 <p><code>g_strerror()</code> y <code>g_strsignal()</code> son como sus equivalentes no <code>g_ </code>, pero portátiles. (Devuelven una representación de cadena para un errno o un número de señal).</p>
 <p><a id="glib-strconcat"></a></p>
 <pre><code class="language-c">#include &lt;glib.h&gt;
@@ -681,10 +687,10 @@ struct _GSList
 <p>Una celda <code>GSList</code> es una estructura autoexplicativa que se muestra en el <span class="glib-gslist-cell">Listado</span>. Los campos de estructura son públicos, por lo que puede usarlos directamente para acceder a los datos o para recorrer la lista.</p>
 <p>En la implementación de GLib, la lista vacía es simplemente un puntero <code>NULL</code>. Siempre es seguro pasar <code>NULL</code> a las funciones de lista, ya que es una lista válida de longitud 0. El código para crear una lista y agregar un elemento podría verse así:</p>
 <pre><code class="language-c">GSList *list = NULL;
-gchar *element = g_strdup (&quot;Una cadena de caracteres&quot;);
+gchar *element = g_strdup ("Una cadena de caracteres");
 list = g_slist_append (list, element);
 </code></pre>
-<p>Las listas GLib tienen una influencia Lisp notable; la lista vacía es un valor especial &quot;nil&quot; por esa razón. <code>g_slist_prepend()</code> funciona de forma muy similar a <code>cons</code> -- es una operación de tiempo constante <code>(O(1))</code> que agrega una nueva celda al principio de la lista.</p>
+<p>Las listas GLib tienen una influencia Lisp notable; la lista vacía es un valor especial "nil" por esa razón. <code>g_slist_prepend()</code> funciona de forma muy similar a <code>cons</code> -- es una operación de tiempo constante <code>(O(1))</code> que agrega una nueva celda al principio de la lista.</p>
 <p><a id="glib-listchanging"></a></p>
 <pre><code class="language-c">#include &lt;glib.h&gt;
 
@@ -710,7 +716,7 @@ GSList * g_slist_remove (GSList *list, gconstpointer data);
 for (l = list; l != NULL; l = l-&gt;next)
   {
     gchar *str = l-&gt;data;
-    g_print (&quot;Elemento: %s\n&quot;, str);
+    g_print ("Elemento: %s\n", str);
   }
 </code></pre>
 <p><a id="glib-listfree"></a></p>
@@ -769,9 +775,9 @@ efficient_append (GSList   **list,
 <pre><code class="language-c">GSList* list = NULL;
 GSList* list_end = NULL;
 
-efficient_append (&amp;list, &amp;list_end, g_strdup (&quot;Foo&quot;));
-efficient_append (&amp;list, &amp;list_end, g_strdup (&quot;Bar&quot;));
-efficient_append (&amp;list, &amp;list_end, g_strdup (&quot;Baz&quot;));
+efficient_append (&amp;list, &amp;list_end, g_strdup ("Foo"));
+efficient_append (&amp;list, &amp;list_end, g_strdup ("Bar"));
+efficient_append (&amp;list, &amp;list_end, g_strdup ("Baz"));
 </code></pre>
 <p>Por supuesto, debe tener cuidado de no utilizar ninguna función de lista que pueda cambiar el final de la lista sin actualizar <code>list_end</code>.</p>
 <p><a id="glib-listaccess"></a></p>
@@ -790,7 +796,7 @@ void g_slist_foreach (GSList *list, GFunc func, gpointer user_data);
 <p><span class="glib-listaccess">Listado</span>: Acceder a datos en una lista vinculada.</p>
 </div>
 <p>Para acceder a los elementos de la lista, se proporcionan las funciones del <span class="glib-listaccess">Listado</span>. Ninguno de estos cambia la estructura de la lista. <code>g_slist_foreach()</code> aplica un <code>GFunc</code> a cada elemento de la lista.</p>
-<p>Usado en <code>g_slist_foreach()</code>, su <code>GFunc</code> se llamará en cada <code>list-&gt;data</code> en <code>list</code>, pasando el <code>user_data</code> que proporcionó a <code>g_slist_foreach()</code>. <code>g_slist_foreach()</code> es comparable a la función &quot;map&quot; de Scheme.</p>
+<p>Usado en <code>g_slist_foreach()</code>, su <code>GFunc</code> se llamará en cada <code>list-&gt;data</code> en <code>list</code>, pasando el <code>user_data</code> que proporcionó a <code>g_slist_foreach()</code>. <code>g_slist_foreach()</code> es comparable a la función "map" de Scheme.</p>
 <p>Por ejemplo, es posible que tenga una lista de cadenas y que desee poder crear una lista paralela con alguna transformación aplicada a las cadenas. Aquí hay algo de código, usando la función <code>efficient_append()</code> de un ejemplo anterior:</p>
 <pre><code class="language-c">typedef struct _AppendContext AppendContext;
 struct _AppendContext
@@ -827,7 +833,7 @@ copy_with_append (GSList      *list_of_strings,
   return context.list;
 }
 </code></pre>
-<p>GLib y GTK usan mucho el lenguaje de &quot;puntero de función y datos de usuario&quot;. Si tiene experiencia en programación funcional, esto es muy parecido a usar expresiones lambda para crear un <em>cierre</em>. (Un cierre combina una función con un <em>environment</em> -- un conjunto de enlaces nombre-valor. En este caso, el &quot;environment&quot; son los datos de usuario que pasa a <code>append_foreach()</code>, y el &quot;cierre&quot; es la combinación del puntero de función y los datos del usuario).</p>
+<p>GLib y GTK usan mucho el lenguaje de "puntero de función y datos de usuario". Si tiene experiencia en programación funcional, esto es muy parecido a usar expresiones lambda para crear un <em>cierre</em>. (Un cierre combina una función con un <em>environment</em> -- un conjunto de enlaces nombre-valor. En este caso, el "environment" son los datos de usuario que pasa a <code>append_foreach()</code>, y el "cierre" es la combinación del puntero de función y los datos del usuario).</p>
 <p><a id="glib-listmanip"></a></p>
 <pre><code class="language-c">#include &lt;glib.h&gt;
 
@@ -1070,7 +1076,7 @@ GNode * g_node_last_child (GNode *node);
 </div>
 <p>El <span class="glib-nodeaccessors">Listado</span> muestra algunas de las funciones restantes de <code>GNode</code>. Son sencillos; la mayoría de ellos son simplemente operaciones en la lista de hijos del nodo. Hay dos definiciones de tipos de función exclusivas de <code>GNode</code>: <code>GNodeTraverseFunc</code> y <code>GNodeForeachFunc</code>. Estos se llaman con un puntero al nodo que se está visitando y los datos de usuario que proporciona. Un <code>GNodeTraverseFunc</code> puede devolver <code>TRUE</code> para detener cualquier recorrido que esté en progreso; por lo tanto, puede usar <code>g_node_traverse()</code> para buscar el árbol por valor.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tablas-hash"><a class="header" href="#tablas-hash">Tablas hash</a></h1>
-<p><code>GHashTable</code> es una implementación de tabla hash simple, que proporciona una matriz asociativa con búsquedas en tiempo constante. Para crear y destruir una <code>GHashTable</code>, use un constructor y un destructor listados en <span class="glib-hashnew">Listado</span>. Debe proporcionar una <code>GHashFunc</code>, que debería devolver un entero positivo cuando se le pase una clave hash. Cada <code>guint</code> devuelto (módulo del tamaño de la tabla) corresponde a un &quot;slot&quot; o &quot;bucket&quot; en el hash; <code>GHashTable</code> maneja las colisiones almacenando una lista vinculada de pares clave-valor en cada espacio. Por lo tanto, los valores de <code>guint</code> devueltos por su <code>GHashFunc</code> deben distribuirse de manera bastante uniforme sobre el conjunto de posibles valores de <code>guint</code>, o la tabla hash degenerará en una lista enlazada. Su <code>GHashFunc</code> también debe ser rápido, ya que se usa para cada búsqueda.</p>
+<p><code>GHashTable</code> es una implementación de tabla hash simple, que proporciona una matriz asociativa con búsquedas en tiempo constante. Para crear y destruir una <code>GHashTable</code>, use un constructor y un destructor listados en <span class="glib-hashnew">Listado</span>. Debe proporcionar una <code>GHashFunc</code>, que debería devolver un entero positivo cuando se le pase una clave hash. Cada <code>guint</code> devuelto (módulo del tamaño de la tabla) corresponde a un "slot" o "bucket" en el hash; <code>GHashTable</code> maneja las colisiones almacenando una lista vinculada de pares clave-valor en cada espacio. Por lo tanto, los valores de <code>guint</code> devueltos por su <code>GHashFunc</code> deben distribuirse de manera bastante uniforme sobre el conjunto de posibles valores de <code>guint</code>, o la tabla hash degenerará en una lista enlazada. Su <code>GHashFunc</code> también debe ser rápido, ya que se usa para cada búsqueda.</p>
 <p>Además de <code>GHashFunc</code>, se requiere una <code>GEqualFunc</code> para probar la igualdad de las claves. Se utiliza para encontrar el par clave-valor correcto cuando las colisiones hash dan como resultado más de un par en la misma ranura hash.</p>
 <p>Si usa el constructor básico <code>g_hash_table_new()</code>, recuerde que GLib no tiene forma de saber cómo destruir los datos contenidos en su tabla hash; solo destruye la tabla misma. Si es necesario liberar las claves y los valores, use <code>g_hash_table_new_full()</code>, las funciones de destrucción se llamarán en cada clave y valor antes de destruir la tabla hash.</p>
 <p><a id="glib-hashnew"></a></p>
@@ -1106,8 +1112,8 @@ gboolean g_str_equal (gconstpointer key1, gconstpointer key2);
 <div class="caption">
 <p><span class="glib-hashfuncs">Listado</span>: Hashes/comparaciones preescritos</p>
 </div>
-<p>Manipular la tabla hash es simple. Las rutinas se resumen en <span class="glib-hashmanip">Listado</span>. Las inserciones <em>no</em> copian la clave o el valor; estos se ingresan en la tabla exactamente como los proporciona, reemplazando cualquier par clave-valor preexistente con la misma clave (&quot;igual&quot; está definido por sus funciones hash e igualdad, recuerde). Si esto es un problema, debe realizar una búsqueda o eliminar antes de insertar. Tenga especial cuidado si asigna claves o valores de forma dinámica. Si ha proporcionado funciones <code>GDestroyNotify</code>, éstas se llamarán automáticamente en el antiguo par clave-valor antes de reemplazarlo.</p>
-<p>El <code>g_hash_table_lookup()</code> simple devuelve el valor que encuentra asociado con <code>key</code>, o <code>NULL</code> si no hay ningún valor. A veces esto no funciona. Por ejemplo, <code>NULL</code> puede ser un valor válido en sí mismo. Si está utilizando cadenas como claves, especialmente cadenas asignadas dinámicamente, saber que una clave está en la tabla puede no ser suficiente; es posible que desee recuperar el <code>gchar*</code> exacto que utiliza la tabla hash para representar la clave <code>&quot;foo&quot;</code> . Se proporciona una segunda función de búsqueda para casos como estos. <code>g_hash_table_lookup_extended()</code> devuelve <code>TRUE</code> si la búsqueda se realizó correctamente; si devuelve <code>TRUE</code>, coloca la clave y el valor que encontró en las ubicaciones proporcionadas.</p>
+<p>Manipular la tabla hash es simple. Las rutinas se resumen en <span class="glib-hashmanip">Listado</span>. Las inserciones <em>no</em> copian la clave o el valor; estos se ingresan en la tabla exactamente como los proporciona, reemplazando cualquier par clave-valor preexistente con la misma clave ("igual" está definido por sus funciones hash e igualdad, recuerde). Si esto es un problema, debe realizar una búsqueda o eliminar antes de insertar. Tenga especial cuidado si asigna claves o valores de forma dinámica. Si ha proporcionado funciones <code>GDestroyNotify</code>, éstas se llamarán automáticamente en el antiguo par clave-valor antes de reemplazarlo.</p>
+<p>El <code>g_hash_table_lookup()</code> simple devuelve el valor que encuentra asociado con <code>key</code>, o <code>NULL</code> si no hay ningún valor. A veces esto no funciona. Por ejemplo, <code>NULL</code> puede ser un valor válido en sí mismo. Si está utilizando cadenas como claves, especialmente cadenas asignadas dinámicamente, saber que una clave está en la tabla puede no ser suficiente; es posible que desee recuperar el <code>gchar*</code> exacto que utiliza la tabla hash para representar la clave <code>"foo"</code> . Se proporciona una segunda función de búsqueda para casos como estos. <code>g_hash_table_lookup_extended()</code> devuelve <code>TRUE</code> si la búsqueda se realizó correctamente; si devuelve <code>TRUE</code>, coloca la clave y el valor que encontró en las ubicaciones proporcionadas.</p>
 <p><a id="glib-hashmanip"></a></p>
 <pre><code class="language-c">#include &lt;glib.h&gt;
 
@@ -1125,7 +1131,7 @@ gboolean g_hash_table_lookup_extended (GHashTable *hash_table,
 <div style="break-before: page; page-break-before: always;"></div><h1 id="el-bucle-del-evento-principal"><a class="header" href="#el-bucle-del-evento-principal">El bucle del evento principal</a></h1>
 <p><a id="glib-event-loop"></a></p>
 <div class="caption">
-<img src="content/glib/../../assets/img/diag/event-loop.svg" alt="Estructura de una aplicación impulsada por eventos" width="70%" />
+<img src="https://raw.githubusercontent.com/gersonbenavides/glib-gtk-libro/main/src/assets/images/diagrams/event-loop.svg" alt="Estructura de una aplicación impulsada por eventos" width="70%" />
 <p><span class="glib-event-loop">Figura</span>: Estructura de una aplicación impulsada por eventos, con un bucle de eventos principal</p>
 </div>
 <p>Las aplicaciones actuales a menudo se basan en eventos. Para las aplicaciones GUI, hay muchas fuentes de eventos: una pulsación de tecla, un clic del mouse, un gesto táctil, un mensaje de otra aplicación, un cambio en el sistema de archivos, estar conectado o desconectado de la red, etc. Una aplicación necesita reaccionar a esos eventos. Por ejemplo, cuando se presiona una tecla cuando una entrada de texto tiene el foco, el carácter debe insertarse y mostrarse en la pantalla.</p>
@@ -1165,7 +1171,7 @@ create_button (MyObject *self)
 
   /* Adjuntar devolucion de llamada de senal */
   g_signal_connect (button,
-                    &quot;clicked&quot;,
+                    "clicked",
                     G_CALLBACK (button_clicked_cb),
                     self);
 }
@@ -1195,8 +1201,8 @@ gboolean g_source_remove (guint source_id);
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="otras-características"><a class="header" href="#otras-características">Otras características</a></h1>
 <p>Simplemente no hay espacio para cubrir todas las funciones de GLib en este
-libro. Vale la pena mirar GLib cada vez que piense: &quot;Realmente <em>debería</em> haber
-una función que ...&quot;. Esta sección enumera otras características que proporciona
+libro. Vale la pena mirar GLib cada vez que piense: "Realmente <em>debería</em> haber
+una función que ...". Esta sección enumera otras características que proporciona
 GLib, pero <em>no</em> es exhaustiva.</p>
 <p>Parte del soporte de aplicaciones principales que no se ha mencionado aún:</p>
 <ul>
@@ -1273,7 +1279,7 @@ GLib, pero <em>no</em> es exhaustiva.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="programación-semi-orientada-a-objetos-en-c"><a class="header" href="#programación-semi-orientada-a-objetos-en-c">Programación semi-orientada a objetos en C</a></h1>
 <p>Ahora que está familiarizado con la biblioteca principal de GLib, ¿cuál es el siguiente paso? Como se explicó en la sección <span class="ch-intro-learning-path">Ruta de aprendizaje</span>, el seguimiento lógico es la programación orientada a objetos (OOP) en C y los conceptos básicos de GObject.</p>
 <p>Cada widget GTK es una subclase de la clase base GObject. Entonces, conocer los conceptos básicos de GObject es importante para <em>usar</em> un widget GTK u otra utilidad basada en GObject, pero también para <em>crear</em> tus propias clases de GObject.</p>
-<p>Es importante notar que aunque el lenguaje C no está orientado a objetos, es posible escribir código C &quot;semi-orientado a objetos&quot; fácilmente, sin GObject. Para fines de aprendizaje, con eso comienza esta parte. GObject es entonces más fácil de aprender. Lo que GObject agrega son más características como recuento de referencias, herencia, funciones virtuales, interfaces, señales y más.</p>
+<p>Es importante notar que aunque el lenguaje C no está orientado a objetos, es posible escribir código C "semi-orientado a objetos" fácilmente, sin GObject. Para fines de aprendizaje, con eso comienza esta parte. GObject es entonces más fácil de aprender. Lo que GObject agrega son más características como recuento de referencias, herencia, funciones virtuales, interfaces, señales y más.</p>
 <p>Pero, ¿por qué seguir un estilo orientado a objetos en primer lugar? Un código orientado a objetos permite evitar variables globales. Y si ha leído algún tipo de guía de mejores prácticas de programación, sabe que <em>debería</em>, si es posible, evitar las variables globales.</p>
 <blockquote>
 <p><strong>📌 Nota:</strong> Una variable global en C puede ser una variable <code>static</code> declarada en el parte superior de un archivo *.c, al que se puede acceder desde cualquier función en ese archivo *.c. Esto a veces es útil, pero debe evitarse si es posible. Hay otro tipo de variable global en C: una variable <code>extern</code> a la que se puede acceder desde cualquier archivo *.c. Este último es mucho peor que el primero.</p>
@@ -1337,10 +1343,10 @@ G_END_DECLS
 </div>
 <!-- Habilitacion del enumeramiento de referencias -->
 <div class="oop-semi-refs"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="espacio-de-nombres-del-proyecto"><a class="header" href="#espacio-de-nombres-del-proyecto">Espacio de nombres del proyecto</a></h1>
-<p>Lo primero a tener en cuenta es el uso del espacio de nombres &quot;Myapp&quot;. Cada símbolo del encabezado tiene como prefijo el espacio de nombres del proyecto.</p>
-<p>Es una buena práctica elegir un espacio de nombres para su código, para evitar conflictos de símbolos en el momento del enlace. Es especialmente importante tener un espacio de nombres para una biblioteca, pero también es mejor tener uno para una aplicación. Por supuesto, el espacio de nombres debe ser único para cada base de código; por ejemplo, <em>no</em> debe reutilizar los espacios de nombres &quot;G&quot; o &quot;Gtk&quot; para su aplicación o biblioteca.</p>
+<p>Lo primero a tener en cuenta es el uso del espacio de nombres "Myapp". Cada símbolo del encabezado tiene como prefijo el espacio de nombres del proyecto.</p>
+<p>Es una buena práctica elegir un espacio de nombres para su código, para evitar conflictos de símbolos en el momento del enlace. Es especialmente importante tener un espacio de nombres para una biblioteca, pero también es mejor tener uno para una aplicación. Por supuesto, el espacio de nombres debe ser único para cada base de código; por ejemplo, <em>no</em> debe reutilizar los espacios de nombres "G" o "Gtk" para su aplicación o biblioteca.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="espacio-de-nombres-de-clase"><a class="header" href="#espacio-de-nombres-de-clase">Espacio de nombres de clase</a></h1>
-<p>Además, hay un segundo espacio de nombres con el nombre de la clase, aquí &quot;SpellChecker&quot;. Si sigue esa convención de forma coherente, el nombre de un símbolo es más predecible, lo que facilita el trabajo con la API. El nombre de un símbolo siempre será &quot;espacio de nombres del proyecto&quot; + &quot;nombre de la clase&quot; + &quot;nombre del símbolo&quot;.</p>
+<p>Además, hay un segundo espacio de nombres con el nombre de la clase, aquí "SpellChecker". Si sigue esa convención de forma coherente, el nombre de un símbolo es más predecible, lo que facilita el trabajo con la API. El nombre de un símbolo siempre será "espacio de nombres del proyecto" + "nombre de la clase" + "nombre del símbolo".</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="minúsculas-mayúsculas-o-camelcase"><a class="header" href="#minúsculas-mayúsculas-o-camelcase">¿Minúsculas, Mayúsculas o CamelCase?</a></h1>
 <p>El correcto nombramiento de un símbolo (ya sea una variable, objeto, etc) es importante en el desarrollo del software, pues permite entender el contexto del código de una manera mucho más simple en su lectura.</p>
 <p>Dependiendo del tipo de símbolo, su nombre puede poseer un estilo diferente, como estar en mayúsculas, minúsculas o CamelCase. Es importante denotar que además del estilo de escritura, un buen nombre debe poseer sentido semántico y ser expresivo, de manera que otro programador entienda lo que es y lo que hace fácilmente. La convención en el mundo GLib es:</p>
@@ -1395,10 +1401,10 @@ G_END_DECLS
 </code></pre>
 <p>La <code>struct _MyappSpellChecker</code> se declarará en el archivo <code>myapp-spell-checker.c</code>. Cuando usa <code>MyappSpellChecker</code> en otro archivo, no debería necesitar saber qué contiene <code>struct</code>, debería usar las funciones públicas de la clase en su lugar. La excepción a la mejor práctica de OOP es cuando llamar a una función sería un problema de rendimiento, por ejemplo, para estructuras de datos de bajo nivel utilizadas para gráficos por computadora (coordenadas, rectángulos,…). Pero recuerde: <em>la optimización prematura es la raíz de todos los males</em> (Donald Knuth).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="constructor-de-objetos"><a class="header" href="#constructor-de-objetos">Constructor de objetos</a></h1>
-<p><code>myapp_spell_checker_new()</code> es el constructor de la clase. Toma un parámetro de código de idioma (por ejemplo <code>&quot;en_US&quot;</code>) y devuelve una <em>instancia</em> de la clase, también llamada <em>objeto</em>. Lo que hace la función es simplemente asignar dinámicamente la <code>estructura</code> y devolver el puntero. Ese valor de retorno se usa luego como el primer parámetro de las funciones restantes de la clase. En algunos lenguajes como Python, ese primer parámetro se llama parámetro <em>self</em>, ya que hace referencia a &quot;sí mismo&quot;, es decir, a su propia clase. Otros lenguajes orientados a objetos como Java y C ++ tienen la palabra clave <em>this</em> para acceder a los datos del objeto.</p>
+<p><code>myapp_spell_checker_new()</code> es el constructor de la clase. Toma un parámetro de código de idioma (por ejemplo <code>"en_US"</code>) y devuelve una <em>instancia</em> de la clase, también llamada <em>objeto</em>. Lo que hace la función es simplemente asignar dinámicamente la <code>estructura</code> y devolver el puntero. Ese valor de retorno se usa luego como el primer parámetro de las funciones restantes de la clase. En algunos lenguajes como Python, ese primer parámetro se llama parámetro <em>self</em>, ya que hace referencia a "sí mismo", es decir, a su propia clase. Otros lenguajes orientados a objetos como Java y C ++ tienen la palabra clave <em>this</em> para acceder a los datos del objeto.</p>
 <p>Tenga en cuenta que <code>myapp_spell_checker_new()</code> se puede llamar varias veces para crear diferentes objetos. Cada objeto tiene sus propios datos. Esa es la diferencia fundamental con las variables globales: si los datos se almacenan en variables globales, puede haber como máximo una instancia de ellos.</p>
 <blockquote>
-<p><strong>📌 Nota:</strong> A menos que la variable global almacene los &quot;objetos&quot; en una estructura de datos agregados como una matriz, un lista enlazada o una tabla hash, con un identificador como el parámetro &quot;<em>self</em>&quot; (por ejemplo, un número entero o una cadena) para acceder a un elemento específico. Pero este es un código realmente desagradable, ¡por favor no lo hagas!.</p>
+<p><strong>📌 Nota:</strong> A menos que la variable global almacene los "objetos" en una estructura de datos agregados como una matriz, un lista enlazada o una tabla hash, con un identificador como el parámetro "<em>self</em>" (por ejemplo, un número entero o una cadena) para acceder a un elemento específico. Pero este es un código realmente desagradable, ¡por favor no lo hagas!.</p>
 </blockquote>
 <!-- POR HACER explicar new() (asignación en el montón) vs init() (asignación en la pila) y dar un ejemplo con init(). Pero el ejemplo también requiere el código *.c, por lo que quizás sea mejor agregar la explicación en una subsección posterior. --><div style="break-before: page; page-break-before: always;"></div><h1 id="destructor-de-objetos"><a class="header" href="#destructor-de-objetos">Destructor de objetos</a></h1>
 <p><code>myapp_spell_checker_free()</code> es el destructor de la clase. Destruye un objeto liberando su memoria y liberando otros recursos asignados.</p>
@@ -1408,7 +1414,7 @@ G_END_DECLS
 <div style="break-before: page; page-break-before: always;"></div><h1 id="el-archivo-c-correspondiente"><a class="header" href="#el-archivo-c-correspondiente">El archivo *.c correspondiente</a></h1>
 <p>Veamos ahora el archivo <code>myapp-spell-checker.c</code>:</p>
 <p><a id="oop-semi-spell-checker-c"></a></p>
-<pre><code class="language-c">#include &quot;myapp-spell-checker.h&quot;
+<pre><code class="language-c">#include "myapp-spell-checker.h"
 #include &lt;string.h&gt;
 
 struct _MyappSpellChecker
@@ -1514,9 +1520,9 @@ myapp_spell_checker_get_suggestions (MyappSpellChecker *checker,
   if (word_length == -1)
     word_length = strlen (word);
 
-  if (strncmp (word, &quot;punchness&quot;, word_length) == 0)
+  if (strncmp (word, "punchness", word_length) == 0)
     suggestions = g_slist_prepend (suggestions,
-                                   g_strdup (&quot;punchiness&quot;));
+                                   g_strdup ("punchiness"));
 
   return suggestions;
 }
@@ -1557,7 +1563,7 @@ myapp_spell_checker_get_suggestions (MyappSpellChecker *checker,
 <p>Hay muchas otras anotaciones de GObject Introspection (GI), por nombrar solo un par de otras:</p>
 <ul>
 <li><code>(nullable)</code>: el valor puede ser <code>NULL</code>;</li>
-<li><code>(out)</code>: un parámetro de función &quot;out&quot;, es decir, un parámetro que devuelve un valor.</li>
+<li><code>(out)</code>: un parámetro de función "out", es decir, un parámetro que devuelve un valor.</li>
 </ul>
 <p>Como puede ver, las anotaciones GI no solo son útiles para los enlaces de idiomas, sino que también recopilan información útil para el programador de C.</p>
 <p>Para obtener una lista completa de anotaciones GI, consulte la wiki de GObject Introspection <span class="gobject-introspection"></span>.</p>
@@ -1596,10 +1602,10 @@ myapp_spell_checker_check_word (MyappSpellChecker *checker,
 <p><strong>📌 Nota:</strong> En <code>myapp-spell-checker.h</code>, los nombres de las funciones están sangrados con dos espacios en lugar de estar en las mismas líneas que los tipos de retorno, porque no hay suficiente espacio horizontal en la página.</p>
 </blockquote>
 <p>De esa manera, puede hacer una búsqueda de expresión regular para encontrar la implementación de una función, por ejemplo, con el comando de shell <code>grep</code>:</p>
-<pre><code class="language-bash">$ grep -n -E &quot;^function_name&quot; *.c
+<pre><code class="language-bash">$ grep -n -E "^function_name" *.c
 </code></pre>
 <p>O, si el código está dentro de un repositorio de Git, es un poco más conveniente de usar <code>git grep</code>:</p>
-<pre><code class="language-bash">$ git grep -n -E &quot;^function_name&quot;
+<pre><code class="language-bash">$ git grep -n -E "^function_name"
 </code></pre>
 <p>Asimismo, existe una manera fácil de encontrar la declaración de una <code>struct</code> pública. La convención es prefijar el nombre del tipo con un guión bajo al declarar la <code>struct</code>. Por ejemplo:</p>
 <pre><code class="language-c">/* En el encabezado: */
@@ -1611,7 +1617,7 @@ struct _MyappSpellChecker
   /* ... */
 };
 </code></pre>
-<p>Como resultado, para encontrar la declaración completa del tipo <code>MyappSpellChecker</code>, puede buscar &quot;<code>_MyappSpellChecker</code>&quot;:</p>
+<p>Como resultado, para encontrar la declaración completa del tipo <code>MyappSpellChecker</code>, puede buscar "<code>_MyappSpellChecker</code>":</p>
 <pre><code class="language-bash">$ git grep -n _MyappSpellChecker
 </code></pre>
 <p>En GLib/GTK, esta convención de prefijo de subrayado se aplica normalmente a cada <code>struct</code> que tiene una línea <code>typedef</code> separada. La convención no se sigue a fondo cuando se usa una <code>struct</code> en un solo archivo *.c. Y la convención generalmente no se sigue para los tipos <code>enum</code>. Sin embargo, para su proyecto, nada le impide aplicar consistentemente la convención de prefijo de subrayado a todos los tipos.</p>
@@ -1622,7 +1628,7 @@ struct _MyappSpellChecker
 <p>En el capítulo anterior hemos aprendido a escribir código semi-orientado a objetos en C. Así es como se escriben las clases en GLib core. GObject avanza varios pasos en la programación orientada a objetos, con herencia, interfaces, funciones virtuales, etc. GObject también simplifica el paradigma de programación dirigida por eventos, con señales y propiedades.</p>
 <p>Se recomienda crear sus propias clases de GObject para escribir una aplicación GLib/GTK. Desafortunadamente, el código es un poco detallado, porque el lenguaje C no está orientado a objetos. El código repetitivo es necesario para algunas funciones, pero no tenga miedo, existen herramientas y scripts para generar el modelo repetitivo.</p>
 <p>Sin embargo, este capítulo da un paso atrás del capítulo anterior, es solo una pequeña introducción a GObject; explicará las cosas esenciales para saber cómo <em>usar</em> una clase GObject existente (como todos los widgets y clases GTK en GIO). No explicará cómo <em>crear</em> sus propias clases de GObject, porque ya está bien cubierto en el manual de referencia de GObject, y el objetivo de este libro no es duplicar todo el contenido de los manuales de referencia, el objetivo es más para que sirva de guía de introducción.</p>
-<p>Entonces, para obtener información más detallada sobre GObject y saber cómo crear subclases, la documentación de referencia de GObject contiene capítulos introductorios: &quot;<em>Conceptos</em>&quot; y &quot;<em>Tutorial</em>&quot;, disponibles en:</p>
+<p>Entonces, para obtener información más detallada sobre GObject y saber cómo crear subclases, la documentación de referencia de GObject contiene capítulos introductorios: "<em>Conceptos</em>" y "<em>Tutorial</em>", disponibles en:</p>
 <p><a href="https://docs.gtk.org/gobject/">https://docs.gtk.org/gobject/</a></p>
 <p>Para explicar ciertos conceptos, se toman algunos ejemplos de GTK o GIO. Al leer este capítulo, se le anima a abrir Devhelp en paralelo, para mirar la referencia de API y ver por sí mismo cómo se documenta una biblioteca basada en GObject. El objetivo es que seas autónomo y puedas aprender cualquier clase nueva de GObject, ya sea en GIO, GTK o cualquier otra biblioteca.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="herencia"><a class="header" href="#herencia">Herencia</a></h1>
@@ -1632,7 +1638,7 @@ struct _MyappSpellChecker
 └── GApplication
     └── GtkApplication
 </code></pre>
-<p>Significa que cuando crea un objeto <code>GtkApplication</code>, también tiene acceso a las funciones, señales y propiedades de <code>GApplication</code> (implementado en GIO) y <code>GObject</code>. Por supuesto, las funciones <code>g_application_*</code> toman como primer argumento una variable de tipo &quot;<code>GApplication *</code>&quot;, no &quot;<code>GtkApplication *</code>&quot;. Para convertir la variable en el tipo correcto, la forma recomendada es usar la macro <code>G_APPLICATION()</code>. Por ejemplo:</p>
+<p>Significa que cuando crea un objeto <code>GtkApplication</code>, también tiene acceso a las funciones, señales y propiedades de <code>GApplication</code> (implementado en GIO) y <code>GObject</code>. Por supuesto, las funciones <code>g_application_*</code> toman como primer argumento una variable de tipo "<code>GApplication *</code>", no "<code>GtkApplication *</code>". Para convertir la variable en el tipo correcto, la forma recomendada es usar la macro <code>G_APPLICATION()</code>. Por ejemplo:</p>
 <pre><code class="language-c">GtkApplication *app;
 
 g_application_mark_busy (G_APPLICATION (app));
@@ -1640,7 +1646,7 @@ g_application_mark_busy (G_APPLICATION (app));
 <div style="break-before: page; page-break-before: always;"></div><h1 id="macros-de-gobject"><a class="header" href="#macros-de-gobject">Macros de GObject</a></h1>
 <p>Cada clase de GObject proporciona un conjunto de macros estándar. La macro <code>G_APPLICATION()</code> como se demostró en la sección anterior es una de las macros estándar proporcionadas por la clase <code>GApplication</code>.</p>
 <p>No todas las macros estándar de GObject se explicarán aquí, solo las macros útiles para <em>usar</em> un GObject de una manera básica. Las otras macros son más avanzadas y generalmente son útiles solo cuando se subclasifica una clase GObject, cuando se crea una propiedad o una señal, o cuando se reemplaza una función virtual.</p>
-<p>Cada clase GObject define una macro de la forma <code>NAMESPACE_CLASSNAME(object)</code>, que convierte la variable al tipo &quot;<code>NamespaceClassname *</code>&quot; y comprueba en tiempo de ejecución si la variable contiene correctamente un <code>NamespaceClassname</code> objeto o una subclase del mismo. Si la variable es <code>NULL</code> o contiene un objeto incompatible, la macro imprime un mensaje de advertencia crítico en la consola y devuelve NULL.</p>
+<p>Cada clase GObject define una macro de la forma <code>NAMESPACE_CLASSNAME(object)</code>, que convierte la variable al tipo "<code>NamespaceClassname *</code>" y comprueba en tiempo de ejecución si la variable contiene correctamente un <code>NamespaceClassname</code> objeto o una subclase del mismo. Si la variable es <code>NULL</code> o contiene un objeto incompatible, la macro imprime un mensaje de advertencia crítico en la consola y devuelve NULL.</p>
 <p>Un elenco estándar también funciona, pero la mayoría de las veces no se recomienda porque no hay comprobaciones de tiempo de ejecución:</p>
 <pre><code class="language-c">GtkApplication *app;
 
@@ -1675,10 +1681,10 @@ gtk_orientable_set_orientation (GTK_ORIENTABLE (vgrid),
 </ul>
 <p>Permite almacenar el GObject en varios lugares sin necesidad de coordinar cuándo liberar el objeto.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="evitar-ciclos-de-referencia-con-referencias-débiles"><a class="header" href="#evitar-ciclos-de-referencia-con-referencias-débiles">Evitar ciclos de referencia con referencias débiles</a></h1>
-<p>Si el objeto A hace referencia al objeto B y el objeto B hace referencia al objeto A, hay un ciclo de referencia y los dos objetos nunca se liberarán. Para evitar ese problema, existe el concepto de referencias &quot;débiles&quot;. Al llamar a <code>g_object_ref()</code>, es una referencia &quot;sólida&quot;. Entonces, en una dirección hay una referencia fuerte, y en la otra dirección debe haber una referencia débil (o ninguna referencia).</p>
+<p>Si el objeto A hace referencia al objeto B y el objeto B hace referencia al objeto A, hay un ciclo de referencia y los dos objetos nunca se liberarán. Para evitar ese problema, existe el concepto de referencias "débiles". Al llamar a <code>g_object_ref()</code>, es una referencia "sólida". Entonces, en una dirección hay una referencia fuerte, y en la otra dirección debe haber una referencia débil (o ninguna referencia).</p>
 <p><a id="oop-gobject-weak-ref-schema"></a></p>
 <div class="caption">
-<img src="content/oop-gobj/../../assets/img/diag/weak-ref.svg" alt="" width="32%" />
+<img src="https://raw.githubusercontent.com/gersonbenavides/glib-gtk-libro/main/src/assets/images/diagrams/weak-ref.svg" alt="" width="32%" />
 <p><span class="oop-gobject-weak-ref-schema">Figura</span>: Usar una referencia débil para romper <br /> el ciclo de referencia entre A y B.</p>
 </div>
 <p>En la <span class="oop-gobject-weak-ref-schema">Figura</span> podemos ver que el objeto A tiene una fuerte referencia al objeto B, y el objeto B tiene una débil referencia al objeto A.</p>
@@ -1728,12 +1734,12 @@ gtk_container_add (container, widget);
 <!-- Habilitacion del enumeramiento de referencias -->
 <div class="oop-gobj-refs"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="señales-y-propiedades"><a class="header" href="#señales-y-propiedades">Señales y propiedades</a></h1>
 <p>Una clase GObject puede emitir señales. Con el bucle de eventos principal GLib (explicado anteriormente en la sección <span class="ch-glib-main-loop">El bucle del evento principal</span>, esta es la base para la programación dirigida por eventos. Un ejemplo de señal es cuando el usuario hace clic en un botón. La aplicación conecta una función de devolución de llamada a la señal para realizar la acción deseada cuando ocurre el evento.</p>
-<p>Otro concepto de GObject son las <em>propiedades</em>, que está relacionado con las señales. Una propiedad es básicamente una variable de instancia coronada con una señal de <code>&quot;notify&quot;</code> que se emite cuando cambia su valor. Un buen ejemplo de una propiedad es el estado de un botón de verificación, es decir, un valor booleano que describe si el botón está actualmente marcado o no. Cuando el estado cambia, se envía la señal <code>&quot;notify&quot;</code>.</p>
+<p>Otro concepto de GObject son las <em>propiedades</em>, que está relacionado con las señales. Una propiedad es básicamente una variable de instancia coronada con una señal de <code>"notify"</code> que se emite cuando cambia su valor. Un buen ejemplo de una propiedad es el estado de un botón de verificación, es decir, un valor booleano que describe si el botón está actualmente marcado o no. Cuando el estado cambia, se envía la señal <code>"notify"</code>.</p>
 <p>Para crear sus propias señales o propiedades, se debe crear una subclase GObject. Como se explicó en la introducción de este capítulo, esto está más allá del alcance de este libro, pero debe tener en cuenta que, por supuesto, es posible y recomendable crear sus propias señales o propiedades. De hecho, crear una señal o propiedad de GObject es una buena manera de implementar el patrón de diseño Observer <span class="design-patterns-book"></span>; es decir, uno o varios objetos <em>observando</em> cambios de estado de otro objeto, conectando devoluciones de llamada de función. El objeto que <em>emite</em> la señal no sabe qué objetos <em>reciben</em> la señal. GObject solo realiza un seguimiento de la lista de devoluciones de llamada para llamar. Entonces, agregar una señal permite desacoplar clases.</p>
 <!-- Habilitacion del enumeramiento de referencias -->
 <div class="refs-ch"></div>
 <div class="biblio-refs"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="conexión-de-una-función-de-devolución-de-llamada-a-una-señal"><a class="header" href="#conexión-de-una-función-de-devolución-de-llamada-a-una-señal">Conexión de una función de devolución de llamada a una señal</a></h1>
-<p>Para hacer las cosas más concretas, si observa la documentación de <code>GtkButton</code>, verá que proporciona la señal <code>&quot;clicked&quot;</code>. Para realizar la acción deseada cuando se emite la señal, una o más funciones de devolución de llamada deben estar conectadas de antemano.</p>
+<p>Para hacer las cosas más concretas, si observa la documentación de <code>GtkButton</code>, verá que proporciona la señal <code>"clicked"</code>. Para realizar la acción deseada cuando se emite la señal, una o más funciones de devolución de llamada deben estar conectadas de antemano.</p>
 <p>Para conectar una devolución de llamada a una señal, se puede usar la función <code>g_signal_connect()</code>, o una de las otras funciones <code>g_signal_connect_*()</code>:</p>
 <ul>
 <li><code>g_signal_connect()</code></li>
@@ -1745,7 +1751,7 @@ gtk_container_add (container, widget);
 </ul>
 <p>El <span class="oop-gobject-gtkbutton-clicked">Listado</span> muestra el prototipo de la señal <code>GtkButton::clicked</code>.</p>
 <blockquote>
-<p><strong>📌 Nota:</strong> La convención cuando se hace referencia a una señal de GObject es &quot;<code>ClassName::signal-name</code>&quot;. Así es como se documenta con los comentarios de GTK-Doc.</p>
+<p><strong>📌 Nota:</strong> La convención cuando se hace referencia a una señal de GObject es "<code>ClassName::signal-name</code>". Así es como se documenta con los comentarios de GTK-Doc.</p>
 </blockquote>
 <p><a id="oop-gobject-gtkbutton-clicked"></a></p>
 <pre><code class="language-c">void
@@ -1764,7 +1770,7 @@ button_clicked_cb (GtkButton *button,
 {
   MyClass *my_class = MY_CLASS (user_data);
 
-  g_message (&quot;Boton pulsado!&quot;);
+  g_message ("Boton pulsado!");
 }
 
 static void
@@ -1777,7 +1783,7 @@ create_button (MyClass *my_class)
 
   /* Conectar la funcion de devolucion de llamada */
   g_signal_connect (button,
-                    &quot;clicked&quot;,
+                    "clicked",
                     G_CALLBACK (button_clicked_cb),
                     my_class);
 }
@@ -1788,8 +1794,8 @@ create_button (MyClass *my_class)
 <p>La macro <code>G_CALLBACK()</code> es necesaria porque <code>g_signal_connect()</code> es genérica: se puede usar para conectarse a cualquier señal de cualquier clase de GObject, por lo que el puntero de función debe ser convertido.</p>
 <p>Hay dos convenciones principales para nombrar funciones de devolución de llamada:</p>
 <ul>
-<li>Termine el nombre de la función con &quot;<code>cb</code>&quot;, atajo de &quot;callback&quot;. Por ejemplo: <code>button_clicked_cb()</code> como en el ejemplo de código anterior.</li>
-<li>Inicie el nombre de la función con &quot;<code>on</code>&quot;. Por ejemplo: <code>on_button_clicked()</code>.</li>
+<li>Termine el nombre de la función con "<code>cb</code>", atajo de "callback". Por ejemplo: <code>button_clicked_cb()</code> como en el ejemplo de código anterior.</li>
+<li>Inicie el nombre de la función con "<code>on</code>". Por ejemplo: <code>on_button_clicked()</code>.</li>
 </ul>
 <p>Con una de esas convenciones de nomenclatura --- y con el parámetro <code>gpointer user_data</code>, que siempre es el último parámetro --- es fácil reconocer que una función es una devolución de llamada.</p>
 <p>El lenguaje C permite escribir una firma de función de devolución de llamada diferente --- pero compatible ---, aunque no se considera universalmente como algo bueno:</p>
@@ -1800,11 +1806,11 @@ create_button (MyClass *my_class)
 <p><strong>📌 Nota:</strong> Al igual que con los lenguajes naturales, la redundancia permite comprender mejor y más rápidamente lo que leemos o escuchamos.</p>
 </blockquote>
 <ul>
-<li>Los tipos de argumentos se pueden modificar a un tipo compatible: p. Ej. otra clase en la jerarquía de herencia, o en el ejemplo anterior, reemplazando &quot;<code>gpointer</code>&quot; por &quot;<code>MyClass *</code>&quot; (pero hacer eso hace que el código sea un poco menos robusto porque <code>No se llama a la macro MY_CLASS()</code>).</li>
+<li>Los tipos de argumentos se pueden modificar a un tipo compatible: p. Ej. otra clase en la jerarquía de herencia, o en el ejemplo anterior, reemplazando "<code>gpointer</code>" por "<code>MyClass *</code>" (pero hacer eso hace que el código sea un poco menos robusto porque <code>No se llama a la macro MY_CLASS()</code>).</li>
 </ul>
 <!-- Habilitacion del enumeramiento de referencias -->
 <div class="oop-gobj-refs"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="desconexión-de-controladores-de-señales"><a class="header" href="#desconexión-de-controladores-de-señales">Desconexión de controladores de señales</a></h1>
-<p>En el <span class="oop-gobject-connect-to-signal">Listado</span>, se llama a <code>button_clicked_cb()</code> cada vez que el objeto <code>button</code> emite la señal <code>&quot;clicked&quot;</code>. Si el objeto <code>button</code> todavía está vivo después de que <code>my_class</code> se haya liberado, cuando la señal se emita nuevamente habrá un pequeño problema ... Entonces, en el destructor de <code>MyClass</code>, el manejador de señales (es decir, la devolución de llamada) debe desconectarse. ¿Como hacer eso?</p>
+<p>En el <span class="oop-gobject-connect-to-signal">Listado</span>, se llama a <code>button_clicked_cb()</code> cada vez que el objeto <code>button</code> emite la señal <code>"clicked"</code>. Si el objeto <code>button</code> todavía está vivo después de que <code>my_class</code> se haya liberado, cuando la señal se emita nuevamente habrá un pequeño problema ... Entonces, en el destructor de <code>MyClass</code>, el manejador de señales (es decir, la devolución de llamada) debe desconectarse. ¿Como hacer eso?</p>
 <p>Las funciones <code>g_signal_connect*()</code> en realidad devuelven un ID del manejador de señales, como un entero <code>gulong</code> siempre mayor que 0 (para conexiones exitosas). Al almacenar ese ID, es posible desconectar ese manejador de señal específico con la función <code>g_signal_handler_disconnect()</code>.</p>
 <p>A veces también queremos desconectar el controlador de señales simplemente porque ya no estamos interesados en el evento.</p>
 <p>El <span class="oop-gobject-disconnect-signal">Listado</span> muestra un ejemplo completo de cómo desconectar un manejador de señales cuando se libera su argumento <code>user_data</code>. Volvemos a un ejemplo con un corrector ortográfico, porque el ejemplo con el botón GTK no se ajusta bien a la situación.</p>
@@ -1834,8 +1840,8 @@ word_added_to_personal_cb (GspellChecker *spell_checker,
 {
   MyTextView *text_view = user_data;
 
-  g_message (&quot;La palabra '%s' se ha agregado al diccionario personal &quot;
-             &quot;del usuario. text_view=%p se actualizara en consecuencia.&quot;,
+  g_message ("La palabra '%s' se ha agregado al diccionario personal "
+             "del usuario. text_view=%p se actualizara en consecuencia.",
              word,
              text_view);
 }
@@ -1863,7 +1869,7 @@ my_text_view_new (GspellChecker *spell_checker)
 
   text_view-&gt;word_added_to_personal_handler_id =
     g_signal_connect (spell_checker,
-                      &quot;word-added-to-personal&quot;,
+                      "word-added-to-personal",
                       G_CALLBACK (word_added_to_personal_cb),
                       text_view);
 
@@ -1918,15 +1924,15 @@ my_text_view_free (MyTextView *text_view)
 <p>Tenga en cuenta también que si <code>MyTextView</code> fuera una clase GObject, habría sido posible conectarse a la señal del corrector ortográfico con <code>g_signal_connect_object()</code>, y habría eliminado por completo la necesidad de desconectar manualmente el controlador de señal en el destructor <code>MyTextView</code>. Una (pequeña) razón más para aprender a crear subclases de GObject.</p>
 <!-- Habilitacion del enumeramiento de referencias -->
 <div class="oop-gobj-refs"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="propiedades"><a class="header" href="#propiedades">Propiedades</a></h1>
-<p>Si ha mirado la referencia de la API GTK o GIO, debe haber notado que algunas clases de GObject tienen una o más <em>propiedades</em>. Una propiedad es como una variable de instancia, también llamada &quot;attribute&quot;, pero es diferente en el contexto de GObject porque tiene propiedades interesantes adicionales (Pun intencionado).</p>
+<p>Si ha mirado la referencia de la API GTK o GIO, debe haber notado que algunas clases de GObject tienen una o más <em>propiedades</em>. Una propiedad es como una variable de instancia, también llamada "attribute", pero es diferente en el contexto de GObject porque tiene propiedades interesantes adicionales (Pun intencionado).</p>
 <p>Como se dijo anteriormente al comienzo de la sección <span class="ch-oop-gobject-sig-prop"></span>, un buen ejemplo de una propiedad es el estado de un botón de verificación, es decir, un valor booleano que describe si el botón está actualmente marcado o no. Si ya conoce un poco de GTK, es posible que haya descubierto que hay un botón de verificación disponible con el widget <code>GtkCheckButton</code>. Pero había una pequeña trampa si quería encontrar la propiedad de la que estaba hablando, porque la propiedad está implementada en la clase padre <code>GtkToggleButton</code>: la propiedad <code>GtkToggleButton:active</code></p>
 <blockquote>
-<p><strong>📌 Nota:</strong> De la misma manera como las señales se documentan con GTK-Doc como &quot;<code>ClassName::signal-name</code>&quot;, las propiedades se documentan como &quot;<code>ClassName:property-name</code>&quot;.</p>
+<p><strong>📌 Nota:</strong> De la misma manera como las señales se documentan con GTK-Doc como "<code>ClassName::signal-name</code>", las propiedades se documentan como "<code>ClassName:property-name</code>".</p>
 </blockquote>
 <h2 id="la-señal-notify"><a class="header" href="#la-señal-notify">La señal <code>notify</code></a></h2>
 <p>El atributo principal (Pun también intencionado) de una propiedad (además de representar un valor) es que la clase GObject emite la señal <code>GObject::notify</code> cuando cambia el valor de una propiedad.</p>
 <p>Hay un concepto de señales GObject que aún no se ha explicado y se usa con la señal <code>GObject::notify</code>: cuando se emite una señal, se puede proporcionar un <em>detail</em>. En el caso de la señal de notificación, el detalle es el nombre de la propiedad cuyo valor ha cambiado. Dado que solo hay una señal para todas las propiedades, gracias al <em>detail</em> es posible conectar una devolución de llamada para recibir una notificación solo cuando una determinada propiedad haya cambiado. Si el <em>detail</em> no se proporciona al conectar la devolución de llamada, la devolución de llamada se llamará cuando <em>cualquiera</em> de las propiedades del objeto cambie, lo que generalmente no es lo que se desea.</p>
-<p>Será más claro con un ejemplo. El <span class="oop-gobject-connect-to-notify">Listado</span> muestra cómo conectarse a la señal de notificación. Tenga en cuenta que en lugar de conectarse a la señal detallada <code>&quot;notify::active&quot;</code>, en realidad es más conveniente utilizar la señal <code>GtkToggleButton::toggled</code>. Hay mejores casos de uso en el mundo real en los que es necesario conectarse a la señal de notificación, pero al menos el <span class="oop-gobject-connect-to-notify">Listado</span> es, con suerte, comprensible con solo un conocimiento limitado de GTK (y si mira la documentación en Devhelp en paralelo).</p>
+<p>Será más claro con un ejemplo. El <span class="oop-gobject-connect-to-notify">Listado</span> muestra cómo conectarse a la señal de notificación. Tenga en cuenta que en lugar de conectarse a la señal detallada <code>"notify::active"</code>, en realidad es más conveniente utilizar la señal <code>GtkToggleButton::toggled</code>. Hay mejores casos de uso en el mundo real en los que es necesario conectarse a la señal de notificación, pero al menos el <span class="oop-gobject-connect-to-notify">Listado</span> es, con suerte, comprensible con solo un conocimiento limitado de GTK (y si mira la documentación en Devhelp en paralelo).</p>
 <p><a id="oop-gobject-connect-to-notify"></a></p>
 <pre><code class="language-c">/* Si observa la documentacion de la señal de notificacion, el primer
  * parametro tiene el tipo GObject, no GtkCheckButton. Dado que
@@ -1958,11 +1964,11 @@ create_check_button (MyWindow *window)
 {
   GtkWidget *check_button;
 
-  check_button = gtk_check_button_new_with_label (&quot;Mostrar panel lateral&quot;);
+  check_button = gtk_check_button_new_with_label ("Mostrar panel lateral");
 
   /* Conectese sin el detail. */
   g_signal_connect (check_button,
-                    &quot;notify&quot;,
+                    "notify",
                     G_CALLBACK (check_button_notify_cb),
                     NULL);
 
@@ -1970,7 +1976,7 @@ create_check_button (MyWindow *window)
    * cuando la propiedad GtkToggleButton:active cambia
    */
   g_signal_connect (check_button,
-                    &quot;notify::active&quot;,
+                    "notify::active",
                     G_CALLBACK (check_button_notify_active_cb),
                     window);
 
@@ -1981,7 +1987,7 @@ create_check_button (MyWindow *window)
 <p><span class="oop-gobject-connect-to-notify">Listado</span>: Conexión a la señal de notificación para escuchar cambios en la propiedad.</p>
 </div>
 <h2 id="vinculaciones-de-propiedad"><a class="header" href="#vinculaciones-de-propiedad">Vinculaciones de propiedad</a></h2>
-<p>Otro aspecto útil de las propiedades es que dos propiedades se pueden vincular fácilmente: cuando una propiedad cambia, la otra se actualiza para tener el mismo valor. Lo mismo se puede lograr con la señal <code>&quot;notify&quot;</code>, pero existen funciones de nivel superior.</p>
+<p>Otro aspecto útil de las propiedades es que dos propiedades se pueden vincular fácilmente: cuando una propiedad cambia, la otra se actualiza para tener el mismo valor. Lo mismo se puede lograr con la señal <code>"notify"</code>, pero existen funciones de nivel superior.</p>
 <p>Se pueden vincular dos propiedades de varias formas con una de las funciones <code>g_object_bind_property*()</code>. El <span class="oop-gobject-binding-properties">Listado</span> muestra una implementación más simple del <span class="oop-gobject-connect-to-notify">Listado</span>; el código es equivalente, pero usa la función <code>g_object_bind_property()</code>.</p>
 <p><a id="oop-gobject-binding-properties"></a></p>
 <pre><code class="language-c">static GtkWidget *
@@ -1989,7 +1995,7 @@ create_check_button (MyWindow *window)
 {
   GtkWidget *check_button;
 
-  check_button = gtk_check_button_new_with_label (&quot;Mostrar panel lateral&quot;);
+  check_button = gtk_check_button_new_with_label ("Mostrar panel lateral");
 
   /* Cuando la propiedad GtkToggleButton:active de check_button cambia,
    * la propiedad GtkWidget:visible de window-&gt;side_panel se actualiza
@@ -1998,8 +2004,8 @@ create_check_button (MyWindow *window)
    * Seria util agregar G_BINDING_SYNC_CREATE a las banderas, pero en
    * ese caso el codigo no seria equivalente al listado de codigo anterior.
    */
-  g_object_bind_property (check_button, &quot;active&quot;,
-                          window-&gt;side_panel, &quot;visible&quot;,
+  g_object_bind_property (check_button, "active",
+                          window-&gt;side_panel, "visible",
                           G_BINDING_DEFAULT);
 
   return check_button;
@@ -2021,7 +2027,7 @@ create_check_button (MyWindow *window)
 <p>Repasaremos el esquema de la clase, explicando las clases paso a paso, comenzando por la parte superior. Esto permitirá presentar algunas de las clases GTK más importantes, no describiéndolas en detalle con muchos ejemplos de código, sino dando una descripción general de alto nivel.</p>
 <p><a id="fig-gedit-architecture"></a></p>
 <div class="caption">
-<img src="content/gtk-app-arch/../../assets/img/diag/gedit-architecture.svg" alt="" width="75%" />
+<img src="https://raw.githubusercontent.com/gersonbenavides/glib-gtk-libro/main/src/assets/images/diagrams/gedit-architecture.svg" alt="" width="75%" />
 <p><span class="fig-gedit-architecture">Figura</span>: Arquitectura de código simplificada del editor de texto gedit</p>
 </div>
 <!-- Habilitacion del enumeramiento de referencias -->
@@ -2041,7 +2047,7 @@ create_check_button (MyWindow *window)
 <p>Para una aplicación con una interfaz de documento con pestañas, al hacer clic en un archivo en un administrador de archivos como Nautilus, el archivo se puede abrir en una nueva pestaña en lugar de crear cada vez una nueva ventana. Para que esto funcione, la comunicación entre procesos es necesaria de una forma u otra;</p>
 </li>
 <li>
-<p>Una aplicación no necesita sincronizar explícitamente su estado y datos entre diferentes procesos. En aras del argumento, digamos que en gedit el usuario puede crear &quot;herramientas de compilación&quot; personalizadas para compilar el archivo o proyecto actual. gedit guarda las herramientas de construcción personalizadas en un archivo XML y se muestran en el menú para ejecutar sus comandos. En Linux, el archivo XML se guarda, por ejemplo, en el directorio <code>~/.local/share/</code> del usuario. Sin la unicidad del proceso, si un proceso gedit modifica las herramientas de compilación personalizadas, los otros procesos gedit deben volver a cargar el archivo XML y deben asegurarse de que no haya carreras (dos procesos gedit diferentes no deben modificar el archivo XML al mismo tiempo) . Con la unicidad del proceso, ese problema no existe, todas las ventanas gedit comparten el mismo estado de la aplicación, y el desarrollador puede asumir que solo un proceso por usuario puede modificar el archivo XML (Por supuesto, el usuario todavía tiene la posibilidad de editar el archivo XML a mano, pero en ese caso la aplicación se puede reiniciar, normalmente se espera que el usuario modifique las herramientas de compilación de la GUI que proporciona gedit).</p>
+<p>Una aplicación no necesita sincronizar explícitamente su estado y datos entre diferentes procesos. En aras del argumento, digamos que en gedit el usuario puede crear "herramientas de compilación" personalizadas para compilar el archivo o proyecto actual. gedit guarda las herramientas de construcción personalizadas en un archivo XML y se muestran en el menú para ejecutar sus comandos. En Linux, el archivo XML se guarda, por ejemplo, en el directorio <code>~/.local/share/</code> del usuario. Sin la unicidad del proceso, si un proceso gedit modifica las herramientas de compilación personalizadas, los otros procesos gedit deben volver a cargar el archivo XML y deben asegurarse de que no haya carreras (dos procesos gedit diferentes no deben modificar el archivo XML al mismo tiempo) . Con la unicidad del proceso, ese problema no existe, todas las ventanas gedit comparten el mismo estado de la aplicación, y el desarrollador puede asumir que solo un proceso por usuario puede modificar el archivo XML (Por supuesto, el usuario todavía tiene la posibilidad de editar el archivo XML a mano, pero en ese caso la aplicación se puede reiniciar, normalmente se espera que el usuario modifique las herramientas de compilación de la GUI que proporciona gedit).</p>
 </li>
 </ul>
 <blockquote>
@@ -2084,9 +2090,9 @@ main (int    argc,
 <div class="refs-ch"></div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="geditwindow"><a class="header" href="#geditwindow">GeditWindow</a></h1>
 <p><code>GeditWindow</code> es una subclase de <code>GtkApplicationWindow</code>. Y no lo vemos en el esquema, pero <code>GtkApplicationWindow</code> es una subclase de <code>GtkWindow</code>, que es un widget de nivel superior. Un widget de nivel superior no puede incluirse en otro widget. Una <code>GtkApplicationWindow</code> está contenida en una <code>GtkApplication</code>, pero <code>GtkApplication</code> no es una subclase de <code>GtkWidget</code>.</p>
-<p>En el esquema, la notación &quot;<span class="text-monospace">1</span>&quot; y &quot;<span class="text-monospace">1..*</span>&quot; significa que un objeto <code>GeditApp</code> <em>contiene</em> uno o varios <code>GeditWindow</code> objetos, y que una <code>GeditWindow</code> está contenida exactamente en una <code>GeditApp</code> (una <code>GeditWindow</code> no puede estar contenida en varios objetos <code>GeditApp</code>, de todos modos solo hay una instancia de <code>GeditApp</code> por proceso).</p>
+<p>En el esquema, la notación "<span class="text-monospace">1</span>" y "<span class="text-monospace">1..*</span>" significa que un objeto <code>GeditApp</code> <em>contiene</em> uno o varios <code>GeditWindow</code> objetos, y que una <code>GeditWindow</code> está contenida exactamente en una <code>GeditApp</code> (una <code>GeditWindow</code> no puede estar contenida en varios objetos <code>GeditApp</code>, de todos modos solo hay una instancia de <code>GeditApp</code> por proceso).</p>
 <p><code>GeditWindow</code> es responsable de crear la interfaz de usuario principal, creando otros widgets y ensamblándolos en un contenedor <code>GtkGrid</code>, por ejemplo. Otra cosa que hace <code>GeditWindow</code> es implementar las <code>GActions</code> que tienen un efecto solo en la ventana actual, por ejemplo, una acción para cerrar la ventana o guardar el documento actual. Al implementar una <code>GAction</code>, <code>GeditWindow</code> puede, por supuesto, delegar la mayor parte de su trabajo a otras clases contenidas en <code>GeditWindow</code>.</p>
-<p>En la parte superior de la ventana principal de una aplicación, generalmente hay una <code>GtkHeaderBar</code>, que muestra el título de la ventana, algunos botones y un menú de &quot;hamburguesa&quot;. Alternativamente, una aplicación puede tener una barra de menú y una barra de herramientas tradicionales.</p>
+<p>En la parte superior de la ventana principal de una aplicación, generalmente hay una <code>GtkHeaderBar</code>, que muestra el título de la ventana, algunos botones y un menú de "hamburguesa". Alternativamente, una aplicación puede tener una barra de menú y una barra de herramientas tradicionales.</p>
 <p>Además de la barra de encabezado, <code>GeditWindow</code> crea un widget <code>GeditStatusbar</code> y lo agrega al final de la ventana. También crea dos <code>GeditPanels</code>, uno en el lado izquierdo de la ventana y el otro en la parte inferior, encima de la <code>GeditStatusbar</code>. Cada panel puede contener varios elementos. Por ejemplo, el panel lateral contiene un explorador de archivos integrado y el panel inferior puede contener una terminal, entre otras cosas.</p>
 <blockquote>
 <p><strong>📌 Nota:</strong> El código gedit actual en realidad ya no contiene una clase <code>GeditPanel</code>, pero fue el caso en una versión anterior. Se agregó <code>GeditPanel</code> al diagrama para mostrar una posible implementación de paneles en una aplicación. Si su aplicación contiene solo un elemento en un panel, no es necesario tener una clase <code>Panel</code>, puede agregar directamente el elemento a la ventana.</p>
@@ -2131,8 +2137,8 @@ main (int    argc,
 <p>También hay una serie de pequeños tutoriales sobre varios temas GLib/GTK:</p>
 <p><a href="https://wiki.gnome.org/HowDoI">wiki.gnome.org/HowDoI</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="escribir-sus-propias-clases-de-gobject"><a class="header" href="#escribir-sus-propias-clases-de-gobject">Escribir sus propias clases de GObject</a></h1>
-<p>El <span class="ch-oop-gobject">capítulo</span> explica cómo &quot;usar&quot; una clase GObject existente, que es muy útil para aprender GTK, pero no explica cómo &quot;crear&quot; tus propias clases GObject. Escribir sus propias clases de GObject permite contar con referencias, puede crear sus propias propiedades y señales, puede implementar interfaces, anular funciones virtuales (si la función virtual no está asociada a una señal), etc.</p>
-<p>Como se explicó al principio del <span class="ch-oop-gobject">capítulo</span>, si desea obtener información más detallada sobre GObject y saber cómo crear subclases, la documentación de referencia de GObject contiene capítulos introductorios: &quot;<em>Concepts</em>&quot; y &quot;<em>Tutorial</em>&quot;, disponibles como de costumbre en Devhelp o en línea en:</p>
+<p>El <span class="ch-oop-gobject">capítulo</span> explica cómo "usar" una clase GObject existente, que es muy útil para aprender GTK, pero no explica cómo "crear" tus propias clases GObject. Escribir sus propias clases de GObject permite contar con referencias, puede crear sus propias propiedades y señales, puede implementar interfaces, anular funciones virtuales (si la función virtual no está asociada a una señal), etc.</p>
+<p>Como se explicó al principio del <span class="ch-oop-gobject">capítulo</span>, si desea obtener información más detallada sobre GObject y saber cómo crear subclases, la documentación de referencia de GObject contiene capítulos introductorios: "<em>Concepts</em>" y "<em>Tutorial</em>", disponibles como de costumbre en Devhelp o en línea en:</p>
 <p><a href="https://docs.gtk.org/gobject/">https://docs.gtk.org/gobject/</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sistema-de-compilación"><a class="header" href="#sistema-de-compilación">Sistema de compilación</a></h1>
 <p>Un Makefile básico generalmente no es suficiente si desea instalar su aplicación en diferentes sistemas. Por tanto, se necesita una solución más sofisticada. Para un programa basado en GLib/GTK, existen dos alternativas principales: Autotools y Meson.</p>
@@ -2151,7 +2157,7 @@ main (int    argc,
 <li><em>El</em> libro sobre las mejores prácticas de programación es <em>Code Complete</em>, de Steve McConnell <span class="code-complete"></span>. Muy recomendable</li>
 </ul>
 <blockquote>
-<p><strong>📌 Nota:</strong> Aunque el editor de <em>Code Complete</em> es Microsoft Press, el libro no está relacionado con Microsoft o Windows. El autor a veces explica cosas relacionadas con el código abierto, UNIX y Linux, pero uno puede lamentar la ausencia total de la mención &quot;software libre/free&quot; y todos los beneficios de la libertad, en particular para este tipo de libros: poder aprender leyendo el código de otros. Pero si está aquí, es de esperar que ya sepa todo esto.</p>
+<p><strong>📌 Nota:</strong> Aunque el editor de <em>Code Complete</em> es Microsoft Press, el libro no está relacionado con Microsoft o Windows. El autor a veces explica cosas relacionadas con el código abierto, UNIX y Linux, pero uno puede lamentar la ausencia total de la mención "software libre/free" y todos los beneficios de la libertad, en particular para este tipo de libros: poder aprender leyendo el código de otros. Pero si está aquí, es de esperar que ya sepa todo esto.</p>
 </blockquote>
 <ul>
 <li>
@@ -2161,7 +2167,7 @@ main (int    argc,
 <p>Una excelente fuente de información es la web de <a href="https://martinfowler.com/">Martin Fowler</a>: refactorización, metodología ágil, diseño de código, ...</p>
 </li>
 </ul>
-<p>Más relacionados con GNOME, los artículos de Havoc Pennington tienen buenos consejos que vale la pena leer, incluidos &quot;<em>Working on Free Software</em>&quot;, &quot;<em>Free software UI</em>&quot; y &quot;<em>Free Software Maintenance: Adding Features</em>&quot;:</p>
+<p>Más relacionados con GNOME, los artículos de Havoc Pennington tienen buenos consejos que vale la pena leer, incluidos "<em>Working on Free Software</em>", "<em>Free software UI</em>" y "<em>Free Software Maintenance: Adding Features</em>":</p>
 <p><a href="https://ometer.com/writing.html">https://ometer.com/writing.html</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bibliografía"><a class="header" href="#bibliografía">Bibliografía</a></h1>
 <ol>
@@ -2242,30 +2248,47 @@ GNOME Programming Guidelines.<br>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
 
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript" src="./src/assets/js/refs.js"></script>
+        <script src="./src/assets/js/refs.js"></script>
 
-        <script type="text/javascript">
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
 
+    </div>
     </body>
 </html>
