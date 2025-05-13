@@ -4,7 +4,7 @@
 
 <div class="caption">
 
-<img src="../../assets/img/diag/event-loop.svg" alt="Estructura de una aplicación impulsada por eventos" width="70%" />
+<img src="https://raw.githubusercontent.com/gersonbenavides/glib-gtk-libro/main/src/assets/images/diagrams/event-loop.svg" alt="Estructura de una aplicación impulsada por eventos" width="70%" />
 
 <p><span class="glib-event-loop">Figura</span>: Estructura de una aplicación impulsada por eventos, con un bucle de eventos principal</p>
 

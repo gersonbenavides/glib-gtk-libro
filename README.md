@@ -1,59 +1,38 @@
-# La plataforma de desarrollo GLib/GTK: una guía de introducción
+# La Plataforma de Desarrollo GLib/GTK: Una Guía de Introducción
 
 <p align="center">
 
-<img src="./mdbook/src/assets/img/logo-gtk.svg" alt="Logo de GTK" width="40%" />
+<img src="https://raw.githubusercontent.com/gersonbenavides/glib-gtk-libro/main/src/assets/images/logo-gtk.svg" alt="Logo de GTK" width="40%" />
 
 </p>
 
-Esta es una traducción al español del libro [The GLib/GTK Development Platform – A Getting Started Guide](https://github.com/swilmet-archives/glib-gtk-book).
-
-## Libro en LaTeX
-
-Puede descargar la versión estable del libro [La plataforma de desarrollo GLib/GTK: Una guía de introducción](https://raw.githubusercontent.com/gersonbdev/glib-gtk-libro/main/glib-gtk-libro.pdf) en formato PDF o puede realizar la compilación de la versión en desarrollo usted mismo escribiendo:
-
-```console
-$ cd latex
-```
-
-```console
-$ latexmk -pdf main.tex
-```
-
-## Libro web
-
-Actualmente se esta trabajando en una versión [web](https://gersonbdev.github.io/glib-gtk-libro/) del libro, puede ver su estado en la ruta `mdbook/` del proyecto.
-
-```console
-$ cd mdbook
-```
-
-```console
-$ mdbook build
-```
-
+Esta es una traducción al español del libro [The GLib/GTK Development Platform – A Getting Started Guide](https://github.com/swilmet).
 
 ## Contribución
 
 Si desea contribuir con el desarrollo de este libro puede apoyar con:
 
-* **Soporte en redacción**: Escribiendo o revisando el texto, para hacerlo participe en el repositorio del libro (<https://github.com/gersonbdev/glib-gtk-libro>) dando su opinión o desarrollando las tareas propuestas (revise el archivo TODO).
+* **Soporte en redacción**: Escribiendo o revisando el texto, para hacerlo participe en el repositorio del libro (<https://github.com/gersonbenavides/glib-gtk-libro>) dando su opinión o desarrollando las tareas propuestas (revise el archivo TODO).
 
-* **Soporte financiero**: El libro se publica como un documento *libre* y es gratuito. Pero no se materializa en un espacio vacío, se necesita tiempo para escribir. Al donar, demuestra su aprecio por este trabajo y ayuda a su desarrollo futuro. Puede encontrar un botón de donación en <https://gersonbdev.github.io/about/>.
+* **Soporte financiero**: El libro se publica como un documento *libre* y es gratuito. Pero no se materializa en un espacio vacío, se necesita tiempo para escribir. Al donar, demuestra su aprecio por este trabajo y ayuda a su desarrollo futuro. Puede encontrar un botón de donación en <https://github.com/gersonbenavides>.
 
 ¡Gracias!
 
+## Dependencias
+
+```console
+cargo install mdbook
+```
 
 ## Créditos
 
-[Sitio web del proyecto oficial](https://people.gnome.org/~swilmet/glib-gtk-book/).
-
+[Sitio web del autor original](https://github.com/swilmet).
 
 ## Licencia
 
 <p align="center">
 
-<img src="https://gersonbdev.github.io/glib-gtk-libro/assets/img/license-cc-by-sa-88x31.png" alt="License CC BY-SA" width="88px" />
+<img src="https://raw.githubusercontent.com/gersonbenavides/glib-gtk-libro/main/src/assets/images/license-cc-by-sa-88x31.png" alt="License CC BY-SA" width="88px" />
 
 </p>
 

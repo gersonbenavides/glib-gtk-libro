@@ -1,63 +1,59 @@
 # POR HACER
 
 ## General
----
 
-* Organizar nombre de etiquetas de referencias.
-* Actualizar enlaces a sitios web inexistentes.
+- Organizar nombre de etiquetas de referencias.
+- Actualizar enlaces a sitios web inexistentes.
 
 
 ## Redacción
----
 
-* ¿Remplazar demonios por daemons?, explicar su funcionamiento general.
+- ¿Remplazar demonios por daemons?, explicar su funcionamiento general.
 
-* (glib -> glib -> data-struct -> trees -> gtree): Hablar sobre g_tree_ref() y g_tree_unref()? 
+- (glib -> glib -> data-struct -> trees -> gtree): Hablar sobre g_tree_ref() y g_tree_unref()? 
   Esas funciones suelen ser mejores que g_tree_destroy(), pero necesita un poco de explicación
   sobre la gestión de la memoria con recuento de referencias. Lo mismo se aplica a GHashTable.
 
-* (oop -> semi-oop -> header-ex -> obj-const): Explicar new() (asignación en el montón) vs
+- (oop -> semi-oop -> header-ex -> obj-const): Explicar new() (asignación en el montón) vs
   init() (asignación en la pila) y dar un ejemplo con init(). Pero el ejemplo también requiere el
   código *.c, por lo que quizás sea mejor agregar la explicación en una subsección posterior.
 
-* (oop -> oop-gobj -> gobj-macros): Mostrar un ejemplo de una función que verifica sus argumentos con g_return?
+- (oop -> oop-gobj -> gobj-macros): Mostrar un ejemplo de una función que verifica sus argumentos con g_return?
 
-* (gtk -> gtk-app-arch): Vuelve a explicar qué es un "widget" y un "contenedor". Y agregue un glosario al final.
+- (gtk -> gtk-app-arch): Vuelve a explicar qué es un "widget" y un "contenedor". Y agregue un glosario al final.
 
-* (gtk -> gtk-app-arch -> comp-widg): mostrar un ejemplo de código.
+- (gtk -> gtk-app-arch -> comp-widg): mostrar un ejemplo de código.
 
-* Hacer que el capítulo~\ref{gtk-app-arch} (sobre GTK) sea más fácil de entender y adaptar el resto del documento
+- Hacer que el capítulo~\ref{gtk-app-arch} (sobre GTK) sea más fácil de entender y adaptar el resto del documento
   para integrar mejor el capítulo;
 
-* GTK + ha cambiado de nombre a GTK, el signo más se ha eliminado. Adaptar el texto en consecuencia;
+- GTK + ha cambiado de nombre a GTK, el signo más se ha eliminado. Adaptar el texto en consecuencia;
 
-* Ya no se recomienda Jhbuild, en su lugar se recomienda Flatpak\footnote{\url{https://flatpak.org/}}
+- Ya no se recomienda Jhbuild, en su lugar se recomienda Flatpak\footnote{\url{https://flatpak.org/}}
   y Build-Stream\footnote{\url{https://buildstream.build/}};
 
-* Hablar sobre las especificaciones de freedesktop.org\footnote{\url{https://www.freedesktop.org/}};
+- Hablar sobre las especificaciones de freedesktop.org\footnote{\url{https://www.freedesktop.org/}};
 
-* La mayoría de los módulos GNOME activos se han migrado ahora al sistema de compilación Meson
+- La mayoría de los módulos GNOME activos se han migrado ahora al sistema de compilación Meson
   (en lugar de Autotools);
 
-* Escribir un capítulo sobre el desarrollo de bibliotecas C/GObject;
+- Escribir un capítulo sobre el desarrollo de bibliotecas C/GObject;
 
 
 ## Infraestructura de libro
----
 
-* Smart ref con pageref si está en una página diferente: use el paquete varioref.
-* Índice.
-* Glosario.
-* Convenciones con más macros.
+- Smart ref con pageref si está en una página diferente: use el paquete varioref.
+- Índice.
+- Glosario.
+- Convenciones con más macros.
 
 Arquitectura de la aplicación GTK
 
-* Adaptar otros capítulos (intro, lecturas complementarias,…).
-* Agregar una captura de pantalla o una maqueta simplificada de gedit.
-* ¿Agregar ejemplos de código?
+- Adaptar otros capítulos (intro, lecturas complementarias,…).
+- Agregar una captura de pantalla o una maqueta simplificada de gedit.
+- ¿Agregar ejemplos de código?
 
 
 ## Misc
----
 
-* Dividir la parte GLib en varios capítulos.
+- Dividir la parte GLib en varios capítulos.

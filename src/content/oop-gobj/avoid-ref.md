@@ -6,7 +6,7 @@ Si el objeto A hace referencia al objeto B y el objeto B hace referencia al obje
 
 <div class="caption">
 
-<img src="../../assets/img/diag/weak-ref.svg" alt="" width="32%" />
+<img src="https://raw.githubusercontent.com/gersonbenavides/glib-gtk-libro/main/src/assets/images/diagrams/weak-ref.svg" alt="" width="32%" />
 
 <p><span class="oop-gobject-weak-ref-schema">Figura</span>: Usar una referencia débil para romper <br /> el ciclo de referencia entre A y B.</p>
 

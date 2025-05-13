@@ -17,7 +17,7 @@ Repasaremos el esquema de la clase, explicando las clases paso a paso, comenzand
 
 <div class="caption">
 
-<img src="../../assets/img/diag/gedit-architecture.svg" alt="" width="75%" />
+<img src="https://raw.githubusercontent.com/gersonbenavides/glib-gtk-libro/main/src/assets/images/diagrams/gedit-architecture.svg" alt="" width="75%" />
 
 <p><span class="fig-gedit-architecture">Figura</span>: Arquitectura de código simplificada del editor de texto gedit</p>
 
